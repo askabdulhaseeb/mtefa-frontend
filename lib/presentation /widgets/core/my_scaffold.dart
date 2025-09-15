@@ -5,8 +5,7 @@ import 'responsive_widget.dart';
 
 class MyScaffold extends StatelessWidget {
   const MyScaffold({
-    super.key,
-    required this.body,
+    required this.body, super.key,
     this.appBar,
     this.drawer,
     this.endDrawer,
@@ -46,7 +45,7 @@ class MyScaffold extends StatelessWidget {
       extendBody: extendBody,
       extendBodyBehindAppBar: extendBodyBehindAppBar,
       body: ResponsiveBuilder(
-        builder: (context, deviceType) {
+        builder: (BuildContext context, DeviceType deviceType) {
           Widget content = body;
           
           // Apply responsive padding
@@ -151,8 +150,7 @@ class ResponsiveAppBar extends StatelessWidget implements PreferredSizeWidget {
 
 class ResponsiveDrawer extends StatelessWidget {
   const ResponsiveDrawer({
-    super.key,
-    required this.child,
+    required this.child, super.key,
     this.width,
   });
 

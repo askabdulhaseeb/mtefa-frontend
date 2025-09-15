@@ -1,10 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'core/localization/app_localization.dart';
+import 'configs/providers/my_providers.dart';
 import 'core/config/api_config.dart';
 import 'core/database/database_initializer.dart';
+import 'core/localization/app_localization.dart';
+import 'injection_container.dart' as di;
 
 /// Main entry point of the MTEFA POS application
 Future<void> main() async {
@@ -12,6 +15,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   try {
+    // Initialize dependency injection
+    await di.init();
+    
     // Initialize API configuration
     await ApiConfig.initialize(environment: 'development');
     
@@ -44,15 +50,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'MTEFA - Make Trading Easy For All',
-      locale: context.locale,
-      supportedLocales: context.supportedLocales,
-      localizationsDelegates: context.localizationDelegates,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return MultiProvider(
+      providers: MyProviders.providers,
+      child: MaterialApp(
+        title: 'MTEFA - Make Trading Easy For All',
+        locale: context.locale,
+        supportedLocales: context.supportedLocales,
+        localizationsDelegates: context.localizationDelegates,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        home: const Scaffold(),
+        debugShowCheckedModeBanner: false,
       ),
-      home: const Scaffold(),
     );
   }
 }

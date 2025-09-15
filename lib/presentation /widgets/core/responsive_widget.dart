@@ -3,8 +3,7 @@ import '../../../core/utils/responsive_utils.dart';
 
 class ResponsiveWidget extends StatelessWidget {
   const ResponsiveWidget({
-    super.key,
-    required this.mobile,
+    required this.mobile, super.key,
     this.tablet,
     this.desktop,
   });
@@ -28,8 +27,7 @@ class ResponsiveWidget extends StatelessWidget {
 
 class ResponsiveBuilder extends StatelessWidget {
   const ResponsiveBuilder({
-    super.key,
-    required this.builder,
+    required this.builder, super.key,
   });
 
   final Widget Function(BuildContext context, DeviceType deviceType) builder;
@@ -65,8 +63,7 @@ class ResponsiveValue<T> {
 
 class ResponsiveContainer extends StatelessWidget {
   const ResponsiveContainer({
-    super.key,
-    required this.child,
+    required this.child, super.key,
     this.padding,
     this.margin,
     this.width,
@@ -102,9 +99,7 @@ class ResponsiveContainer extends StatelessWidget {
 
 class ResponsiveGrid extends StatelessWidget {
   const ResponsiveGrid({
-    super.key,
-    required this.children,
-    required this.columns,
+    required this.children, required this.columns, super.key,
     this.spacing = 8.0,
     this.runSpacing = 8.0,
     this.padding,
@@ -142,8 +137,7 @@ class ResponsiveGrid extends StatelessWidget {
 class ResponsiveText extends StatelessWidget {
   const ResponsiveText(
     this.text, {
-    super.key,
-    required this.style,
+    required this.style, super.key,
     this.textAlign,
     this.overflow,
     this.maxLines,
