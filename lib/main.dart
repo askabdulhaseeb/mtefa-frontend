@@ -50,20 +50,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: MyProviders.providers,
-      child: MaterialApp(
-        title: 'MTEFA - Make Trading Easy For All',
-        locale: context.locale,
-        supportedLocales: context.supportedLocales,
-        localizationsDelegates: context.localizationDelegates,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-          useMaterial3: true,
-        ),
-        home: const Scaffold(),
-        debugShowCheckedModeBanner: false,
+    // Build the app with optimized provider setup
+    Widget app = MaterialApp(
+      title: 'MTEFA - Make Trading Easy For All',
+      locale: context.locale,
+      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
       ),
+      home: const Scaffold(),
+      debugShowCheckedModeBanner: false,
     );
+
+    // Only wrap with MultiProvider if there are global providers
+    if (MyProviders.isNotEmpty) {
+      return MultiProvider(
+        providers: MyProviders.providers,
+        child: app,
+      );
+    }
+
+    // Return app directly if no global providers
+    return app;
   }
 }
