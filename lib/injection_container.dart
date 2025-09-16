@@ -1,6 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/utils/token_manager.dart';
 import 'data/repositories/auth_repository_impl.dart';
@@ -12,8 +11,6 @@ final GetIt sl = GetIt.instance;
 
 Future<void> init() async {
   // External dependencies
-  final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
   sl.registerLazySingleton<FlutterSecureStorage>(() => const FlutterSecureStorage());
   
   // Initialize all dependencies
@@ -34,7 +31,6 @@ void _auth() {
     () => AuthRepositoryImpl(
       tokenManager: sl<TokenManager>(),
       secureStorage: sl<FlutterSecureStorage>(),
-      sharedPreferences: sl<SharedPreferences>(),
     ),
   );
   

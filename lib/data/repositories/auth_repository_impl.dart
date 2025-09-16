@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/enums/status_type.dart';
 import '../../core/resources/data_state.dart';
@@ -13,12 +12,10 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({
     required this.tokenManager,
     required this.secureStorage,
-    required this.sharedPreferences,
   });
 
   final TokenManager tokenManager;
   final FlutterSecureStorage secureStorage;
-  final SharedPreferences sharedPreferences;
 
   static const String _keyEmail = 'saved_email';
   static const String _keyPassword = 'saved_password';
@@ -174,8 +171,8 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Map<String, String>?> getSavedCredentials() async {
     try {
-      final bool rememberMe =
-          sharedPreferences.getBool(_keyRememberMe) ?? false;
+      final String? rememberMeStr = await secureStorage.read(key: _keyRememberMe);
+      final bool rememberMe = rememberMeStr == 'true';
       if (!rememberMe) return null;
 
       final String? email = await secureStorage.read(key: _keyEmail);
@@ -196,14 +193,14 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     await secureStorage.write(key: _keyEmail, value: email);
     await secureStorage.write(key: _keyPassword, value: password);
-    await sharedPreferences.setBool(_keyRememberMe, true);
+    await secureStorage.write(key: _keyRememberMe, value: 'true');
   }
 
   @override
   Future<void> clearSavedCredentials() async {
     await secureStorage.delete(key: _keyEmail);
     await secureStorage.delete(key: _keyPassword);
-    await sharedPreferences.remove(_keyRememberMe);
+    await secureStorage.delete(key: _keyRememberMe);
   }
 
   @override
@@ -405,7 +402,7 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<DataState<void>> updateFcmToken({required String fcmToken}) async {
     try {
       // TODO: Implement FCM token update
-      await sharedPreferences.setString('fcm_token', fcmToken);
+      await secureStorage.write(key: 'fcm_token', value: fcmToken);
       return const DataSuccess(null);
     } catch (e) {
       return DataFailed(
@@ -418,11 +415,11 @@ class AuthRepositoryImpl implements AuthRepository {
   // Helper methods for local storage
   Future<void> _saveUserData(UserEntity user) async {
     final Map<String, dynamic> userJson = _userToJson(user);
-    await sharedPreferences.setString(_keyCurrentUser, jsonEncode(userJson));
+    await secureStorage.write(key: _keyCurrentUser, value: jsonEncode(userJson));
   }
 
   Future<UserEntity?> _getUserData() async {
-    final String? userString = sharedPreferences.getString(_keyCurrentUser);
+    final String? userString = await secureStorage.read(key: _keyCurrentUser);
     if (userString == null) return null;
 
     try {
@@ -435,7 +432,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   Future<void> _clearUserData() async {
-    await sharedPreferences.remove(_keyCurrentUser);
+    await secureStorage.delete(key: _keyCurrentUser);
   }
 
   Future<void> _saveAuthToken(AuthTokenEntity token) async {
@@ -448,23 +445,6 @@ class AuthRepositoryImpl implements AuthRepository {
     await secureStorage.write(key: _keyAuthToken, value: jsonEncode(tokenJson));
   }
 
-  Future<AuthTokenEntity?> _getAuthToken() async {
-    final String? tokenString = await secureStorage.read(key: _keyAuthToken);
-    if (tokenString == null) return null;
-
-    try {
-      final Map<String, dynamic> tokenJson =
-          jsonDecode(tokenString) as Map<String, dynamic>;
-      return AuthTokenEntity(
-        accessToken: tokenJson['accessToken'] as String,
-        refreshToken: tokenJson['refreshToken'] as String,
-        expiresIn: tokenJson['expiresIn'] as int,
-        tokenType: tokenJson['tokenType'] as String? ?? 'Bearer',
-      );
-    } catch (_) {
-      return null;
-    }
-  }
 
   Future<void> _clearAuthToken() async {
     await secureStorage.delete(key: _keyAuthToken);

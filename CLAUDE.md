@@ -4,21 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Flutter POS (Point of Sale) system with multi-brand support, stock control, and activity tracking. The application uses Restful API for backend services and implements Clean Architecture with responsive design patterns.
-Local Database will be "Drift (SQLite)"
+This is a Flutter POS (Point of Sale) system with multi-brand support, stock control, and activity tracking. The application uses RESTful APIs for backend services and implements Clean Architecture with responsive design patterns. Uses Drift (SQLite) for local database operations and flutter_secure_storage for secure data persistence.
 
 ## Development Commands
 
 ### Initial Setup
 
 ```bash
-# Complete setup with dependencies and iOS pods
+# Complete setup with dependencies and iOS pods  
 flutter clean && flutter pub get && cd macos && pod install && cd ..
-
-# Environment setup (creates .env files from template)
-dart scripts/setup_env.dart development
-dart scripts/setup_env.dart staging
-dart scripts/setup_env.dart production
 ```
 
 ### Running the Application
@@ -45,6 +39,9 @@ flutter build ios
 
 # Build for Android
 flutter build apk
+
+# Generate code (for Drift database)
+dart run build_runner build
 ```
 
 ### Quality Assurance
@@ -101,16 +98,30 @@ flutter test
 The app uses a custom `DataState<T>` system for handling async operations:
 
 - `DataSuccess<T>`: Successful operation with data
-- `DataFailed<T>`: Failed operation with failure details
+- `DataFailed<T>`: Failed operation with failure details and error codes
 - `DataLoading<T>`: Loading state
-- Extensions provide convenient methods: `isSuccess`, `isFailed`, `isLoading`, `when()`
+- Extensions provide convenient methods: `isSuccess`, `isFailed`, `isLoading`, `when()`, `whenOrNull()`
+
+### Local Database (Drift)
+
+- Uses Drift ORM for type-safe SQLite operations
+- Database file: `AppDatabase` in `lib/core/database/database.dart`
+- Code generation required: `dart run build_runner build`
+- Tables defined using Drift annotations and registered in `@DriftDatabase`
+- Migrations handled through `MigrationStrategy`
+
+### Secure Storage
+
+- Uses `flutter_secure_storage` for sensitive data (tokens, credentials)
+- Configured in dependency injection (`injection_container.dart`)
+- Encrypts data using platform-specific secure storage (iOS Keychain, Android Keystore)
+- No usage of SharedPreferences for sensitive data
 
 ### Environment Configuration
 
 - Multi-environment support through `.env` files
 - Environment-specific API configurations
 - Configuration loaded through `AppConfig.initialize()`
-- Environment setup script: `dart scripts/setup_env.dart [environment]`
 
 ## Key Directories
 
@@ -118,20 +129,22 @@ The app uses a custom `DataState<T>` system for handling async operations:
 
 - `lib/core/`: Framework-level utilities, configs, and base classes
   - `config/`: Environment and API configuration
-  - `resources/`: Data state, repository base, API clients
-  - `utils/`: Validators, permissions, logging
+  - `resources/`: Data state, repository base, API clients, use case base
+  - `utils/`: Validators, permissions, logging, responsive utilities
   - `error/`: Exception and failure handling
+  - `database/`: Drift database setup and helpers
+  - `enums/`: Domain enums with serialization support
 
 ### Feature Organization
 
 - `lib/domain/`: Business logic layer (entities, repositories, use cases)
-- `lib/data/`: Data access layer (repository implementations, APIs)
+- `lib/data/`: Data access layer (repository implementations, API sources)
 - `lib/presentation/`: UI layer organized by features
   - Each feature has: `screens/`, `widgets/`, `providers/`, `params/`
 
 ### Configuration
 
-- `lib/configs/`: App-wide configuration (routing, providers, localization)
+- `lib/configs/`: App-wide configuration (providers, localization)
 - Localization files in `assets/lang/`
 
 ## Development Guidelines
@@ -143,7 +156,14 @@ The app uses a custom `DataState<T>` system for handling async operations:
 3. Create presentation layer: providers, screens, widgets
 4. Follow responsive design pattern with separate view files
 5. Register dependencies in `injection_container.dart`
-6. Add provider to `my_providers.dart`
+6. Use lazy provider registration in `ProviderRegistry` for route-specific providers
+
+### Provider Management Strategy
+
+- **Global Providers**: Minimal set in `MyProviders.globalProviders` (theme, auth state)
+- **Route-Specific Providers**: Register in `ProviderRegistry` with lazy loading
+- **Screen-Specific Providers**: Use `ProviderScopeMixin` for temporary state
+- Always implement proper `dispose()` methods and clear sensitive data
 
 ### File Naming Conventions
 
@@ -153,13 +173,19 @@ The app uses a custom `DataState<T>` system for handling async operations:
 - Use cases: `*_usecase.dart`
 - Entities: `*_entity.dart`
 - Repository implementations: `*_repository_impl.dart`
+- Enums: `*_type.dart` or descriptive names like `user_role.dart`
 
-### Environment Variables
+### Database Development
 
-Required variables in `.env.[environment]` files:
+- Define tables using Drift annotations in separate files
+- Register tables in `@DriftDatabase` decorator
+- Run `dart run build_runner build` after table changes
+- Use proper foreign key relationships
+- Implement migrations for schema changes
 
-### Security Notes
+### Security Best Practices
 
+- Use `flutter_secure_storage` for sensitive data (never SharedPreferences)
+- Store API tokens, user credentials securely
 - Never commit `.env.*` files to version control
-- Use different API projects for each environment
 - Environment files are gitignored by default
