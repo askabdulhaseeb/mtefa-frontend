@@ -1,6 +1,7 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 
+import 'core/database/database.dart';
 import 'core/utils/token_manager.dart';
 import 'data/repositories/auth_repository_impl.dart';
 import 'domain/repositories/auth_repository.dart';
@@ -12,6 +13,7 @@ final GetIt sl = GetIt.instance;
 Future<void> init() async {
   // External dependencies
   sl.registerLazySingleton<FlutterSecureStorage>(() => const FlutterSecureStorage());
+  sl.registerLazySingleton<AppDatabase>(() => AppDatabase());
   
   // Initialize all dependencies
   _core();

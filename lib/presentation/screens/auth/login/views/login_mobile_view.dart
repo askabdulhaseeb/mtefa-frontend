@@ -8,6 +8,7 @@ import '../../../../widgets/core/custom_elevated_button.dart';
 import '../widgets/components/login_form_fields.dart';
 import '../widgets/components/login_remember_me_section.dart';
 import '../widgets/components/login_error_message.dart';
+import '../widgets/components/signup_button.dart';
 
 /// Mobile view for login screen
 class LoginMobileView extends StatelessWidget {
@@ -119,14 +120,23 @@ class LoginMobileView extends StatelessWidget {
               ),
               const SizedBox(height: DoubleConstants.spacingXL),
 
-              // Footer
-              Text(
-                '© 2024 MTEFA POS',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.hintColor,
-                  fontSize: 11,
-                ),
-                textAlign: TextAlign.center,
+              // Footer with signup option
+              Column(
+                children: <Widget>[
+                  // Signup button for testing
+                  const SignupButton(fontSize: 12),
+                  const SizedBox(height: DoubleConstants.spacingXS),
+                  
+                  // Copyright text
+                  Text(
+                    '© 2024 MTEFA POS',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.hintColor,
+                      fontSize: 11,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ],
           ),

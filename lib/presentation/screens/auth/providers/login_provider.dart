@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/database/database.dart';
 import '../../../../core/resources/data_state.dart';
 import '../../../../domain/entities/auth/user_entity.dart';
 import '../../../../domain/usecases/auth/login_usecase.dart';
@@ -132,14 +133,36 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
     
     try {
-      // Create login parameters
+      // Try local database first (for testing)
+      final bool localLoginSuccess = await _tryLocalLogin();
+      
+      if (localLoginSuccess) {
+        _isLoading = false;
+        _loginState = DataSuccess<LoginResponseEntity>(
+          LoginResponseEntity(
+            user: UserEntity(
+              userId: '1',
+              email: emailController.text.trim().toLowerCase(),
+              name: 'Test User',
+            ),
+            token: const AuthTokenEntity(
+              accessToken: 'local_test_token',
+              refreshToken: 'local_refresh_token',
+              expiresIn: 3600,
+            ),
+          ),
+        );
+        notifyListeners();
+        return;
+      }
+      
+      // If local login fails, try API login
       final LoginParams params = LoginParams(
         email: emailController.text.trim().toLowerCase(),
         password: passwordController.text,
         rememberMe: _rememberMe,
       );
       
-      // Perform login
       final DataState<LoginResponseEntity> result = await _loginUseCase.call(params: params);
       
       // Update state
@@ -160,6 +183,29 @@ class LoginProvider extends ChangeNotifier {
         errorDetails: <String, dynamic>{'exception': e.toString()},
       );
       notifyListeners();
+    }
+  }
+
+  /// Try to login with local database
+  Future<bool> _tryLocalLogin() async {
+    try {
+      final AppDatabase database = AppDatabase();
+      
+      final List<LocalUser> users = await (database.select(database.users)
+          ..where((u) => u.email.equals(emailController.text.trim().toLowerCase()))).get();
+      
+      if (users.isNotEmpty) {
+        final LocalUser user = users.first;
+        // Simple password check (in real app, use proper hashing)
+        if (user.password == passwordController.text) {
+          return true;
+        }
+      }
+      
+      return false;
+    } catch (e) {
+      debugPrint('Local login error: $e');
+      return false;
     }
   }
 
