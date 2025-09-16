@@ -192,7 +192,7 @@ class LoginProvider extends ChangeNotifier {
       final AppDatabase database = AppDatabase();
       
       final List<LocalUser> users = await (database.select(database.users)
-          ..where((u) => u.email.equals(emailController.text.trim().toLowerCase()))).get();
+          ..where(($UsersTable u) => u.email.equals(emailController.text.trim().toLowerCase()))).get();
       
       if (users.isNotEmpty) {
         final LocalUser user = users.first;

@@ -14,12 +14,12 @@ class PricingSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ComprehensiveInventoryProvider>(
-      builder: (context, provider, child) {
+      builder: (BuildContext context, ComprehensiveInventoryProvider provider, Widget? child) {
         return AddInventorySectionBgWidget(
           icon: Icons.attach_money,
           title: 'Pricing & Sales',
           child: Column(
-            children: [
+            children: <Widget>[
               // Price - Retail price (leave empty for flexible pricing)
               CustomTextFormField(
                 controller: provider.priceController,
@@ -27,7 +27,7 @@ class PricingSection extends StatelessWidget {
                 hint: 'Enter retail price (optional for flexible pricing)',
                 keyboardType: TextInputType.number,
                 prefixText: provider.selectedCurrency ?? 'PKR',
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isNotEmpty == true) {
                     final double? price = double.tryParse(value!);
                     if (price == null || price < 0) {
@@ -46,7 +46,7 @@ class PricingSection extends StatelessWidget {
                 labelText: 'VAT (%)',
                 hint: 'Enter VAT percentage',
                 keyboardType: TextInputType.number,
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isNotEmpty == true) {
                     final double? vat = double.tryParse(value!);
                     if (vat == null || vat < 0 || vat > 100) {
@@ -66,7 +66,7 @@ class PricingSection extends StatelessWidget {
                 hint: 'Enter user-defined price',
                 keyboardType: TextInputType.number,
                 prefixText: provider.selectedCurrency ?? 'PKR',
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isNotEmpty == true) {
                     final double? userPrice = double.tryParse(value!);
                     if (userPrice == null || userPrice < 0) {
@@ -84,7 +84,7 @@ class PricingSection extends StatelessWidget {
                 controller: provider.productIdController,
                 labelText: 'Product ID',
                 hint: 'Enter alternative product identifier',
-                validator: (value) {
+                validator: (String? value) {
                   // Optional field, no validation required
                   return null;
                 },
@@ -114,13 +114,13 @@ class PricingSection extends StatelessWidget {
 
               // Show price calculations if cost and price are available
               if (provider.averageCostController.text.isNotEmpty && 
-                  provider.priceController.text.isNotEmpty) ...[
+                  provider.priceController.text.isNotEmpty) ...<Widget>[
                 const SizedBox(height: DoubleConstants.spacingM),
                 Container(
                   padding: const EdgeInsets.all(DoubleConstants.spacingM),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [
+                      colors: <Color>[
                         Colors.green.withValues(alpha: 0.1),
                         Colors.blue.withValues(alpha: 0.1),
                       ],
@@ -135,7 +135,7 @@ class PricingSection extends StatelessWidget {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       const Text(
                         'Profit Analysis',
                         style: TextStyle(
@@ -145,7 +145,7 @@ class PricingSection extends StatelessWidget {
                       ),
                       const SizedBox(height: DoubleConstants.spacingS),
                       Row(
-                        children: [
+                        children: <Widget>[
                           Expanded(
                             child: _buildMetricCard(
                               'Profit Margin',
@@ -165,7 +165,7 @@ class PricingSection extends StatelessWidget {
                           ),
                         ],
                       ),
-                      if (provider.vatController.text.isNotEmpty) ...[
+                      if (provider.vatController.text.isNotEmpty) ...<Widget>[
                         const SizedBox(height: DoubleConstants.spacingS),
                         _buildVATCalculation(provider),
                       ],
@@ -192,7 +192,7 @@ class PricingSection extends StatelessWidget {
         ),
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           Icon(icon, color: color, size: 20),
           const SizedBox(height: 4),
           Text(
@@ -236,7 +236,7 @@ class PricingSection extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           const Text(
             'VAT Calculation',
             style: TextStyle(
@@ -247,14 +247,14 @@ class PricingSection extends StatelessWidget {
           const SizedBox(height: DoubleConstants.spacingXS),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: <Widget>[
               const Text('Base Price:'),
               Text('${provider.selectedCurrency ?? 'PKR'} ${basePrice.toStringAsFixed(2)}'),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: <Widget>[
               Text('VAT (${vatRate.toStringAsFixed(1)}%):'),
               Text('${provider.selectedCurrency ?? 'PKR'} ${vatAmount.toStringAsFixed(2)}'),
             ],
@@ -262,7 +262,7 @@ class PricingSection extends StatelessWidget {
           const Divider(thickness: 1),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: <Widget>[
               const Text(
                 'Final Price:',
                 style: TextStyle(fontWeight: FontWeight.bold),

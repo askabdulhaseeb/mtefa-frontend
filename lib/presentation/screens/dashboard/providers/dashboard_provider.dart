@@ -46,7 +46,7 @@ class DashboardProvider extends ChangeNotifier {
     try {
       // Simulate loading dashboard data
       // In production, this would fetch from API/Database
-      await Future.delayed(const Duration(seconds: 1));
+      await Future<void>.delayed(const Duration(seconds: 1));
       
       // Set mock data for demonstration
       _todaySales = 12543.50;
@@ -95,7 +95,7 @@ class DashboardProvider extends ChangeNotifier {
 
     try {
       // Simulate processing
-      await Future.delayed(const Duration(seconds: 2));
+      await Future<void>.delayed(const Duration(seconds: 2));
       
       _isProcessingSale = false;
       notifyListeners();
@@ -116,7 +116,7 @@ class DashboardProvider extends ChangeNotifier {
 
     try {
       // Simulate loading reports
-      await Future.delayed(const Duration(seconds: 1));
+      await Future<void>.delayed(const Duration(seconds: 1));
       
       _isLoadingReports = false;
       notifyListeners();
@@ -127,8 +127,4 @@ class DashboardProvider extends ChangeNotifier {
     }
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
 }

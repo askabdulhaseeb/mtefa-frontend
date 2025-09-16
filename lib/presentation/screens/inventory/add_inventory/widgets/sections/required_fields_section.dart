@@ -14,12 +14,12 @@ class RequiredFieldsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ComprehensiveInventoryProvider>(
-      builder: (context, provider, child) {
+      builder: (BuildContext context, ComprehensiveInventoryProvider provider, Widget? child) {
         return AddInventorySectionBgWidget(
           icon: Icons.star,
           title: 'Required Information',
           child: Column(
-            children: [
+            children: <Widget>[
               // Line Item - Select from dropdown
               CustomDropdownWithAdd<String>(
                 title: 'Line Item *',
@@ -41,14 +41,14 @@ class RequiredFieldsSection extends StatelessWidget {
 
               // Product Code - Auto-generated via template (F2) or manual entry
               Row(
-                children: [
+                children: <Widget>[
                   Expanded(
                     child: CustomTextFormField(
                       controller: provider.productCodeController,
                       labelText: 'Product Code *',
                       hint: 'Enter product code',
                       readOnly: provider.autoGenerateCode,
-                      validator: (value) {
+                      validator: (String? value) {
                         if (value?.isEmpty ?? true) {
                           return 'Product code is required';
                         }
@@ -61,7 +61,7 @@ class RequiredFieldsSection extends StatelessWidget {
                     message: 'Auto-generate code',
                     child: Checkbox(
                       value: provider.autoGenerateCode,
-                      onChanged: (value) => provider.toggleAutoGenerateCode(value ?? false),
+                      onChanged: (bool? value) => provider.toggleAutoGenerateCode(value ?? false),
                     ),
                   ),
                   const Text('Auto'),
@@ -75,7 +75,7 @@ class RequiredFieldsSection extends StatelessWidget {
                 controller: provider.productNameController,
                 labelText: 'Product Name *',
                 hint: 'Enter product name',
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isEmpty ?? true) {
                     return 'Product name is required';
                   }
@@ -86,7 +86,7 @@ class RequiredFieldsSection extends StatelessWidget {
               const SizedBox(height: DoubleConstants.spacingM),
 
               // Supplier - Select from dropdown (Visibility Depends on Line Item)
-              if (provider.shouldShowSupplier) ...[
+              if (provider.shouldShowSupplier) ...<Widget>[
                 CustomDropdownWithAdd<String>(
                   title: 'Supplier *',
                   hint: 'Select supplier',
@@ -112,7 +112,7 @@ class RequiredFieldsSection extends StatelessWidget {
                 hint: 'Enter average cost',
                 keyboardType: TextInputType.number,
                 prefixText: provider.selectedCurrency ?? 'PKR',
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isEmpty ?? true) {
                     return 'Average cost is required';
                   }
@@ -126,20 +126,20 @@ class RequiredFieldsSection extends StatelessWidget {
 
               // Show profit calculations if both cost and price are entered
               if (provider.averageCostController.text.isNotEmpty && 
-                  provider.priceController.text.isNotEmpty) ...[
+                  provider.priceController.text.isNotEmpty) ...<Widget>[
                 const SizedBox(height: DoubleConstants.spacingS),
                 Container(
                   padding: const EdgeInsets.all(DoubleConstants.spacingS),
                   decoration: BoxDecoration(
-                    color: Colors.blue.withOpacity(0.1),
+                    color: Colors.blue.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
+                    children: <Widget>[
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: <Widget>[
                           const Text(
                             'Profit Margin',
                             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
@@ -161,7 +161,7 @@ class RequiredFieldsSection extends StatelessWidget {
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: <Widget>[
                           const Text(
                             'Markup',
                             style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),

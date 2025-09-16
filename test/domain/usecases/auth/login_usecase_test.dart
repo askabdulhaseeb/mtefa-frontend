@@ -2,7 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mtefa/core/resources/data_state.dart';
 import 'package:mtefa/domain/entities/auth/user_entity.dart';
-import 'package:mtefa/domain/repositories/auth_repository.dart';
 import 'package:mtefa/domain/usecases/auth/login_usecase.dart';
 import '../../../fixtures/auth_fixtures.dart';
 import '../../../mocks/mock_repositories.mocks.dart';
@@ -20,7 +19,7 @@ void main() {
     group('Validation', () {
       test('should return error when params are null', () async {
         // Act
-        final result = await loginUseCase.call(params: null);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: null);
 
         // Assert
         expect(result, isA<DataFailed<LoginResponseEntity>>());
@@ -31,13 +30,13 @@ void main() {
 
       test('should return error when email is empty', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: '',
           password: AuthFixtures.validPassword,
         );
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataFailed<LoginResponseEntity>>());
@@ -48,13 +47,13 @@ void main() {
 
       test('should return error when email format is invalid', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.invalidEmail,
           password: AuthFixtures.validPassword,
         );
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataFailed<LoginResponseEntity>>());
@@ -65,7 +64,7 @@ void main() {
 
       test('should validate various email formats', () async {
         // Arrange
-        final invalidEmails = [
+        final List<String> invalidEmails = <String>[
           'plaintext',
           '@example.com',
           'user@',
@@ -76,13 +75,13 @@ void main() {
         ];
 
         // Act & Assert
-        for (final email in invalidEmails) {
-          final params = LoginParams(
+        for (final String email in invalidEmails) {
+          final LoginParams params = LoginParams(
             email: email,
             password: AuthFixtures.validPassword,
           );
           
-          final result = await loginUseCase.call(params: params);
+          final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
           
           expect(result, isA<DataFailed<LoginResponseEntity>>(), 
             reason: 'Email "$email" should be invalid');
@@ -92,7 +91,7 @@ void main() {
 
       test('should accept valid email formats', () async {
         // Arrange
-        final validEmails = [
+        final List<String> validEmails = <String>[
           'user@example.com',
           'user.name@example.com',
           'user+tag@example.co.uk',
@@ -106,13 +105,13 @@ void main() {
         )).thenAnswer((_) async => DataSuccess(AuthFixtures.createTestLoginResponse()));
 
         // Act & Assert
-        for (final email in validEmails) {
-          final params = LoginParams(
+        for (final String email in validEmails) {
+          final LoginParams params = LoginParams(
             email: email,
             password: AuthFixtures.validPassword,
           );
           
-          final result = await loginUseCase.call(params: params);
+          final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
           
           expect(result, isA<DataSuccess<LoginResponseEntity>>(), 
             reason: 'Email "$email" should be valid');
@@ -121,13 +120,13 @@ void main() {
 
       test('should return error when password is empty', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: '',
         );
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataFailed<LoginResponseEntity>>());
@@ -138,13 +137,13 @@ void main() {
 
       test('should return error when password is too short', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.shortPassword,
         );
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataFailed<LoginResponseEntity>>());
@@ -157,7 +156,7 @@ void main() {
     group('Login Process', () {
       test('should call repository login with trimmed and lowercased email', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: '  Test@Example.COM  ',
           password: '  password123  ',
         );
@@ -179,19 +178,19 @@ void main() {
 
       test('should return success when login is successful', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.validPassword,
         );
         
-        final expectedResponse = AuthFixtures.createTestLoginResponse();
+        final LoginResponseEntity expectedResponse = AuthFixtures.createTestLoginResponse();
         when(mockAuthRepository.login(
           email: anyNamed('email'),
           password: anyNamed('password'),
         )).thenAnswer((_) async => DataSuccess(expectedResponse));
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataSuccess<LoginResponseEntity>>());
@@ -204,7 +203,7 @@ void main() {
 
       test('should return failure when repository returns failure', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.validPassword,
         );
@@ -218,7 +217,7 @@ void main() {
         ));
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataFailed<LoginResponseEntity>>());
@@ -228,12 +227,12 @@ void main() {
 
       test('should handle two-factor authentication response', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.validPassword,
         );
         
-        final twoFactorResponse = AuthFixtures.createTestLoginResponse(
+        final LoginResponseEntity twoFactorResponse = AuthFixtures.createTestLoginResponse(
           requiresTwoFactor: true,
         );
         
@@ -243,7 +242,7 @@ void main() {
         )).thenAnswer((_) async => DataSuccess(twoFactorResponse));
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataSuccess<LoginResponseEntity>>());
@@ -254,13 +253,13 @@ void main() {
     group('Remember Me', () {
       test('should save credentials when rememberMe is true and login successful', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.validPassword,
           rememberMe: true,
         );
         
-        final successResponse = AuthFixtures.createTestLoginResponse();
+        final LoginResponseEntity successResponse = AuthFixtures.createTestLoginResponse();
         when(mockAuthRepository.login(
           email: anyNamed('email'),
           password: anyNamed('password'),
@@ -272,7 +271,7 @@ void main() {
         )).thenAnswer((_) async => Future.value());
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataSuccess<LoginResponseEntity>>());
@@ -284,20 +283,20 @@ void main() {
 
       test('should not save credentials when rememberMe is false', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.validPassword,
           rememberMe: false,
         );
         
-        final successResponse = AuthFixtures.createTestLoginResponse();
+        final LoginResponseEntity successResponse = AuthFixtures.createTestLoginResponse();
         when(mockAuthRepository.login(
           email: anyNamed('email'),
           password: anyNamed('password'),
         )).thenAnswer((_) async => DataSuccess(successResponse));
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataSuccess<LoginResponseEntity>>());
@@ -309,7 +308,7 @@ void main() {
 
       test('should not save credentials when login fails', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.validPassword,
           rememberMe: true,
@@ -324,7 +323,7 @@ void main() {
         ));
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataFailed<LoginResponseEntity>>());
@@ -338,7 +337,7 @@ void main() {
     group('Error Handling', () {
       test('should handle repository exceptions', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.validPassword,
         );
@@ -349,7 +348,7 @@ void main() {
         )).thenThrow(Exception('Network error'));
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         expect(result, isA<DataFailed<LoginResponseEntity>>());
@@ -360,13 +359,13 @@ void main() {
 
       test('should handle save credentials exceptions gracefully', () async {
         // Arrange
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.validPassword,
           rememberMe: true,
         );
         
-        final successResponse = AuthFixtures.createTestLoginResponse();
+        final LoginResponseEntity successResponse = AuthFixtures.createTestLoginResponse();
         when(mockAuthRepository.login(
           email: anyNamed('email'),
           password: anyNamed('password'),
@@ -378,7 +377,7 @@ void main() {
         )).thenThrow(Exception('Storage error'));
 
         // Act
-        final result = await loginUseCase.call(params: params);
+        final DataState<LoginResponseEntity> result = await loginUseCase.call(params: params);
 
         // Assert
         // Should still return success even if saving credentials fails
@@ -389,7 +388,7 @@ void main() {
     group('LoginParams', () {
       test('should create LoginParams with default rememberMe value', () {
         // Arrange & Act
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.validPassword,
         );
@@ -402,7 +401,7 @@ void main() {
 
       test('should create LoginParams with custom rememberMe value', () {
         // Arrange & Act
-        const params = LoginParams(
+        const LoginParams params = LoginParams(
           email: AuthFixtures.validEmail,
           password: AuthFixtures.validPassword,
           rememberMe: true,

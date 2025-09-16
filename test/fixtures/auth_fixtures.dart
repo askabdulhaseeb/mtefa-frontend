@@ -1,5 +1,6 @@
 /// Test fixtures for authentication testing
 /// Provides mock data for consistent testing across test files
+library;
 
 import 'package:mtefa/core/enums/status_type.dart';
 import 'package:mtefa/core/enums/user_role.dart';
@@ -47,10 +48,10 @@ class AuthFixtures {
       preferredLanguage: 'en',
       timezone: 'UTC',
       status: status,
-      businessUsers: businessUsers ?? [createTestBusinessUser()],
+      businessUsers: businessUsers ?? <BusinessUserEntity>[createTestBusinessUser()],
       currentBusinessId: testBusinessId,
       currentBranchId: testBranchId,
-      permissions: ['pos.access', 'sales.create', 'sales.view'],
+      permissions: <String>['pos.access', 'sales.create', 'sales.view'],
     );
   }
   
@@ -71,8 +72,8 @@ class AuthFixtures {
       roleId: roleId ?? testRoleId,
       roleName: roleName ?? 'Admin',
       businessName: 'Test Business',
-      assignedBranches: [],
-      customPermissions: [],
+      assignedBranches: <String>[],
+      customPermissions: <String>[],
       employmentStartDate: DateTime(2023, 1, 1),
       isPrimaryBusiness: isPrimaryBusiness,
       status: status,
@@ -109,7 +110,7 @@ class AuthFixtures {
   
   /// Creates test user JSON for API mocking
   static Map<String, dynamic> createTestUserJson() {
-    return {
+    return <String, dynamic>{
       'userId': testUserId,
       'email': validEmail,
       'name': testUserName,
@@ -122,24 +123,24 @@ class AuthFixtures {
       'preferredLanguage': 'en',
       'timezone': 'UTC',
       'status': 'active',
-      'businessUsers': [createTestBusinessUserJson()],
+      'businessUsers': <Map<String, dynamic>>[createTestBusinessUserJson()],
       'currentBusinessId': testBusinessId,
       'currentBranchId': testBranchId,
-      'permissions': ['pos.access', 'sales.create', 'sales.view'],
+      'permissions': <String>['pos.access', 'sales.create', 'sales.view'],
     };
   }
   
   /// Creates test business user JSON for API mocking
   static Map<String, dynamic> createTestBusinessUserJson() {
-    return {
+    return <String, dynamic>{
       'businessUserId': 'bu_123',
       'businessId': testBusinessId,
       'userId': testUserId,
       'roleId': testRoleId,
       'roleName': 'Admin',
       'businessName': 'Test Business',
-      'assignedBranches': [],
-      'customPermissions': [],
+      'assignedBranches': <dynamic>[],
+      'customPermissions': <dynamic>[],
       'employmentStartDate': '2023-01-01T00:00:00.000Z',
       'employmentEndDate': null,
       'isPrimaryBusiness': true,
@@ -149,7 +150,7 @@ class AuthFixtures {
   
   /// Creates test auth token JSON for API mocking
   static Map<String, dynamic> createTestAuthTokenJson() {
-    return {
+    return <String, dynamic>{
       'accessToken': testAccessToken,
       'refreshToken': testRefreshToken,
       'expiresIn': testExpiresIn,
@@ -159,7 +160,7 @@ class AuthFixtures {
   
   /// Creates test login response JSON for API mocking
   static Map<String, dynamic> createTestLoginResponseJson() {
-    return {
+    return <String, dynamic>{
       'user': createTestUserJson(),
       'token': createTestAuthTokenJson(),
       'requiresTwoFactor': false,
@@ -167,7 +168,7 @@ class AuthFixtures {
   }
   
   /// Test error scenarios
-  static const Map<String, String> testErrors = {
+  static const Map<String, String> testErrors = <String, String>{
     'invalid_credentials': 'Invalid email or password',
     'account_disabled': 'Your account has been disabled',
     'account_locked': 'Your account has been locked',

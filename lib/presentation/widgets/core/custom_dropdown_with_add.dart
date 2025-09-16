@@ -35,7 +35,7 @@ class CustomDropdownWithAdd<T> extends StatefulWidget {
 }
 
 class _CustomDropdownWithAddState<T> extends State<CustomDropdownWithAdd<T>> {
-  List<DropdownMenuItem<T>> _items = [];
+  List<DropdownMenuItem<T>> _items = <DropdownMenuItem<T>>[];
 
   @override
   void initState() {
@@ -80,7 +80,7 @@ class _CustomDropdownWithAddState<T> extends State<CustomDropdownWithAdd<T>> {
     
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         if (widget.title.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(bottom: 4),
@@ -90,7 +90,7 @@ class _CustomDropdownWithAddState<T> extends State<CustomDropdownWithAdd<T>> {
             ),
           ),
         Row(
-          children: [
+          children: <Widget>[
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -138,7 +138,7 @@ class _CustomDropdownWithAddState<T> extends State<CustomDropdownWithAdd<T>> {
                                 ),
                               ),
                             ),
-                            searchMatchFn: (item, searchValue) {
+                            searchMatchFn: (DropdownMenuItem<T> item, String searchValue) {
                               return item.value
                                   .toString()
                                   .toLowerCase()

@@ -8,7 +8,7 @@ import 'package:mtefa/presentation/screens/auth/providers/login_provider.dart';
 import '../../../../fixtures/auth_fixtures.dart';
 
 // Generate mock for LoginUseCase
-@GenerateMocks([LoginUseCase])
+@GenerateMocks(<Type>[LoginUseCase])
 import 'login_provider_test.mocks.dart';
 
 void main() {
@@ -111,23 +111,23 @@ void main() {
     group('Email Validation', () {
       test('should validate empty email', () {
         loginProvider.emailController.text = '';
-        final isValid = loginProvider.validateEmail();
+        final bool isValid = loginProvider.validateEmail();
         
         expect(isValid, isFalse);
         expect(loginProvider.emailError, equals('Email is required'));
       });
 
       test('should validate invalid email format', () {
-        final invalidEmails = [
+        final List<String> invalidEmails = <String>[
           'invalid',
           '@example.com',
           'user@',
           'user@.com',
         ];
         
-        for (final email in invalidEmails) {
+        for (final String email in invalidEmails) {
           loginProvider.emailController.text = email;
-          final isValid = loginProvider.validateEmail();
+          final bool isValid = loginProvider.validateEmail();
           
           expect(isValid, isFalse, reason: 'Email "$email" should be invalid');
           expect(loginProvider.emailError, equals('Please enter a valid email'));
@@ -135,15 +135,15 @@ void main() {
       });
 
       test('should validate correct email format', () {
-        final validEmails = [
+        final List<String> validEmails = <String>[
           'user@example.com',
           'user.name@example.com',
           'user+tag@example.co.uk',
         ];
         
-        for (final email in validEmails) {
+        for (final String email in validEmails) {
           loginProvider.emailController.text = email;
-          final isValid = loginProvider.validateEmail();
+          final bool isValid = loginProvider.validateEmail();
           
           expect(isValid, isTrue, reason: 'Email "$email" should be valid');
           expect(loginProvider.emailError, isNull);
@@ -154,7 +154,7 @@ void main() {
     group('Password Validation', () {
       test('should validate empty password', () {
         loginProvider.passwordController.text = '';
-        final isValid = loginProvider.validatePassword();
+        final bool isValid = loginProvider.validatePassword();
         
         expect(isValid, isFalse);
         expect(loginProvider.passwordError, equals('Password is required'));
@@ -162,7 +162,7 @@ void main() {
 
       test('should validate short password', () {
         loginProvider.passwordController.text = '12345';
-        final isValid = loginProvider.validatePassword();
+        final bool isValid = loginProvider.validatePassword();
         
         expect(isValid, isFalse);
         expect(loginProvider.passwordError, equals('Password must be at least 6 characters'));
@@ -170,7 +170,7 @@ void main() {
 
       test('should validate valid password', () {
         loginProvider.passwordController.text = '123456';
-        final isValid = loginProvider.validatePassword();
+        final bool isValid = loginProvider.validatePassword();
         
         expect(isValid, isTrue);
         expect(loginProvider.passwordError, isNull);
@@ -182,7 +182,7 @@ void main() {
         loginProvider.emailController.text = '';
         loginProvider.passwordController.text = '';
         
-        final isValid = loginProvider.validateForm();
+        final bool isValid = loginProvider.validateForm();
         
         expect(isValid, isFalse);
         expect(loginProvider.emailError, isNotNull);
@@ -193,7 +193,7 @@ void main() {
         loginProvider.emailController.text = 'invalid';
         loginProvider.passwordController.text = '123456';
         
-        final isValid = loginProvider.validateForm();
+        final bool isValid = loginProvider.validateForm();
         
         expect(isValid, isFalse);
         expect(loginProvider.emailError, isNotNull);
@@ -204,7 +204,7 @@ void main() {
         loginProvider.emailController.text = 'user@example.com';
         loginProvider.passwordController.text = '123';
         
-        final isValid = loginProvider.validateForm();
+        final bool isValid = loginProvider.validateForm();
         
         expect(isValid, isFalse);
         expect(loginProvider.emailError, isNull);
@@ -215,7 +215,7 @@ void main() {
         loginProvider.emailController.text = 'user@example.com';
         loginProvider.passwordController.text = '123456';
         
-        final isValid = loginProvider.validateForm();
+        final bool isValid = loginProvider.validateForm();
         
         expect(isValid, isTrue);
         expect(loginProvider.emailError, isNull);
@@ -289,7 +289,7 @@ void main() {
         });
         
         // Start login
-        final loginFuture = loginProvider.login();
+        final Future<void> loginFuture = loginProvider.login();
         
         // Check loading state immediately
         expect(loginProvider.isLoading, isTrue);
@@ -308,7 +308,7 @@ void main() {
         loginProvider.passwordController.text = '123456';
         
         // Setup mock response
-        final successResponse = AuthFixtures.createTestLoginResponse();
+        final LoginResponseEntity successResponse = AuthFixtures.createTestLoginResponse();
         when(mockLoginUseCase.call(params: anyNamed('params')))
             .thenAnswer((_) async => DataSuccess(successResponse));
         
@@ -322,7 +322,7 @@ void main() {
         expect(loginProvider.passwordError, isNull);
         
         // Verify use case was called with correct params
-        final capturedParams = verify(
+        final LoginParams capturedParams = verify(
           mockLoginUseCase.call(params: captureAnyNamed('params'))
         ).captured.single as LoginParams;
         
@@ -345,7 +345,7 @@ void main() {
         await loginProvider.login();
         
         // Verify use case was called with rememberMe = true
-        final capturedParams = verify(
+        final LoginParams capturedParams = verify(
           mockLoginUseCase.call(params: captureAnyNamed('params'))
         ).captured.single as LoginParams;
         
@@ -375,16 +375,16 @@ void main() {
       });
 
       test('should handle specific error codes', () async {
-        final testCases = [
-          {'code': 'INVALID_EMAIL', 'expectedEmailError': 'Invalid email', 'expectedPasswordError': null},
-          {'code': 'EMAIL_REQUIRED', 'expectedEmailError': 'Email required', 'expectedPasswordError': null},
-          {'code': 'PASSWORD_REQUIRED', 'expectedEmailError': null, 'expectedPasswordError': 'Password required'},
-          {'code': 'PASSWORD_TOO_SHORT', 'expectedEmailError': null, 'expectedPasswordError': 'Password too short'},
-          {'code': 'ACCOUNT_DISABLED', 'expectedEmailError': 'Account disabled', 'expectedPasswordError': null},
-          {'code': 'ACCOUNT_LOCKED', 'expectedEmailError': 'Account locked', 'expectedPasswordError': null},
+        final List<Map<String, String?>> testCases = <Map<String, String?>>[
+          <String, String?>{'code': 'INVALID_EMAIL', 'expectedEmailError': 'Invalid email', 'expectedPasswordError': null},
+          <String, String?>{'code': 'EMAIL_REQUIRED', 'expectedEmailError': 'Email required', 'expectedPasswordError': null},
+          <String, String?>{'code': 'PASSWORD_REQUIRED', 'expectedEmailError': null, 'expectedPasswordError': 'Password required'},
+          <String, String?>{'code': 'PASSWORD_TOO_SHORT', 'expectedEmailError': null, 'expectedPasswordError': 'Password too short'},
+          <String, String?>{'code': 'ACCOUNT_DISABLED', 'expectedEmailError': 'Account disabled', 'expectedPasswordError': null},
+          <String, String?>{'code': 'ACCOUNT_LOCKED', 'expectedEmailError': 'Account locked', 'expectedPasswordError': null},
         ];
         
-        for (final testCase in testCases) {
+        for (final Map<String, String?> testCase in testCases) {
           // Reset provider
           loginProvider.clearErrors();
           loginProvider.emailController.text = 'user@example.com';

@@ -13,7 +13,7 @@ class SizesColorsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ComprehensiveInventoryProvider>(
-      builder: (context, provider, child) {
+      builder: (BuildContext context, ComprehensiveInventoryProvider provider, Widget? child) {
         // Only show this section if sizes or colors are applicable
         if (!provider.shouldShowSizes && !provider.shouldShowColors) {
           return const SizedBox.shrink();
@@ -23,9 +23,9 @@ class SizesColorsSection extends StatelessWidget {
           icon: Icons.palette,
           title: 'Size & Color Configuration',
           child: Column(
-            children: [
+            children: <Widget>[
               // Product Sizes - Check applicable sizes (Visibility Depends on Category)
-              if (provider.shouldShowSizes) ...[
+              if (provider.shouldShowSizes) ...<Widget>[
                 const Text(
                   'Product Sizes',
                   style: TextStyle(
@@ -45,7 +45,7 @@ class SizesColorsSection extends StatelessWidget {
               ],
 
               // Product Colors - Check applicable colors (Visibility Depends on Category)
-              if (provider.shouldShowColors) ...[
+              if (provider.shouldShowColors) ...<Widget>[
                 const Text(
                   'Product Colors',
                   style: TextStyle(
@@ -65,11 +65,11 @@ class SizesColorsSection extends StatelessWidget {
               ],
 
               // Default Size & Color - Set defaults (Visibility Depends on Category)
-              if (provider.shouldShowDefaultSizeColor) ...[
+              if (provider.shouldShowDefaultSizeColor) ...<Widget>[
                 Row(
-                  children: [
+                  children: <Widget>[
                     // Default Size
-                    if (provider.selectedSizes.isNotEmpty) ...[
+                    if (provider.selectedSizes.isNotEmpty) ...<Widget>[
                       Expanded(
                         child: CustomDropdownWithAdd<String>(
                           title: 'Default Size',
@@ -96,7 +96,7 @@ class SizesColorsSection extends StatelessWidget {
                       const SizedBox(width: DoubleConstants.spacingM),
 
                     // Default Color
-                    if (provider.selectedColors.isNotEmpty) ...[
+                    if (provider.selectedColors.isNotEmpty) ...<Widget>[
                       Expanded(
                         child: CustomDropdownWithAdd<String>(
                           title: 'Default Color',
@@ -105,7 +105,7 @@ class SizesColorsSection extends StatelessWidget {
                             return DropdownMenuItem<String>(
                               value: color,
                               child: Row(
-                                children: [
+                                children: <Widget>[
                                   Container(
                                     width: 16,
                                     height: 16,
@@ -138,7 +138,7 @@ class SizesColorsSection extends StatelessWidget {
               ],
 
               // Show variant preview if both sizes and colors are selected
-              if (provider.selectedSizes.isNotEmpty && provider.selectedColors.isNotEmpty) ...[
+              if (provider.selectedSizes.isNotEmpty && provider.selectedColors.isNotEmpty) ...<Widget>[
                 _buildVariantPreview(provider),
               ],
             ],
@@ -204,7 +204,7 @@ class SizesColorsSection extends StatelessWidget {
       padding: const EdgeInsets.all(DoubleConstants.spacingM),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
+          colors: <Color>[
             Colors.indigo.withValues(alpha: 0.1),
             Colors.purple.withValues(alpha: 0.1),
           ],
@@ -219,9 +219,9 @@ class SizesColorsSection extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Row(
-            children: [
+            children: <Widget>[
               Icon(
                 Icons.grid_view,
                 color: Colors.indigo.shade600,
@@ -268,7 +268,7 @@ class SizesColorsSection extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 2),
                 child: Row(
-                  children: [
+                  children: <Widget>[
                     Container(
                       width: 12,
                       height: 12,
@@ -287,7 +287,7 @@ class SizesColorsSection extends StatelessWidget {
                         color: isDefault ? Colors.indigo.shade700 : Colors.grey.shade700,
                       ),
                     ),
-                    if (isDefault) ...[
+                    if (isDefault) ...<Widget>[
                       const SizedBox(width: 4),
                       Icon(
                         Icons.star,
@@ -299,9 +299,9 @@ class SizesColorsSection extends StatelessWidget {
                 ),
               );
             });
-          }).toList(),
+          }),
           
-          if (totalVariants > 6) ...[
+          if (totalVariants > 6) ...<Widget>[
             Text(
               '... and ${totalVariants - 6} more variants',
               style: TextStyle(

@@ -44,7 +44,7 @@ class ManagementSection extends StatelessWidget {
     final List<_ManagementItem> items = _getManagementItems();
     
     return Column(
-      children: items.map((item) => _buildListTile(context, item)).toList(),
+      children: items.map((_ManagementItem item) => _buildListTile(context, item)).toList(),
     );
   }
 
@@ -86,7 +86,7 @@ class ManagementSection extends StatelessWidget {
   List<Widget> _buildManagementCards(BuildContext context) {
     final List<_ManagementItem> items = _getManagementItems();
     
-    return items.map((item) => DashboardCard(
+    return items.map((_ManagementItem item) => DashboardCard(
       title: item.title,
       icon: item.icon,
       color: item.color,

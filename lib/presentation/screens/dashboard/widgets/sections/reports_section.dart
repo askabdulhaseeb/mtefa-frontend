@@ -33,7 +33,7 @@ class ReportsSection extends StatelessWidget {
     final List<_ReportItem> reports = _getReportItems();
     
     if (useCompactCards) {
-      return reports.map((item) => CompactDashboardCard(
+      return reports.map((_ReportItem item) => CompactDashboardCard(
         title: item.title,
         icon: item.icon,
         color: item.color,
@@ -41,7 +41,7 @@ class ReportsSection extends StatelessWidget {
       )).toList();
     }
     
-    return reports.map((item) => DashboardCard(
+    return reports.map((_ReportItem item) => DashboardCard(
       title: item.title,
       icon: item.icon,
       color: item.color,

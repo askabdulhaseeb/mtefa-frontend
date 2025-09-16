@@ -14,15 +14,15 @@ class AdditionalSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ComprehensiveInventoryProvider>(
-      builder: (context, provider, child) {
+      builder: (BuildContext context, ComprehensiveInventoryProvider provider, Widget? child) {
         return AddInventorySectionBgWidget(
           icon: Icons.more_horiz,
           title: 'Additional Information',
           child: Column(
-            children: [
+            children: <Widget>[
               // Date - Entry date
               Row(
-                children: [
+                children: <Widget>[
                   Expanded(
                     child: CustomTextFormField(
                       controller: TextEditingController(
@@ -58,7 +58,7 @@ class AdditionalSection extends StatelessWidget {
               const SizedBox(height: DoubleConstants.spacingM),
 
               // Life Type - Product lifecycle category (Visibility Depends on Category)
-              if (provider.shouldShowLifeType) ...[
+              if (provider.shouldShowLifeType) ...<Widget>[
                 CustomDropdownWithAdd<String>(
                   title: 'Life Type',
                   hint: 'Select life type',
@@ -87,14 +87,14 @@ class AdditionalSection extends StatelessWidget {
                 hint: 'Enter additional notes or comments',
                 maxLines: 4,
                 isExpanded: true,
-                validator: (value) {
+                validator: (String? value) {
                   // Comments are optional, no validation required
                   return null;
                 },
               ),
 
               // Show summary if key fields are filled
-              if (_shouldShowSummary(provider)) ...[
+              if (_shouldShowSummary(provider)) ...<Widget>[
                 const SizedBox(height: DoubleConstants.spacingL),
                 _buildSummaryCard(provider),
               ],
@@ -142,7 +142,7 @@ class AdditionalSection extends StatelessWidget {
       padding: const EdgeInsets.all(DoubleConstants.spacingL),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
+          colors: <Color>[
             Colors.teal.withValues(alpha: 0.1),
             Colors.cyan.withValues(alpha: 0.1),
           ],
@@ -157,9 +157,9 @@ class AdditionalSection extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Row(
-            children: [
+            children: <Widget>[
               Icon(
                 Icons.summarize,
                 color: Colors.teal.shade600,
@@ -203,11 +203,11 @@ class AdditionalSection extends StatelessWidget {
           
           // Profit calculations
           if (provider.priceController.text.isNotEmpty && 
-              provider.averageCostController.text.isNotEmpty) ...[
+              provider.averageCostController.text.isNotEmpty) ...<Widget>[
             const SizedBox(height: DoubleConstants.spacingS),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
+              children: <Widget>[
                 _buildMetricChip(
                   'Margin: ${provider.profitMargin.toStringAsFixed(1)}%',
                   Colors.green,
@@ -221,7 +221,7 @@ class AdditionalSection extends StatelessWidget {
           ],
           
           // Variants info
-          if (provider.selectedSizes.isNotEmpty || provider.selectedColors.isNotEmpty) ...[
+          if (provider.selectedSizes.isNotEmpty || provider.selectedColors.isNotEmpty) ...<Widget>[
             const Divider(height: 24),
             if (provider.selectedSizes.isNotEmpty)
               _buildSummaryRow('Sizes', provider.selectedSizes.join(', ')),
@@ -246,7 +246,7 @@ class AdditionalSection extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           SizedBox(
             width: 120,
             child: Text(

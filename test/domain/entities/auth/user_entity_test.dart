@@ -8,7 +8,7 @@ void main() {
   group('UserEntity', () {
     test('should create a UserEntity with required fields', () {
       // Arrange & Act
-      const user = UserEntity(
+      const UserEntity user = UserEntity(
         userId: 'user123',
         email: 'test@example.com',
         name: 'Test User',
@@ -25,11 +25,11 @@ void main() {
 
     test('should create a UserEntity with all fields', () {
       // Arrange
-      final lastLogin = DateTime.now();
-      final businessUser = AuthFixtures.createTestBusinessUser();
+      final DateTime lastLogin = DateTime.now();
+      final BusinessUserEntity businessUser = AuthFixtures.createTestBusinessUser();
       
       // Act
-      final user = UserEntity(
+      final UserEntity user = UserEntity(
         userId: 'user123',
         email: 'test@example.com',
         name: 'Test User',
@@ -42,10 +42,10 @@ void main() {
         preferredLanguage: 'es',
         timezone: 'America/New_York',
         status: StatusType.blocked,
-        businessUsers: [businessUser],
+        businessUsers: <BusinessUserEntity>[businessUser],
         currentBusinessId: 'business123',
         currentBranchId: 'branch123',
-        permissions: ['read', 'write'],
+        permissions: <String>['read', 'write'],
       );
 
       // Assert
@@ -61,13 +61,13 @@ void main() {
       expect(user.businessUsers, hasLength(1));
       expect(user.currentBusinessId, equals('business123'));
       expect(user.currentBranchId, equals('branch123'));
-      expect(user.permissions, equals(['read', 'write']));
+      expect(user.permissions, equals(<String>['read', 'write']));
     });
 
     group('isActive', () {
       test('should return true when status is active', () {
         // Arrange
-        final user = AuthFixtures.createTestUser(status: StatusType.active);
+        final UserEntity user = AuthFixtures.createTestUser(status: StatusType.active);
 
         // Act & Assert
         expect(user.isActive, isTrue);
@@ -75,7 +75,7 @@ void main() {
 
       test('should return false when status is blocked', () {
         // Arrange
-        final user = AuthFixtures.createTestUser(status: StatusType.blocked);
+        final UserEntity user = AuthFixtures.createTestUser(status: StatusType.blocked);
 
         // Act & Assert
         expect(user.isActive, isFalse);
@@ -83,7 +83,7 @@ void main() {
 
       test('should return false when status is deleted', () {
         // Arrange
-        final user = AuthFixtures.createTestUser(status: StatusType.deleted);
+        final UserEntity user = AuthFixtures.createTestUser(status: StatusType.deleted);
 
         // Act & Assert
         expect(user.isActive, isFalse);
@@ -93,7 +93,7 @@ void main() {
     group('hasBusinessAccess', () {
       test('should return true when user has business users', () {
         // Arrange
-        final user = AuthFixtures.createTestUser();
+        final UserEntity user = AuthFixtures.createTestUser();
 
         // Act & Assert
         expect(user.hasBusinessAccess, isTrue);
@@ -101,7 +101,7 @@ void main() {
 
       test('should return false when user has no business users', () {
         // Arrange
-        final user = AuthFixtures.createTestUser(businessUsers: []);
+        final UserEntity user = AuthFixtures.createTestUser(businessUsers: <BusinessUserEntity>[]);
 
         // Act & Assert
         expect(user.hasBusinessAccess, isFalse);
@@ -111,24 +111,24 @@ void main() {
     group('currentBusinessUser', () {
       test('should return current business user when currentBusinessId matches', () {
         // Arrange
-        final businessUser1 = AuthFixtures.createTestBusinessUser(
+        final BusinessUserEntity businessUser1 = AuthFixtures.createTestBusinessUser(
           businessId: 'business1',
           businessUserId: 'bu1',
         );
-        final businessUser2 = AuthFixtures.createTestBusinessUser(
+        final BusinessUserEntity businessUser2 = AuthFixtures.createTestBusinessUser(
           businessId: 'business2',
           businessUserId: 'bu2',
         );
-        final user = UserEntity(
+        final UserEntity user = UserEntity(
           userId: 'user123',
           email: 'test@example.com',
           name: 'Test User',
-          businessUsers: [businessUser1, businessUser2],
+          businessUsers: <BusinessUserEntity>[businessUser1, businessUser2],
           currentBusinessId: 'business2',
         );
 
         // Act
-        final currentBusiness = user.currentBusinessUser;
+        final BusinessUserEntity? currentBusiness = user.currentBusinessUser;
 
         // Assert
         expect(currentBusiness, isNotNull);
@@ -137,7 +137,7 @@ void main() {
 
       test('should return null when currentBusinessId is null', () {
         // Arrange
-        final user = AuthFixtures.createTestUser(businessUsers: []);
+        final UserEntity user = AuthFixtures.createTestUser(businessUsers: <BusinessUserEntity>[]);
         
         // Act & Assert
         expect(user.currentBusinessUser, isNull);
@@ -145,14 +145,14 @@ void main() {
 
       test('should return null when currentBusinessId does not match any business', () {
         // Arrange
-        final businessUser = AuthFixtures.createTestBusinessUser(
+        final BusinessUserEntity businessUser = AuthFixtures.createTestBusinessUser(
           businessId: 'business1',
         );
-        final user = UserEntity(
+        final UserEntity user = UserEntity(
           userId: 'user123',
           email: 'test@example.com',
           name: 'Test User',
-          businessUsers: [businessUser],
+          businessUsers: <BusinessUserEntity>[businessUser],
           currentBusinessId: 'nonexistent',
         );
 
@@ -164,10 +164,10 @@ void main() {
     group('copyWith', () {
       test('should create a new instance with updated values', () {
         // Arrange
-        final original = AuthFixtures.createTestUser();
+        final UserEntity original = AuthFixtures.createTestUser();
         
         // Act
-        final updated = original.copyWith(
+        final UserEntity updated = original.copyWith(
           email: 'newemail@example.com',
           name: 'Updated Name',
           isEmailVerified: false,
@@ -184,10 +184,10 @@ void main() {
 
       test('should keep original values when no parameters are provided', () {
         // Arrange
-        final original = AuthFixtures.createTestUser();
+        final UserEntity original = AuthFixtures.createTestUser();
         
         // Act
-        final copy = original.copyWith();
+        final UserEntity copy = original.copyWith();
 
         // Assert
         expect(copy.userId, equals(original.userId));
@@ -200,8 +200,8 @@ void main() {
     group('Equatable', () {
       test('should be equal when all properties are the same', () {
         // Arrange
-        final user1 = AuthFixtures.createTestUser();
-        final user2 = AuthFixtures.createTestUser();
+        final UserEntity user1 = AuthFixtures.createTestUser();
+        final UserEntity user2 = AuthFixtures.createTestUser();
 
         // Act & Assert
         expect(user1, equals(user2));
@@ -209,8 +209,8 @@ void main() {
 
       test('should not be equal when properties differ', () {
         // Arrange
-        final user1 = AuthFixtures.createTestUser(email: 'user1@example.com');
-        final user2 = AuthFixtures.createTestUser(email: 'user2@example.com');
+        final UserEntity user1 = AuthFixtures.createTestUser(email: 'user1@example.com');
+        final UserEntity user2 = AuthFixtures.createTestUser(email: 'user2@example.com');
 
         // Act & Assert
         expect(user1, isNot(equals(user2)));
@@ -221,7 +221,7 @@ void main() {
   group('BusinessUserEntity', () {
     test('should create a BusinessUserEntity with required fields', () {
       // Arrange & Act
-      const businessUser = BusinessUserEntity(
+      const BusinessUserEntity businessUser = BusinessUserEntity(
         businessUserId: 'bu123',
         businessId: 'business123',
         userId: 'user123',
@@ -241,19 +241,19 @@ void main() {
 
     test('should create a BusinessUserEntity with all fields', () {
       // Arrange
-      final startDate = DateTime(2023, 1, 1);
-      final endDate = DateTime(2024, 1, 1);
+      final DateTime startDate = DateTime(2023, 1, 1);
+      final DateTime endDate = DateTime(2024, 1, 1);
       
       // Act
-      final businessUser = BusinessUserEntity(
+      final BusinessUserEntity businessUser = BusinessUserEntity(
         businessUserId: 'bu123',
         businessId: 'business123',
         userId: 'user123',
         roleId: 'role123',
         roleName: 'Manager',
         businessName: 'Test Business',
-        assignedBranches: ['branch1', 'branch2'],
-        customPermissions: ['permission1', 'permission2'],
+        assignedBranches: <String>['branch1', 'branch2'],
+        customPermissions: <String>['permission1', 'permission2'],
         employmentStartDate: startDate,
         employmentEndDate: endDate,
         isPrimaryBusiness: true,
@@ -263,8 +263,8 @@ void main() {
 
       // Assert
       expect(businessUser.businessName, equals('Test Business'));
-      expect(businessUser.assignedBranches, equals(['branch1', 'branch2']));
-      expect(businessUser.customPermissions, equals(['permission1', 'permission2']));
+      expect(businessUser.assignedBranches, equals(<String>['branch1', 'branch2']));
+      expect(businessUser.customPermissions, equals(<String>['permission1', 'permission2']));
       expect(businessUser.employmentStartDate, equals(startDate));
       expect(businessUser.employmentEndDate, equals(endDate));
       expect(businessUser.isPrimaryBusiness, isTrue);
@@ -275,7 +275,7 @@ void main() {
     group('isActive', () {
       test('should return true when status is active', () {
         // Arrange
-        final businessUser = AuthFixtures.createTestBusinessUser(
+        final BusinessUserEntity businessUser = AuthFixtures.createTestBusinessUser(
           status: StatusType.active,
         );
 
@@ -285,7 +285,7 @@ void main() {
 
       test('should return false when status is not active', () {
         // Arrange
-        final businessUser = AuthFixtures.createTestBusinessUser(
+        final BusinessUserEntity businessUser = AuthFixtures.createTestBusinessUser(
           status: StatusType.blocked,
         );
 
@@ -297,13 +297,13 @@ void main() {
     group('hasFullAccess', () {
       test('should return true when assignedBranches is empty', () {
         // Arrange
-        const businessUser = BusinessUserEntity(
+        const BusinessUserEntity businessUser = BusinessUserEntity(
           businessUserId: 'bu123',
           businessId: 'business123',
           userId: 'user123',
           roleId: 'role123',
           roleName: 'Manager',
-          assignedBranches: [],
+          assignedBranches: <String>[],
         );
 
         // Act & Assert
@@ -312,13 +312,13 @@ void main() {
 
       test('should return false when assignedBranches is not empty', () {
         // Arrange
-        const businessUser = BusinessUserEntity(
+        const BusinessUserEntity businessUser = BusinessUserEntity(
           businessUserId: 'bu123',
           businessId: 'business123',
           userId: 'user123',
           roleId: 'role123',
           roleName: 'Manager',
-          assignedBranches: ['branch1'],
+          assignedBranches: <String>['branch1'],
         );
 
         // Act & Assert
@@ -329,8 +329,8 @@ void main() {
     group('Equatable', () {
       test('should be equal when all properties are the same', () {
         // Arrange
-        final businessUser1 = AuthFixtures.createTestBusinessUser();
-        final businessUser2 = AuthFixtures.createTestBusinessUser();
+        final BusinessUserEntity businessUser1 = AuthFixtures.createTestBusinessUser();
+        final BusinessUserEntity businessUser2 = AuthFixtures.createTestBusinessUser();
 
         // Act & Assert
         expect(businessUser1, equals(businessUser2));
@@ -338,10 +338,10 @@ void main() {
 
       test('should not be equal when properties differ', () {
         // Arrange
-        final businessUser1 = AuthFixtures.createTestBusinessUser(
+        final BusinessUserEntity businessUser1 = AuthFixtures.createTestBusinessUser(
           businessUserId: 'bu1',
         );
-        final businessUser2 = AuthFixtures.createTestBusinessUser(
+        final BusinessUserEntity businessUser2 = AuthFixtures.createTestBusinessUser(
           businessUserId: 'bu2',
         );
 

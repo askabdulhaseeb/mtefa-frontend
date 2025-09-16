@@ -7,6 +7,7 @@ import 'configs/providers/my_providers.dart';
 import 'core/config/api_config.dart';
 import 'core/database/database_initializer.dart';
 import 'core/localization/app_localization.dart';
+import 'core/theme/app_theme.dart';
 import 'injection_container.dart' as di;
 import 'presentation/screens/auth/login/login_screen.dart';
 import 'presentation/screens/dashboard/dashboard_screen.dart';
@@ -59,10 +60,9 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.light,
       initialRoute: DashboardScreen.routeName,
       routes: <String, WidgetBuilder>{
         LoginScreen.routeName: (BuildContext context) => const LoginScreen(),

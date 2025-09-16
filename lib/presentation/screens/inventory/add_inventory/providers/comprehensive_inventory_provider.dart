@@ -50,15 +50,15 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   String? _selectedAcquireType;
   String? _selectedPurchaseType;
   String? _selectedManufacturing;
-  List<String> _selectedSizes = [];
-  List<String> _selectedColors = [];
+  List<String> _selectedSizes = <String>[];
+  List<String> _selectedColors = <String>[];
   String? _selectedDefaultSize;
   String? _selectedDefaultColor;
   String? _selectedLifeType;
   DateTime? _selectedDate;
 
   // DROPDOWN OPTIONS
-  final List<String> _lineItems = [
+  final List<String> _lineItems = <String>[
     'Ladies Shirts',
     'Pharmacy',
     'Electronics',
@@ -66,7 +66,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     'Sports Equipment',
   ];
 
-  final List<String> _suppliers = [
+  final List<String> _suppliers = <String>[
     'Supplier A',
     'Supplier B', 
     'Supplier C',
@@ -74,7 +74,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     'International Supplier',
   ];
 
-  final List<String> _categories = [
+  final List<String> _categories = <String>[
     'Clothing',
     'Medicine',
     'Electronics',
@@ -82,7 +82,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     'Sports',
   ];
 
-  final List<String> _subCategories = [
+  final List<String> _subCategories = <String>[
     'Shirts',
     'Tablets',
     'Mobile Phones',
@@ -90,7 +90,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     'Exercise Equipment',
   ];
 
-  final List<String> _productGroups = [
+  final List<String> _productGroups = <String>[
     'Premium',
     'Standard',
     'Budget',
@@ -98,7 +98,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     'Economy',
   ];
 
-  final List<String> _ageGroups = [
+  final List<String> _ageGroups = <String>[
     'Infant (0-2)',
     'Toddler (3-5)',
     'Child (6-12)',
@@ -107,7 +107,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     'Senior (60+)',
   ];
 
-  final List<String> _packagingTypes = [
+  final List<String> _packagingTypes = <String>[
     'Box',
     'Bottle',
     'Bag',
@@ -116,13 +116,13 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     'Container',
   ];
 
-  final List<String> _productGenders = [
+  final List<String> _productGenders = <String>[
     'Male',
     'Female',
     'Unisex',
   ];
 
-  final List<String> _currencies = [
+  final List<String> _currencies = <String>[
     'PKR',
     'USD',
     'EUR',
@@ -130,7 +130,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     'AED',
   ];
 
-  final List<String> _purchaseConvUnits = [
+  final List<String> _purchaseConvUnits = <String>[
     'Pack',
     'Bottle',
     'Box',
@@ -138,33 +138,33 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     'Dozen',
   ];
 
-  final List<String> _acquireTypes = [
+  final List<String> _acquireTypes = <String>[
     'Purchased',
     'Local',
     'Outsourced',
   ];
 
-  final List<String> _purchaseTypes = [
+  final List<String> _purchaseTypes = <String>[
     'Local',
     'Import',
   ];
 
-  final List<String> _manufacturingTypes = [
+  final List<String> _manufacturingTypes = <String>[
     'Manufactured',
     'Outsourced',
   ];
 
-  final List<String> _sizes = [
+  final List<String> _sizes = <String>[
     'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL',
     '32', '34', '36', '38', '40', '42',
   ];
 
-  final List<String> _colors = [
+  final List<String> _colors = <String>[
     'Red', 'Blue', 'Green', 'Yellow', 'Black', 'White',
     'Navy', 'Grey', 'Brown', 'Pink', 'Purple', 'Orange',
   ];
 
-  final List<String> _lifeTypes = [
+  final List<String> _lifeTypes = <String>[
     'Consumable',
     'Durable',
     'Perishable',
@@ -239,7 +239,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future<void>.delayed(const Duration(milliseconds: 500));
       
       // Set default currency
       _selectedCurrency = 'PKR';
@@ -526,7 +526,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
     try {
       // TODO: Save inventory to repository
-      await Future.delayed(const Duration(seconds: 2));
+      await Future<void>.delayed(const Duration(seconds: 2));
       
       debugPrint('Inventory saved successfully');
       clearForm();
@@ -572,8 +572,8 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     _selectedAcquireType = null;
     _selectedPurchaseType = null;
     _selectedManufacturing = null;
-    _selectedSizes = [];
-    _selectedColors = [];
+    _selectedSizes = <String>[];
+    _selectedColors = <String>[];
     _selectedDefaultSize = null;
     _selectedDefaultColor = null;
     _selectedLifeType = null;

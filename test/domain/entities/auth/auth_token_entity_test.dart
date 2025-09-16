@@ -6,7 +6,7 @@ void main() {
   group('AuthTokenEntity', () {
     test('should create an AuthTokenEntity with required fields', () {
       // Arrange & Act
-      const token = AuthTokenEntity(
+      const AuthTokenEntity token = AuthTokenEntity(
         accessToken: 'access123',
         refreshToken: 'refresh123',
         expiresIn: 3600,
@@ -21,7 +21,7 @@ void main() {
 
     test('should create an AuthTokenEntity with custom token type', () {
       // Arrange & Act
-      const token = AuthTokenEntity(
+      const AuthTokenEntity token = AuthTokenEntity(
         accessToken: 'access123',
         refreshToken: 'refresh123',
         expiresIn: 7200,
@@ -35,20 +35,20 @@ void main() {
     group('expiresAt', () {
       test('should calculate expiration time correctly', () {
         // Arrange
-        final beforeCreation = DateTime.now();
-        const token = AuthTokenEntity(
+        final DateTime beforeCreation = DateTime.now();
+        const AuthTokenEntity token = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh123',
           expiresIn: 3600, // 1 hour
         );
-        final afterCreation = DateTime.now();
+        final DateTime afterCreation = DateTime.now();
 
         // Act
-        final expiresAt = token.expiresAt;
+        final DateTime expiresAt = token.expiresAt;
 
         // Assert
-        final expectedMinTime = beforeCreation.add(const Duration(seconds: 3600));
-        final expectedMaxTime = afterCreation.add(const Duration(seconds: 3600));
+        final DateTime expectedMinTime = beforeCreation.add(const Duration(seconds: 3600));
+        final DateTime expectedMaxTime = afterCreation.add(const Duration(seconds: 3600));
         
         expect(expiresAt.isAfter(expectedMinTime.subtract(const Duration(seconds: 1))), isTrue);
         expect(expiresAt.isBefore(expectedMaxTime.add(const Duration(seconds: 1))), isTrue);
@@ -58,7 +58,7 @@ void main() {
     group('isExpired', () {
       test('should return false for a non-expired token', () {
         // Arrange
-        const token = AuthTokenEntity(
+        const AuthTokenEntity token = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh123',
           expiresIn: 3600, // 1 hour from now
@@ -70,7 +70,7 @@ void main() {
 
       test('should return true for an expired token', () {
         // Arrange
-        const token = AuthTokenEntity(
+        const AuthTokenEntity token = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh123',
           expiresIn: 0, // Already expired
@@ -82,7 +82,7 @@ void main() {
 
       test('should return true for a token with negative expiration', () {
         // Arrange
-        const token = AuthTokenEntity(
+        const AuthTokenEntity token = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh123',
           expiresIn: -3600, // Expired 1 hour ago
@@ -96,13 +96,13 @@ void main() {
     group('Equatable', () {
       test('should be equal when all properties are the same', () {
         // Arrange
-        const token1 = AuthTokenEntity(
+        const AuthTokenEntity token1 = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh123',
           expiresIn: 3600,
           tokenType: 'Bearer',
         );
-        const token2 = AuthTokenEntity(
+        const AuthTokenEntity token2 = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh123',
           expiresIn: 3600,
@@ -115,12 +115,12 @@ void main() {
 
       test('should not be equal when accessToken differs', () {
         // Arrange
-        const token1 = AuthTokenEntity(
+        const AuthTokenEntity token1 = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh123',
           expiresIn: 3600,
         );
-        const token2 = AuthTokenEntity(
+        const AuthTokenEntity token2 = AuthTokenEntity(
           accessToken: 'access456',
           refreshToken: 'refresh123',
           expiresIn: 3600,
@@ -132,12 +132,12 @@ void main() {
 
       test('should not be equal when refreshToken differs', () {
         // Arrange
-        const token1 = AuthTokenEntity(
+        const AuthTokenEntity token1 = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh123',
           expiresIn: 3600,
         );
-        const token2 = AuthTokenEntity(
+        const AuthTokenEntity token2 = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh456',
           expiresIn: 3600,
@@ -149,12 +149,12 @@ void main() {
 
       test('should not be equal when expiresIn differs', () {
         // Arrange
-        const token1 = AuthTokenEntity(
+        const AuthTokenEntity token1 = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh123',
           expiresIn: 3600,
         );
-        const token2 = AuthTokenEntity(
+        const AuthTokenEntity token2 = AuthTokenEntity(
           accessToken: 'access123',
           refreshToken: 'refresh123',
           expiresIn: 7200,
@@ -167,7 +167,7 @@ void main() {
 
     test('should create token from fixture', () {
       // Arrange & Act
-      final token = AuthFixtures.createTestAuthToken();
+      final AuthTokenEntity token = AuthFixtures.createTestAuthToken();
 
       // Assert
       expect(token.accessToken, equals(AuthFixtures.testAccessToken));
@@ -179,11 +179,11 @@ void main() {
   group('LoginResponseEntity', () {
     test('should create a LoginResponseEntity with required fields', () {
       // Arrange
-      final user = AuthFixtures.createTestUser();
-      final token = AuthFixtures.createTestAuthToken();
+      final UserEntity user = AuthFixtures.createTestUser();
+      final AuthTokenEntity token = AuthFixtures.createTestAuthToken();
       
       // Act
-      final loginResponse = LoginResponseEntity(
+      final LoginResponseEntity loginResponse = LoginResponseEntity(
         user: user,
         token: token,
       );
@@ -197,11 +197,11 @@ void main() {
 
     test('should create a LoginResponseEntity with two-factor authentication', () {
       // Arrange
-      final user = AuthFixtures.createTestUser();
-      final token = AuthFixtures.createTestAuthToken();
+      final UserEntity user = AuthFixtures.createTestUser();
+      final AuthTokenEntity token = AuthFixtures.createTestAuthToken();
       
       // Act
-      final loginResponse = LoginResponseEntity(
+      final LoginResponseEntity loginResponse = LoginResponseEntity(
         user: user,
         token: token,
         requiresTwoFactor: true,
@@ -215,13 +215,13 @@ void main() {
 
     test('should handle different two-factor methods', () {
       // Arrange
-      final user = AuthFixtures.createTestUser();
-      final token = AuthFixtures.createTestAuthToken();
-      final methods = ['sms', 'email', 'authenticator'];
+      final UserEntity user = AuthFixtures.createTestUser();
+      final AuthTokenEntity token = AuthFixtures.createTestAuthToken();
+      final List<String> methods = <String>['sms', 'email', 'authenticator'];
       
       // Act & Assert
-      for (final method in methods) {
-        final loginResponse = LoginResponseEntity(
+      for (final String method in methods) {
+        final LoginResponseEntity loginResponse = LoginResponseEntity(
           user: user,
           token: token,
           requiresTwoFactor: true,
@@ -234,16 +234,16 @@ void main() {
     group('Equatable', () {
       test('should be equal when all properties are the same', () {
         // Arrange
-        final user = AuthFixtures.createTestUser();
-        final token = AuthFixtures.createTestAuthToken();
+        final UserEntity user = AuthFixtures.createTestUser();
+        final AuthTokenEntity token = AuthFixtures.createTestAuthToken();
         
-        final loginResponse1 = LoginResponseEntity(
+        final LoginResponseEntity loginResponse1 = LoginResponseEntity(
           user: user,
           token: token,
           requiresTwoFactor: true,
           twoFactorMethod: 'sms',
         );
-        final loginResponse2 = LoginResponseEntity(
+        final LoginResponseEntity loginResponse2 = LoginResponseEntity(
           user: user,
           token: token,
           requiresTwoFactor: true,
@@ -256,12 +256,12 @@ void main() {
 
       test('should not be equal when user differs', () {
         // Arrange
-        final user1 = AuthFixtures.createTestUser(userId: 'user1');
-        final user2 = AuthFixtures.createTestUser(userId: 'user2');
-        final token = AuthFixtures.createTestAuthToken();
+        final UserEntity user1 = AuthFixtures.createTestUser(userId: 'user1');
+        final UserEntity user2 = AuthFixtures.createTestUser(userId: 'user2');
+        final AuthTokenEntity token = AuthFixtures.createTestAuthToken();
         
-        final loginResponse1 = LoginResponseEntity(user: user1, token: token);
-        final loginResponse2 = LoginResponseEntity(user: user2, token: token);
+        final LoginResponseEntity loginResponse1 = LoginResponseEntity(user: user1, token: token);
+        final LoginResponseEntity loginResponse2 = LoginResponseEntity(user: user2, token: token);
 
         // Act & Assert
         expect(loginResponse1, isNot(equals(loginResponse2)));
@@ -269,12 +269,12 @@ void main() {
 
       test('should not be equal when token differs', () {
         // Arrange
-        final user = AuthFixtures.createTestUser();
-        final token1 = AuthFixtures.createTestAuthToken(accessToken: 'token1');
-        final token2 = AuthFixtures.createTestAuthToken(accessToken: 'token2');
+        final UserEntity user = AuthFixtures.createTestUser();
+        final AuthTokenEntity token1 = AuthFixtures.createTestAuthToken(accessToken: 'token1');
+        final AuthTokenEntity token2 = AuthFixtures.createTestAuthToken(accessToken: 'token2');
         
-        final loginResponse1 = LoginResponseEntity(user: user, token: token1);
-        final loginResponse2 = LoginResponseEntity(user: user, token: token2);
+        final LoginResponseEntity loginResponse1 = LoginResponseEntity(user: user, token: token1);
+        final LoginResponseEntity loginResponse2 = LoginResponseEntity(user: user, token: token2);
 
         // Act & Assert
         expect(loginResponse1, isNot(equals(loginResponse2)));
@@ -282,15 +282,15 @@ void main() {
 
       test('should not be equal when requiresTwoFactor differs', () {
         // Arrange
-        final user = AuthFixtures.createTestUser();
-        final token = AuthFixtures.createTestAuthToken();
+        final UserEntity user = AuthFixtures.createTestUser();
+        final AuthTokenEntity token = AuthFixtures.createTestAuthToken();
         
-        final loginResponse1 = LoginResponseEntity(
+        final LoginResponseEntity loginResponse1 = LoginResponseEntity(
           user: user,
           token: token,
           requiresTwoFactor: true,
         );
-        final loginResponse2 = LoginResponseEntity(
+        final LoginResponseEntity loginResponse2 = LoginResponseEntity(
           user: user,
           token: token,
           requiresTwoFactor: false,
@@ -302,16 +302,16 @@ void main() {
 
       test('should not be equal when twoFactorMethod differs', () {
         // Arrange
-        final user = AuthFixtures.createTestUser();
-        final token = AuthFixtures.createTestAuthToken();
+        final UserEntity user = AuthFixtures.createTestUser();
+        final AuthTokenEntity token = AuthFixtures.createTestAuthToken();
         
-        final loginResponse1 = LoginResponseEntity(
+        final LoginResponseEntity loginResponse1 = LoginResponseEntity(
           user: user,
           token: token,
           requiresTwoFactor: true,
           twoFactorMethod: 'sms',
         );
-        final loginResponse2 = LoginResponseEntity(
+        final LoginResponseEntity loginResponse2 = LoginResponseEntity(
           user: user,
           token: token,
           requiresTwoFactor: true,
@@ -325,7 +325,7 @@ void main() {
 
     test('should create login response from fixture', () {
       // Arrange & Act
-      final loginResponse = AuthFixtures.createTestLoginResponse();
+      final LoginResponseEntity loginResponse = AuthFixtures.createTestLoginResponse();
 
       // Assert
       expect(loginResponse.user.userId, equals(AuthFixtures.testUserId));
@@ -335,7 +335,7 @@ void main() {
 
     test('should create login response with two-factor from fixture', () {
       // Arrange & Act
-      final loginResponse = AuthFixtures.createTestLoginResponse(
+      final LoginResponseEntity loginResponse = AuthFixtures.createTestLoginResponse(
         requiresTwoFactor: true,
       );
 

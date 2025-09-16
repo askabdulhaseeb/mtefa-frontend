@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mtefa/presentation/screens/auth/login/login_screen.dart';
 import 'package:mtefa/presentation/screens/auth/providers/login_provider.dart';
-import 'package:mtefa/domain/usecases/auth/login_usecase.dart';
 import 'package:provider/provider.dart';
 import 'presentation/screens/auth/providers/login_provider_test.mocks.dart';
 
@@ -153,12 +152,12 @@ void main() {
       await tester.pumpAndSettle();
 
       // Find and interact with email field
-      final emailField = find.byType(TextFormField).first;
+      final Finder emailField = find.byType(TextFormField).first;
       await tester.enterText(emailField, 'test@example.com');
       await tester.pump();
 
       // Find and interact with password field
-      final passwordField = find.byType(TextFormField).at(1);
+      final Finder passwordField = find.byType(TextFormField).at(1);
       await tester.enterText(passwordField, 'password123');
       await tester.pump();
 

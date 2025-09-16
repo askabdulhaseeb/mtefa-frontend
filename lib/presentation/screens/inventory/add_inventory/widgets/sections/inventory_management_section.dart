@@ -13,19 +13,19 @@ class InventoryManagementSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ComprehensiveInventoryProvider>(
-      builder: (context, provider, child) {
+      builder: (BuildContext context, ComprehensiveInventoryProvider provider, Widget? child) {
         return AddInventorySectionBgWidget(
           icon: Icons.inventory_2,
           title: 'Inventory Management',
           child: Column(
-            children: [
+            children: <Widget>[
               // Minimum Level - Reorder point
               CustomTextFormField(
                 controller: provider.minimumLevelController,
                 labelText: 'Minimum Level',
                 hint: 'Enter minimum stock level (reorder point)',
                 keyboardType: TextInputType.number,
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isNotEmpty == true) {
                     final int? minLevel = int.tryParse(value!);
                     if (minLevel == null || minLevel < 0) {
@@ -44,7 +44,7 @@ class InventoryManagementSection extends StatelessWidget {
                 labelText: 'Optimal Level',
                 hint: 'Enter optimal stock level (target)',
                 keyboardType: TextInputType.number,
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isNotEmpty == true) {
                     final int? optimalLevel = int.tryParse(value!);
                     if (optimalLevel == null || optimalLevel < 0) {
@@ -71,7 +71,7 @@ class InventoryManagementSection extends StatelessWidget {
                 labelText: 'Maximum Level',
                 hint: 'Enter maximum stock level (limit)',
                 keyboardType: TextInputType.number,
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isNotEmpty == true) {
                     final int? maxLevel = int.tryParse(value!);
                     if (maxLevel == null || maxLevel < 0) {
@@ -99,7 +99,7 @@ class InventoryManagementSection extends StatelessWidget {
               ),
 
               // Show stock level visualization if values are entered
-              if (_shouldShowVisualization(provider)) ...[
+              if (_shouldShowVisualization(provider)) ...<Widget>[
                 const SizedBox(height: DoubleConstants.spacingM),
                 _buildStockLevelVisualization(provider),
               ],
@@ -130,7 +130,7 @@ class InventoryManagementSection extends StatelessWidget {
       padding: const EdgeInsets.all(DoubleConstants.spacingM),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
+          colors: <Color>[
             Colors.blue.withValues(alpha: 0.1),
             Colors.green.withValues(alpha: 0.1),
           ],
@@ -145,7 +145,7 @@ class InventoryManagementSection extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           const Text(
             'Stock Level Visualization',
             style: TextStyle(
@@ -163,7 +163,7 @@ class InventoryManagementSection extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: Stack(
-              children: [
+              children: <Widget>[
                 // Background bar
                 Container(
                   width: double.infinity,
@@ -206,7 +206,7 @@ class InventoryManagementSection extends StatelessWidget {
           // Legend
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
+            children: <Widget>[
               if (minLevel > 0)
                 _buildLevelIndicator(
                   'Min: $minLevel',
@@ -235,7 +235,7 @@ class InventoryManagementSection extends StatelessWidget {
   /// Build level indicator for legend
   Widget _buildLevelIndicator(String title, Color color, String subtitle) {
     return Column(
-      children: [
+      children: <Widget>[
         Container(
           width: 12,
           height: 12,

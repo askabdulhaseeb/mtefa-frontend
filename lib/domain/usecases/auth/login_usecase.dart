@@ -40,7 +40,7 @@ class LoginUseCase extends UseCase<LoginResponseEntity, LoginParams> {
     }
 
     // Validate email format
-    final emailRegex = RegExp(
+    final RegExp emailRegex = RegExp(
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
     );
     if (!emailRegex.hasMatch(params.email)) {
@@ -67,7 +67,7 @@ class LoginUseCase extends UseCase<LoginResponseEntity, LoginParams> {
 
     try {
       // Perform login
-      final result = await _authRepository.login(
+      final DataState<LoginResponseEntity> result = await _authRepository.login(
         email: params.email.trim().toLowerCase(),
         password: params.password.trim(),
       );
@@ -85,7 +85,7 @@ class LoginUseCase extends UseCase<LoginResponseEntity, LoginParams> {
       return DataFailed(
         error: 'An unexpected error occurred during login',
         errorCode: 'LOGIN_ERROR',
-        errorDetails: {'exception': e.toString()},
+        errorDetails: <String, dynamic>{'exception': e.toString()},
       );
     }
   }

@@ -33,7 +33,7 @@ class AuthRepositoryImpl implements AuthRepository {
       // For now, return mock data for UI development
 
       // Simulate network delay
-      await Future.delayed(const Duration(seconds: 1));
+      await Future<void>.delayed(const Duration(seconds: 1));
 
       // Create mock user
       final UserEntity mockUser = UserEntity(
@@ -81,9 +81,9 @@ class AuthRepositoryImpl implements AuthRepository {
         requiresTwoFactor: false,
       );
 
-      return DataSuccess(loginResponse);
+      return DataSuccess<LoginResponseEntity>(loginResponse);
     } catch (e) {
-      return DataFailed(
+      return DataFailed<LoginResponseEntity>(
         error: 'Login failed: ${e.toString()}',
         errorCode: 'LOGIN_FAILED',
       );
@@ -97,12 +97,12 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     try {
       // TODO: Implement two-factor verification
-      return const DataFailed(
+      return const DataFailed<LoginResponseEntity>(
         error: 'Two-factor authentication not implemented',
         errorCode: 'NOT_IMPLEMENTED',
       );
     } catch (e) {
-      return DataFailed(
+      return DataFailed<LoginResponseEntity>(
         error: 'Two-factor verification failed: ${e.toString()}',
         errorCode: 'TWO_FACTOR_FAILED',
       );
@@ -117,9 +117,9 @@ class AuthRepositoryImpl implements AuthRepository {
       await _clearUserData();
       await _clearAuthToken();
 
-      return const DataSuccess(null);
+      return const DataSuccess<void>(null);
     } catch (e) {
-      return DataFailed(
+      return DataFailed<void>(
         error: 'Logout failed: ${e.toString()}',
         errorCode: 'LOGOUT_FAILED',
       );
@@ -131,14 +131,14 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final UserEntity? userData = await _getUserData();
       if (userData == null) {
-        return const DataFailed(
+        return const DataFailed<UserEntity>(
           error: 'No user data found',
           errorCode: 'NO_USER',
         );
       }
       return DataSuccess(userData);
     } catch (e) {
-      return DataFailed(
+      return DataFailed<UserEntity>(
         error: 'Failed to get current user: ${e.toString()}',
         errorCode: 'GET_USER_FAILED',
       );
@@ -151,12 +151,12 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     try {
       // TODO: Implement token refresh
-      return const DataFailed(
+      return const DataFailed<AuthTokenEntity>(
         error: 'Token refresh not implemented',
         errorCode: 'NOT_IMPLEMENTED',
       );
     } catch (e) {
-      return DataFailed(
+      return DataFailed<AuthTokenEntity>(
         error: 'Token refresh failed: ${e.toString()}',
         errorCode: 'REFRESH_FAILED',
       );
@@ -210,12 +210,12 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     try {
       // TODO: Implement password change
-      return const DataFailed(
+      return const DataFailed<void>(
         error: 'Password change not implemented',
         errorCode: 'NOT_IMPLEMENTED',
       );
     } catch (e) {
-      return DataFailed(
+      return DataFailed<void>(
         error: 'Password change failed: ${e.toString()}',
         errorCode: 'CHANGE_PASSWORD_FAILED',
       );
@@ -226,12 +226,12 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<DataState<void>> requestPasswordReset({required String email}) async {
     try {
       // TODO: Implement password reset request
-      return const DataFailed(
+      return const DataFailed<void>(
         error: 'Password reset not implemented',
         errorCode: 'NOT_IMPLEMENTED',
       );
     } catch (e) {
-      return DataFailed(
+      return DataFailed<void>(
         error: 'Password reset request failed: ${e.toString()}',
         errorCode: 'RESET_REQUEST_FAILED',
       );
@@ -245,12 +245,12 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     try {
       // TODO: Implement password reset
-      return const DataFailed(
+      return const DataFailed<void>(
         error: 'Password reset not implemented',
         errorCode: 'NOT_IMPLEMENTED',
       );
     } catch (e) {
-      return DataFailed(
+      return DataFailed<void>(
         error: 'Password reset failed: ${e.toString()}',
         errorCode: 'RESET_FAILED',
       );
@@ -268,12 +268,12 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     try {
       // TODO: Implement profile update
-      return const DataFailed(
+      return const DataFailed<UserEntity>(
         error: 'Profile update not implemented',
         errorCode: 'NOT_IMPLEMENTED',
       );
     } catch (e) {
-      return DataFailed(
+      return DataFailed<UserEntity>(
         error: 'Profile update failed: ${e.toString()}',
         errorCode: 'UPDATE_PROFILE_FAILED',
       );
@@ -287,7 +287,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final UserEntity? userData = await _getUserData();
       if (userData == null) {
-        return const DataFailed(
+        return const DataFailed<UserEntity>(
           error: 'No user data found',
           errorCode: 'NO_USER',
         );
@@ -300,7 +300,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
       return DataSuccess(updatedUser);
     } catch (e) {
-      return DataFailed(
+      return DataFailed<UserEntity>(
         error: 'Business switch failed: ${e.toString()}',
         errorCode: 'SWITCH_BUSINESS_FAILED',
       );
@@ -312,7 +312,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final UserEntity? userData = await _getUserData();
       if (userData == null) {
-        return const DataFailed(
+        return const DataFailed<UserEntity>(
           error: 'No user data found',
           errorCode: 'NO_USER',
         );
@@ -325,7 +325,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
       return DataSuccess(updatedUser);
     } catch (e) {
-      return DataFailed(
+      return DataFailed<UserEntity>(
         error: 'Branch switch failed: ${e.toString()}',
         errorCode: 'SWITCH_BRANCH_FAILED',
       );
@@ -338,12 +338,12 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     try {
       // TODO: Implement two-factor enable
-      return const DataFailed(
+      return const DataFailed<Map<String, dynamic>>(
         error: 'Two-factor enable not implemented',
         errorCode: 'NOT_IMPLEMENTED',
       );
     } catch (e) {
-      return DataFailed(
+      return DataFailed<Map<String, dynamic>>(
         error: 'Two-factor enable failed: ${e.toString()}',
         errorCode: 'ENABLE_2FA_FAILED',
       );
@@ -354,12 +354,12 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<DataState<void>> disableTwoFactor({required String code}) async {
     try {
       // TODO: Implement two-factor disable
-      return const DataFailed(
+      return const DataFailed<void>(
         error: 'Two-factor disable not implemented',
         errorCode: 'NOT_IMPLEMENTED',
       );
     } catch (e) {
-      return DataFailed(
+      return DataFailed<void>(
         error: 'Two-factor disable failed: ${e.toString()}',
         errorCode: 'DISABLE_2FA_FAILED',
       );
@@ -370,12 +370,12 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<DataState<void>> verifyEmail({required String token}) async {
     try {
       // TODO: Implement email verification
-      return const DataFailed(
+      return const DataFailed<void>(
         error: 'Email verification not implemented',
         errorCode: 'NOT_IMPLEMENTED',
       );
     } catch (e) {
-      return DataFailed(
+      return DataFailed<void>(
         error: 'Email verification failed: ${e.toString()}',
         errorCode: 'VERIFY_EMAIL_FAILED',
       );
@@ -386,12 +386,12 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<DataState<void>> resendVerificationEmail() async {
     try {
       // TODO: Implement resend verification
-      return const DataFailed(
+      return const DataFailed<void>(
         error: 'Resend verification not implemented',
         errorCode: 'NOT_IMPLEMENTED',
       );
     } catch (e) {
-      return DataFailed(
+      return DataFailed<void>(
         error: 'Resend verification failed: ${e.toString()}',
         errorCode: 'RESEND_VERIFICATION_FAILED',
       );
@@ -403,9 +403,9 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       // TODO: Implement FCM token update
       await secureStorage.write(key: 'fcm_token', value: fcmToken);
-      return const DataSuccess(null);
+      return const DataSuccess<void>(null);
     } catch (e) {
-      return DataFailed(
+      return DataFailed<void>(
         error: 'FCM token update failed: ${e.toString()}',
         errorCode: 'UPDATE_FCM_FAILED',
       );

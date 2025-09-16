@@ -14,14 +14,14 @@ class BasicDetailsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ComprehensiveInventoryProvider>(
-      builder: (context, provider, child) {
+      builder: (BuildContext context, ComprehensiveInventoryProvider provider, Widget? child) {
         return AddInventorySectionBgWidget(
           icon: Icons.info_outline,
           title: 'Basic Details',
           child: Column(
-            children: [
+            children: <Widget>[
               // Category - Product classification (Visibility Depends on Line Item)
-              if (provider.shouldShowCategory) ...[
+              if (provider.shouldShowCategory) ...<Widget>[
                 CustomDropdownWithAdd<String>(
                   title: 'Category',
                   hint: 'Select category',
@@ -41,7 +41,7 @@ class BasicDetailsSection extends StatelessWidget {
               ],
 
               // Sub Category - Product classification (Visibility Depends on Category)
-              if (provider.shouldShowSubCategory) ...[
+              if (provider.shouldShowSubCategory) ...<Widget>[
                 CustomDropdownWithAdd<String>(
                   title: 'Sub Category',
                   hint: 'Select sub category',
@@ -86,7 +86,7 @@ class BasicDetailsSection extends StatelessWidget {
               const SizedBox(height: DoubleConstants.spacingM),
 
               // Age Group - Target demographic (Visibility Depends on Category)
-              if (provider.shouldShowAgeGroup) ...[
+              if (provider.shouldShowAgeGroup) ...<Widget>[
                 CustomDropdownWithAdd<String>(
                   title: 'Age Group',
                   hint: 'Select age group',
@@ -158,7 +158,7 @@ class BasicDetailsSection extends StatelessWidget {
                 labelText: 'Shop Quality',
                 hint: 'Enter shop quality rating',
                 keyboardType: TextInputType.number,
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isNotEmpty == true) {
                     final double? quality = double.tryParse(value!);
                     if (quality == null || quality < 0 || quality > 100) {
@@ -177,7 +177,7 @@ class BasicDetailsSection extends StatelessWidget {
                 labelText: 'Store Quality',
                 hint: 'Enter store quantity',
                 keyboardType: TextInputType.number,
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isNotEmpty == true) {
                     final double? quantity = double.tryParse(value!);
                     if (quantity == null || quantity < 0) {

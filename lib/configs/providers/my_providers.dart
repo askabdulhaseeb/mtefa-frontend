@@ -33,7 +33,7 @@ class MyProviders {
   /// Global providers that are always available
   /// Keep this list minimal for optimal memory usage
   static List<SingleChildWidget> get globalProviders {
-    return [
+    return <SingleChildWidget>[
       // Only add truly global providers here
       // Examples when needed:
       // ProviderFactory.createFromDI<ThemeProvider>(lazy: true),
@@ -48,7 +48,7 @@ class MyProviders {
   /// Get all providers (global + any additional setup)
   /// This is used in main.dart for initial setup
   static List<SingleChildWidget> get providers {
-    return [
+    return <SingleChildWidget>[
       ...globalProviders,
       ...ProviderRegistry.globalProviders,
     ];

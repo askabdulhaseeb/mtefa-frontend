@@ -17,7 +17,7 @@ class SignupButton extends StatelessWidget {
   void _showSignupPopup(BuildContext context) {
     showDialog<void>(
       context: context,
-      builder: (context) => const SignupPopup(),
+      builder: (BuildContext context) => const SignupPopup(),
     );
   }
 

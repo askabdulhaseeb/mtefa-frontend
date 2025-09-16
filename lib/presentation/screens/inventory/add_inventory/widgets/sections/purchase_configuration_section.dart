@@ -14,14 +14,14 @@ class PurchaseConfigurationSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ComprehensiveInventoryProvider>(
-      builder: (context, provider, child) {
+      builder: (BuildContext context, ComprehensiveInventoryProvider provider, Widget? child) {
         return AddInventorySectionBgWidget(
           icon: Icons.shopping_cart,
           title: 'Purchase Configuration',
           child: Column(
-            children: [
+            children: <Widget>[
               // Purchase Conv. Unit - Pack, Bottle, etc. (Visibility Depends on Category)
-              if (provider.shouldShowPurchaseConvUnit) ...[
+              if (provider.shouldShowPurchaseConvUnit) ...<Widget>[
                 CustomDropdownWithAdd<String>(
                   title: 'Purchase Conversion Unit',
                   hint: 'Select purchase unit',
@@ -49,7 +49,7 @@ class PurchaseConfigurationSection extends StatelessWidget {
                 labelText: 'Purchase Conversion Factor',
                 hint: 'Enter units per pack (e.g., 10 tablets/pack)',
                 keyboardType: TextInputType.number,
-                validator: (value) {
+                validator: (String? value) {
                   if (value?.isNotEmpty == true) {
                     final double? factor = double.tryParse(value!);
                     if (factor == null || factor <= 0) {
@@ -63,7 +63,7 @@ class PurchaseConfigurationSection extends StatelessWidget {
               const SizedBox(height: DoubleConstants.spacingM),
 
               // Acquire Type - Purchased/Local/Outsourced (Visibility Depends on Line Item)
-              if (provider.shouldShowAcquireType) ...[
+              if (provider.shouldShowAcquireType) ...<Widget>[
                 CustomDropdownWithAdd<String>(
                   title: 'Acquire Type',
                   hint: 'Select acquire type',
@@ -86,7 +86,7 @@ class PurchaseConfigurationSection extends StatelessWidget {
               ],
 
               // Purchase Type - Local/Import (Visibility Depends on Line Item)
-              if (provider.shouldShowPurchaseType) ...[
+              if (provider.shouldShowPurchaseType) ...<Widget>[
                 CustomDropdownWithAdd<String>(
                   title: 'Purchase Type',
                   hint: 'Select purchase type',
@@ -109,7 +109,7 @@ class PurchaseConfigurationSection extends StatelessWidget {
               ],
 
               // Manufacturing - Manufactured/Outsourced (Visibility Depends on Line Item)
-              if (provider.shouldShowManufacturing) ...[
+              if (provider.shouldShowManufacturing) ...<Widget>[
                 CustomDropdownWithAdd<String>(
                   title: 'Manufacturing',
                   hint: 'Select manufacturing type',
@@ -133,7 +133,7 @@ class PurchaseConfigurationSection extends StatelessWidget {
 
               // Show purchase calculation if conversion factor is provided
               if (provider.purchaseConvFactorController.text.isNotEmpty &&
-                  provider.averageCostController.text.isNotEmpty) ...[
+                  provider.averageCostController.text.isNotEmpty) ...<Widget>[
                 const SizedBox(height: DoubleConstants.spacingS),
                 _buildPurchaseCalculation(provider),
               ],
@@ -154,7 +154,7 @@ class PurchaseConfigurationSection extends StatelessWidget {
       padding: const EdgeInsets.all(DoubleConstants.spacingM),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
+          colors: <Color>[
             Colors.purple.withValues(alpha: 0.1),
             Colors.indigo.withValues(alpha: 0.1),
           ],
@@ -169,9 +169,9 @@ class PurchaseConfigurationSection extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Row(
-            children: [
+            children: <Widget>[
               Icon(
                 Icons.calculate,
                 color: Colors.purple.shade600,
@@ -190,7 +190,7 @@ class PurchaseConfigurationSection extends StatelessWidget {
           const SizedBox(height: DoubleConstants.spacingM),
           
           Row(
-            children: [
+            children: <Widget>[
               Expanded(
                 child: _buildCalculationCard(
                   'Unit Cost',
@@ -217,7 +217,7 @@ class PurchaseConfigurationSection extends StatelessWidget {
           
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: <Widget>[
               Icon(Icons.arrow_downward, color: Colors.grey, size: 20),
             ],
           ),
@@ -250,7 +250,7 @@ class PurchaseConfigurationSection extends StatelessWidget {
         ),
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           Icon(icon, color: color, size: 20),
           const SizedBox(height: 4),
           Text(

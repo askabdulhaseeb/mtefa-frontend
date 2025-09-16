@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mtefa/core/resources/data_state.dart';
-import 'package:mtefa/core/enums/status_type.dart';
 import 'package:mtefa/data/repositories/auth_repository_impl.dart';
 import 'package:mtefa/domain/entities/auth/user_entity.dart';
 import '../../fixtures/auth_fixtures.dart';
@@ -25,8 +24,8 @@ void main() {
     group('login', () {
       test('should return LoginResponseEntity on successful login', () async {
         // Arrange
-        const email = AuthFixtures.validEmail;
-        const password = AuthFixtures.validPassword;
+        const String email = AuthFixtures.validEmail;
+        const String password = AuthFixtures.validPassword;
         
         // Setup mocks for successful login
         when(mockTokenManager.saveTokens(
@@ -41,7 +40,7 @@ void main() {
         )).thenAnswer((_) async => Future.value());
 
         // Act
-        final result = await authRepository.login(
+        final DataState<LoginResponseEntity> result = await authRepository.login(
           email: email,
           password: password,
         );
@@ -64,8 +63,8 @@ void main() {
 
       test('should save user data locally after successful login', () async {
         // Arrange
-        const email = AuthFixtures.validEmail;
-        const password = AuthFixtures.validPassword;
+        const String email = AuthFixtures.validEmail;
+        const String password = AuthFixtures.validPassword;
         
         when(mockTokenManager.saveTokens(
           accessToken: anyNamed('accessToken'),
@@ -97,8 +96,8 @@ void main() {
 
       test('should handle login failure gracefully', () async {
         // Arrange
-        const email = AuthFixtures.validEmail;
-        const password = 'wrong_password';
+        const String email = AuthFixtures.validEmail;
+        const String password = 'wrong_password';
         
         when(mockTokenManager.saveTokens(
           accessToken: anyNamed('accessToken'),
@@ -112,7 +111,7 @@ void main() {
         )).thenAnswer((_) async => Future.value());
 
         // Act
-        final result = await authRepository.login(
+        final DataState<LoginResponseEntity> result = await authRepository.login(
           email: email,
           password: password,
         );
@@ -132,7 +131,7 @@ void main() {
             .thenAnswer((_) async => Future.value());
 
         // Act
-        final result = await authRepository.logout();
+        final DataState<void> result = await authRepository.logout();
 
         // Assert
         expect(result, isA<DataSuccess<void>>());
@@ -148,7 +147,7 @@ void main() {
         when(mockTokenManager.clearTokens()).thenThrow(Exception('Clear failed'));
 
         // Act
-        final result = await authRepository.logout();
+        final DataState<void> result = await authRepository.logout();
 
         // Assert
         expect(result, isA<DataFailed<void>>());
@@ -159,12 +158,12 @@ void main() {
     group('getCurrentUser', () {
       test('should return current user when data exists', () async {
         // Arrange
-        final userJson = AuthFixtures.createTestUserJson();
+        final Map<String, dynamic> userJson = AuthFixtures.createTestUserJson();
         when(mockSecureStorage.read(key: 'current_user'))
-            .thenAnswer((_) async => '${userJson}');
+            .thenAnswer((_) async => '$userJson');
 
         // Act
-        final result = await authRepository.getCurrentUser();
+        final DataState<UserEntity> result = await authRepository.getCurrentUser();
 
         // Assert
         expect(result, isA<DataSuccess<UserEntity>>());
@@ -179,7 +178,7 @@ void main() {
             .thenAnswer((_) async => null);
 
         // Act
-        final result = await authRepository.getCurrentUser();
+        final DataState<UserEntity> result = await authRepository.getCurrentUser();
 
         // Assert
         expect(result, isA<DataFailed<UserEntity>>());
@@ -192,7 +191,7 @@ void main() {
             .thenAnswer((_) async => 'invalid_json');
 
         // Act
-        final result = await authRepository.getCurrentUser();
+        final DataState<UserEntity> result = await authRepository.getCurrentUser();
 
         // Assert
         expect(result, isA<DataFailed<UserEntity>>());
@@ -206,7 +205,7 @@ void main() {
         when(mockTokenManager.isAuthenticated()).thenAnswer((_) async => true);
 
         // Act
-        final result = await authRepository.isAuthenticated();
+        final bool result = await authRepository.isAuthenticated();
 
         // Assert
         expect(result, isTrue);
@@ -217,8 +216,8 @@ void main() {
     group('saveCredentials and getSavedCredentials', () {
       test('should save credentials securely', () async {
         // Arrange
-        const email = AuthFixtures.validEmail;
-        const password = AuthFixtures.validPassword;
+        const String email = AuthFixtures.validEmail;
+        const String password = AuthFixtures.validPassword;
         
         when(mockSecureStorage.write(key: anyNamed('key'), value: anyNamed('value')))
             .thenAnswer((_) async => Future.value());
@@ -241,7 +240,7 @@ void main() {
             .thenAnswer((_) async => AuthFixtures.validPassword);
 
         // Act
-        final credentials = await authRepository.getSavedCredentials();
+        final Map<String, String>? credentials = await authRepository.getSavedCredentials();
 
         // Assert
         expect(credentials, isNotNull);
@@ -254,7 +253,7 @@ void main() {
         when(mockSecureStorage.read(key: 'remember_me')).thenAnswer((_) async => 'false');
 
         // Act
-        final credentials = await authRepository.getSavedCredentials();
+        final Map<String, String>? credentials = await authRepository.getSavedCredentials();
 
         // Assert
         expect(credentials, isNull);
@@ -270,7 +269,7 @@ void main() {
         when(mockSecureStorage.read(key: 'saved_password')).thenAnswer((_) async => null);
 
         // Act
-        final credentials = await authRepository.getSavedCredentials();
+        final Map<String, String>? credentials = await authRepository.getSavedCredentials();
 
         // Assert
         expect(credentials, isNull);
@@ -294,9 +293,9 @@ void main() {
     group('switchBusiness', () {
       test('should update current business ID', () async {
         // Arrange
-        const newBusinessId = 'new_business_123';
-        final user = AuthFixtures.createTestUser();
-        final userJson = '${AuthFixtures.createTestUserJson()}';
+        const String newBusinessId = 'new_business_123';
+        final UserEntity user = AuthFixtures.createTestUser();
+        final String userJson = '${AuthFixtures.createTestUserJson()}';
         
         when(mockSecureStorage.read(key: 'current_user'))
             .thenAnswer((_) async => userJson);
@@ -304,7 +303,7 @@ void main() {
             .thenAnswer((_) async => Future.value());
 
         // Act
-        final result = await authRepository.switchBusiness(businessId: newBusinessId);
+        final DataState<UserEntity> result = await authRepository.switchBusiness(businessId: newBusinessId);
 
         // Assert
         expect(result, isA<DataSuccess<UserEntity>>());
@@ -322,7 +321,7 @@ void main() {
         when(mockSecureStorage.read(key: 'current_user')).thenAnswer((_) async => null);
 
         // Act
-        final result = await authRepository.switchBusiness(businessId: 'business_123');
+        final DataState<UserEntity> result = await authRepository.switchBusiness(businessId: 'business_123');
 
         // Assert
         expect(result, isA<DataFailed<UserEntity>>());
@@ -333,8 +332,8 @@ void main() {
     group('switchBranch', () {
       test('should update current branch ID', () async {
         // Arrange
-        const newBranchId = 'new_branch_123';
-        final userJson = '${AuthFixtures.createTestUserJson()}';
+        const String newBranchId = 'new_branch_123';
+        final String userJson = '${AuthFixtures.createTestUserJson()}';
         
         when(mockSecureStorage.read(key: 'current_user'))
             .thenAnswer((_) async => userJson);
@@ -342,7 +341,7 @@ void main() {
             .thenAnswer((_) async => Future.value());
 
         // Act
-        final result = await authRepository.switchBranch(branchId: newBranchId);
+        final DataState<UserEntity> result = await authRepository.switchBranch(branchId: newBranchId);
 
         // Assert
         expect(result, isA<DataSuccess<UserEntity>>());
@@ -359,12 +358,12 @@ void main() {
     group('updateFcmToken', () {
       test('should save FCM token', () async {
         // Arrange
-        const fcmToken = 'test_fcm_token_123';
+        const String fcmToken = 'test_fcm_token_123';
         when(mockSecureStorage.write(key: anyNamed('key'), value: anyNamed('value')))
             .thenAnswer((_) async => Future.value());
 
         // Act
-        final result = await authRepository.updateFcmToken(fcmToken: fcmToken);
+        final DataState<void> result = await authRepository.updateFcmToken(fcmToken: fcmToken);
 
         // Assert
         expect(result, isA<DataSuccess<void>>());
@@ -373,12 +372,12 @@ void main() {
 
       test('should handle FCM token update failure', () async {
         // Arrange
-        const fcmToken = 'test_fcm_token_123';
+        const String fcmToken = 'test_fcm_token_123';
         when(mockSecureStorage.write(key: anyNamed('key'), value: anyNamed('value')))
             .thenThrow(Exception('Write failed'));
 
         // Act
-        final result = await authRepository.updateFcmToken(fcmToken: fcmToken);
+        final DataState<void> result = await authRepository.updateFcmToken(fcmToken: fcmToken);
 
         // Assert
         expect(result, isA<DataFailed<void>>());
@@ -389,7 +388,7 @@ void main() {
     group('Not Implemented Methods', () {
       test('verifyTwoFactor should return not implemented error', () async {
         // Act
-        final result = await authRepository.verifyTwoFactor(
+        final DataState<LoginResponseEntity> result = await authRepository.verifyTwoFactor(
           code: '123456',
           method: 'sms',
         );
@@ -401,7 +400,7 @@ void main() {
 
       test('refreshToken should return not implemented error', () async {
         // Act
-        final result = await authRepository.refreshToken(
+        final DataState<AuthTokenEntity> result = await authRepository.refreshToken(
           refreshToken: 'refresh_token',
         );
 
@@ -412,7 +411,7 @@ void main() {
 
       test('changePassword should return not implemented error', () async {
         // Act
-        final result = await authRepository.changePassword(
+        final DataState<void> result = await authRepository.changePassword(
           currentPassword: 'current',
           newPassword: 'new',
         );
@@ -424,7 +423,7 @@ void main() {
 
       test('requestPasswordReset should return not implemented error', () async {
         // Act
-        final result = await authRepository.requestPasswordReset(
+        final DataState<void> result = await authRepository.requestPasswordReset(
           email: AuthFixtures.validEmail,
         );
 
@@ -435,7 +434,7 @@ void main() {
 
       test('resetPassword should return not implemented error', () async {
         // Act
-        final result = await authRepository.resetPassword(
+        final DataState<void> result = await authRepository.resetPassword(
           token: 'reset_token',
           newPassword: 'new_password',
         );
@@ -447,7 +446,7 @@ void main() {
 
       test('updateProfile should return not implemented error', () async {
         // Act
-        final result = await authRepository.updateProfile(
+        final DataState<UserEntity> result = await authRepository.updateProfile(
           userId: 'user123',
           name: 'New Name',
         );
@@ -459,7 +458,7 @@ void main() {
 
       test('enableTwoFactor should return not implemented error', () async {
         // Act
-        final result = await authRepository.enableTwoFactor(method: 'sms');
+        final DataState<Map<String, dynamic>> result = await authRepository.enableTwoFactor(method: 'sms');
 
         // Assert
         expect(result, isA<DataFailed<Map<String, dynamic>>>());
@@ -468,7 +467,7 @@ void main() {
 
       test('disableTwoFactor should return not implemented error', () async {
         // Act
-        final result = await authRepository.disableTwoFactor(code: '123456');
+        final DataState<void> result = await authRepository.disableTwoFactor(code: '123456');
 
         // Assert
         expect(result, isA<DataFailed<void>>());
@@ -477,7 +476,7 @@ void main() {
 
       test('verifyEmail should return not implemented error', () async {
         // Act
-        final result = await authRepository.verifyEmail(token: 'verify_token');
+        final DataState<void> result = await authRepository.verifyEmail(token: 'verify_token');
 
         // Assert
         expect(result, isA<DataFailed<void>>());
@@ -486,7 +485,7 @@ void main() {
 
       test('resendVerificationEmail should return not implemented error', () async {
         // Act
-        final result = await authRepository.resendVerificationEmail();
+        final DataState<void> result = await authRepository.resendVerificationEmail();
 
         // Assert
         expect(result, isA<DataFailed<void>>());

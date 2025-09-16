@@ -29,9 +29,9 @@ class AddInventoryProvider extends ChangeNotifier {
   String _selectedUnit = 'pieces';
 
   // Lists for dropdowns
-  List<CategoryEntity> _categories = [];
-  List<BrandEntity> _brands = [];
-  final List<String> _unitOfMeasurements = [
+  List<CategoryEntity> _categories = <CategoryEntity>[];
+  List<BrandEntity> _brands = <BrandEntity>[];
+  final List<String> _unitOfMeasurements = <String>[
     'pieces',
     'kg',
     'grams',
@@ -101,7 +101,7 @@ class AddInventoryProvider extends ChangeNotifier {
     try {
       // TODO: Load categories and brands from repository
       // For now, using mock data
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future<void>.delayed(const Duration(milliseconds: 500));
       
       _categories = _getMockCategories();
       _brands = _getMockBrands();
@@ -193,7 +193,7 @@ class AddInventoryProvider extends ChangeNotifier {
       );
 
       // TODO: Save inventory to repository
-      await Future.delayed(const Duration(seconds: 1));
+      await Future<void>.delayed(const Duration(seconds: 1));
       debugPrint('Inventory saved: ${inventory.name}');
 
       // Clear form after successful save
@@ -232,7 +232,7 @@ class AddInventoryProvider extends ChangeNotifier {
 
   /// Mock data for categories
   List<CategoryEntity> _getMockCategories() {
-    return const [
+    return const <CategoryEntity>[
       CategoryEntity(id: '1', name: 'Electronics'),
       CategoryEntity(id: '2', name: 'Clothing'),
       CategoryEntity(id: '3', name: 'Food & Beverages'),
@@ -246,7 +246,7 @@ class AddInventoryProvider extends ChangeNotifier {
 
   /// Mock data for brands
   List<BrandEntity> _getMockBrands() {
-    return const [
+    return const <BrandEntity>[
       BrandEntity(id: '1', name: 'Samsung'),
       BrandEntity(id: '2', name: 'Apple'),
       BrandEntity(id: '3', name: 'Nike'),

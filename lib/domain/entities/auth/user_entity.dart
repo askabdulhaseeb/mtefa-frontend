@@ -17,10 +17,10 @@ class UserEntity extends Equatable {
     this.preferredLanguage = 'en',
     this.timezone = 'UTC',
     this.status = StatusType.active,
-    this.businessUsers = const [],
+    this.businessUsers = const <BusinessUserEntity>[],
     this.currentBusinessId,
     this.currentBranchId,
-    this.permissions = const [],
+    this.permissions = const <String>[],
   });
 
   final String userId;
@@ -49,7 +49,7 @@ class UserEntity extends Equatable {
     if (currentBusinessId == null) return null;
     try {
       return businessUsers.firstWhere(
-        (businessUser) => businessUser.businessId == currentBusinessId,
+        (BusinessUserEntity businessUser) => businessUser.businessId == currentBusinessId,
       );
     } catch (_) {
       return null;
@@ -95,7 +95,7 @@ class UserEntity extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
+  List<Object?> get props => <Object?>[
         userId,
         email,
         name,
@@ -124,8 +124,8 @@ class BusinessUserEntity extends Equatable {
     required this.roleId,
     required this.roleName,
     this.businessName,
-    this.assignedBranches = const [],
-    this.customPermissions = const [],
+    this.assignedBranches = const <String>[],
+    this.customPermissions = const <String>[],
     this.employmentStartDate,
     this.employmentEndDate,
     this.isPrimaryBusiness = false,
@@ -151,7 +151,7 @@ class BusinessUserEntity extends Equatable {
   bool get hasFullAccess => assignedBranches.isEmpty;
 
   @override
-  List<Object?> get props => [
+  List<Object?> get props => <Object?>[
         businessUserId,
         businessId,
         userId,
@@ -186,7 +186,7 @@ class AuthTokenEntity extends Equatable {
   bool get isExpired => DateTime.now().isAfter(expiresAt);
 
   @override
-  List<Object?> get props => [accessToken, refreshToken, expiresIn, tokenType];
+  List<Object?> get props => <Object?>[accessToken, refreshToken, expiresIn, tokenType];
 }
 
 /// Login response entity
@@ -204,5 +204,5 @@ class LoginResponseEntity extends Equatable {
   final String? twoFactorMethod; // 'sms', 'email', 'authenticator'
 
   @override
-  List<Object?> get props => [user, token, requiresTwoFactor, twoFactorMethod];
+  List<Object?> get props => <Object?>[user, token, requiresTwoFactor, twoFactorMethod];
 }
