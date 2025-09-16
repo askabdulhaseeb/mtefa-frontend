@@ -255,3 +255,4 @@ The app uses a custom `DataState<T>` system for handling async operations:
 - Store API tokens, user credentials securely
 - Never commit `.env.*` files to version control
 - Environment files are gitignored by default
+- default currency for this system will be PKR

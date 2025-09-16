@@ -7,6 +7,7 @@ import 'data/repositories/auth_repository_impl.dart';
 import 'domain/repositories/auth_repository.dart';
 import 'domain/usecases/auth/login_usecase.dart';
 import 'presentation/screens/auth/providers/login_provider.dart';
+import 'presentation/screens/dashboard/providers/dashboard_provider.dart';
 
 final GetIt sl = GetIt.instance;
 
@@ -18,6 +19,7 @@ Future<void> init() async {
   // Initialize all dependencies
   _core();
   _auth();
+  _dashboard();
 }
 
 void _core() {
@@ -46,5 +48,12 @@ void _auth() {
     () => LoginProvider(
       loginUseCase: sl<LoginUseCase>(),
     ),
+  );
+}
+
+void _dashboard() {
+  // Dashboard Provider
+  sl.registerFactory<DashboardProvider>(
+    () => DashboardProvider(),
   );
 }

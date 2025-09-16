@@ -9,6 +9,7 @@ import 'core/database/database_initializer.dart';
 import 'core/localization/app_localization.dart';
 import 'injection_container.dart' as di;
 import 'presentation/screens/auth/login/login_screen.dart';
+import 'presentation/screens/dashboard/dashboard_screen.dart';
 
 /// Main entry point of the MTEFA POS application
 Future<void> main() async {
@@ -61,7 +62,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const LoginScreen(),
+      initialRoute: DashboardScreen.routeName,
+      routes: <String, WidgetBuilder>{
+        LoginScreen.routeName: (BuildContext context) => const LoginScreen(),
+        DashboardScreen.routeName: (BuildContext context) =>
+            const DashboardScreen(),
+      },
       debugShowCheckedModeBanner: false,
     );
 

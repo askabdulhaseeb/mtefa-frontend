@@ -3,6 +3,7 @@ import 'package:provider/single_child_widget.dart';
 
 import '../../presentation/screens/auth/login/login_screen.dart';
 import '../../presentation/screens/auth/providers/login_provider.dart';
+import '../../presentation/screens/dashboard/providers/dashboard_provider.dart';
 import 'provider_factory.dart';
 
 /// Registry for managing route-specific providers
@@ -16,10 +17,7 @@ class ProviderRegistry {
           ProviderFactory.createFromDI<LoginProvider>(lazy: true),
         ],
         '/dashboard': () => <SingleChildWidget>[
-          // Add dashboard-specific providers here when created
-          // Example:
-          // ProviderFactory.createFromDI<DashboardProvider>(lazy: true),
-          // ProviderFactory.createFromDI<StatsProvider>(lazy: true),
+          ProviderFactory.createFromDI<DashboardProvider>(lazy: true),
         ],
         '/products': () => <SingleChildWidget>[
           // Add product-specific providers here when created
