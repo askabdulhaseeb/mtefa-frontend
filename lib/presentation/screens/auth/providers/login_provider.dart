@@ -194,15 +194,6 @@ class LoginProvider extends ChangeNotifier {
     }
   }
 
-  /// Login with biometrics
-  Future<void> loginWithBiometrics() async {
-    // TODO: Implement biometric login
-    _loginState = const DataFailed<LoginResponseEntity>(
-      error: 'Biometric login not implemented',
-      errorCode: 'NOT_IMPLEMENTED',
-    );
-    notifyListeners();
-  }
 
   /// Login with saved credentials
   Future<void> loginWithSavedCredentials(String email, String password) async {

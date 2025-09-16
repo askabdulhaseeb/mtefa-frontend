@@ -8,6 +8,7 @@ import 'core/config/api_config.dart';
 import 'core/database/database_initializer.dart';
 import 'core/localization/app_localization.dart';
 import 'injection_container.dart' as di;
+import 'presentation/screens/auth/login/login_screen.dart';
 
 /// Main entry point of the MTEFA POS application
 Future<void> main() async {
@@ -17,13 +18,13 @@ Future<void> main() async {
   try {
     // Initialize dependency injection
     await di.init();
-    
+
     // Initialize API configuration
     await ApiConfig.initialize(environment: 'development');
-    
+
     // Initialize database
     await DatabaseInitializer.instance.initialize();
-    
+
     if (kDebugMode) {
       debugPrint('Application initialization completed successfully');
     }
@@ -60,16 +61,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const Scaffold(),
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
 
     // Only wrap with MultiProvider if there are global providers
     if (MyProviders.isNotEmpty) {
-      return MultiProvider(
-        providers: MyProviders.providers,
-        child: app,
-      );
+      return MultiProvider(providers: MyProviders.providers, child: app);
     }
 
     // Return app directly if no global providers
