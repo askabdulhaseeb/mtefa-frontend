@@ -129,8 +129,6 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
               maxLines:
                   widget.isExpanded
                       ? widget.maxLines
-                      : (widget._controller?.text.isEmpty ?? true)
-                      ? 1
                       : widget.maxLines,
               maxLength: widget.isExpanded ? widget.maxLength : null,
               style: widget.style,

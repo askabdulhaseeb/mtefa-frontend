@@ -197,10 +197,19 @@ class _DashboardContentState extends State<_DashboardContent> {
           _buildDrawerItem(
             context,
             icon: Icons.shopping_bag,
-            title: 'Products',
+            title: 'Inventory',
             onTap: () {
               Navigator.pop(context);
-              debugPrint('Navigate to Products');
+              debugPrint('Navigate to Inventory');
+            },
+          ),
+          _buildDrawerItem(
+            context,
+            icon: Icons.add_box,
+            title: 'Add Inventory',
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/add-inventory');
             },
           ),
           _buildDrawerItem(

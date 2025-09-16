@@ -10,6 +10,7 @@ import 'core/localization/app_localization.dart';
 import 'injection_container.dart' as di;
 import 'presentation/screens/auth/login/login_screen.dart';
 import 'presentation/screens/dashboard/dashboard_screen.dart';
+import 'presentation/screens/inventory/add_inventory/add_inventory_screen.dart';
 
 /// Main entry point of the MTEFA POS application
 Future<void> main() async {
@@ -67,6 +68,8 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName: (BuildContext context) => const LoginScreen(),
         DashboardScreen.routeName: (BuildContext context) =>
             const DashboardScreen(),
+        AddInventoryScreen.routeName: (BuildContext context) =>
+            const AddInventoryScreen(),
       },
       debugShowCheckedModeBanner: false,
     );

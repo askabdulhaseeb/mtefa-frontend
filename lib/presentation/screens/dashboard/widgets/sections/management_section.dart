@@ -99,12 +99,12 @@ class ManagementSection extends StatelessWidget {
   List<_ManagementItem> _getManagementItems() {
     return <_ManagementItem>[
       _ManagementItem(
-        title: 'Products',
-        subtitle: '${provider.activeProducts} items',
+        title: 'Inventory',
+        subtitle: '${provider.activeInventoryItems} items',
         icon: Icons.shopping_bag,
         color: Colors.teal,
         showSubtitle: !isListView,
-        onTap: _handleProducts,
+        onTap: _handleInventory,
       ),
       _ManagementItem(
         title: 'Inventory',
@@ -148,7 +148,7 @@ class ManagementSection extends StatelessWidget {
         ),
         _ManagementItem(
           title: 'Categories',
-          subtitle: 'Product categories',
+          subtitle: 'Inventory categories',
           icon: Icons.category,
           color: Colors.amber,
           onTap: _handleCategories,
@@ -177,7 +177,7 @@ class ManagementSection extends StatelessWidget {
       ] else ...<_ManagementItem>[
         _ManagementItem(
           title: 'Categories',
-          subtitle: 'Product categories',
+          subtitle: 'Inventory categories',
           icon: Icons.category,
           color: Colors.amber,
           onTap: _handleCategories,
@@ -191,11 +191,6 @@ class ManagementSection extends StatelessWidget {
         ),
       ],
     ];
-  }
-
-  void _handleProducts(BuildContext context) {
-    debugPrint('Navigate to Products');
-    // TODO: Implement navigation
   }
 
   void _handleInventory(BuildContext context) {

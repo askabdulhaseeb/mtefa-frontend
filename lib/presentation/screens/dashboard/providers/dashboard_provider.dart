@@ -16,7 +16,7 @@ class DashboardProvider extends ChangeNotifier {
   int _pendingOrders = 0;
   int _lowStockItems = 0;
   int _totalCustomers = 0;
-  int _activeProducts = 0;
+  int _activeInventoryItems = 0;
   double _revenue = 0.0;
 
   // Quick action states
@@ -33,7 +33,7 @@ class DashboardProvider extends ChangeNotifier {
   int get pendingOrders => _pendingOrders;
   int get lowStockItems => _lowStockItems;
   int get totalCustomers => _totalCustomers;
-  int get activeProducts => _activeProducts;
+  int get activeInventoryItems => _activeInventoryItems;
   double get revenue => _revenue;
   bool get isProcessingSale => _isProcessingSale;
   bool get isLoadingReports => _isLoadingReports;
@@ -55,7 +55,7 @@ class DashboardProvider extends ChangeNotifier {
       _pendingOrders = 12;
       _lowStockItems = 5;
       _totalCustomers = 1234;
-      _activeProducts = 567;
+      _activeInventoryItems = 567;
       _revenue = 98765.43;
       
       _isLoading = false;

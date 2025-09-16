@@ -51,10 +51,10 @@ class QuickActionsSection extends StatelessWidget {
         onTap: () => _handleRefund(context),
       ),
       DashboardCard(
-        title: 'Add Product',
+        title: 'Add Inventory',
         icon: Icons.add_box,
         color: Colors.blue,
-        onTap: () => _handleAddProduct(context),
+        onTap: () => _handleAddInventory(context),
       ),
       DashboardCard(
         title: 'Stock In',
@@ -81,9 +81,9 @@ class QuickActionsSection extends StatelessWidget {
     // TODO: Implement navigation
   }
 
-  void _handleAddProduct(BuildContext context) {
-    debugPrint('Navigate to Add Product');
-    // TODO: Implement navigation
+  void _handleAddInventory(BuildContext context) {
+    debugPrint('Navigate to Add Inventory');
+    Navigator.pushNamed(context, '/add-inventory');
   }
 
   void _handleStockIn(BuildContext context) {
