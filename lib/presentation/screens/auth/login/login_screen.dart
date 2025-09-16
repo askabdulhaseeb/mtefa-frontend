@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/resources/data_state.dart';
+import '../../../../core/widgets/provider_scope_widget.dart';
 import '../../../../domain/entities/auth/user_entity.dart';
 import '../providers/login_provider.dart';
 import '../../../widgets/core/my_scaffold.dart';
@@ -36,22 +37,25 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<LoginProvider>(
-      builder: (BuildContext context, LoginProvider loginProvider, Widget? child) {
-        // Listen for successful login
-        _handleLoginState(loginProvider.loginState);
+    return AuthProviderScope(
+      child: Consumer<LoginProvider>(
+        builder:
+            (BuildContext context, LoginProvider loginProvider, Widget? child) {
+              // Listen for successful login
+              _handleLoginState(loginProvider.loginState);
 
-        return MyScaffold(
-          backgroundColor: Theme.of(context).colorScheme.surface,
-          resizeToAvoidBottomInset: true,
-          safeArea: false,
-          body: ResponsiveWidget(
-            mobile: LoginMobileView(provider: loginProvider),
-            tablet: LoginTabletView(provider: loginProvider),
-            desktop: LoginDesktopView(provider: loginProvider),
-          ),
-        );
-      },
+              return MyScaffold(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+                resizeToAvoidBottomInset: true,
+                safeArea: false,
+                body: ResponsiveWidget(
+                  mobile: LoginMobileView(provider: loginProvider),
+                  tablet: LoginTabletView(provider: loginProvider),
+                  desktop: LoginDesktopView(provider: loginProvider),
+                ),
+              );
+            },
+      ),
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/single_child_widget.dart';
 
+import '../../presentation/screens/auth/login/login_screen.dart';
 import '../../presentation/screens/auth/providers/login_provider.dart';
 import 'provider_factory.dart';
 
@@ -9,51 +10,52 @@ import 'provider_factory.dart';
 class ProviderRegistry {
   /// Map of route names to their required providers
   /// Providers will be lazy-loaded when route is accessed
-  static final Map<String, List<SingleChildWidget> Function()> _routeProviders = {
-    '/login': () => [
-      ProviderFactory.createFromDI<LoginProvider>(lazy: true),
-    ],
-    '/dashboard': () => [
-      // Add dashboard-specific providers here when created
-      // Example:
-      // ProviderFactory.createFromDI<DashboardProvider>(lazy: true),
-      // ProviderFactory.createFromDI<StatsProvider>(lazy: true),
-    ],
-    '/products': () => [
-      // Add product-specific providers here when created
-      // Example:
-      // ProviderFactory.createFromDI<ProductProvider>(lazy: true),
-      // ProviderFactory.createFromDI<CategoryProvider>(lazy: true),
-    ],
-    '/inventory': () => [
-      // Add inventory-specific providers here when created
-      // Example:
-      // ProviderFactory.createFromDI<InventoryProvider>(lazy: true),
-      // ProviderFactory.createFromDI<StockProvider>(lazy: true),
-    ],
-    '/sales': () => [
-      // Add sales-specific providers here when created
-      // Example:
-      // ProviderFactory.createFromDI<SalesProvider>(lazy: true),
-      // ProviderFactory.createFromDI<CartProvider>(lazy: true),
-    ],
-    '/reports': () => [
-      // Add reports-specific providers here when created
-      // Example:
-      // ProviderFactory.createFromDI<ReportsProvider>(lazy: true),
-      // ProviderFactory.createFromDI<AnalyticsProvider>(lazy: true),
-    ],
-    '/settings': () => [
-      // Add settings-specific providers here when created
-      // Example:
-      // ProviderFactory.createFromDI<SettingsProvider>(lazy: true),
-      // ProviderFactory.createFromDI<PreferencesProvider>(lazy: true),
-    ],
-  };
+  static final Map<String, List<SingleChildWidget> Function()> _routeProviders =
+      <String, List<SingleChildWidget> Function()>{
+        LoginScreen.routeName: () => <SingleChildWidget>[
+          ProviderFactory.createFromDI<LoginProvider>(lazy: true),
+        ],
+        '/dashboard': () => <SingleChildWidget>[
+          // Add dashboard-specific providers here when created
+          // Example:
+          // ProviderFactory.createFromDI<DashboardProvider>(lazy: true),
+          // ProviderFactory.createFromDI<StatsProvider>(lazy: true),
+        ],
+        '/products': () => <SingleChildWidget>[
+          // Add product-specific providers here when created
+          // Example:
+          // ProviderFactory.createFromDI<ProductProvider>(lazy: true),
+          // ProviderFactory.createFromDI<CategoryProvider>(lazy: true),
+        ],
+        '/inventory': () => <SingleChildWidget>[
+          // Add inventory-specific providers here when created
+          // Example:
+          // ProviderFactory.createFromDI<InventoryProvider>(lazy: true),
+          // ProviderFactory.createFromDI<StockProvider>(lazy: true),
+        ],
+        '/sales': () => <SingleChildWidget>[
+          // Add sales-specific providers here when created
+          // Example:
+          // ProviderFactory.createFromDI<SalesProvider>(lazy: true),
+          // ProviderFactory.createFromDI<CartProvider>(lazy: true),
+        ],
+        '/reports': () => <SingleChildWidget>[
+          // Add reports-specific providers here when created
+          // Example:
+          // ProviderFactory.createFromDI<ReportsProvider>(lazy: true),
+          // ProviderFactory.createFromDI<AnalyticsProvider>(lazy: true),
+        ],
+        '/settings': () => <SingleChildWidget>[
+          // Add settings-specific providers here when created
+          // Example:
+          // ProviderFactory.createFromDI<SettingsProvider>(lazy: true),
+          // ProviderFactory.createFromDI<PreferencesProvider>(lazy: true),
+        ],
+      };
 
   /// Global providers that should always be available
   /// These are core providers needed throughout the app
-  static List<SingleChildWidget> get globalProviders => [
+  static List<SingleChildWidget> get globalProviders => <SingleChildWidget>[
     // Add global providers here when needed
     // Example:
     // ProviderFactory.createFromDI<ThemeProvider>(lazy: true),
@@ -63,15 +65,19 @@ class ProviderRegistry {
 
   /// Get providers for a specific route
   static List<SingleChildWidget> getProvidersForRoute(String routeName) {
-    final providerFactory = _routeProviders[routeName];
+    final List<SingleChildWidget> Function()? providerFactory =
+        _routeProviders[routeName];
     if (providerFactory != null) {
       return providerFactory();
     }
-    return [];
+    return <SingleChildWidget>[];
   }
 
   /// Register a new route with its providers
-  static void registerRoute(String routeName, List<SingleChildWidget> Function() providerFactory) {
+  static void registerRoute(
+    String routeName,
+    List<SingleChildWidget> Function() providerFactory,
+  ) {
     _routeProviders[routeName] = providerFactory;
   }
 
@@ -94,16 +100,13 @@ class ProviderRegistry {
     required String routeName,
     required Widget child,
   }) {
-    final providers = getProvidersForRoute(routeName);
-    
+    final List<SingleChildWidget> providers = getProvidersForRoute(routeName);
+
     if (providers.isEmpty) {
       return child;
     }
 
-    return ProviderFactory.createMultiple(
-      providers: providers,
-      child: child,
-    );
+    return ProviderFactory.createMultiple(providers: providers, child: child);
   }
 
   /// Create a provider scope with custom providers
@@ -116,10 +119,7 @@ class ProviderRegistry {
       return child;
     }
 
-    return ProviderFactory.createMultiple(
-      providers: providers,
-      child: child,
-    );
+    return ProviderFactory.createMultiple(providers: providers, child: child);
   }
 }
 
@@ -130,12 +130,16 @@ mixin ProviderScopeMixin<T extends StatefulWidget> on State<T> {
   String get routeName;
 
   /// Additional providers specific to this screen
-  List<SingleChildWidget> get additionalProviders => [];
+  List<SingleChildWidget> get additionalProviders => <SingleChildWidget>[];
 
   @override
   Widget build(BuildContext context) {
-    final routeProviders = ProviderRegistry.getProvidersForRoute(routeName);
-    final allProviders = [...routeProviders, ...additionalProviders];
+    final List<SingleChildWidget> routeProviders =
+        ProviderRegistry.getProvidersForRoute(routeName);
+    final List<SingleChildWidget> allProviders = <SingleChildWidget>[
+      ...routeProviders,
+      ...additionalProviders,
+    ];
 
     if (allProviders.isEmpty) {
       return buildScoped(context);
@@ -143,9 +147,7 @@ mixin ProviderScopeMixin<T extends StatefulWidget> on State<T> {
 
     return ProviderFactory.createMultiple(
       providers: allProviders,
-      child: Builder(
-        builder: buildScoped,
-      ),
+      child: Builder(builder: buildScoped),
     );
   }
 

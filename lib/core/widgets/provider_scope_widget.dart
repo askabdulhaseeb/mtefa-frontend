@@ -10,7 +10,7 @@ class ProviderScopeWidget extends StatelessWidget {
   const ProviderScopeWidget({
     required this.child,
     this.routeName,
-    this.customProviders = const [],
+    this.customProviders = const <SingleChildWidget>[],
     super.key,
   });
 
@@ -26,7 +26,7 @@ class ProviderScopeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Collect all providers for this scope
-    final List<SingleChildWidget> allProviders = [];
+    final List<SingleChildWidget> allProviders = <SingleChildWidget>[];
 
     // Add route-specific providers if route name is provided
     if (routeName != null) {
@@ -52,164 +52,90 @@ class ProviderScopeWidget extends StatelessWidget {
 /// Specialized scope for authentication screens
 /// Provides login-related providers automatically
 class AuthProviderScope extends StatelessWidget {
-  const AuthProviderScope({
-    required this.child,
-    super.key,
-  });
+  const AuthProviderScope({required this.child, super.key});
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScopeWidget(
-      routeName: '/login',
-      child: child,
-    );
+    return ProviderScopeWidget(routeName: '/login', child: child);
   }
 }
 
 /// Specialized scope for dashboard screens
 /// Provides dashboard-related providers automatically
 class DashboardProviderScope extends StatelessWidget {
-  const DashboardProviderScope({
-    required this.child,
-    super.key,
-  });
+  const DashboardProviderScope({required this.child, super.key});
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScopeWidget(
-      routeName: '/dashboard',
-      child: child,
-    );
+    return ProviderScopeWidget(routeName: '/dashboard', child: child);
   }
 }
 
 /// Specialized scope for product screens
 /// Provides product-related providers automatically
 class ProductProviderScope extends StatelessWidget {
-  const ProductProviderScope({
-    required this.child,
-    super.key,
-  });
+  const ProductProviderScope({required this.child, super.key});
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScopeWidget(
-      routeName: '/products',
-      child: child,
-    );
+    return ProviderScopeWidget(routeName: '/products', child: child);
   }
 }
 
 /// Specialized scope for inventory screens
 /// Provides inventory-related providers automatically
 class InventoryProviderScope extends StatelessWidget {
-  const InventoryProviderScope({
-    required this.child,
-    super.key,
-  });
+  const InventoryProviderScope({required this.child, super.key});
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScopeWidget(
-      routeName: '/inventory',
-      child: child,
-    );
+    return ProviderScopeWidget(routeName: '/inventory', child: child);
   }
 }
 
 /// Specialized scope for sales screens
 /// Provides sales-related providers automatically
 class SalesProviderScope extends StatelessWidget {
-  const SalesProviderScope({
-    required this.child,
-    super.key,
-  });
+  const SalesProviderScope({required this.child, super.key});
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScopeWidget(
-      routeName: '/sales',
-      child: child,
-    );
+    return ProviderScopeWidget(routeName: '/sales', child: child);
   }
 }
 
 /// Specialized scope for reports screens
 /// Provides reports-related providers automatically
 class ReportsProviderScope extends StatelessWidget {
-  const ReportsProviderScope({
-    required this.child,
-    super.key,
-  });
+  const ReportsProviderScope({required this.child, super.key});
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScopeWidget(
-      routeName: '/reports',
-      child: child,
-    );
+    return ProviderScopeWidget(routeName: '/reports', child: child);
   }
 }
 
 /// Specialized scope for settings screens
 /// Provides settings-related providers automatically
 class SettingsProviderScope extends StatelessWidget {
-  const SettingsProviderScope({
-    required this.child,
-    super.key,
-  });
+  const SettingsProviderScope({required this.child, super.key});
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScopeWidget(
-      routeName: '/settings',
-      child: child,
-    );
+    return ProviderScopeWidget(routeName: '/settings', child: child);
   }
 }
-
-/// Example usage in a screen:
-/// 
-/// ```dart
-/// class LoginScreen extends StatelessWidget {
-///   @override
-///   Widget build(BuildContext context) {
-///     return AuthProviderScope(
-///       child: LoginScreenContent(),
-///     );
-///   }
-/// }
-/// ```
-/// 
-/// Or with custom providers:
-/// 
-/// ```dart
-/// class CustomScreen extends StatelessWidget {
-///   @override
-///   Widget build(BuildContext context) {
-///     return ProviderScopeWidget(
-///       customProviders: [
-///         ChangeNotifierProvider(
-///           create: (_) => CustomProvider(),
-///           lazy: true,
-///         ),
-///       ],
-///       child: CustomScreenContent(),
-///     );
-///   }
-/// }
-/// ```

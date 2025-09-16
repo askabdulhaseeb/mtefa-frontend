@@ -69,14 +69,14 @@ class LoginUseCase extends UseCase<LoginResponseEntity, LoginParams> {
       // Perform login
       final result = await _authRepository.login(
         email: params.email.trim().toLowerCase(),
-        password: params.password,
+        password: params.password.trim(),
       );
 
       // Handle remember me
       if (result.isSuccess && params.rememberMe) {
         await _authRepository.saveCredentials(
           email: params.email.trim().toLowerCase(),
-          password: params.password,
+          password: params.password.trim(),
         );
       }
 
