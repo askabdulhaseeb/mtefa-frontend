@@ -3,10 +3,10 @@ import 'package:provider/provider.dart';
 
 import '../../../widgets/core/my_scaffold.dart';
 import '../../../widgets/core/responsive_widget.dart';
-import 'providers/add_inventory_provider.dart';
-import 'views/add_inventory_desktop_view.dart';
-import 'views/add_inventory_mobile_view.dart';
-import 'views/add_inventory_tablet_view.dart';
+import 'providers/comprehensive_inventory_provider.dart';
+import 'views/comprehensive_inventory_desktop_view.dart';
+import 'views/comprehensive_inventory_mobile_view.dart';
+import 'views/comprehensive_inventory_tablet_view.dart';
 
 /// Add Inventory Screen with responsive design
 class AddInventoryScreen extends StatelessWidget {
@@ -16,8 +16,8 @@ class AddInventoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<AddInventoryProvider>(
-      create: (_) => AddInventoryProvider(),
+    return ChangeNotifierProvider<ComprehensiveInventoryProvider>(
+      create: (_) => ComprehensiveInventoryProvider(),
       child: const _AddInventoryContent(),
     );
   }
@@ -29,24 +29,24 @@ class _AddInventoryContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AddInventoryProvider>(
-      builder: (BuildContext context, AddInventoryProvider provider, Widget? child) {
+    return Consumer<ComprehensiveInventoryProvider>(
+      builder: (BuildContext context, ComprehensiveInventoryProvider provider, Widget? child) {
         return MyScaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           resizeToAvoidBottomInset: true,
           safeArea: false,
           appBar: _buildAppBar(context, provider),
           body: ResponsiveWidget(
-            mobile: AddInventoryMobileView(provider: provider),
-            tablet: AddInventoryTabletView(provider: provider),
-            desktop: AddInventoryDesktopView(provider: provider),
+            mobile: ComprehensiveInventoryMobileView(provider: provider),
+            tablet: ComprehensiveInventoryTabletView(provider: provider),
+            desktop: ComprehensiveInventoryDesktopView(provider: provider),
           ),
         );
       },
     );
   }
 
-  PreferredSizeWidget _buildAppBar(BuildContext context, AddInventoryProvider provider) {
+  PreferredSizeWidget _buildAppBar(BuildContext context, ComprehensiveInventoryProvider provider) {
     final ThemeData theme = Theme.of(context);
     
     return AppBar(
@@ -101,19 +101,19 @@ class _AddInventoryContent extends StatelessWidget {
   }
 
   /// Check if form has unsaved changes
-  bool _hasUnsavedChanges(AddInventoryProvider provider) {
-    return provider.nameController.text.isNotEmpty ||
-           provider.descriptionController.text.isNotEmpty ||
-           provider.costPriceController.text.isNotEmpty ||
-           provider.sellingPriceController.text.isNotEmpty ||
-           provider.stockQuantityController.text.isNotEmpty ||
-           provider.minimumStockController.text.isNotEmpty ||
+  bool _hasUnsavedChanges(ComprehensiveInventoryProvider provider) {
+    return provider.productNameController.text.isNotEmpty ||
+           provider.productCodeController.text.isNotEmpty ||
+           provider.averageCostController.text.isNotEmpty ||
+           provider.priceController.text.isNotEmpty ||
+           provider.minimumLevelController.text.isNotEmpty ||
+           provider.selectedLineItem != null ||
            provider.selectedCategory != null ||
-           provider.selectedBrand != null;
+           provider.selectedSupplier != null;
   }
 
   /// Show exit confirmation dialog
-  void _showExitConfirmation(BuildContext context, AddInventoryProvider provider) {
+  void _showExitConfirmation(BuildContext context, ComprehensiveInventoryProvider provider) {
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -142,7 +142,7 @@ class _AddInventoryContent extends StatelessWidget {
   }
 
   /// Show clear form confirmation dialog
-  void _showClearConfirmation(BuildContext context, AddInventoryProvider provider) {
+  void _showClearConfirmation(BuildContext context, ComprehensiveInventoryProvider provider) {
     showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -177,7 +177,7 @@ class _AddInventoryContent extends StatelessWidget {
   }
 
   /// Save inventory
-  Future<void> _saveInventory(BuildContext context, AddInventoryProvider provider) async {
+  Future<void> _saveInventory(BuildContext context, ComprehensiveInventoryProvider provider) async {
     final bool success = await provider.saveInventory();
     
     if (success && context.mounted) {
