@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../core/enums/status_type.dart';
 import '../../core/resources/data_state.dart';
 import '../../core/utils/token_manager.dart';
 import '../../domain/entities/auth/user_entity.dart';
@@ -33,19 +34,19 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       // TODO: Implement actual API call when backend is ready
       // For now, return mock data for UI development
-      
+
       // Simulate network delay
       await Future.delayed(const Duration(seconds: 1));
 
       // Create mock user
-      final mockUser = UserEntity(
+      final UserEntity mockUser = UserEntity(
         userId: 'user_123',
         email: email,
         name: 'Test User',
         phone: '+1234567890',
         isEmailVerified: true,
         lastLoginAt: DateTime.now(),
-        businessUsers: [
+        businessUsers: <BusinessUserEntity>[
           const BusinessUserEntity(
             businessUserId: 'bu_123',
             businessId: 'business_123',
@@ -57,11 +58,11 @@ class AuthRepositoryImpl implements AuthRepository {
           ),
         ],
         currentBusinessId: 'business_123',
-        permissions: ['pos.access', 'sales.create', 'sales.view'],
+        permissions: <String>['pos.access', 'sales.create', 'sales.view'],
       );
 
       // Create mock token
-      final mockToken = const AuthTokenEntity(
+      final AuthTokenEntity mockToken = const AuthTokenEntity(
         accessToken: 'mock_access_token_123',
         refreshToken: 'mock_refresh_token_123',
         expiresIn: 3600,
@@ -77,7 +78,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
 
       // Create login response
-      final loginResponse = LoginResponseEntity(
+      final LoginResponseEntity loginResponse = LoginResponseEntity(
         user: mockUser,
         token: mockToken,
         requiresTwoFactor: false,
@@ -118,7 +119,7 @@ class AuthRepositoryImpl implements AuthRepository {
       await tokenManager.clearTokens();
       await _clearUserData();
       await _clearAuthToken();
-      
+
       return const DataSuccess(null);
     } catch (e) {
       return DataFailed(
@@ -131,7 +132,7 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<DataState<UserEntity>> getCurrentUser() async {
     try {
-      final userData = await _getUserData();
+      final UserEntity? userData = await _getUserData();
       if (userData == null) {
         return const DataFailed(
           error: 'No user data found',
@@ -173,18 +174,16 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Map<String, String>?> getSavedCredentials() async {
     try {
-      final rememberMe = sharedPreferences.getBool(_keyRememberMe) ?? false;
+      final bool rememberMe =
+          sharedPreferences.getBool(_keyRememberMe) ?? false;
       if (!rememberMe) return null;
 
-      final email = await secureStorage.read(key: _keyEmail);
-      final password = await secureStorage.read(key: _keyPassword);
+      final String? email = await secureStorage.read(key: _keyEmail);
+      final String? password = await secureStorage.read(key: _keyPassword);
 
       if (email == null || password == null) return null;
 
-      return {
-        'email': email,
-        'password': password,
-      };
+      return <String, String>{'email': email, 'password': password};
     } catch (_) {
       return null;
     }
@@ -227,9 +226,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<DataState<void>> requestPasswordReset({
-    required String email,
-  }) async {
+  Future<DataState<void>> requestPasswordReset({required String email}) async {
     try {
       // TODO: Implement password reset request
       return const DataFailed(
@@ -291,7 +288,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required String businessId,
   }) async {
     try {
-      final userData = await _getUserData();
+      final UserEntity? userData = await _getUserData();
       if (userData == null) {
         return const DataFailed(
           error: 'No user data found',
@@ -299,9 +296,11 @@ class AuthRepositoryImpl implements AuthRepository {
         );
       }
 
-      final updatedUser = userData.copyWith(currentBusinessId: businessId);
+      final UserEntity updatedUser = userData.copyWith(
+        currentBusinessId: businessId,
+      );
       await _saveUserData(updatedUser);
-      
+
       return DataSuccess(updatedUser);
     } catch (e) {
       return DataFailed(
@@ -312,11 +311,9 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<DataState<UserEntity>> switchBranch({
-    required String branchId,
-  }) async {
+  Future<DataState<UserEntity>> switchBranch({required String branchId}) async {
     try {
-      final userData = await _getUserData();
+      final UserEntity? userData = await _getUserData();
       if (userData == null) {
         return const DataFailed(
           error: 'No user data found',
@@ -324,9 +321,11 @@ class AuthRepositoryImpl implements AuthRepository {
         );
       }
 
-      final updatedUser = userData.copyWith(currentBranchId: branchId);
+      final UserEntity updatedUser = userData.copyWith(
+        currentBranchId: branchId,
+      );
       await _saveUserData(updatedUser);
-      
+
       return DataSuccess(updatedUser);
     } catch (e) {
       return DataFailed(
@@ -355,9 +354,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<DataState<void>> disableTwoFactor({
-    required String code,
-  }) async {
+  Future<DataState<void>> disableTwoFactor({required String code}) async {
     try {
       // TODO: Implement two-factor disable
       return const DataFailed(
@@ -373,9 +370,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<DataState<void>> verifyEmail({
-    required String token,
-  }) async {
+  Future<DataState<void>> verifyEmail({required String token}) async {
     try {
       // TODO: Implement email verification
       return const DataFailed(
@@ -407,9 +402,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<DataState<void>> updateFcmToken({
-    required String fcmToken,
-  }) async {
+  Future<DataState<void>> updateFcmToken({required String fcmToken}) async {
     try {
       // TODO: Implement FCM token update
       await sharedPreferences.setString('fcm_token', fcmToken);
@@ -424,16 +417,17 @@ class AuthRepositoryImpl implements AuthRepository {
 
   // Helper methods for local storage
   Future<void> _saveUserData(UserEntity user) async {
-    final userJson = _userToJson(user);
+    final Map<String, dynamic> userJson = _userToJson(user);
     await sharedPreferences.setString(_keyCurrentUser, jsonEncode(userJson));
   }
 
   Future<UserEntity?> _getUserData() async {
-    final userString = sharedPreferences.getString(_keyCurrentUser);
+    final String? userString = sharedPreferences.getString(_keyCurrentUser);
     if (userString == null) return null;
-    
+
     try {
-      final userJson = jsonDecode(userString) as Map<String, dynamic>;
+      final Map<String, dynamic> userJson =
+          jsonDecode(userString) as Map<String, dynamic>;
       return _userFromJson(userJson);
     } catch (_) {
       return null;
@@ -445,24 +439,22 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   Future<void> _saveAuthToken(AuthTokenEntity token) async {
-    final tokenJson = {
+    final Map<String, Object> tokenJson = <String, Object>{
       'accessToken': token.accessToken,
       'refreshToken': token.refreshToken,
       'expiresIn': token.expiresIn,
       'tokenType': token.tokenType,
     };
-    await secureStorage.write(
-      key: _keyAuthToken,
-      value: jsonEncode(tokenJson),
-    );
+    await secureStorage.write(key: _keyAuthToken, value: jsonEncode(tokenJson));
   }
 
   Future<AuthTokenEntity?> _getAuthToken() async {
-    final tokenString = await secureStorage.read(key: _keyAuthToken);
+    final String? tokenString = await secureStorage.read(key: _keyAuthToken);
     if (tokenString == null) return null;
-    
+
     try {
-      final tokenJson = jsonDecode(tokenString) as Map<String, dynamic>;
+      final Map<String, dynamic> tokenJson =
+          jsonDecode(tokenString) as Map<String, dynamic>;
       return AuthTokenEntity(
         accessToken: tokenJson['accessToken'] as String,
         refreshToken: tokenJson['refreshToken'] as String,
@@ -479,7 +471,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   Map<String, dynamic> _userToJson(UserEntity user) {
-    return {
+    return <String, dynamic>{
       'userId': user.userId,
       'email': user.email,
       'name': user.name,
@@ -491,7 +483,7 @@ class AuthRepositoryImpl implements AuthRepository {
       'twoFactorEnabled': user.twoFactorEnabled,
       'preferredLanguage': user.preferredLanguage,
       'timezone': user.timezone,
-      'status': user.status,
+      'status': user.status.value,
       'businessUsers': user.businessUsers.map(_businessUserToJson).toList(),
       'currentBusinessId': user.currentBusinessId,
       'currentBranchId': user.currentBranchId,
@@ -514,19 +506,20 @@ class AuthRepositoryImpl implements AuthRepository {
       twoFactorEnabled: json['twoFactorEnabled'] as bool? ?? false,
       preferredLanguage: json['preferredLanguage'] as String? ?? 'en',
       timezone: json['timezone'] as String? ?? 'UTC',
-      status: json['status'] as String? ?? 'active',
-      businessUsers: (json['businessUsers'] as List<dynamic>?)
+      status: StatusType.fromString(json['status'] as String? ?? 'active'),
+      businessUsers:
+          (json['businessUsers'] as List<dynamic>?)
               ?.map((e) => _businessUserFromJson(e as Map<String, dynamic>))
               .toList() ??
-          [],
+          <BusinessUserEntity>[],
       currentBusinessId: json['currentBusinessId'] as String?,
       currentBranchId: json['currentBranchId'] as String?,
-      permissions: List<String>.from(json['permissions'] ?? []),
+      permissions: List<String>.from(json['permissions'] ?? <dynamic>[]),
     );
   }
 
   Map<String, dynamic> _businessUserToJson(BusinessUserEntity businessUser) {
-    return {
+    return <String, dynamic>{
       'businessUserId': businessUser.businessUserId,
       'businessId': businessUser.businessId,
       'userId': businessUser.userId,
@@ -535,10 +528,11 @@ class AuthRepositoryImpl implements AuthRepository {
       'businessName': businessUser.businessName,
       'assignedBranches': businessUser.assignedBranches,
       'customPermissions': businessUser.customPermissions,
-      'employmentStartDate': businessUser.employmentStartDate?.toIso8601String(),
+      'employmentStartDate': businessUser.employmentStartDate
+          ?.toIso8601String(),
       'employmentEndDate': businessUser.employmentEndDate?.toIso8601String(),
       'isPrimaryBusiness': businessUser.isPrimaryBusiness,
-      'status': businessUser.status,
+      'status': businessUser.status.value,
     };
   }
 
@@ -550,8 +544,12 @@ class AuthRepositoryImpl implements AuthRepository {
       roleId: json['roleId'] as String,
       roleName: json['roleName'] as String,
       businessName: json['businessName'] as String?,
-      assignedBranches: List<String>.from(json['assignedBranches'] ?? []),
-      customPermissions: List<String>.from(json['customPermissions'] ?? []),
+      assignedBranches: List<String>.from(
+        json['assignedBranches'] ?? <dynamic>[],
+      ),
+      customPermissions: List<String>.from(
+        json['customPermissions'] ?? <dynamic>[],
+      ),
       employmentStartDate: json['employmentStartDate'] != null
           ? DateTime.parse(json['employmentStartDate'] as String)
           : null,
@@ -559,7 +557,7 @@ class AuthRepositoryImpl implements AuthRepository {
           ? DateTime.parse(json['employmentEndDate'] as String)
           : null,
       isPrimaryBusiness: json['isPrimaryBusiness'] as bool? ?? false,
-      status: json['status'] as String? ?? 'active',
+      status: StatusType.fromString(json['status'] as String? ?? 'active'),
     );
   }
 }

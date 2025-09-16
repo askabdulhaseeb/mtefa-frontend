@@ -1,4 +1,6 @@
 import 'package:equatable/equatable.dart';
+import '../../../core/enums/status_type.dart';
+import '../../../core/enums/user_role.dart';
 
 /// User entity representing the authenticated user
 class UserEntity extends Equatable {
@@ -14,7 +16,7 @@ class UserEntity extends Equatable {
     this.twoFactorEnabled = false,
     this.preferredLanguage = 'en',
     this.timezone = 'UTC',
-    this.status = 'active',
+    this.status = StatusType.active,
     this.businessUsers = const [],
     this.currentBusinessId,
     this.currentBranchId,
@@ -32,7 +34,7 @@ class UserEntity extends Equatable {
   final bool twoFactorEnabled;
   final String preferredLanguage;
   final String timezone;
-  final String status;
+  final StatusType status;
   
   // Business-related fields
   final List<BusinessUserEntity> businessUsers;
@@ -40,7 +42,7 @@ class UserEntity extends Equatable {
   final String? currentBranchId;
   final List<String> permissions;
 
-  bool get isActive => status == 'active';
+  bool get isActive => status.isActive;
   bool get hasBusinessAccess => businessUsers.isNotEmpty;
   
   BusinessUserEntity? get currentBusinessUser {
@@ -66,7 +68,7 @@ class UserEntity extends Equatable {
     bool? twoFactorEnabled,
     String? preferredLanguage,
     String? timezone,
-    String? status,
+    StatusType? status,
     List<BusinessUserEntity>? businessUsers,
     String? currentBusinessId,
     String? currentBranchId,
@@ -127,7 +129,8 @@ class BusinessUserEntity extends Equatable {
     this.employmentStartDate,
     this.employmentEndDate,
     this.isPrimaryBusiness = false,
-    this.status = 'active',
+    this.status = StatusType.active,
+    this.userRole,
   });
 
   final String businessUserId;
@@ -141,9 +144,10 @@ class BusinessUserEntity extends Equatable {
   final DateTime? employmentStartDate;
   final DateTime? employmentEndDate;
   final bool isPrimaryBusiness;
-  final String status;
+  final StatusType status;
+  final UserRole? userRole;
 
-  bool get isActive => status == 'active';
+  bool get isActive => status.isActive;
   bool get hasFullAccess => assignedBranches.isEmpty;
 
   @override
@@ -160,6 +164,7 @@ class BusinessUserEntity extends Equatable {
         employmentEndDate,
         isPrimaryBusiness,
         status,
+        userRole,
       ];
 }
 
