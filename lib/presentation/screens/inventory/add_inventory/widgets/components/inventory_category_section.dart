@@ -35,7 +35,7 @@ class InventoryCategorySection extends StatelessWidget {
                         children: <Widget>[
                           const Icon(Icons.category_outlined, size: 16),
                           const SizedBox(width: 8),
-                          Text(category.name),
+                          Text(category.categoryName),
                         ],
                       ),
                     ))

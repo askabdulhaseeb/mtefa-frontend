@@ -1,0 +1,132 @@
+import '../../../core/enums/location_type.dart';
+import '../../../core/enums/status_type.dart';
+import '../../../domain/entities/inventory/inventory_locations_entity.dart';
+
+class InventoryLocationsModel extends InventoryLocationsEntity {
+  const InventoryLocationsModel({
+    required super.locationId,
+    required super.businessId,
+    required super.branchId,
+    required super.locationName,
+    required super.locationCode,
+    required super.locationType,
+    required super.currentCapacity, required super.isSellableLocation, required super.requiresCounting, required super.temperatureControlled, required super.securityLevel, required super.status, required super.createdAt, required super.updatedAt, super.parentLocationId,
+    super.aisle,
+    super.shelf,
+    super.bin,
+    super.barcode,
+    super.maxCapacity,
+    super.createdBy,
+    super.updatedBy,
+    super.syncStatus,
+  });
+
+  factory InventoryLocationsModel.fromJson(Map<String, dynamic> json) {
+    return InventoryLocationsModel(
+      locationId: json['location_id'] as String,
+      businessId: json['business_id'] as String,
+      branchId: json['branch_id'] as String,
+      locationName: json['location_name'] as String,
+      locationCode: json['location_code'] as String,
+      locationType: LocationType.fromString(json['location_type'] as String),
+      parentLocationId: json['parent_location_id'] as String?,
+      aisle: json['aisle'] as String?,
+      shelf: json['shelf'] as String?,
+      bin: json['bin'] as String?,
+      barcode: json['barcode'] as String?,
+      maxCapacity: json['max_capacity'] as int?,
+      currentCapacity: json['current_capacity'] as int? ?? 0,
+      isSellableLocation: json['is_sellable_location'] as bool? ?? true,
+      requiresCounting: json['requires_counting'] as bool? ?? true,
+      temperatureControlled: json['temperature_controlled'] as bool? ?? false,
+      securityLevel: json['security_level'] as String? ?? 'standard',
+      status: StatusType.fromString(json['status'] as String? ?? 'active'),
+      createdBy: json['created_by'] as String?,
+      updatedBy: json['updated_by'] as String?,
+      createdAt: DateTime.parse(json['created_at'] as String),
+      updatedAt: DateTime.parse(json['updated_at'] as String),
+      syncStatus: json['sync_status'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'location_id': locationId,
+      'business_id': businessId,
+      'branch_id': branchId,
+      'location_name': locationName,
+      'location_code': locationCode,
+      'location_type': locationType.value,
+      'parent_location_id': parentLocationId,
+      'aisle': aisle,
+      'shelf': shelf,
+      'bin': bin,
+      'barcode': barcode,
+      'max_capacity': maxCapacity,
+      'current_capacity': currentCapacity,
+      'is_sellable_location': isSellableLocation,
+      'requires_counting': requiresCounting,
+      'temperature_controlled': temperatureControlled,
+      'security_level': securityLevel,
+      'status': status.value,
+      'created_by': createdBy,
+      'updated_by': updatedBy,
+      'created_at': createdAt.toIso8601String(),
+      'updated_at': updatedAt.toIso8601String(),
+      'sync_status': syncStatus,
+    };
+  }
+
+  @override
+  InventoryLocationsModel copyWith({
+    String? locationId,
+    String? businessId,
+    String? branchId,
+    String? locationName,
+    String? locationCode,
+    LocationType? locationType,
+    String? parentLocationId,
+    String? aisle,
+    String? shelf,
+    String? bin,
+    String? barcode,
+    int? maxCapacity,
+    int? currentCapacity,
+    bool? isSellableLocation,
+    bool? requiresCounting,
+    bool? temperatureControlled,
+    String? securityLevel,
+    StatusType? status,
+    String? createdBy,
+    String? updatedBy,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    String? syncStatus,
+  }) {
+    return InventoryLocationsModel(
+      locationId: locationId ?? this.locationId,
+      businessId: businessId ?? this.businessId,
+      branchId: branchId ?? this.branchId,
+      locationName: locationName ?? this.locationName,
+      locationCode: locationCode ?? this.locationCode,
+      locationType: locationType ?? this.locationType,
+      parentLocationId: parentLocationId ?? this.parentLocationId,
+      aisle: aisle ?? this.aisle,
+      shelf: shelf ?? this.shelf,
+      bin: bin ?? this.bin,
+      barcode: barcode ?? this.barcode,
+      maxCapacity: maxCapacity ?? this.maxCapacity,
+      currentCapacity: currentCapacity ?? this.currentCapacity,
+      isSellableLocation: isSellableLocation ?? this.isSellableLocation,
+      requiresCounting: requiresCounting ?? this.requiresCounting,
+      temperatureControlled: temperatureControlled ?? this.temperatureControlled,
+      securityLevel: securityLevel ?? this.securityLevel,
+      status: status ?? this.status,
+      createdBy: createdBy ?? this.createdBy,
+      updatedBy: updatedBy ?? this.updatedBy,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      syncStatus: syncStatus ?? this.syncStatus,
+    );
+  }
+}

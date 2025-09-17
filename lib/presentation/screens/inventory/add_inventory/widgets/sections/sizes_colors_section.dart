@@ -178,7 +178,7 @@ class SizesColorsSection extends StatelessWidget {
             ),
             selected: isSelected,
             onSelected: (bool selected) {
-              final List<String> newSelection = List.from(selectedItems);
+              final List<String> newSelection = List<String>.from(selectedItems);
               if (selected) {
                 newSelection.add(item);
               } else {

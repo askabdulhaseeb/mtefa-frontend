@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../../domain/entities/inventory/inventory_line_entity.dart';
+import '../../../../../../domain/entities/inventory/supplier_entity.dart';
+
 import '../../../../../../core/constants/numbers.dart';
 import '../../../../../widgets/core/enhanced_text_form_field.dart';
 import '../../../../../widgets/core/custom_dropdown_with_add.dart';
@@ -123,11 +126,11 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
             ),
             color: colorScheme.surfaceContainerHighest.withAlpha(50),
           ),
-          child: CustomDropdownWithAdd<String>(
+          child: CustomDropdownWithAdd<InventoryLineEntity?>(
             title: '',
             hint: 'Select product category',
-            items: provider.lineItems.map((String item) {
-              return DropdownMenuItem<String>(
+            items: provider.inventoryLines.map((InventoryLineEntity item) {
+              return DropdownMenuItem<InventoryLineEntity?>(
                 value: item,
                 child: Row(
                   children: <Widget>[
@@ -140,7 +143,7 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 12),
-                    Text(item),
+                    Text(item.lineName),
                   ],
                 ),
               );
@@ -272,11 +275,11 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 8),
-        CustomDropdownWithAdd<String>(
+        CustomDropdownWithAdd<SupplierEntity?>(
           title: '',
           hint: 'Select supplier',
-          items: provider.suppliers.map((String supplier) {
-            return DropdownMenuItem<String>(
+          items: provider.suppliers.map((SupplierEntity supplier) {
+            return DropdownMenuItem<SupplierEntity?>(
               value: supplier,
               child: Row(
                 children: <Widget>[
@@ -284,7 +287,7 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
                     radius: 12,
                     backgroundColor: colorScheme.primaryContainer,
                     child: Text(
-                      supplier[0].toUpperCase(),
+                      supplier.supplierName[0].toUpperCase(),
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
@@ -293,7 +296,7 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  Text(supplier),
+                  Text(supplier.supplierName),
                 ],
               ),
             );

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../../core/constants/numbers.dart';
+import '../../../../../../domain/entities/inventory/inventory_line_entity.dart';
+import '../../../../../../domain/entities/inventory/supplier_entity.dart';
 import '../../../../../widgets/core/custom_textformfield.dart';
 import '../../../../../widgets/core/custom_dropdown_with_add.dart';
 import '../../providers/comprehensive_inventory_provider.dart';
@@ -21,13 +23,13 @@ class RequiredFieldsSection extends StatelessWidget {
           child: Column(
             children: <Widget>[
               // Line Item - Select from dropdown
-              CustomDropdownWithAdd<String>(
+              CustomDropdownWithAdd<InventoryLineEntity?>(
                 title: 'Line Item *',
                 hint: 'Select line item',
-                items: provider.lineItems.map((String item) {
-                  return DropdownMenuItem<String>(
+                items: provider.inventoryLines.map((InventoryLineEntity item) {
+                  return DropdownMenuItem<InventoryLineEntity?>(
                     value: item,
-                    child: Text(item),
+                    child: Text(item.lineName),
                   );
                 }).toList(),
                 selectedItem: provider.selectedLineItem,
@@ -87,13 +89,13 @@ class RequiredFieldsSection extends StatelessWidget {
 
               // Supplier - Select from dropdown (Visibility Depends on Line Item)
               if (provider.shouldShowSupplier) ...<Widget>[
-                CustomDropdownWithAdd<String>(
+                CustomDropdownWithAdd<SupplierEntity?>(
                   title: 'Supplier *',
                   hint: 'Select supplier',
-                  items: provider.suppliers.map((String supplier) {
-                    return DropdownMenuItem<String>(
+                  items: provider.suppliers.map((SupplierEntity supplier) {
+                    return DropdownMenuItem<SupplierEntity?>(
                       value: supplier,
-                      child: Text(supplier),
+                      child: Text(supplier.supplierName),
                     );
                   }).toList(),
                   selectedItem: provider.selectedSupplier,

@@ -179,7 +179,7 @@ class AddInventoryProvider extends ChangeNotifier {
       final InventoryEntity inventory = InventoryEntity(
         name: nameController.text.trim(),
         code: codeController.text.trim(),
-        categoryId: _selectedCategory!.id,
+        categoryId: _selectedCategory!.categoryId,
         brandId: _selectedBrand!.id,
         description: descriptionController.text.trim(),
         costPrice: double.parse(costPriceController.text),
@@ -232,15 +232,72 @@ class AddInventoryProvider extends ChangeNotifier {
 
   /// Mock data for categories
   List<CategoryEntity> _getMockCategories() {
-    return const <CategoryEntity>[
-      CategoryEntity(id: '1', name: 'Electronics'),
-      CategoryEntity(id: '2', name: 'Clothing'),
-      CategoryEntity(id: '3', name: 'Food & Beverages'),
-      CategoryEntity(id: '4', name: 'Home & Garden'),
-      CategoryEntity(id: '5', name: 'Health & Beauty'),
-      CategoryEntity(id: '6', name: 'Sports & Outdoors'),
-      CategoryEntity(id: '7', name: 'Books & Stationery'),
-      CategoryEntity(id: '8', name: 'Toys & Games'),
+    final DateTime now = DateTime.now();
+    return <CategoryEntity>[
+      CategoryEntity(
+        categoryId: '1',
+        businessId: 'business-001',
+        categoryCode: 'ELEC',
+        categoryName: 'Electronics',
+        createdAt: now,
+        updatedAt: now,
+      ),
+      CategoryEntity(
+        categoryId: '2',
+        businessId: 'business-001',
+        categoryCode: 'CLOTH',
+        categoryName: 'Clothing',
+        createdAt: now,
+        updatedAt: now,
+      ),
+      CategoryEntity(
+        categoryId: '3',
+        businessId: 'business-001',
+        categoryCode: 'FOOD',
+        categoryName: 'Food & Beverages',
+        createdAt: now,
+        updatedAt: now,
+      ),
+      CategoryEntity(
+        categoryId: '4',
+        businessId: 'business-001',
+        categoryCode: 'HOME',
+        categoryName: 'Home & Garden',
+        createdAt: now,
+        updatedAt: now,
+      ),
+      CategoryEntity(
+        categoryId: '5',
+        businessId: 'business-001',
+        categoryCode: 'HEALTH',
+        categoryName: 'Health & Beauty',
+        createdAt: now,
+        updatedAt: now,
+      ),
+      CategoryEntity(
+        categoryId: '6',
+        businessId: 'business-001',
+        categoryCode: 'SPORT',
+        categoryName: 'Sports & Outdoors',
+        createdAt: now,
+        updatedAt: now,
+      ),
+      CategoryEntity(
+        categoryId: '7',
+        businessId: 'business-001',
+        categoryCode: 'BOOKS',
+        categoryName: 'Books & Stationery',
+        createdAt: now,
+        updatedAt: now,
+      ),
+      CategoryEntity(
+        categoryId: '8',
+        businessId: 'business-001',
+        categoryCode: 'TOYS',
+        categoryName: 'Toys & Games',
+        createdAt: now,
+        updatedAt: now,
+      ),
     ];
   }
 

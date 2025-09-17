@@ -1,11 +1,37 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/resources/data_state.dart';
+import '../../../../../domain/entities/inventory/category_entity.dart';
+import '../../../../../domain/entities/inventory/inventory_line_entity.dart';
+import '../../../../../domain/entities/inventory/sub_category_entity.dart';
+import '../../../../../domain/entities/inventory/supplier_entity.dart';
+import '../../../../../domain/usecases/inventory/get_categories_usecase.dart';
+import '../../../../../domain/usecases/inventory/get_inventory_lines_usecase.dart';
+import '../../../../../domain/usecases/inventory/get_sub_categories_usecase.dart';
+import '../../../../../domain/usecases/inventory/get_suppliers_usecase.dart';
+
 /// Comprehensive provider for managing all inventory fields based on product definition requirements
 class ComprehensiveInventoryProvider extends ChangeNotifier {
-  ComprehensiveInventoryProvider() {
+  ComprehensiveInventoryProvider({
+    required GetInventoryLinesUseCase getInventoryLinesUseCase,
+    required GetCategoriesUseCase getCategoriesUseCase,
+    required GetCategoriesByParentUseCase getCategoriesByParentUseCase,
+    required GetSubCategoriesUseCase getSubCategoriesUseCase,
+    required GetSuppliersUseCase getSuppliersUseCase,
+  })  : _getInventoryLinesUseCase = getInventoryLinesUseCase,
+        _getCategoriesUseCase = getCategoriesUseCase,
+        // _getCategoriesByParentUseCase = getCategoriesByParentUseCase,
+        _getSubCategoriesUseCase = getSubCategoriesUseCase,
+        _getSuppliersUseCase = getSuppliersUseCase {
     _initializeFormControllers();
     _loadFormData();
   }
+
+  final GetInventoryLinesUseCase _getInventoryLinesUseCase;
+  final GetCategoriesUseCase _getCategoriesUseCase;
+  // final GetCategoriesByParentUseCase _getCategoriesByParentUseCase; // Reserved for future use
+  final GetSubCategoriesUseCase _getSubCategoriesUseCase;
+  final GetSuppliersUseCase _getSuppliersUseCase;
 
   // Form key for validation
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -36,11 +62,17 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   // ADDITIONAL
   final TextEditingController commentsController = TextEditingController();
 
+  // DATA FROM DATABASE
+  List<InventoryLineEntity> _inventoryLines = <InventoryLineEntity>[];
+  List<CategoryEntity> _categories = <CategoryEntity>[];
+  List<SubCategoryEntity> _subCategories = <SubCategoryEntity>[];
+  List<SupplierEntity> _suppliers = <SupplierEntity>[];
+
   // SELECTED VALUES
-  String? _selectedLineItem;
-  String? _selectedSupplier;
-  String? _selectedCategory;
-  String? _selectedSubCategory;
+  InventoryLineEntity? _selectedLineItem;
+  SupplierEntity? _selectedSupplier;
+  CategoryEntity? _selectedCategory;
+  SubCategoryEntity? _selectedSubCategory;
   String? _selectedProductGroup;
   String? _selectedAgeGroup;
   String? _selectedPackagingType;
@@ -57,38 +89,8 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   String? _selectedLifeType;
   DateTime? _selectedDate;
 
-  // DROPDOWN OPTIONS
-  final List<String> _lineItems = <String>[
-    'Ladies Shirts',
-    'Pharmacy',
-    'Electronics',
-    'Home & Garden',
-    'Sports Equipment',
-  ];
-
-  final List<String> _suppliers = <String>[
-    'Supplier A',
-    'Supplier B', 
-    'Supplier C',
-    'Local Vendor',
-    'International Supplier',
-  ];
-
-  final List<String> _categories = <String>[
-    'Clothing',
-    'Medicine',
-    'Electronics',
-    'Home Appliances',
-    'Sports',
-  ];
-
-  final List<String> _subCategories = <String>[
-    'Shirts',
-    'Tablets',
-    'Mobile Phones',
-    'Kitchen Appliances',
-    'Exercise Equipment',
-  ];
+  // LOADING STATES
+  bool _isLoadingSubCategories = false;
 
   final List<String> _productGroups = <String>[
     'Premium',
@@ -180,10 +182,10 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   bool _autoGenerateCode = true;
 
   // GETTERS
-  String? get selectedLineItem => _selectedLineItem;
-  String? get selectedSupplier => _selectedSupplier;
-  String? get selectedCategory => _selectedCategory;
-  String? get selectedSubCategory => _selectedSubCategory;
+  InventoryLineEntity? get selectedLineItem => _selectedLineItem;
+  SupplierEntity? get selectedSupplier => _selectedSupplier;
+  CategoryEntity? get selectedCategory => _selectedCategory;
+  SubCategoryEntity? get selectedSubCategory => _selectedSubCategory;
   String? get selectedProductGroup => _selectedProductGroup;
   String? get selectedAgeGroup => _selectedAgeGroup;
   String? get selectedPackagingType => _selectedPackagingType;
@@ -200,10 +202,10 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   String? get selectedLifeType => _selectedLifeType;
   DateTime? get selectedDate => _selectedDate;
 
-  List<String> get lineItems => _lineItems;
-  List<String> get suppliers => _suppliers;
-  List<String> get categories => _categories;
-  List<String> get subCategories => _subCategories;
+  List<InventoryLineEntity> get inventoryLines => _inventoryLines;
+  List<SupplierEntity> get suppliers => _suppliers;
+  List<CategoryEntity> get categories => _categories;
+  List<SubCategoryEntity> get subCategories => _subCategories;
   List<String> get productGroups => _productGroups;
   List<String> get ageGroups => _ageGroups;
   List<String> get packagingTypes => _packagingTypes;
@@ -219,6 +221,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
   bool get isLoading => _isLoading;
   bool get isSaving => _isSaving;
+  bool get isLoadingSubCategories => _isLoadingSubCategories;
   bool get autoGenerateCode => _autoGenerateCode;
 
   /// Initialize form controllers with listeners
@@ -233,17 +236,22 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Load initial form data
+  /// Load initial form data from database
   Future<void> _loadFormData() async {
     _isLoading = true;
     notifyListeners();
 
     try {
-      await Future<void>.delayed(const Duration(milliseconds: 500));
-      
+      // Load all data in parallel
+      await Future.wait(<Future<void>>[
+        _loadInventoryLines(),
+        _loadCategories(),
+        _loadSuppliers(),
+      ]);
+
       // Set default currency
       _selectedCurrency = 'PKR';
-      
+
       // Auto-generate product code if enabled
       if (_autoGenerateCode) {
         _generateProductCode();
@@ -252,6 +260,64 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
       debugPrint('Error loading form data: $e');
     } finally {
       _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  /// Load inventory lines from database
+  Future<void> _loadInventoryLines() async {
+    final DataState<List<InventoryLineEntity>> result = await _getInventoryLinesUseCase.call();
+    
+    if (result.isSuccess) {
+      _inventoryLines = result.data ?? <InventoryLineEntity>[];
+    } else {
+      debugPrint('Failed to load inventory lines: ${result.error}');
+    }
+  }
+
+  /// Load categories from database
+  Future<void> _loadCategories() async {
+    final DataState<List<CategoryEntity>> result = await _getCategoriesUseCase.call();
+    
+    if (result.isSuccess) {
+      _categories = result.data ?? <CategoryEntity>[];
+    } else {
+      debugPrint('Failed to load categories: ${result.error}');
+    }
+  }
+
+  /// Load suppliers from database
+  Future<void> _loadSuppliers() async {
+    final DataState<List<SupplierEntity>> result = await _getSuppliersUseCase.call();
+    
+    if (result.isSuccess) {
+      _suppliers = result.data ?? <SupplierEntity>[];
+    } else {
+      debugPrint('Failed to load suppliers: ${result.error}');
+    }
+  }
+
+  /// Load subcategories when category is selected
+  Future<void> _loadSubCategories(String categoryId) async {
+    _isLoadingSubCategories = true;
+    notifyListeners();
+
+    try {
+      final DataState<List<SubCategoryEntity>> result = await _getSubCategoriesUseCase.call(
+        params: GetSubCategoriesParams(categoryId: categoryId),
+      );
+
+      if (result.isSuccess) {
+        _subCategories = result.data ?? <SubCategoryEntity>[];
+      } else {
+        _subCategories = <SubCategoryEntity>[];
+        debugPrint('Failed to load subcategories: ${result.error}');
+      }
+    } catch (e) {
+      _subCategories = <SubCategoryEntity>[];
+      debugPrint('Error loading subcategories: $e');
+    } finally {
+      _isLoadingSubCategories = false;
       notifyListeners();
     }
   }
@@ -265,31 +331,40 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   }
 
   /// Set line item
-  void setLineItem(String? lineItem) {
+  void setLineItem(InventoryLineEntity? lineItem) {
     _selectedLineItem = lineItem;
     // Reset dependent fields
     _selectedSupplier = null;
     _selectedCategory = null;
     _selectedSubCategory = null;
+    _subCategories = <SubCategoryEntity>[];
     notifyListeners();
   }
 
   /// Set supplier (visibility depends on line item)
-  void setSupplier(String? supplier) {
+  void setSupplier(SupplierEntity? supplier) {
     _selectedSupplier = supplier;
     notifyListeners();
   }
 
   /// Set category (visibility depends on line item)
-  void setCategory(String? category) {
+  void setCategory(CategoryEntity? category) {
     _selectedCategory = category;
     _selectedSubCategory = null; // Reset subcategory
     _selectedAgeGroup = null; // Reset age group
+    
+    // Load subcategories for this category
+    if (category != null) {
+      _loadSubCategories(category.categoryId);
+    } else {
+      _subCategories = <SubCategoryEntity>[];
+    }
+    
     notifyListeners();
   }
 
   /// Set subcategory (visibility depends on category)
-  void setSubCategory(String? subCategory) {
+  void setSubCategory(SubCategoryEntity? subCategory) {
     _selectedSubCategory = subCategory;
     notifyListeners();
   }
@@ -463,12 +538,12 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
   /// Check if sizes should be visible (depends on category)
   bool get shouldShowSizes {
-    return _selectedCategory == 'Clothing';
+    return _selectedCategory?.categoryName.toLowerCase().contains('clothing') == true;
   }
 
   /// Check if colors should be visible (depends on category)
   bool get shouldShowColors {
-    return _selectedCategory == 'Clothing';
+    return _selectedCategory?.categoryName.toLowerCase().contains('clothing') == true;
   }
 
   /// Check if default size and color should be visible (depends on category)
@@ -482,31 +557,21 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   }
 
   /// Add new line item
-  Future<String?> addNewLineItem() async {
-    // TODO: Implement add new line item dialog
-    // For now, just return a mock value
-    final String newItem = 'New Line Item ${_lineItems.length + 1}';
-    _lineItems.add(newItem);
-    notifyListeners();
-    return newItem;
+  Future<InventoryLineEntity?> addNewLineItem() async {
+    // TODO: Implement add new line item dialog and save to database
+    return null;
   }
 
   /// Add new supplier
-  Future<String?> addNewSupplier() async {
-    // TODO: Implement add new supplier dialog
-    final String newSupplier = 'New Supplier ${_suppliers.length + 1}';
-    _suppliers.add(newSupplier);
-    notifyListeners();
-    return newSupplier;
+  Future<SupplierEntity?> addNewSupplier() async {
+    // TODO: Implement add new supplier dialog and save to database
+    return null;
   }
 
   /// Add new category
-  Future<String?> addNewCategory() async {
-    // TODO: Implement add new category dialog
-    final String newCategory = 'New Category ${_categories.length + 1}';
-    _categories.add(newCategory);
-    notifyListeners();
-    return newCategory;
+  Future<CategoryEntity?> addNewCategory() async {
+    // TODO: Implement add new category dialog and save to database
+    return null;
   }
 
   /// Validate and save inventory

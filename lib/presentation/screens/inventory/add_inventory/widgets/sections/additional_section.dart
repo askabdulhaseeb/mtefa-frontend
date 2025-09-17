@@ -180,13 +180,13 @@ class AdditionalSection extends StatelessWidget {
           // Product basic info
           _buildSummaryRow('Product Name', provider.productNameController.text),
           _buildSummaryRow('Product Code', provider.productCodeController.text),
-          _buildSummaryRow('Line Item', provider.selectedLineItem ?? ''),
+          _buildSummaryRow('Line Item', provider.selectedLineItem?.lineName ?? ''),
           
           if (provider.selectedCategory != null)
-            _buildSummaryRow('Category', provider.selectedCategory!),
+            _buildSummaryRow('Category', provider.selectedCategory!.categoryName),
           
           if (provider.selectedSupplier != null)
-            _buildSummaryRow('Supplier', provider.selectedSupplier!),
+            _buildSummaryRow('Supplier', provider.selectedSupplier!.supplierName),
           
           // Pricing info
           const Divider(height: 24),

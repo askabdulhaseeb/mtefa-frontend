@@ -44,10 +44,9 @@ class _SignupPopupState extends State<SignupPopup> {
 
       // Check if user already exists
       final List<LocalUser> existingUsers =
-          await (database.select(database.users)..where(
-                ($UsersTable u) =>
-                    u.email.equals(_emailController.text.trim().toLowerCase()),
-              ))
+          await (database.select(database.users)
+            ..where(($UsersTable u) =>
+                u.email.equals(_emailController.text.trim().toLowerCase())))
               .get();
 
       if (existingUsers.isNotEmpty) {

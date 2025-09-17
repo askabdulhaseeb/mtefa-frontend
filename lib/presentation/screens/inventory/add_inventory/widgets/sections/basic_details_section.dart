@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../../core/constants/numbers.dart';
+import '../../../../../../domain/entities/inventory/category_entity.dart';
+import '../../../../../../domain/entities/inventory/sub_category_entity.dart';
 import '../../../../../widgets/core/custom_textformfield.dart';
 import '../../../../../widgets/core/custom_dropdown_with_add.dart';
 import '../../providers/comprehensive_inventory_provider.dart';
@@ -22,13 +24,13 @@ class BasicDetailsSection extends StatelessWidget {
             children: <Widget>[
               // Category - Product classification (Visibility Depends on Line Item)
               if (provider.shouldShowCategory) ...<Widget>[
-                CustomDropdownWithAdd<String>(
+                CustomDropdownWithAdd<CategoryEntity?>(
                   title: 'Category',
                   hint: 'Select category',
-                  items: provider.categories.map((String category) {
-                    return DropdownMenuItem<String>(
+                  items: provider.categories.map((CategoryEntity category) {
+                    return DropdownMenuItem<CategoryEntity?>(
                       value: category,
-                      child: Text(category),
+                      child: Text(category.categoryName),
                     );
                   }).toList(),
                   selectedItem: provider.selectedCategory,
@@ -42,13 +44,13 @@ class BasicDetailsSection extends StatelessWidget {
 
               // Sub Category - Product classification (Visibility Depends on Category)
               if (provider.shouldShowSubCategory) ...<Widget>[
-                CustomDropdownWithAdd<String>(
+                CustomDropdownWithAdd<SubCategoryEntity?>(
                   title: 'Sub Category',
                   hint: 'Select sub category',
-                  items: provider.subCategories.map((String subCategory) {
-                    return DropdownMenuItem<String>(
+                  items: provider.subCategories.map((SubCategoryEntity subCategory) {
+                    return DropdownMenuItem<SubCategoryEntity?>(
                       value: subCategory,
-                      child: Text(subCategory),
+                      child: Text(subCategory.subCategoryName),
                     );
                   }).toList(),
                   selectedItem: provider.selectedSubCategory,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../injection_container.dart';
 import '../../../widgets/core/my_scaffold.dart';
 import '../../../widgets/core/responsive_widget.dart';
 import 'providers/comprehensive_inventory_provider.dart';
@@ -17,7 +18,7 @@ class AddInventoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ComprehensiveInventoryProvider>(
-      create: (_) => ComprehensiveInventoryProvider(),
+      create: (_) => sl<ComprehensiveInventoryProvider>(),
       child: const _AddInventoryContent(),
     );
   }
