@@ -35,7 +35,7 @@ class BasicDetailsSection extends StatelessWidget {
                   }).toList(),
                   selectedItem: provider.selectedCategory,
                   onChanged: provider.setCategory,
-                  onAddNew: provider.addNewCategory,
+                  onAddNew: () => provider.addNewCategory(context),
                   addNewButtonText: 'Add Category',
                   addDialogTitle: 'Add New Category',
                 ),
@@ -55,10 +55,7 @@ class BasicDetailsSection extends StatelessWidget {
                   }).toList(),
                   selectedItem: provider.selectedSubCategory,
                   onChanged: provider.setSubCategory,
-                  onAddNew: () async {
-                    // TODO: Implement add new subcategory
-                    return null;
-                  },
+                  onAddNew: () => provider.addNewSubCategory(context),
                   addNewButtonText: 'Add Sub Category',
                   addDialogTitle: 'Add New Sub Category',
                 ),
@@ -77,10 +74,7 @@ class BasicDetailsSection extends StatelessWidget {
                 }).toList(),
                 selectedItem: provider.selectedProductGroup,
                 onChanged: provider.setProductGroup,
-                onAddNew: () async {
-                  // TODO: Implement add new product group
-                  return null;
-                },
+                onAddNew: () => provider.addNewProductGroup(context),
                 addNewButtonText: 'Add Product Group',
                 addDialogTitle: 'Add New Product Group',
               ),
@@ -100,10 +94,7 @@ class BasicDetailsSection extends StatelessWidget {
                   }).toList(),
                   selectedItem: provider.selectedAgeGroup,
                   onChanged: provider.setAgeGroup,
-                  onAddNew: () async {
-                    // TODO: Implement add new age group
-                    return null;
-                  },
+                  onAddNew: () => provider.addNewAgeGroup(context),
                   addNewButtonText: 'Add Age Group',
                   addDialogTitle: 'Add New Age Group',
                 ),
@@ -122,10 +113,7 @@ class BasicDetailsSection extends StatelessWidget {
                 }).toList(),
                 selectedItem: provider.selectedPackagingType,
                 onChanged: provider.setPackagingType,
-                onAddNew: () async {
-                  // TODO: Implement add new packaging type
-                  return null;
-                },
+                onAddNew: () => provider.addNewPackagingType(context),
                 addNewButtonText: 'Add Packaging Type',
                 addDialogTitle: 'Add New Packaging Type',
               ),
@@ -144,10 +132,7 @@ class BasicDetailsSection extends StatelessWidget {
                 }).toList(),
                 selectedItem: provider.selectedProductGender,
                 onChanged: provider.setProductGender,
-                onAddNew: () async {
-                  // TODO: Implement add new product gender
-                  return null;
-                },
+                onAddNew: () => provider.addNewProductGender(context),
                 addNewButtonText: 'Add Gender Option',
                 addDialogTitle: 'Add New Gender Option',
               ),

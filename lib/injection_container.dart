@@ -23,7 +23,9 @@ import 'domain/repositories/sub_category_repository.dart';
 import 'domain/repositories/supplier_repository.dart';
 import 'domain/usecases/auth/login_usecase.dart';
 import 'domain/usecases/inventory/get_categories_usecase.dart';
+import 'domain/usecases/inventory/get_colors_usecase.dart';
 import 'domain/usecases/inventory/get_inventory_lines_usecase.dart';
+import 'domain/usecases/inventory/get_sizes_usecase.dart';
 import 'domain/usecases/inventory/get_sub_categories_usecase.dart';
 import 'domain/usecases/inventory/get_suppliers_usecase.dart';
 import 'presentation/screens/auth/providers/login_provider.dart';
@@ -118,6 +120,12 @@ void _inventory() {
   sl.registerLazySingleton<GetSuppliersUseCase>(
     () => GetSuppliersUseCase(sl<SupplierRepository>()),
   );
+  sl.registerLazySingleton<GetColorsUseCase>(
+    () => GetColorsUseCase(sl<InventoryColorsRepository>()),
+  );
+  sl.registerLazySingleton<GetSizesUseCase>(
+    () => GetSizesUseCase(sl<InventorySizesRepository>()),
+  );
   
   // Providers - Both old and new for transition
   sl.registerFactory<ComprehensiveInventoryProvider>(
@@ -127,6 +135,8 @@ void _inventory() {
       getCategoriesByParentUseCase: sl<GetCategoriesByParentUseCase>(),
       getSubCategoriesUseCase: sl<GetSubCategoriesUseCase>(),
       getSuppliersUseCase: sl<GetSuppliersUseCase>(),
+      getColorsUseCase: sl<GetColorsUseCase>(),
+      getSizesUseCase: sl<GetSizesUseCase>(),
     ),
   );
   

@@ -18,86 +18,91 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final ColorScheme colorScheme = theme.colorScheme;
-    
+
     return Consumer<ComprehensiveInventoryProvider>(
-      builder: (BuildContext context, ComprehensiveInventoryProvider provider, Widget? child) {
-        return EnhancedSectionCard(
-          icon: Icons.inventory_2_outlined,
-          title: 'Essential Information',
-          subtitle: 'Core product details required for inventory management',
-          isRequired: true,
-          iconColor: colorScheme.error,
-          child: Column(
-            children: <Widget>[
-              // Line Item Selection with visual enhancement
-              _buildLineItemSelector(context, provider),
-              
-              const SizedBox(height: DoubleConstants.spacingL),
+      builder:
+          (
+            BuildContext context,
+            ComprehensiveInventoryProvider provider,
+            Widget? child,
+          ) {
+            return EnhancedSectionCard(
+              icon: Icons.inventory_2_outlined,
+              title: 'Essential Information',
+              subtitle:
+                  'Core product details required for inventory management',
+              isRequired: true,
+              iconColor: colorScheme.error,
+              child: Column(
+                children: <Widget>[
+                  // Line Item Selection with visual enhancement
+                  _buildLineItemSelector(context, provider),
 
-              // Product Code with auto-generation toggle
-              _buildProductCodeField(context, provider),
+                  const SizedBox(height: DoubleConstants.spacingL),
 
-              const SizedBox(height: DoubleConstants.spacingL),
+                  // Product Code with auto-generation toggle
+                  _buildProductCodeField(context, provider),
 
-              // Product Name field
-              EnhancedTextFormField(
-                controller: provider.productNameController,
-                label: 'Product Name',
-                hint: 'Enter a descriptive product name',
-                helperText: 'This name will appear on invoices and reports',
-                isRequired: true,
-                prefixIcon: const Icon(Icons.label_outline),
-                validator: (String? value) {
-                  if (value?.isEmpty ?? true) {
-                    return 'Product name is required';
-                  }
-                  if (value!.length < 3) {
-                    return 'Name must be at least 3 characters';
-                  }
-                  return null;
-                },
-                showCharacterCount: true,
-                maxLength: 100,
+                  const SizedBox(height: DoubleConstants.spacingL),
+
+                  // Product Name field
+                  EnhancedTextFormField(
+                    controller: provider.productNameController,
+                    label: 'Product Name',
+                    hint: 'Enter a descriptive product name',
+                    helperText: 'This name will appear on invoices and reports',
+                    isRequired: true,
+                    prefixIcon: const Icon(Icons.label_outline),
+                    validator: (String? value) {
+                      if (value?.isEmpty ?? true) {
+                        return 'Product name is required';
+                      }
+                      if (value!.length < 3) {
+                        return 'Name must be at least 3 characters';
+                      }
+                      return null;
+                    },
+                    showCharacterCount: true,
+                    maxLength: 100,
+                  ),
+
+                  const SizedBox(height: DoubleConstants.spacingL),
+
+                  // Conditional Supplier field
+                  if (provider.shouldShowSupplier) ...<Widget>[
+                    _buildSupplierSelector(context, provider),
+                    const SizedBox(height: DoubleConstants.spacingL),
+                  ],
+
+                  // Average Cost field with currency
+                  _buildCostField(context, provider),
+
+                  // Profit margin visualization
+                  if (provider.averageCostController.text.isNotEmpty &&
+                      provider.priceController.text.isNotEmpty) ...<Widget>[
+                    const SizedBox(height: DoubleConstants.spacingL),
+                    _buildProfitVisualization(context, provider),
+                  ],
+                ],
               ),
-
-              const SizedBox(height: DoubleConstants.spacingL),
-
-              // Conditional Supplier field
-              if (provider.shouldShowSupplier) ...<Widget>[
-                _buildSupplierSelector(context, provider),
-                const SizedBox(height: DoubleConstants.spacingL),
-              ],
-
-              // Average Cost field with currency
-              _buildCostField(context, provider),
-
-              // Profit margin visualization
-              if (provider.averageCostController.text.isNotEmpty && 
-                  provider.priceController.text.isNotEmpty) ...<Widget>[
-                const SizedBox(height: DoubleConstants.spacingL),
-                _buildProfitVisualization(context, provider),
-              ],
-            ],
-          ),
-        );
-      },
+            );
+          },
     );
   }
 
-  Widget _buildLineItemSelector(BuildContext context, ComprehensiveInventoryProvider provider) {
+  Widget _buildLineItemSelector(
+    BuildContext context,
+    ComprehensiveInventoryProvider provider,
+  ) {
     final ThemeData theme = Theme.of(context);
     final ColorScheme colorScheme = theme.colorScheme;
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
           children: <Widget>[
-            Icon(
-              Icons.category_outlined,
-              size: 20,
-              color: colorScheme.primary,
-            ),
+            Icon(Icons.category_outlined, size: 20, color: colorScheme.primary),
             const SizedBox(width: 8),
             Text(
               'Product Category',
@@ -150,7 +155,7 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
             }).toList(),
             selectedItem: provider.selectedLineItem,
             onChanged: provider.setLineItem,
-            onAddNew: provider.addNewLineItem,
+            onAddNew: () async => await provider.addNewLineItem(context),
             addNewButtonText: 'Create New Category',
             addDialogTitle: 'Add Product Category',
           ),
@@ -168,7 +173,10 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildProductCodeField(BuildContext context, ComprehensiveInventoryProvider provider) {
+  Widget _buildProductCodeField(
+    BuildContext context,
+    ComprehensiveInventoryProvider provider,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -178,9 +186,11 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
               child: EnhancedTextFormField(
                 controller: provider.productCodeController,
                 label: 'Product Code',
-                hint: provider.autoGenerateCode ? 'Will be auto-generated' : 'Enter unique code',
-                helperText: provider.autoGenerateCode 
-                    ? 'Code will be generated on save' 
+                hint: provider.autoGenerateCode
+                    ? 'Will be auto-generated'
+                    : 'Enter unique code',
+                helperText: provider.autoGenerateCode
+                    ? 'Code will be generated on save'
                     : 'Unique identifier for this product',
                 isRequired: true,
                 readOnly: provider.autoGenerateCode,
@@ -201,17 +211,21 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildAutoGenerateToggle(BuildContext context, ComprehensiveInventoryProvider provider) {
+  Widget _buildAutoGenerateToggle(
+    BuildContext context,
+    ComprehensiveInventoryProvider provider,
+  ) {
     final ThemeData theme = Theme.of(context);
     final ColorScheme colorScheme = theme.colorScheme;
-    
+
     return Material(
       color: provider.autoGenerateCode
           ? colorScheme.primaryContainer
           : colorScheme.surfaceContainerHighest,
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
-        onTap: () => provider.toggleAutoGenerateCode(!provider.autoGenerateCode),
+        onTap: () =>
+            provider.toggleAutoGenerateCode(!provider.autoGenerateCode),
         borderRadius: BorderRadius.circular(12),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -243,20 +257,19 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildSupplierSelector(BuildContext context, ComprehensiveInventoryProvider provider) {
+  Widget _buildSupplierSelector(
+    BuildContext context,
+    ComprehensiveInventoryProvider provider,
+  ) {
     final ThemeData theme = Theme.of(context);
     final ColorScheme colorScheme = theme.colorScheme;
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
           children: <Widget>[
-            Icon(
-              Icons.business_outlined,
-              size: 20,
-              color: colorScheme.primary,
-            ),
+            Icon(Icons.business_outlined, size: 20, color: colorScheme.primary),
             const SizedBox(width: 8),
             Text(
               'Supplier',
@@ -303,7 +316,10 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
           }).toList(),
           selectedItem: provider.selectedSupplier,
           onChanged: provider.setSupplier,
-          onAddNew: provider.addNewSupplier,
+          // onAddNew: provider.addNewSupplier(context),
+          onAddNew: () async {
+            return await provider.addNewSupplier(context);
+          },
           addNewButtonText: 'Add New Supplier',
           addDialogTitle: 'Register Supplier',
         ),
@@ -311,8 +327,10 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildCostField(BuildContext context, ComprehensiveInventoryProvider provider) {
-    
+  Widget _buildCostField(
+    BuildContext context,
+    ComprehensiveInventoryProvider provider,
+  ) {
     return EnhancedTextFormField(
       controller: provider.averageCostController,
       label: 'Average Cost',
@@ -320,7 +338,7 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
       helperText: 'Base cost before markup',
       isRequired: true,
       keyboardType: const TextInputType.numberWithOptions(decimal: true),
-      prefixText: provider.selectedCurrency ?? 'PKR ',
+      prefixText: provider.selectedCurrency,
       prefixIcon: const Icon(Icons.payments_outlined),
       validator: (String? value) {
         if (value?.isEmpty ?? true) {
@@ -335,10 +353,13 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildProfitVisualization(BuildContext context, ComprehensiveInventoryProvider provider) {
+  Widget _buildProfitVisualization(
+    BuildContext context,
+    ComprehensiveInventoryProvider provider,
+  ) {
     final ThemeData theme = Theme.of(context);
     final ColorScheme colorScheme = theme.colorScheme;
-    
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -351,20 +372,14 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: Colors.green.withAlpha(50),
-        ),
+        border: Border.all(color: Colors.green.withAlpha(50)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
-              Icon(
-                Icons.insights,
-                size: 20,
-                color: colorScheme.primary,
-              ),
+              Icon(Icons.insights, size: 20, color: colorScheme.primary),
               const SizedBox(width: 8),
               Text(
                 'Profit Analysis',
@@ -445,9 +460,7 @@ class EnhancedRequiredFieldsSection extends StatelessWidget {
       decoration: BoxDecoration(
         color: color.withAlpha(isHighlighted ? 30 : 15),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: color.withAlpha(isHighlighted ? 100 : 50),
-        ),
+        border: Border.all(color: color.withAlpha(isHighlighted ? 100 : 50)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

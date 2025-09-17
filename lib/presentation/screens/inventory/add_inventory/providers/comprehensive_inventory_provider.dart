@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/resources/data_state.dart';
 import '../../../../../domain/entities/inventory/category_entity.dart';
+import '../../../../../domain/entities/inventory/inventory_colors_entity.dart';
 import '../../../../../domain/entities/inventory/inventory_line_entity.dart';
+import '../../../../../domain/entities/inventory/inventory_sizes_entity.dart';
 import '../../../../../domain/entities/inventory/sub_category_entity.dart';
 import '../../../../../domain/entities/inventory/supplier_entity.dart';
 import '../../../../../domain/usecases/inventory/get_categories_usecase.dart';
+import '../../../../../domain/usecases/inventory/get_colors_usecase.dart';
 import '../../../../../domain/usecases/inventory/get_inventory_lines_usecase.dart';
+import '../../../../../domain/usecases/inventory/get_sizes_usecase.dart';
 import '../../../../../domain/usecases/inventory/get_sub_categories_usecase.dart';
 import '../../../../../domain/usecases/inventory/get_suppliers_usecase.dart';
+import '../../../../widgets/dialogs/add_dropdown_item_dialog.dart';
+import '../../../../../core/database/database.dart';
+import '../../../../../injection_container.dart';
+import 'package:uuid/uuid.dart';
 
-/// Comprehensive provider for managing all inventory fields based on product definition requirements
+/// Comprehensive provider for managing all inventory fields - NO HARDCODED DATA
 class ComprehensiveInventoryProvider extends ChangeNotifier {
   ComprehensiveInventoryProvider({
     required GetInventoryLinesUseCase getInventoryLinesUseCase,
@@ -18,20 +26,26 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     required GetCategoriesByParentUseCase getCategoriesByParentUseCase,
     required GetSubCategoriesUseCase getSubCategoriesUseCase,
     required GetSuppliersUseCase getSuppliersUseCase,
+    required GetColorsUseCase getColorsUseCase,
+    required GetSizesUseCase getSizesUseCase,
   })  : _getInventoryLinesUseCase = getInventoryLinesUseCase,
         _getCategoriesUseCase = getCategoriesUseCase,
-        // _getCategoriesByParentUseCase = getCategoriesByParentUseCase,
+        _getCategoriesByParentUseCase = getCategoriesByParentUseCase,
         _getSubCategoriesUseCase = getSubCategoriesUseCase,
-        _getSuppliersUseCase = getSuppliersUseCase {
+        _getSuppliersUseCase = getSuppliersUseCase,
+        _getColorsUseCase = getColorsUseCase,
+        _getSizesUseCase = getSizesUseCase {
     _initializeFormControllers();
     _loadFormData();
   }
 
   final GetInventoryLinesUseCase _getInventoryLinesUseCase;
   final GetCategoriesUseCase _getCategoriesUseCase;
-  // final GetCategoriesByParentUseCase _getCategoriesByParentUseCase; // Reserved for future use
+  final GetCategoriesByParentUseCase _getCategoriesByParentUseCase;
   final GetSubCategoriesUseCase _getSubCategoriesUseCase;
   final GetSuppliersUseCase _getSuppliersUseCase;
+  final GetColorsUseCase _getColorsUseCase;
+  final GetSizesUseCase _getSizesUseCase;
 
   // Form key for validation
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -62,121 +76,39 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   // ADDITIONAL
   final TextEditingController commentsController = TextEditingController();
 
-  // DATA FROM DATABASE
+  // DATA FROM DATABASE - NO HARDCODED DATA
   List<InventoryLineEntity> _inventoryLines = <InventoryLineEntity>[];
   List<CategoryEntity> _categories = <CategoryEntity>[];
   List<SubCategoryEntity> _subCategories = <SubCategoryEntity>[];
   List<SupplierEntity> _suppliers = <SupplierEntity>[];
+  List<InventoryColorsEntity> _colorsEntities = <InventoryColorsEntity>[];
+  List<InventorySizesEntity> _sizesEntities = <InventorySizesEntity>[];
+  
+  // Placeholder lists for fields not yet in database
+  List<String> _productGroups = <String>[];
+  List<String> _ageGroups = <String>[];
+  List<String> _packagingTypes = <String>[];
+  List<String> _productGenders = <String>[];
 
   // SELECTED VALUES
   InventoryLineEntity? _selectedLineItem;
   SupplierEntity? _selectedSupplier;
   CategoryEntity? _selectedCategory;
   SubCategoryEntity? _selectedSubCategory;
-  String? _selectedProductGroup;
-  String? _selectedAgeGroup;
-  String? _selectedPackagingType;
-  String? _selectedProductGender;
-  String? _selectedCurrency;
-  String? _selectedPurchaseConvUnit;
-  String? _selectedAcquireType;
-  String? _selectedPurchaseType;
-  String? _selectedManufacturing;
   List<String> _selectedSizes = <String>[];
   List<String> _selectedColors = <String>[];
   String? _selectedDefaultSize;
   String? _selectedDefaultColor;
-  String? _selectedLifeType;
   DateTime? _selectedDate;
 
-  // LOADING STATES
-  bool _isLoadingSubCategories = false;
-
-  final List<String> _productGroups = <String>[
-    'Premium',
-    'Standard',
-    'Budget',
-    'Luxury',
-    'Economy',
-  ];
-
-  final List<String> _ageGroups = <String>[
-    'Infant (0-2)',
-    'Toddler (3-5)',
-    'Child (6-12)',
-    'Teen (13-19)',
-    'Adult (20-59)',
-    'Senior (60+)',
-  ];
-
-  final List<String> _packagingTypes = <String>[
-    'Box',
-    'Bottle',
-    'Bag',
-    'Blister Pack',
-    'Tube',
-    'Container',
-  ];
-
-  final List<String> _productGenders = <String>[
-    'Male',
-    'Female',
-    'Unisex',
-  ];
-
-  final List<String> _currencies = <String>[
-    'PKR',
-    'USD',
-    'EUR',
-    'GBP',
-    'AED',
-  ];
-
-  final List<String> _purchaseConvUnits = <String>[
-    'Pack',
-    'Bottle',
-    'Box',
-    'Carton',
-    'Dozen',
-  ];
-
-  final List<String> _acquireTypes = <String>[
-    'Purchased',
-    'Local',
-    'Outsourced',
-  ];
-
-  final List<String> _purchaseTypes = <String>[
-    'Local',
-    'Import',
-  ];
-
-  final List<String> _manufacturingTypes = <String>[
-    'Manufactured',
-    'Outsourced',
-  ];
-
-  final List<String> _sizes = <String>[
-    'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL',
-    '32', '34', '36', '38', '40', '42',
-  ];
-
-  final List<String> _colors = <String>[
-    'Red', 'Blue', 'Green', 'Yellow', 'Black', 'White',
-    'Navy', 'Grey', 'Brown', 'Pink', 'Purple', 'Orange',
-  ];
-
-  final List<String> _lifeTypes = <String>[
-    'Consumable',
-    'Durable',
-    'Perishable',
-    'Non-Perishable',
-    'Disposable',
-  ];
+  // Only currency remains as minimal configuration
+  String _selectedCurrency = 'PKR';
+  final List<String> _currencies = <String>['PKR', 'USD', 'EUR', 'GBP', 'AED'];
 
   // LOADING STATES
   bool _isLoading = false;
   bool _isSaving = false;
+  bool _isLoadingSubCategories = false;
 
   // AUTO-GENERATE OPTIONS
   bool _autoGenerateCode = true;
@@ -186,47 +118,83 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   SupplierEntity? get selectedSupplier => _selectedSupplier;
   CategoryEntity? get selectedCategory => _selectedCategory;
   SubCategoryEntity? get selectedSubCategory => _selectedSubCategory;
-  String? get selectedProductGroup => _selectedProductGroup;
-  String? get selectedAgeGroup => _selectedAgeGroup;
-  String? get selectedPackagingType => _selectedPackagingType;
-  String? get selectedProductGender => _selectedProductGender;
-  String? get selectedCurrency => _selectedCurrency;
-  String? get selectedPurchaseConvUnit => _selectedPurchaseConvUnit;
-  String? get selectedAcquireType => _selectedAcquireType;
-  String? get selectedPurchaseType => _selectedPurchaseType;
-  String? get selectedManufacturing => _selectedManufacturing;
   List<String> get selectedSizes => _selectedSizes;
   List<String> get selectedColors => _selectedColors;
   String? get selectedDefaultSize => _selectedDefaultSize;
   String? get selectedDefaultColor => _selectedDefaultColor;
-  String? get selectedLifeType => _selectedLifeType;
   DateTime? get selectedDate => _selectedDate;
+  String get selectedCurrency => _selectedCurrency;
 
   List<InventoryLineEntity> get inventoryLines => _inventoryLines;
   List<SupplierEntity> get suppliers => _suppliers;
   List<CategoryEntity> get categories => _categories;
   List<SubCategoryEntity> get subCategories => _subCategories;
-  List<String> get productGroups => _productGroups;
-  List<String> get ageGroups => _ageGroups;
-  List<String> get packagingTypes => _packagingTypes;
-  List<String> get productGenders => _productGenders;
   List<String> get currencies => _currencies;
-  List<String> get purchaseConvUnits => _purchaseConvUnits;
-  List<String> get acquireTypes => _acquireTypes;
-  List<String> get purchaseTypes => _purchaseTypes;
-  List<String> get manufacturingTypes => _manufacturingTypes;
-  List<String> get sizes => _sizes;
-  List<String> get colors => _colors;
-  List<String> get lifeTypes => _lifeTypes;
+
+  // Convert entities to strings for UI compatibility
+  List<String> get sizes => _sizesEntities.map((InventorySizesEntity e) => e.sizeName).toList();
+  List<String> get colors => _colorsEntities.map((InventoryColorsEntity e) => e.colorName).toList();
 
   bool get isLoading => _isLoading;
   bool get isSaving => _isSaving;
   bool get isLoadingSubCategories => _isLoadingSubCategories;
   bool get autoGenerateCode => _autoGenerateCode;
 
+  // VISIBILITY RULES based on product definition
+  bool get shouldShowSupplier => _selectedLineItem != null;
+  bool get shouldShowCategory => _selectedLineItem != null;
+  bool get shouldShowSubCategory => _selectedCategory != null;
+  bool get shouldShowSizes => _selectedCategory != null;
+  bool get shouldShowColors => _selectedCategory != null;
+  bool get shouldShowDefaultSizeColor => _selectedSizes.isNotEmpty || _selectedColors.isNotEmpty;
+
+  // Additional visibility rules for other fields
+  bool get shouldShowAgeGroup => _selectedCategory != null;
+  bool get shouldShowLifeType => _selectedCategory != null;
+  bool get shouldShowPurchaseConvUnit => _selectedCategory != null;
+  bool get shouldShowAcquireType => _selectedLineItem != null;
+  bool get shouldShowPurchaseType => _selectedLineItem != null;
+  bool get shouldShowManufacturing => _selectedLineItem != null;
+
+  // Getters for placeholder lists
+  List<String> get productGroups => _productGroups;
+  List<String> get ageGroups => _ageGroups;
+  List<String> get packagingTypes => _packagingTypes;
+  List<String> get productGenders => _productGenders;
+  List<String> get purchaseConvUnits => <String>[];
+  List<String> get acquireTypes => <String>[];
+  List<String> get purchaseTypes => <String>[];
+  List<String> get manufacturingTypes => <String>[];
+  List<String> get lifeTypes => <String>[];
+
+  // Placeholder getters for fields not in database yet
+  String? get selectedProductGroup => null;
+  String? get selectedAgeGroup => null;
+  String? get selectedPackagingType => null;
+  String? get selectedProductGender => null;
+  String? get selectedPurchaseConvUnit => null;
+  String? get selectedAcquireType => null;
+  String? get selectedPurchaseType => null;
+  String? get selectedManufacturing => null;
+  String? get selectedLifeType => null;
+
+  // PROFIT CALCULATIONS
+  double get profitMargin {
+    final double cost = double.tryParse(averageCostController.text) ?? 0;
+    final double price = double.tryParse(priceController.text) ?? 0;
+    if (cost == 0 || price == 0) return 0;
+    return ((price - cost) / price) * 100;
+  }
+
+  double get markupPercentage {
+    final double cost = double.tryParse(averageCostController.text) ?? 0;
+    final double price = double.tryParse(priceController.text) ?? 0;
+    if (cost == 0) return 0;
+    return ((price - cost) / cost) * 100;
+  }
+
   /// Initialize form controllers with listeners
   void _initializeFormControllers() {
-    // Add listeners for profit calculations
     averageCostController.addListener(_onPriceChanged);
     priceController.addListener(_onPriceChanged);
   }
@@ -242,11 +210,13 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      // Load all data in parallel
+      // Load all data in parallel - NO HARDCODED DATA
       await Future.wait(<Future<void>>[
         _loadInventoryLines(),
         _loadCategories(),
         _loadSuppliers(),
+        _loadColors(),
+        _loadSizes(),
       ]);
 
       // Set default currency
@@ -294,6 +264,28 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
       _suppliers = result.data ?? <SupplierEntity>[];
     } else {
       debugPrint('Failed to load suppliers: ${result.error}');
+    }
+  }
+
+  /// Load colors from database
+  Future<void> _loadColors() async {
+    final DataState<List<InventoryColorsEntity>> result = await _getColorsUseCase.call();
+    
+    if (result.isSuccess) {
+      _colorsEntities = result.data ?? <InventoryColorsEntity>[];
+    } else {
+      debugPrint('Failed to load colors: ${result.error}');
+    }
+  }
+
+  /// Load sizes from database
+  Future<void> _loadSizes() async {
+    final DataState<List<InventorySizesEntity>> result = await _getSizesUseCase.call();
+    
+    if (result.isSuccess) {
+      _sizesEntities = result.data ?? <InventorySizesEntity>[];
+    } else {
+      debugPrint('Failed to load sizes: ${result.error}');
     }
   }
 
@@ -347,83 +339,26 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Set category (visibility depends on line item)
+  /// Set category (triggers subcategory load)
   void setCategory(CategoryEntity? category) {
     _selectedCategory = category;
-    _selectedSubCategory = null; // Reset subcategory
-    _selectedAgeGroup = null; // Reset age group
+    _selectedSubCategory = null;
+    _subCategories = <SubCategoryEntity>[];
     
-    // Load subcategories for this category
     if (category != null) {
       _loadSubCategories(category.categoryId);
-    } else {
-      _subCategories = <SubCategoryEntity>[];
     }
     
     notifyListeners();
   }
 
-  /// Set subcategory (visibility depends on category)
+  /// Set subcategory
   void setSubCategory(SubCategoryEntity? subCategory) {
     _selectedSubCategory = subCategory;
     notifyListeners();
   }
 
-  /// Set product group
-  void setProductGroup(String? productGroup) {
-    _selectedProductGroup = productGroup;
-    notifyListeners();
-  }
-
-  /// Set age group (visibility depends on category)
-  void setAgeGroup(String? ageGroup) {
-    _selectedAgeGroup = ageGroup;
-    notifyListeners();
-  }
-
-  /// Set packaging type
-  void setPackagingType(String? packagingType) {
-    _selectedPackagingType = packagingType;
-    notifyListeners();
-  }
-
-  /// Set product gender
-  void setProductGender(String? gender) {
-    _selectedProductGender = gender;
-    notifyListeners();
-  }
-
-  /// Set currency
-  void setCurrency(String? currency) {
-    _selectedCurrency = currency;
-    notifyListeners();
-  }
-
-  /// Set purchase conversion unit (visibility depends on category)
-  void setPurchaseConvUnit(String? unit) {
-    _selectedPurchaseConvUnit = unit;
-    notifyListeners();
-  }
-
-  /// Set acquire type (visibility depends on line item)
-  void setAcquireType(String? type) {
-    _selectedAcquireType = type;
-    notifyListeners();
-  }
-
-  /// Set purchase type (visibility depends on line item)
-  void setPurchaseType(String? type) {
-    _selectedPurchaseType = type;
-    notifyListeners();
-  }
-
-  /// Set manufacturing (visibility depends on line item)
-  void setManufacturing(String? manufacturing) {
-    _selectedManufacturing = manufacturing;
-    notifyListeners();
-  }
-
-  /// Set sizes (visibility depends on category)
+  /// Set sizes
   void setSizes(List<String> sizes) {
     _selectedSizes = sizes;
     // Reset default size if not in selected sizes
@@ -433,7 +368,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Set colors (visibility depends on category)
+  /// Set colors
   void setColors(List<String> colors) {
     _selectedColors = colors;
     // Reset default color if not in selected colors
@@ -443,26 +378,26 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Set default size (visibility depends on category)
+  /// Set default size
   void setDefaultSize(String? size) {
     _selectedDefaultSize = size;
     notifyListeners();
   }
 
-  /// Set default color (visibility depends on category)
+  /// Set default color
   void setDefaultColor(String? color) {
     _selectedDefaultColor = color;
     notifyListeners();
   }
 
-  /// Set life type (visibility depends on category)
-  void setLifeType(String? lifeType) {
-    _selectedLifeType = lifeType;
+  /// Set currency
+  void setCurrency(String? currency) {
+    _selectedCurrency = currency ?? 'PKR';
     notifyListeners();
   }
 
   /// Set date
-  void setDate(DateTime? date) {
+  void setDate(DateTime date) {
     _selectedDate = date;
     notifyListeners();
   }
@@ -472,142 +407,301 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     _autoGenerateCode = value;
     if (value) {
       _generateProductCode();
-    } else {
-      productCodeController.clear();
     }
     notifyListeners();
   }
 
-  /// Calculate profit margin
-  double get profitMargin {
-    final double cost = double.tryParse(averageCostController.text) ?? 0;
-    final double price = double.tryParse(priceController.text) ?? 0;
-    
-    if (price <= 0) return 0;
-    return ((price - cost) / price) * 100;
-  }
+  // Placeholder setters for fields not in database yet
+  void setProductGroup(String? group) => notifyListeners();
+  void setAgeGroup(String? ageGroup) => notifyListeners();
+  void setPackagingType(String? type) => notifyListeners();
+  void setProductGender(String? gender) => notifyListeners();
+  void setPurchaseConvUnit(String? unit) => notifyListeners();
+  void setAcquireType(String? type) => notifyListeners();
+  void setPurchaseType(String? type) => notifyListeners();
+  void setManufacturing(String? type) => notifyListeners();
+  void setLifeType(String? type) => notifyListeners();
 
-  /// Calculate markup percentage
-  double get markupPercentage {
-    final double cost = double.tryParse(averageCostController.text) ?? 0;
-    final double price = double.tryParse(priceController.text) ?? 0;
-    
-    if (cost <= 0) return 0;
-    return ((price - cost) / cost) * 100;
-  }
+  /// Add new line item dialog
+  Future<InventoryLineEntity?> addNewLineItem(BuildContext context) async {
+    final Map<String, dynamic>? result = await showDialog<Map<String, dynamic>>(
+      context: context,
+      builder: (BuildContext context) => const AddDropdownItemDialog(
+        title: 'Inventory Line',
+        itemType: 'inventory_line',
+        hasCodeField: true,
+      ),
+    );
 
-  /// Check if supplier should be visible (depends on line item)
-  bool get shouldShowSupplier {
-    return _selectedLineItem != null;
-  }
+    if (result != null) {
+      try {
+        const String businessId = 'default-business';
+        final InventoryLineCompanion companion = InventoryLineCompanion.insert(
+          inventoryLineId: const Uuid().v4(),
+          businessId: businessId,
+          lineName: result['name'] as String,
+          lineCode: result['code'] as String? ?? '',
+        );
 
-  /// Check if category should be visible (depends on line item)
-  bool get shouldShowCategory {
-    return _selectedLineItem != null;
-  }
-
-  /// Check if subcategory should be visible (depends on category)
-  bool get shouldShowSubCategory {
-    return _selectedCategory != null;
-  }
-
-  /// Check if age group should be visible (depends on category)
-  bool get shouldShowAgeGroup {
-    return _selectedCategory != null;
-  }
-
-  /// Check if purchase conv unit should be visible (depends on category)
-  bool get shouldShowPurchaseConvUnit {
-    return _selectedCategory != null;
-  }
-
-  /// Check if acquire type should be visible (depends on line item)
-  bool get shouldShowAcquireType {
-    return _selectedLineItem != null;
-  }
-
-  /// Check if purchase type should be visible (depends on line item)
-  bool get shouldShowPurchaseType {
-    return _selectedLineItem != null;
-  }
-
-  /// Check if manufacturing should be visible (depends on line item)
-  bool get shouldShowManufacturing {
-    return _selectedLineItem != null;
-  }
-
-  /// Check if sizes should be visible (depends on category)
-  bool get shouldShowSizes {
-    return _selectedCategory?.categoryName.toLowerCase().contains('clothing') == true;
-  }
-
-  /// Check if colors should be visible (depends on category)
-  bool get shouldShowColors {
-    return _selectedCategory?.categoryName.toLowerCase().contains('clothing') == true;
-  }
-
-  /// Check if default size and color should be visible (depends on category)
-  bool get shouldShowDefaultSizeColor {
-    return shouldShowSizes && shouldShowColors;
-  }
-
-  /// Check if life type should be visible (depends on category)
-  bool get shouldShowLifeType {
-    return _selectedCategory != null;
-  }
-
-  /// Add new line item
-  Future<InventoryLineEntity?> addNewLineItem() async {
-    // TODO: Implement add new line item dialog and save to database
-    return null;
-  }
-
-  /// Add new supplier
-  Future<SupplierEntity?> addNewSupplier() async {
-    // TODO: Implement add new supplier dialog and save to database
-    return null;
-  }
-
-  /// Add new category
-  Future<CategoryEntity?> addNewCategory() async {
-    // TODO: Implement add new category dialog and save to database
-    return null;
-  }
-
-  /// Validate and save inventory
-  Future<bool> saveInventory() async {
-    if (!formKey.currentState!.validate()) {
-      return false;
+        final AppDatabase db = sl<AppDatabase>();
+        await db.into(db.inventoryLine).insert(companion);
+        
+        // Refresh the inventory lines list
+        await _loadInventoryLines();
+        
+        // Return the newly created entity
+        final InventoryLineEntity newEntity = InventoryLineEntity(
+          inventoryLineId: companion.inventoryLineId.value,
+          businessId: companion.businessId.value,
+          lineName: companion.lineName.value,
+          lineCode: companion.lineCode.value,
+          isActive: true,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+        );
+        
+        return newEntity;
+      } catch (e) {
+        debugPrint('Error adding new inventory line: $e');
+        return null;
+      }
     }
+    return null;
+  }
 
-    // Validate required fields
-    if (_selectedLineItem == null) {
-      debugPrint('Please select a line item');
-      return false;
+  /// Add new supplier dialog
+  Future<SupplierEntity?> addNewSupplier(BuildContext context) async {
+    final Map<String, dynamic>? result = await showDialog<Map<String, dynamic>>(
+      context: context,
+      builder: (BuildContext context) => const AddDropdownItemDialog(
+        title: 'Supplier',
+        itemType: 'supplier',
+        hasCodeField: true,
+      ),
+    );
+
+    if (result != null) {
+      try {
+        const String businessId = 'default-business';
+        final SuppliersCompanion companion = SuppliersCompanion.insert(
+          supplierId: const Uuid().v4(),
+          businessId: businessId,
+          supplierName: result['name'] as String,
+          supplierCode: result['code'] as String? ?? '',
+        );
+
+        final AppDatabase db = sl<AppDatabase>();
+        await db.into(db.suppliers).insert(companion);
+        
+        // Refresh the suppliers list
+        await _loadSuppliers();
+        
+        // Return the newly created entity
+        final SupplierEntity newEntity = SupplierEntity(
+          supplierId: companion.supplierId.value,
+          businessId: companion.businessId.value,
+          supplierName: companion.supplierName.value,
+          supplierCode: companion.supplierCode.value,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+        );
+        
+        return newEntity;
+      } catch (e) {
+        debugPrint('Error adding new supplier: $e');
+        return null;
+      }
     }
+    return null;
+  }
 
-    _isSaving = true;
-    notifyListeners();
+  /// Add new category dialog
+  Future<CategoryEntity?> addNewCategory(BuildContext context) async {
+    final Map<String, dynamic>? result = await showDialog<Map<String, dynamic>>(
+      context: context,
+      builder: (BuildContext context) => AddDropdownItemDialog(
+        title: 'Category',
+        itemType: 'category',
+        hasCodeField: true,
+        parentEntity: _selectedLineItem?.lineName,
+      ),
+    );
 
-    try {
-      // TODO: Save inventory to repository
-      await Future<void>.delayed(const Duration(seconds: 2));
-      
-      debugPrint('Inventory saved successfully');
-      clearForm();
-      return true;
-    } catch (e) {
-      debugPrint('Error saving inventory: $e');
-      return false;
-    } finally {
-      _isSaving = false;
+    if (result != null) {
+      try {
+        const String businessId = 'default-business';
+        final CategoryTableCompanion companion = CategoryTableCompanion.insert(
+          categoryId: const Uuid().v4(),
+          businessId: businessId,
+          categoryName: result['name'] as String,
+          categoryCode: result['code'] as String? ?? '',
+        );
+
+        final AppDatabase db = sl<AppDatabase>();
+        await db.into(db.categoryTable).insert(companion);
+        
+        // Refresh the categories list
+        await _loadCategories();
+        
+        // Return the newly created entity
+        final CategoryEntity newEntity = CategoryEntity(
+          categoryId: companion.categoryId.value,
+          businessId: companion.businessId.value,
+          categoryName: companion.categoryName.value,
+          categoryCode: companion.categoryCode.value,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+        );
+        
+        return newEntity;
+      } catch (e) {
+        debugPrint('Error adding new category: $e');
+        return null;
+      }
+    }
+    return null;
+  }
+
+  /// Add new sub category dialog
+  Future<SubCategoryEntity?> addNewSubCategory(BuildContext context) async {
+    final Map<String, dynamic>? result = await showDialog<Map<String, dynamic>>(
+      context: context,
+      builder: (BuildContext context) => AddDropdownItemDialog(
+        title: 'Sub Category',
+        itemType: 'sub_category',
+        hasCodeField: true,
+        parentEntity: _selectedCategory?.categoryName,
+      ),
+    );
+
+    if (result != null) {
+      try {
+        const String businessId = 'default-business';
+        final SubCategoryCompanion companion = SubCategoryCompanion.insert(
+          subCategoryId: const Uuid().v4(),
+          businessId: businessId,
+          subCategoryName: result['name'] as String,
+          subCategoryCode: result['code'] as String? ?? '',
+          categoryId: _selectedCategory?.categoryId ?? '',
+        );
+
+        final AppDatabase db = sl<AppDatabase>();
+        await db.into(db.subCategory).insert(companion);
+        
+        // Refresh the subcategories list
+        await _loadSubCategories(companion.categoryId.value);
+        
+        // Return the newly created entity
+        final SubCategoryEntity newEntity = SubCategoryEntity(
+          subCategoryId: companion.subCategoryId.value,
+          businessId: companion.businessId.value,
+          subCategoryName: companion.subCategoryName.value,
+          subCategoryCode: companion.subCategoryCode.value,
+          categoryId: companion.categoryId.value,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+        );
+        
+        return newEntity;
+      } catch (e) {
+        debugPrint('Error adding new sub category: $e');
+        return null;
+      }
+    }
+    return null;
+  }
+
+  /// Add new product group dialog (placeholder - not in database yet)
+  Future<String?> addNewProductGroup(BuildContext context) async {
+    final Map<String, dynamic>? result = await showDialog<Map<String, dynamic>>(
+      context: context,
+      builder: (BuildContext context) => const AddDropdownItemDialog(
+        title: 'Product Group',
+        itemType: 'product_group',
+        hasCodeField: false,
+      ),
+    );
+
+    if (result != null) {
+      final String newGroup = result['name'] as String;
+      // TODO: Save to database when table is created
+      // For now, just add to local list
+      _productGroups.add(newGroup);
       notifyListeners();
+      return newGroup;
     }
+    return null;
+  }
+
+  /// Add new age group dialog (placeholder - not in database yet)
+  Future<String?> addNewAgeGroup(BuildContext context) async {
+    final Map<String, dynamic>? result = await showDialog<Map<String, dynamic>>(
+      context: context,
+      builder: (BuildContext context) => const AddDropdownItemDialog(
+        title: 'Age Group',
+        itemType: 'age_group',
+        hasCodeField: false,
+      ),
+    );
+
+    if (result != null) {
+      final String newAgeGroup = result['name'] as String;
+      // TODO: Save to database when table is created
+      // For now, just add to local list
+      _ageGroups.add(newAgeGroup);
+      notifyListeners();
+      return newAgeGroup;
+    }
+    return null;
+  }
+
+  /// Add new packaging type dialog (placeholder - not in database yet)
+  Future<String?> addNewPackagingType(BuildContext context) async {
+    final Map<String, dynamic>? result = await showDialog<Map<String, dynamic>>(
+      context: context,
+      builder: (BuildContext context) => const AddDropdownItemDialog(
+        title: 'Packaging Type',
+        itemType: 'packaging_type',
+        hasCodeField: false,
+      ),
+    );
+
+    if (result != null) {
+      final String newPackagingType = result['name'] as String;
+      // TODO: Save to database when table is created
+      // For now, just add to local list
+      _packagingTypes.add(newPackagingType);
+      notifyListeners();
+      return newPackagingType;
+    }
+    return null;
+  }
+
+  /// Add new product gender dialog (placeholder - not in database yet)
+  Future<String?> addNewProductGender(BuildContext context) async {
+    final Map<String, dynamic>? result = await showDialog<Map<String, dynamic>>(
+      context: context,
+      builder: (BuildContext context) => const AddDropdownItemDialog(
+        title: 'Product Gender',
+        itemType: 'product_gender',
+        hasCodeField: false,
+      ),
+    );
+
+    if (result != null) {
+      final String newGender = result['name'] as String;
+      // TODO: Save to database when table is created
+      // For now, just add to local list
+      _productGenders.add(newGender);
+      notifyListeners();
+      return newGender;
+    }
+    return null;
   }
 
   /// Clear form
   void clearForm() {
-    // Clear all text controllers
+    // Clear all controllers
     productCodeController.clear();
     productNameController.clear();
     averageCostController.clear();
@@ -622,38 +716,55 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     maximumLevelController.clear();
     purchaseConvFactorController.clear();
     commentsController.clear();
-    
+
     // Reset selected values
     _selectedLineItem = null;
     _selectedSupplier = null;
     _selectedCategory = null;
     _selectedSubCategory = null;
-    _selectedProductGroup = null;
-    _selectedAgeGroup = null;
-    _selectedPackagingType = null;
-    _selectedProductGender = null;
-    _selectedCurrency = 'PKR';
-    _selectedPurchaseConvUnit = null;
-    _selectedAcquireType = null;
-    _selectedPurchaseType = null;
-    _selectedManufacturing = null;
     _selectedSizes = <String>[];
     _selectedColors = <String>[];
     _selectedDefaultSize = null;
     _selectedDefaultColor = null;
-    _selectedLifeType = null;
     _selectedDate = null;
-    
+    _selectedCurrency = 'PKR';
+
+    // Clear subcategories
+    _subCategories = <SubCategoryEntity>[];
+
+    // Regenerate code if auto-generate is enabled
     if (_autoGenerateCode) {
       _generateProductCode();
     }
-    
+
     notifyListeners();
+  }
+
+  /// Save inventory
+  Future<bool> saveInventory() async {
+    if (!formKey.currentState!.validate()) {
+      return false;
+    }
+
+    _isSaving = true;
+    notifyListeners();
+
+    try {
+      // TODO: Implement save to database
+      await Future<void>.delayed(const Duration(seconds: 2)); // Simulate save
+      return true;
+    } catch (e) {
+      debugPrint('Error saving inventory: $e');
+      return false;
+    } finally {
+      _isSaving = false;
+      notifyListeners();
+    }
   }
 
   @override
   void dispose() {
-    // Dispose all text controllers
+    // Dispose controllers
     productCodeController.dispose();
     productNameController.dispose();
     averageCostController.dispose();

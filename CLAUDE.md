@@ -256,3 +256,4 @@ The app uses a custom `DataState<T>` system for handling async operations:
 - Never commit `.env.*` files to version control
 - Environment files are gitignored by default
 - default currency for this system will be PKR
+- Don't use hardcoded data until I asked you to do so
