@@ -93,11 +93,11 @@ class PricingSection extends StatelessWidget {
               const SizedBox(height: DoubleConstants.spacingM),
 
               // Select Currency - If multi-currency
-              CustomDropdownWithAdd<String>(
+              CustomDropdownWithAdd<String?>(
                 title: 'Currency',
                 hint: 'Select currency',
                 items: provider.currencies.map((String currency) {
-                  return DropdownMenuItem<String>(
+                  return DropdownMenuItem<String?>(
                     value: currency,
                     child: Text(currency),
                   );

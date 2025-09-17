@@ -63,11 +63,11 @@ class BasicDetailsSection extends StatelessWidget {
               ],
 
               // Product Group - Grouping for reports
-              CustomDropdownWithAdd<String>(
+              CustomDropdownWithAdd<String?>(
                 title: 'Product Group',
                 hint: 'Select product group',
                 items: provider.productGroups.map((String group) {
-                  return DropdownMenuItem<String>(
+                  return DropdownMenuItem<String?>(
                     value: group,
                     child: Text(group),
                   );
@@ -83,11 +83,11 @@ class BasicDetailsSection extends StatelessWidget {
 
               // Age Group - Target demographic (Visibility Depends on Category)
               if (provider.shouldShowAgeGroup) ...<Widget>[
-                CustomDropdownWithAdd<String>(
+                CustomDropdownWithAdd<String?>(
                   title: 'Age Group',
                   hint: 'Select age group',
                   items: provider.ageGroups.map((String ageGroup) {
-                    return DropdownMenuItem<String>(
+                    return DropdownMenuItem<String?>(
                       value: ageGroup,
                       child: Text(ageGroup),
                     );
@@ -102,11 +102,11 @@ class BasicDetailsSection extends StatelessWidget {
               ],
 
               // Packaging Type - How product is packaged
-              CustomDropdownWithAdd<String>(
+              CustomDropdownWithAdd<String?>(
                 title: 'Packaging Type',
                 hint: 'Select packaging type',
                 items: provider.packagingTypes.map((String type) {
-                  return DropdownMenuItem<String>(
+                  return DropdownMenuItem<String?>(
                     value: type,
                     child: Text(type),
                   );
@@ -121,11 +121,11 @@ class BasicDetailsSection extends StatelessWidget {
               const SizedBox(height: DoubleConstants.spacingM),
 
               // Product Gender - Male/Female/Unisex
-              CustomDropdownWithAdd<String>(
+              CustomDropdownWithAdd<String?>(
                 title: 'Product Gender',
                 hint: 'Select product gender',
                 items: provider.productGenders.map((String gender) {
-                  return DropdownMenuItem<String>(
+                  return DropdownMenuItem<String?>(
                     value: gender,
                     child: Text(gender),
                   );

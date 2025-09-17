@@ -59,21 +59,18 @@ class AdditionalSection extends StatelessWidget {
 
               // Life Type - Product lifecycle category (Visibility Depends on Category)
               if (provider.shouldShowLifeType) ...<Widget>[
-                CustomDropdownWithAdd<String>(
+                CustomDropdownWithAdd<String?>(
                   title: 'Life Type',
                   hint: 'Select life type',
                   items: provider.lifeTypes.map((String type) {
-                    return DropdownMenuItem<String>(
+                    return DropdownMenuItem<String?>(
                       value: type,
                       child: Text(type),
                     );
                   }).toList(),
                   selectedItem: provider.selectedLifeType,
                   onChanged: provider.setLifeType,
-                  onAddNew: () async {
-                    // TODO: Implement add new life type
-                    return null;
-                  },
+                  onAddNew: () => provider.addNewLifeType(context),
                   addNewButtonText: 'Add Life Type',
                   addDialogTitle: 'Add New Life Type',
                 ),

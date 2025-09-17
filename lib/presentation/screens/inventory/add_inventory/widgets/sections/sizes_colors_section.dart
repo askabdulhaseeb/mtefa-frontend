@@ -71,11 +71,11 @@ class SizesColorsSection extends StatelessWidget {
                     // Default Size
                     if (provider.selectedSizes.isNotEmpty) ...<Widget>[
                       Expanded(
-                        child: CustomDropdownWithAdd<String>(
+                        child: CustomDropdownWithAdd<String?>(
                           title: 'Default Size',
                           hint: 'Select default size',
                           items: provider.selectedSizes.map((String size) {
-                            return DropdownMenuItem<String>(
+                            return DropdownMenuItem<String?>(
                               value: size,
                               child: Text(size),
                             );
@@ -98,11 +98,11 @@ class SizesColorsSection extends StatelessWidget {
                     // Default Color
                     if (provider.selectedColors.isNotEmpty) ...<Widget>[
                       Expanded(
-                        child: CustomDropdownWithAdd<String>(
+                        child: CustomDropdownWithAdd<String?>(
                           title: 'Default Color',
                           hint: 'Select default color',
                           items: provider.selectedColors.map((String color) {
-                            return DropdownMenuItem<String>(
+                            return DropdownMenuItem<String?>(
                               value: color,
                               child: Row(
                                 children: <Widget>[

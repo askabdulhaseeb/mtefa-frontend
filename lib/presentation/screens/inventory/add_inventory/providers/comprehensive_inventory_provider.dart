@@ -89,6 +89,14 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   List<String> _ageGroups = <String>[];
   List<String> _packagingTypes = <String>[];
   List<String> _productGenders = <String>[];
+  List<String> _lifeTypes = <String>[];
+  
+  // Placeholder selected values
+  String? _selectedProductGroup;
+  String? _selectedAgeGroup;
+  String? _selectedPackagingType;
+  String? _selectedProductGender;
+  String? _selectedLifeType;
 
   // SELECTED VALUES
   InventoryLineEntity? _selectedLineItem;
@@ -165,18 +173,18 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   List<String> get acquireTypes => <String>[];
   List<String> get purchaseTypes => <String>[];
   List<String> get manufacturingTypes => <String>[];
-  List<String> get lifeTypes => <String>[];
+  List<String> get lifeTypes => _lifeTypes;
 
   // Placeholder getters for fields not in database yet
-  String? get selectedProductGroup => null;
-  String? get selectedAgeGroup => null;
-  String? get selectedPackagingType => null;
-  String? get selectedProductGender => null;
+  String? get selectedProductGroup => _selectedProductGroup;
+  String? get selectedAgeGroup => _selectedAgeGroup;
+  String? get selectedPackagingType => _selectedPackagingType;
+  String? get selectedProductGender => _selectedProductGender;
+  String? get selectedLifeType => _selectedLifeType;
   String? get selectedPurchaseConvUnit => null;
   String? get selectedAcquireType => null;
   String? get selectedPurchaseType => null;
   String? get selectedManufacturing => null;
-  String? get selectedLifeType => null;
 
   // PROFIT CALCULATIONS
   double get profitMargin {
@@ -412,15 +420,35 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   }
 
   // Placeholder setters for fields not in database yet
-  void setProductGroup(String? group) => notifyListeners();
-  void setAgeGroup(String? ageGroup) => notifyListeners();
-  void setPackagingType(String? type) => notifyListeners();
-  void setProductGender(String? gender) => notifyListeners();
+  void setProductGroup(String? group) {
+    _selectedProductGroup = group;
+    notifyListeners();
+  }
+  
+  void setAgeGroup(String? ageGroup) {
+    _selectedAgeGroup = ageGroup;
+    notifyListeners();
+  }
+  
+  void setPackagingType(String? type) {
+    _selectedPackagingType = type;
+    notifyListeners();
+  }
+  
+  void setProductGender(String? gender) {
+    _selectedProductGender = gender;
+    notifyListeners();
+  }
+  
+  void setLifeType(String? type) {
+    _selectedLifeType = type;
+    notifyListeners();
+  }
+  
   void setPurchaseConvUnit(String? unit) => notifyListeners();
   void setAcquireType(String? type) => notifyListeners();
   void setPurchaseType(String? type) => notifyListeners();
   void setManufacturing(String? type) => notifyListeners();
-  void setLifeType(String? type) => notifyListeners();
 
   /// Add new line item dialog
   Future<InventoryLineEntity?> addNewLineItem(BuildContext context) async {
@@ -695,6 +723,28 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
       _productGenders.add(newGender);
       notifyListeners();
       return newGender;
+    }
+    return null;
+  }
+
+  /// Add new life type dialog (placeholder - not in database yet)
+  Future<String?> addNewLifeType(BuildContext context) async {
+    final Map<String, dynamic>? result = await showDialog<Map<String, dynamic>>(
+      context: context,
+      builder: (BuildContext context) => const AddDropdownItemDialog(
+        title: 'Life Type',
+        itemType: 'life_type',
+        hasCodeField: false,
+      ),
+    );
+
+    if (result != null) {
+      final String newLifeType = result['name'] as String;
+      // TODO: Save to database when table is created
+      // For now, just add to local list
+      _lifeTypes.add(newLifeType);
+      notifyListeners();
+      return newLifeType;
     }
     return null;
   }

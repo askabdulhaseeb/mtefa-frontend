@@ -22,11 +22,11 @@ class PurchaseConfigurationSection extends StatelessWidget {
             children: <Widget>[
               // Purchase Conv. Unit - Pack, Bottle, etc. (Visibility Depends on Category)
               if (provider.shouldShowPurchaseConvUnit) ...<Widget>[
-                CustomDropdownWithAdd<String>(
+                CustomDropdownWithAdd<String?>(
                   title: 'Purchase Conversion Unit',
                   hint: 'Select purchase unit',
                   items: provider.purchaseConvUnits.map((String unit) {
-                    return DropdownMenuItem<String>(
+                    return DropdownMenuItem<String?>(
                       value: unit,
                       child: Text(unit),
                     );
@@ -64,11 +64,11 @@ class PurchaseConfigurationSection extends StatelessWidget {
 
               // Acquire Type - Purchased/Local/Outsourced (Visibility Depends on Line Item)
               if (provider.shouldShowAcquireType) ...<Widget>[
-                CustomDropdownWithAdd<String>(
+                CustomDropdownWithAdd<String?>(
                   title: 'Acquire Type',
                   hint: 'Select acquire type',
                   items: provider.acquireTypes.map((String type) {
-                    return DropdownMenuItem<String>(
+                    return DropdownMenuItem<String?>(
                       value: type,
                       child: Text(type),
                     );
@@ -87,11 +87,11 @@ class PurchaseConfigurationSection extends StatelessWidget {
 
               // Purchase Type - Local/Import (Visibility Depends on Line Item)
               if (provider.shouldShowPurchaseType) ...<Widget>[
-                CustomDropdownWithAdd<String>(
+                CustomDropdownWithAdd<String?>(
                   title: 'Purchase Type',
                   hint: 'Select purchase type',
                   items: provider.purchaseTypes.map((String type) {
-                    return DropdownMenuItem<String>(
+                    return DropdownMenuItem<String?>(
                       value: type,
                       child: Text(type),
                     );
@@ -110,11 +110,11 @@ class PurchaseConfigurationSection extends StatelessWidget {
 
               // Manufacturing - Manufactured/Outsourced (Visibility Depends on Line Item)
               if (provider.shouldShowManufacturing) ...<Widget>[
-                CustomDropdownWithAdd<String>(
+                CustomDropdownWithAdd<String?>(
                   title: 'Manufacturing',
                   hint: 'Select manufacturing type',
                   items: provider.manufacturingTypes.map((String type) {
-                    return DropdownMenuItem<String>(
+                    return DropdownMenuItem<String?>(
                       value: type,
                       child: Text(type),
                     );
