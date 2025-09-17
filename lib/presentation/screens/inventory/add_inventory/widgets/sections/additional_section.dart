@@ -14,96 +14,104 @@ class AdditionalSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ComprehensiveInventoryProvider>(
-      builder: (BuildContext context, ComprehensiveInventoryProvider provider, Widget? child) {
-        return AddInventorySectionBgWidget(
-          icon: Icons.more_horiz,
-          title: 'Additional Information',
-          child: Column(
-            children: <Widget>[
-              // Date - Entry date
-              Row(
+      builder:
+          (
+            BuildContext context,
+            ComprehensiveInventoryProvider provider,
+            Widget? child,
+          ) {
+            return AddInventorySectionBgWidget(
+              icon: Icons.more_horiz,
+              title: 'Additional Information',
+              child: Column(
                 children: <Widget>[
-                  Expanded(
-                    child: CustomTextFormField(
-                      controller: TextEditingController(
-                        text: provider.selectedDate != null
-                            ? '${provider.selectedDate!.day}/${provider.selectedDate!.month}/${provider.selectedDate!.year}'
-                            : '',
+                  // Date - Entry date
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: CustomTextFormField(
+                          controller: TextEditingController(
+                            text: provider.selectedDate != null
+                                ? '${provider.selectedDate!.day}/${provider.selectedDate!.month}/${provider.selectedDate!.year}'
+                                : '',
+                          ),
+                          labelText: 'Date',
+                          hint: 'Select entry date',
+                          readOnly: true,
+                        ),
                       ),
-                      labelText: 'Date',
-                      hint: 'Select entry date',
-                      readOnly: true,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Container(
-                    height: 48,
-                    width: 48,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: IconButton(
-                      onPressed: () => _selectDate(context, provider),
-                      icon: const Icon(
-                        Icons.calendar_today,
-                        color: Colors.white,
+                      const SizedBox(width: 8),
+                      Container(
+                        height: 48,
+                        width: 48,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: IconButton(
+                          onPressed: () => _selectDate(context, provider),
+                          icon: const Icon(
+                            Icons.calendar_today,
+                            color: Colors.white,
+                          ),
+                          tooltip: 'Select Date',
+                        ),
                       ),
-                      tooltip: 'Select Date',
-                    ),
+                    ],
                   ),
+
+                  const SizedBox(height: DoubleConstants.spacingM),
+
+                  // Life Type - Product lifecycle category (Visibility Depends on Category)
+                  if (provider.shouldShowLifeType) ...<Widget>[
+                    CustomDropdownWithAdd<String?>(
+                      title: 'Life Type',
+                      hint: 'Select life type',
+                      items: provider.lifeTypes.map((String type) {
+                        return DropdownMenuItem<String?>(
+                          value: type,
+                          child: Text(type),
+                        );
+                      }).toList(),
+                      selectedItem: provider.selectedLifeType,
+                      onChanged: provider.setLifeType,
+                      onAddNew: () => provider.addNewLifeType(context),
+                      addNewButtonText: 'Add Life Type',
+                      addDialogTitle: 'Add New Life Type',
+                    ),
+                    const SizedBox(height: DoubleConstants.spacingM),
+                  ],
+
+                  // Comments - Additional notes
+                  CustomTextFormField(
+                    controller: provider.commentsController,
+                    labelText: 'Comments',
+                    hint: 'Enter additional notes or comments',
+                    maxLines: 4,
+                    isExpanded: true,
+                    validator: (String? value) {
+                      // Comments are optional, no validation required
+                      return null;
+                    },
+                  ),
+
+                  // Show summary if key fields are filled
+                  if (_shouldShowSummary(provider)) ...<Widget>[
+                    const SizedBox(height: DoubleConstants.spacingL),
+                    _buildSummaryCard(provider),
+                  ],
                 ],
               ),
-
-              const SizedBox(height: DoubleConstants.spacingM),
-
-              // Life Type - Product lifecycle category (Visibility Depends on Category)
-              if (provider.shouldShowLifeType) ...<Widget>[
-                CustomDropdownWithAdd<String?>(
-                  title: 'Life Type',
-                  hint: 'Select life type',
-                  items: provider.lifeTypes.map((String type) {
-                    return DropdownMenuItem<String?>(
-                      value: type,
-                      child: Text(type),
-                    );
-                  }).toList(),
-                  selectedItem: provider.selectedLifeType,
-                  onChanged: provider.setLifeType,
-                  onAddNew: () => provider.addNewLifeType(context),
-                  addNewButtonText: 'Add Life Type',
-                  addDialogTitle: 'Add New Life Type',
-                ),
-                const SizedBox(height: DoubleConstants.spacingM),
-              ],
-
-              // Comments - Additional notes
-              CustomTextFormField(
-                controller: provider.commentsController,
-                labelText: 'Comments',
-                hint: 'Enter additional notes or comments',
-                maxLines: 4,
-                isExpanded: true,
-                validator: (String? value) {
-                  // Comments are optional, no validation required
-                  return null;
-                },
-              ),
-
-              // Show summary if key fields are filled
-              if (_shouldShowSummary(provider)) ...<Widget>[
-                const SizedBox(height: DoubleConstants.spacingL),
-                _buildSummaryCard(provider),
-              ],
-            ],
-          ),
-        );
-      },
+            );
+          },
     );
   }
 
   /// Select date function
-  Future<void> _selectDate(BuildContext context, ComprehensiveInventoryProvider provider) async {
+  Future<void> _selectDate(
+    BuildContext context,
+    ComprehensiveInventoryProvider provider,
+  ) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: provider.selectedDate ?? DateTime.now(),
@@ -112,9 +120,9 @@ class AdditionalSection extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: Theme.of(context).copyWith(
-            colorScheme: Theme.of(context).colorScheme.copyWith(
-              primary: Theme.of(context).primaryColor,
-            ),
+            colorScheme: Theme.of(
+              context,
+            ).colorScheme.copyWith(primary: Theme.of(context).primaryColor),
           ),
           child: child!,
         );
@@ -129,8 +137,8 @@ class AdditionalSection extends StatelessWidget {
   /// Check if summary should be shown
   bool _shouldShowSummary(ComprehensiveInventoryProvider provider) {
     return provider.productNameController.text.isNotEmpty &&
-           provider.averageCostController.text.isNotEmpty &&
-           provider.selectedLineItem != null;
+        provider.averageCostController.text.isNotEmpty &&
+        provider.selectedLineItem != null;
   }
 
   /// Build summary card
@@ -147,59 +155,58 @@ class AdditionalSection extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Colors.teal.withValues(alpha: 0.3),
-          width: 2,
-        ),
+        border: Border.all(color: Colors.teal.withValues(alpha: 0.3), width: 2),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
-              Icon(
-                Icons.summarize,
-                color: Colors.teal.shade600,
-                size: 24,
-              ),
+              Icon(Icons.summarize, color: Colors.teal.shade600, size: 24),
               const SizedBox(width: 8),
               const Text(
                 'Product Summary',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ],
           ),
           const SizedBox(height: DoubleConstants.spacingM),
-          
+
           // Product basic info
           _buildSummaryRow('Product Name', provider.productNameController.text),
           _buildSummaryRow('Product Code', provider.productCodeController.text),
-          _buildSummaryRow('Line Item', provider.selectedLineItem?.lineName ?? ''),
-          
+          _buildSummaryRow(
+            'Line Item',
+            provider.selectedLineItem?.lineName ?? '',
+          ),
+
           if (provider.selectedCategory != null)
-            _buildSummaryRow('Category', provider.selectedCategory!.categoryName),
-          
+            _buildSummaryRow(
+              'Category',
+              provider.selectedCategory!.categoryName,
+            ),
+
           if (provider.selectedSupplier != null)
-            _buildSummaryRow('Supplier', provider.selectedSupplier!.supplierName),
-          
+            _buildSummaryRow(
+              'Supplier',
+              provider.selectedSupplier!.supplierName,
+            ),
+
           // Pricing info
           const Divider(height: 24),
           _buildSummaryRow(
             'Average Cost',
-            '${provider.selectedCurrency ?? 'PKR'} ${provider.averageCostController.text}',
+            '${provider.selectedCurrency} ${provider.averageCostController.text}',
           ),
-          
+
           if (provider.priceController.text.isNotEmpty)
             _buildSummaryRow(
               'Retail Price',
-              '${provider.selectedCurrency ?? 'PKR'} ${provider.priceController.text}',
+              '${provider.selectedCurrency} ${provider.priceController.text}',
             ),
-          
+
           // Profit calculations
-          if (provider.priceController.text.isNotEmpty && 
+          if (provider.priceController.text.isNotEmpty &&
               provider.averageCostController.text.isNotEmpty) ...<Widget>[
             const SizedBox(height: DoubleConstants.spacingS),
             Row(
@@ -216,15 +223,17 @@ class AdditionalSection extends StatelessWidget {
               ],
             ),
           ],
-          
+
           // Variants info
-          if (provider.selectedSizes.isNotEmpty || provider.selectedColors.isNotEmpty) ...<Widget>[
+          if (provider.selectedSizes.isNotEmpty ||
+              provider.selectedColors.isNotEmpty) ...<Widget>[
             const Divider(height: 24),
             if (provider.selectedSizes.isNotEmpty)
               _buildSummaryRow('Sizes', provider.selectedSizes.join(', ')),
             if (provider.selectedColors.isNotEmpty)
               _buildSummaryRow('Colors', provider.selectedColors.join(', ')),
-            if (provider.selectedSizes.isNotEmpty && provider.selectedColors.isNotEmpty)
+            if (provider.selectedSizes.isNotEmpty &&
+                provider.selectedColors.isNotEmpty)
               _buildSummaryRow(
                 'Total Variants',
                 '${provider.selectedSizes.length * provider.selectedColors.length}',
@@ -238,7 +247,7 @@ class AdditionalSection extends StatelessWidget {
   /// Build summary row
   Widget _buildSummaryRow(String label, String value) {
     if (value.isEmpty) return const SizedBox.shrink();
-    
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
@@ -257,9 +266,7 @@ class AdditionalSection extends StatelessWidget {
           Expanded(
             child: Text(
               value,
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-              ),
+              style: const TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
         ],
@@ -270,17 +277,11 @@ class AdditionalSection extends StatelessWidget {
   /// Build metric chip
   Widget _buildMetricChip(String text, Color color) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 12,
-        vertical: 6,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: color.withValues(alpha: 0.3),
-          width: 1,
-        ),
+        border: Border.all(color: color.withValues(alpha: 0.3), width: 1),
       ),
       child: Text(
         text,

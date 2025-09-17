@@ -30,12 +30,12 @@ class DatabaseInventoryProvider extends ChangeNotifier {
     required GetSubCategoriesUseCase getSubCategoriesUseCase,
     required GetSuppliersUseCase getSuppliersUseCase,
     required AppDatabase database,
-  })  : _getInventoryLinesUseCase = getInventoryLinesUseCase,
-        _getCategoriesUseCase = getCategoriesUseCase,
-        _getCategoriesByParentUseCase = getCategoriesByParentUseCase,
-        _getSubCategoriesUseCase = getSubCategoriesUseCase,
-        _getSuppliersUseCase = getSuppliersUseCase,
-        _database = database {
+  }) : _getInventoryLinesUseCase = getInventoryLinesUseCase,
+       _getCategoriesUseCase = getCategoriesUseCase,
+       // _getCategoriesByParentUseCase = getCategoriesByParentUseCase,
+       _getSubCategoriesUseCase = getSubCategoriesUseCase,
+       _getSuppliersUseCase = getSuppliersUseCase,
+       _database = database {
     _databaseClearer = DatabaseClearer(_database);
     _initializeFormControllers();
     _loadFormData();
@@ -43,7 +43,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
 
   final GetInventoryLinesUseCase _getInventoryLinesUseCase;
   final GetCategoriesUseCase _getCategoriesUseCase;
-  final GetCategoriesByParentUseCase _getCategoriesByParentUseCase;
+  // final GetCategoriesByParentUseCase _getCategoriesByParentUseCase;
   final GetSubCategoriesUseCase _getSubCategoriesUseCase;
   final GetSuppliersUseCase _getSuppliersUseCase;
   final AppDatabase _database;
@@ -75,7 +75,8 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   final TextEditingController maximumLevelController = TextEditingController();
 
   // PURCHASE CONFIGURATION
-  final TextEditingController purchaseConvFactorController = TextEditingController();
+  final TextEditingController purchaseConvFactorController =
+      TextEditingController();
 
   // ADDITIONAL
   final TextEditingController commentsController = TextEditingController();
@@ -171,7 +172,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
     try {
       // Clear database tables to ensure no hardcoded data interferes
       await _databaseClearer.clearAllInventoryTables();
-      
+
       // Load all data in parallel
       await Future.wait(<Future<void>>[
         _loadInventoryLines(),
@@ -191,7 +192,6 @@ class DatabaseInventoryProvider extends ChangeNotifier {
       // Debug: Print table counts
       final Map<String, int> counts = await _databaseClearer.getTableCounts();
       debugPrint('Database table counts after load: $counts');
-      
     } catch (e) {
       _errorMessage = 'Failed to load initial data: ${e.toString()}';
       debugPrint('Error loading initial data: $e');
@@ -203,8 +203,9 @@ class DatabaseInventoryProvider extends ChangeNotifier {
 
   /// Load inventory lines from database
   Future<void> _loadInventoryLines() async {
-    final DataState<List<InventoryLineEntity>> result = await _getInventoryLinesUseCase.call();
-    
+    final DataState<List<InventoryLineEntity>> result =
+        await _getInventoryLinesUseCase.call();
+
     if (result.isSuccess) {
       _inventoryLines = result.data ?? <InventoryLineEntity>[];
     } else {
@@ -214,8 +215,9 @@ class DatabaseInventoryProvider extends ChangeNotifier {
 
   /// Load categories from database
   Future<void> _loadCategories() async {
-    final DataState<List<CategoryEntity>> result = await _getCategoriesUseCase.call();
-    
+    final DataState<List<CategoryEntity>> result = await _getCategoriesUseCase
+        .call();
+
     if (result.isSuccess) {
       _categories = result.data ?? <CategoryEntity>[];
     } else {
@@ -225,8 +227,9 @@ class DatabaseInventoryProvider extends ChangeNotifier {
 
   /// Load suppliers from database
   Future<void> _loadSuppliers() async {
-    final DataState<List<SupplierEntity>> result = await _getSuppliersUseCase.call();
-    
+    final DataState<List<SupplierEntity>> result = await _getSuppliersUseCase
+        .call();
+
     if (result.isSuccess) {
       _suppliers = result.data ?? <SupplierEntity>[];
     } else {
@@ -237,7 +240,9 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   /// Load colors from database
   Future<void> _loadColors() async {
     try {
-      final List<InventoryColor> colorData = await _database.select(_database.inventoryColors).get();
+      final List<InventoryColor> colorData = await _database
+          .select(_database.inventoryColors)
+          .get();
       _colors = colorData.map(_colorToEntity).toList();
     } catch (e) {
       debugPrint('Failed to load colors: $e');
@@ -247,7 +252,9 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   /// Load sizes from database
   Future<void> _loadSizes() async {
     try {
-      final List<InventorySize> sizeData = await _database.select(_database.inventorySizes).get();
+      final List<InventorySize> sizeData = await _database
+          .select(_database.inventorySizes)
+          .get();
       _sizes = sizeData.map(_sizeToEntity).toList();
     } catch (e) {
       debugPrint('Failed to load sizes: $e');
@@ -257,7 +264,9 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   /// Load seasons from database
   Future<void> _loadSeasons() async {
     try {
-      final List<SeasonData> seasonData = await _database.select(_database.season).get();
+      final List<SeasonData> seasonData = await _database
+          .select(_database.season)
+          .get();
       _seasons = seasonData.map(_seasonToEntity).toList();
     } catch (e) {
       debugPrint('Failed to load seasons: $e');
@@ -267,7 +276,9 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   /// Load locations from database
   Future<void> _loadLocations() async {
     try {
-      final List<InventoryLocation> locationData = await _database.select(_database.inventoryLocations).get();
+      final List<InventoryLocation> locationData = await _database
+          .select(_database.inventoryLocations)
+          .get();
       _locations = locationData.map(_locationToEntity).toList();
     } catch (e) {
       debugPrint('Failed to load locations: $e');
@@ -280,9 +291,10 @@ class DatabaseInventoryProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final DataState<List<SubCategoryEntity>> result = await _getSubCategoriesUseCase.call(
-        params: GetSubCategoriesParams(categoryId: categoryId),
-      );
+      final DataState<List<SubCategoryEntity>> result =
+          await _getSubCategoriesUseCase.call(
+            params: GetSubCategoriesParams(categoryId: categoryId),
+          );
 
       if (result.isSuccess) {
         _subCategories = result.data ?? <SubCategoryEntity>[];
@@ -305,9 +317,9 @@ class DatabaseInventoryProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final List<InventorySize> sizeData = await (_database.select(_database.inventorySizes)
-            ..where((tbl) => tbl.subCategoryId.equals(subCategoryId)))
-          .get();
+      final List<InventorySize> sizeData = await (_database.select(
+        _database.inventorySizes,
+      )..where((tbl) => tbl.subCategoryId.equals(subCategoryId))).get();
       _sizes = sizeData.map(_sizeToEntity).toList();
     } catch (e) {
       debugPrint('Failed to load sizes by subcategory: $e');
@@ -321,7 +333,8 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   void _generateProductCode() {
     if (_autoGenerateCode) {
       final String timestamp = DateTime.now().millisecondsSinceEpoch.toString();
-      productCodeController.text = 'PRD-${timestamp.substring(timestamp.length - 8)}';
+      productCodeController.text =
+          'PRD-${timestamp.substring(timestamp.length - 8)}';
     }
   }
 
@@ -346,26 +359,26 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   void setCategory(CategoryEntity? category) {
     _selectedCategory = category;
     _selectedSubCategory = null; // Reset subcategory
-    
+
     // Load subcategories for this category
     if (category != null) {
       _loadSubCategories(category.categoryId);
     } else {
       _subCategories = <SubCategoryEntity>[];
     }
-    
+
     notifyListeners();
   }
 
   /// Set subcategory and load dependent sizes
   void setSubCategory(SubCategoryEntity? subCategory) {
     _selectedSubCategory = subCategory;
-    
+
     // Load sizes for this subcategory
     if (subCategory != null) {
       _loadSizesBySubCategory(subCategory.subCategoryId);
     }
-    
+
     notifyListeners();
   }
 
@@ -402,7 +415,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   double get profitMargin {
     final double cost = double.tryParse(averageCostController.text) ?? 0;
     final double price = double.tryParse(priceController.text) ?? 0;
-    
+
     if (price <= 0) return 0;
     return ((price - cost) / price) * 100;
   }
@@ -411,7 +424,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   double get markupPercentage {
     final double cost = double.tryParse(averageCostController.text) ?? 0;
     final double price = double.tryParse(priceController.text) ?? 0;
-    
+
     if (cost <= 0) return 0;
     return ((price - cost) / cost) * 100;
   }
@@ -427,7 +440,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   Future<void> showAddItemDialog(BuildContext context, String itemType) async {
     String title = '';
     String? parentEntity;
-    
+
     switch (itemType) {
       case 'line_item':
         title = 'Line Item';
@@ -478,7 +491,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
       final String name = data['name'] as String;
       final String code = data['code'] as String;
       final String codePlacement = data['codePlacement'] as String;
-      
+
       switch (itemType) {
         case 'line_item':
           await _addInventoryLine(name, code, codePlacement);
@@ -490,7 +503,12 @@ class DatabaseInventoryProvider extends ChangeNotifier {
           break;
         case 'sub_category':
           if (_selectedCategory != null) {
-            await _addSubCategory(name, code, codePlacement, _selectedCategory!.categoryId);
+            await _addSubCategory(
+              name,
+              code,
+              codePlacement,
+              _selectedCategory!.categoryId,
+            );
             await _loadSubCategories(_selectedCategory!.categoryId);
           }
           break;
@@ -513,7 +531,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
           await _loadSeasons();
           break;
       }
-      
+
       notifyListeners();
     } catch (e) {
       _errorMessage = 'Failed to add item: ${e.toString()}';
@@ -523,56 +541,79 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   }
 
   /// Add new inventory line to database
-  Future<void> _addInventoryLine(String name, String code, String codePlacement) async {
+  Future<void> _addInventoryLine(
+    String name,
+    String code,
+    String codePlacement,
+  ) async {
     final PlacementType placement = PlacementType.values.firstWhere(
-        (PlacementType e) => e.value == codePlacement,
-        orElse: () => PlacementType.pre,
-      );
-    
+      (PlacementType e) => e.value == codePlacement,
+      orElse: () => PlacementType.pre,
+    );
+
     final InventoryLineCompanion companion = InventoryLineCompanion.insert(
       inventoryLineId: _uuid.v4(),
       businessId: 'business_123', // TODO: Get from current business context
-      lineCode: code.isNotEmpty ? code : name.toUpperCase().replaceAll(' ', '_'),
+      lineCode: code.isNotEmpty
+          ? code
+          : name.toUpperCase().replaceAll(' ', '_'),
       lineName: name,
       linePlacement: Value<PlacementType>(placement),
       status: Value<StatusType>(StatusType.active),
       createdAt: Value<DateTime>(DateTime.now()),
       updatedAt: Value<DateTime>(DateTime.now()),
     );
-    
+
     await _database.into(_database.inventoryLine).insert(companion);
   }
 
   /// Add new category to database
-  Future<void> _addCategory(String name, String code, String codePlacement) async {
+  Future<void> _addCategory(
+    String name,
+    String code,
+    String codePlacement,
+  ) async {
     final CategoryTableCompanion companion = CategoryTableCompanion.insert(
       categoryId: _uuid.v4(),
       businessId: 'business_123', // TODO: Get from current business context
-      categoryCode: code.isNotEmpty ? code : name.toUpperCase().replaceAll(' ', '_'),
+      categoryCode: code.isNotEmpty
+          ? code
+          : name.toUpperCase().replaceAll(' ', '_'),
       categoryName: name,
-      codePlacement: Value<PlacementType>(PlacementType.values.firstWhere(
-        (PlacementType e) => e.value == codePlacement,
-        orElse: () => PlacementType.pre,
-      )),
+      codePlacement: Value<PlacementType>(
+        PlacementType.values.firstWhere(
+          (PlacementType e) => e.value == codePlacement,
+          orElse: () => PlacementType.pre,
+        ),
+      ),
     );
-    
+
     await _database.into(_database.categoryTable).insert(companion);
   }
 
   /// Add new subcategory to database
-  Future<void> _addSubCategory(String name, String code, String codePlacement, String categoryId) async {
+  Future<void> _addSubCategory(
+    String name,
+    String code,
+    String codePlacement,
+    String categoryId,
+  ) async {
     final SubCategoryCompanion companion = SubCategoryCompanion.insert(
       subCategoryId: _uuid.v4(),
       categoryId: categoryId,
       businessId: 'business_123', // TODO: Get from current business context
-      subCategoryCode: code.isNotEmpty ? code : name.toUpperCase().replaceAll(' ', '_'),
+      subCategoryCode: code.isNotEmpty
+          ? code
+          : name.toUpperCase().replaceAll(' ', '_'),
       subCategoryName: name,
-      codePlacement: Value<PlacementType>(PlacementType.values.firstWhere(
-        (PlacementType e) => e.value == codePlacement,
-        orElse: () => PlacementType.pre,
-      )),
+      codePlacement: Value<PlacementType>(
+        PlacementType.values.firstWhere(
+          (PlacementType e) => e.value == codePlacement,
+          orElse: () => PlacementType.pre,
+        ),
+      ),
     );
-    
+
     await _database.into(_database.subCategory).insert(companion);
   }
 
@@ -581,10 +622,12 @@ class DatabaseInventoryProvider extends ChangeNotifier {
     final SuppliersCompanion companion = SuppliersCompanion.insert(
       supplierId: _uuid.v4(),
       businessId: 'business_123', // TODO: Get from current business context
-      supplierCode: code.isNotEmpty ? code : name.toUpperCase().replaceAll(' ', '_'),
+      supplierCode: code.isNotEmpty
+          ? code
+          : name.toUpperCase().replaceAll(' ', '_'),
       supplierName: name,
     );
-    
+
     await _database.into(_database.suppliers).insert(companion);
   }
 
@@ -594,9 +637,11 @@ class DatabaseInventoryProvider extends ChangeNotifier {
       colorId: _uuid.v4(),
       businessId: 'business_123', // TODO: Get from current business context
       colorName: name,
-      colorCode: code.isNotEmpty ? code : name.toUpperCase().replaceAll(' ', '_'),
+      colorCode: code.isNotEmpty
+          ? code
+          : name.toUpperCase().replaceAll(' ', '_'),
     );
-    
+
     await _database.into(_database.inventoryColors).insert(companion);
   }
 
@@ -607,10 +652,12 @@ class DatabaseInventoryProvider extends ChangeNotifier {
       businessId: 'business_123', // TODO: Get from current business context
       subCategoryId: Value<String?>(subCategoryId),
       sizeName: name,
-      sizeCode: code.isNotEmpty ? code : name.toUpperCase().replaceAll(' ', '_'),
+      sizeCode: code.isNotEmpty
+          ? code
+          : name.toUpperCase().replaceAll(' ', '_'),
       sizeType: 'generic',
     );
-    
+
     await _database.into(_database.inventorySizes).insert(companion);
   }
 
@@ -620,9 +667,11 @@ class DatabaseInventoryProvider extends ChangeNotifier {
       seasonId: _uuid.v4(),
       businessId: 'business_123', // TODO: Get from current business context
       seasonName: name,
-      seasonCode: code.isNotEmpty ? code : name.toUpperCase().replaceAll(' ', '_'),
+      seasonCode: code.isNotEmpty
+          ? code
+          : name.toUpperCase().replaceAll(' ', '_'),
     );
-    
+
     await _database.into(_database.season).insert(companion);
   }
 
@@ -646,7 +695,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
     try {
       // TODO: Implement actual save to inventory table
       await Future<void>.delayed(const Duration(seconds: 2));
-      
+
       debugPrint('Inventory saved successfully');
       clearForm();
       return true;
@@ -677,7 +726,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
     maximumLevelController.clear();
     purchaseConvFactorController.clear();
     commentsController.clear();
-    
+
     // Reset selected values
     _selectedLineItem = null;
     _selectedSupplier = null;
@@ -691,13 +740,13 @@ class DatabaseInventoryProvider extends ChangeNotifier {
     _selectedDate = null;
     _selectedCurrency = 'PKR';
     _subCategories = <SubCategoryEntity>[];
-    
+
     _errorMessage = null;
-    
+
     if (_autoGenerateCode) {
       _generateProductCode();
     }
-    
+
     notifyListeners();
   }
 
@@ -815,7 +864,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
     maximumLevelController.dispose();
     purchaseConvFactorController.dispose();
     commentsController.dispose();
-    
+
     super.dispose();
   }
 }

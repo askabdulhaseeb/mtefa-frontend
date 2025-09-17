@@ -146,8 +146,10 @@ class PurchaseConfigurationSection extends StatelessWidget {
 
   /// Build purchase calculation widget
   Widget _buildPurchaseCalculation(ComprehensiveInventoryProvider provider) {
-    final double unitCost = double.tryParse(provider.averageCostController.text) ?? 0;
-    final double convFactor = double.tryParse(provider.purchaseConvFactorController.text) ?? 1;
+    final double unitCost =
+        double.tryParse(provider.averageCostController.text) ?? 0;
+    final double convFactor =
+        double.tryParse(provider.purchaseConvFactorController.text) ?? 1;
     final double packCost = unitCost * convFactor;
 
     return Container(
@@ -172,29 +174,22 @@ class PurchaseConfigurationSection extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Icon(
-                Icons.calculate,
-                color: Colors.purple.shade600,
-                size: 20,
-              ),
+              Icon(Icons.calculate, color: Colors.purple.shade600, size: 20),
               const SizedBox(width: 8),
               const Text(
                 'Purchase Calculation',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ],
           ),
           const SizedBox(height: DoubleConstants.spacingM),
-          
+
           Row(
             children: <Widget>[
               Expanded(
                 child: _buildCalculationCard(
                   'Unit Cost',
-                  '${provider.selectedCurrency ?? 'PKR'} ${unitCost.toStringAsFixed(2)}',
+                  '${provider.selectedCurrency} ${unitCost.toStringAsFixed(2)}',
                   Colors.blue,
                   Icons.inventory,
                 ),
@@ -212,22 +207,22 @@ class PurchaseConfigurationSection extends StatelessWidget {
               ),
             ],
           ),
-          
+
           const SizedBox(height: DoubleConstants.spacingS),
-          
+
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Icon(Icons.arrow_downward, color: Colors.grey, size: 20),
             ],
           ),
-          
+
           const SizedBox(height: DoubleConstants.spacingS),
-          
+
           Center(
             child: _buildCalculationCard(
               'Pack Cost',
-              '${provider.selectedCurrency ?? 'PKR'} ${packCost.toStringAsFixed(2)}',
+              '${provider.selectedCurrency} ${packCost.toStringAsFixed(2)}',
               Colors.green,
               Icons.shopping_bag,
             ),
@@ -238,16 +233,18 @@ class PurchaseConfigurationSection extends StatelessWidget {
   }
 
   /// Build calculation card widget
-  Widget _buildCalculationCard(String title, String value, Color color, IconData icon) {
+  Widget _buildCalculationCard(
+    String title,
+    String value,
+    Color color,
+    IconData icon,
+  ) {
     return Container(
       padding: const EdgeInsets.all(DoubleConstants.spacingS),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: color.withValues(alpha: 0.3),
-          width: 1,
-        ),
+        border: Border.all(color: color.withValues(alpha: 0.3), width: 1),
       ),
       child: Column(
         children: <Widget>[
@@ -255,10 +252,7 @@ class PurchaseConfigurationSection extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             title,
-            style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
-            ),
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 4),

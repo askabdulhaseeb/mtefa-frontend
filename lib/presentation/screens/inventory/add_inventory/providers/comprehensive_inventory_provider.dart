@@ -28,20 +28,20 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     required GetSuppliersUseCase getSuppliersUseCase,
     required GetColorsUseCase getColorsUseCase,
     required GetSizesUseCase getSizesUseCase,
-  })  : _getInventoryLinesUseCase = getInventoryLinesUseCase,
-        _getCategoriesUseCase = getCategoriesUseCase,
-        _getCategoriesByParentUseCase = getCategoriesByParentUseCase,
-        _getSubCategoriesUseCase = getSubCategoriesUseCase,
-        _getSuppliersUseCase = getSuppliersUseCase,
-        _getColorsUseCase = getColorsUseCase,
-        _getSizesUseCase = getSizesUseCase {
+  }) : _getInventoryLinesUseCase = getInventoryLinesUseCase,
+       _getCategoriesUseCase = getCategoriesUseCase,
+       // _getCategoriesByParentUseCase = getCategoriesByParentUseCase,
+       _getSubCategoriesUseCase = getSubCategoriesUseCase,
+       _getSuppliersUseCase = getSuppliersUseCase,
+       _getColorsUseCase = getColorsUseCase,
+       _getSizesUseCase = getSizesUseCase {
     _initializeFormControllers();
     _loadFormData();
   }
 
   final GetInventoryLinesUseCase _getInventoryLinesUseCase;
   final GetCategoriesUseCase _getCategoriesUseCase;
-  final GetCategoriesByParentUseCase _getCategoriesByParentUseCase;
+  // final GetCategoriesByParentUseCase _getCategoriesByParentUseCase;
   final GetSubCategoriesUseCase _getSubCategoriesUseCase;
   final GetSuppliersUseCase _getSuppliersUseCase;
   final GetColorsUseCase _getColorsUseCase;
@@ -71,7 +71,8 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   final TextEditingController maximumLevelController = TextEditingController();
 
   // PURCHASE CONFIGURATION
-  final TextEditingController purchaseConvFactorController = TextEditingController();
+  final TextEditingController purchaseConvFactorController =
+      TextEditingController();
 
   // ADDITIONAL
   final TextEditingController commentsController = TextEditingController();
@@ -83,14 +84,14 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   List<SupplierEntity> _suppliers = <SupplierEntity>[];
   List<InventoryColorsEntity> _colorsEntities = <InventoryColorsEntity>[];
   List<InventorySizesEntity> _sizesEntities = <InventorySizesEntity>[];
-  
+
   // Placeholder lists for fields not yet in database
   List<String> _productGroups = <String>[];
   List<String> _ageGroups = <String>[];
   List<String> _packagingTypes = <String>[];
   List<String> _productGenders = <String>[];
   List<String> _lifeTypes = <String>[];
-  
+
   // Placeholder selected values
   String? _selectedProductGroup;
   String? _selectedAgeGroup;
@@ -140,8 +141,10 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   List<String> get currencies => _currencies;
 
   // Convert entities to strings for UI compatibility
-  List<String> get sizes => _sizesEntities.map((InventorySizesEntity e) => e.sizeName).toList();
-  List<String> get colors => _colorsEntities.map((InventoryColorsEntity e) => e.colorName).toList();
+  List<String> get sizes =>
+      _sizesEntities.map((InventorySizesEntity e) => e.sizeName).toList();
+  List<String> get colors =>
+      _colorsEntities.map((InventoryColorsEntity e) => e.colorName).toList();
 
   bool get isLoading => _isLoading;
   bool get isSaving => _isSaving;
@@ -154,7 +157,8 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   bool get shouldShowSubCategory => _selectedCategory != null;
   bool get shouldShowSizes => _selectedCategory != null;
   bool get shouldShowColors => _selectedCategory != null;
-  bool get shouldShowDefaultSizeColor => _selectedSizes.isNotEmpty || _selectedColors.isNotEmpty;
+  bool get shouldShowDefaultSizeColor =>
+      _selectedSizes.isNotEmpty || _selectedColors.isNotEmpty;
 
   // Additional visibility rules for other fields
   bool get shouldShowAgeGroup => _selectedCategory != null;
@@ -244,8 +248,9 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
   /// Load inventory lines from database
   Future<void> _loadInventoryLines() async {
-    final DataState<List<InventoryLineEntity>> result = await _getInventoryLinesUseCase.call();
-    
+    final DataState<List<InventoryLineEntity>> result =
+        await _getInventoryLinesUseCase.call();
+
     if (result.isSuccess) {
       _inventoryLines = result.data ?? <InventoryLineEntity>[];
     } else {
@@ -255,8 +260,9 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
   /// Load categories from database
   Future<void> _loadCategories() async {
-    final DataState<List<CategoryEntity>> result = await _getCategoriesUseCase.call();
-    
+    final DataState<List<CategoryEntity>> result = await _getCategoriesUseCase
+        .call();
+
     if (result.isSuccess) {
       _categories = result.data ?? <CategoryEntity>[];
     } else {
@@ -266,8 +272,9 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
   /// Load suppliers from database
   Future<void> _loadSuppliers() async {
-    final DataState<List<SupplierEntity>> result = await _getSuppliersUseCase.call();
-    
+    final DataState<List<SupplierEntity>> result = await _getSuppliersUseCase
+        .call();
+
     if (result.isSuccess) {
       _suppliers = result.data ?? <SupplierEntity>[];
     } else {
@@ -277,8 +284,9 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
   /// Load colors from database
   Future<void> _loadColors() async {
-    final DataState<List<InventoryColorsEntity>> result = await _getColorsUseCase.call();
-    
+    final DataState<List<InventoryColorsEntity>> result =
+        await _getColorsUseCase.call();
+
     if (result.isSuccess) {
       _colorsEntities = result.data ?? <InventoryColorsEntity>[];
     } else {
@@ -288,8 +296,9 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
   /// Load sizes from database
   Future<void> _loadSizes() async {
-    final DataState<List<InventorySizesEntity>> result = await _getSizesUseCase.call();
-    
+    final DataState<List<InventorySizesEntity>> result = await _getSizesUseCase
+        .call();
+
     if (result.isSuccess) {
       _sizesEntities = result.data ?? <InventorySizesEntity>[];
     } else {
@@ -303,9 +312,10 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final DataState<List<SubCategoryEntity>> result = await _getSubCategoriesUseCase.call(
-        params: GetSubCategoriesParams(categoryId: categoryId),
-      );
+      final DataState<List<SubCategoryEntity>> result =
+          await _getSubCategoriesUseCase.call(
+            params: GetSubCategoriesParams(categoryId: categoryId),
+          );
 
       if (result.isSuccess) {
         _subCategories = result.data ?? <SubCategoryEntity>[];
@@ -326,7 +336,8 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   void _generateProductCode() {
     if (_autoGenerateCode) {
       final String timestamp = DateTime.now().millisecondsSinceEpoch.toString();
-      productCodeController.text = 'PRD-${timestamp.substring(timestamp.length - 8)}';
+      productCodeController.text =
+          'PRD-${timestamp.substring(timestamp.length - 8)}';
     }
   }
 
@@ -352,11 +363,11 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     _selectedCategory = category;
     _selectedSubCategory = null;
     _subCategories = <SubCategoryEntity>[];
-    
+
     if (category != null) {
       _loadSubCategories(category.categoryId);
     }
-    
+
     notifyListeners();
   }
 
@@ -380,7 +391,8 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   void setColors(List<String> colors) {
     _selectedColors = colors;
     // Reset default color if not in selected colors
-    if (_selectedDefaultColor != null && !colors.contains(_selectedDefaultColor)) {
+    if (_selectedDefaultColor != null &&
+        !colors.contains(_selectedDefaultColor)) {
       _selectedDefaultColor = null;
     }
     notifyListeners();
@@ -424,27 +436,27 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     _selectedProductGroup = group;
     notifyListeners();
   }
-  
+
   void setAgeGroup(String? ageGroup) {
     _selectedAgeGroup = ageGroup;
     notifyListeners();
   }
-  
+
   void setPackagingType(String? type) {
     _selectedPackagingType = type;
     notifyListeners();
   }
-  
+
   void setProductGender(String? gender) {
     _selectedProductGender = gender;
     notifyListeners();
   }
-  
+
   void setLifeType(String? type) {
     _selectedLifeType = type;
     notifyListeners();
   }
-  
+
   void setPurchaseConvUnit(String? unit) => notifyListeners();
   void setAcquireType(String? type) => notifyListeners();
   void setPurchaseType(String? type) => notifyListeners();
@@ -473,10 +485,10 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
         final AppDatabase db = sl<AppDatabase>();
         await db.into(db.inventoryLine).insert(companion);
-        
+
         // Refresh the inventory lines list
         await _loadInventoryLines();
-        
+
         // Return the newly created entity
         final InventoryLineEntity newEntity = InventoryLineEntity(
           inventoryLineId: companion.inventoryLineId.value,
@@ -487,7 +499,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
         );
-        
+
         return newEntity;
       } catch (e) {
         debugPrint('Error adding new inventory line: $e');
@@ -520,10 +532,10 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
         final AppDatabase db = sl<AppDatabase>();
         await db.into(db.suppliers).insert(companion);
-        
+
         // Refresh the suppliers list
         await _loadSuppliers();
-        
+
         // Return the newly created entity
         final SupplierEntity newEntity = SupplierEntity(
           supplierId: companion.supplierId.value,
@@ -533,7 +545,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
         );
-        
+
         return newEntity;
       } catch (e) {
         debugPrint('Error adding new supplier: $e');
@@ -567,10 +579,10 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
         final AppDatabase db = sl<AppDatabase>();
         await db.into(db.categoryTable).insert(companion);
-        
+
         // Refresh the categories list
         await _loadCategories();
-        
+
         // Return the newly created entity
         final CategoryEntity newEntity = CategoryEntity(
           categoryId: companion.categoryId.value,
@@ -580,7 +592,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
         );
-        
+
         return newEntity;
       } catch (e) {
         debugPrint('Error adding new category: $e');
@@ -615,10 +627,10 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
 
         final AppDatabase db = sl<AppDatabase>();
         await db.into(db.subCategory).insert(companion);
-        
+
         // Refresh the subcategories list
         await _loadSubCategories(companion.categoryId.value);
-        
+
         // Return the newly created entity
         final SubCategoryEntity newEntity = SubCategoryEntity(
           subCategoryId: companion.subCategoryId.value,
@@ -629,7 +641,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
         );
-        
+
         return newEntity;
       } catch (e) {
         debugPrint('Error adding new sub category: $e');
@@ -829,7 +841,7 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
     maximumLevelController.dispose();
     purchaseConvFactorController.dispose();
     commentsController.dispose();
-    
+
     super.dispose();
   }
 }
