@@ -9,7 +9,7 @@ class SupplierEntity extends Equatable {
     required this.businessId,
     required this.supplierCode,
     required this.supplierName,
-    this.supplierType,
+    required this.createdAt, required this.updatedAt, this.supplierType,
     this.contactPerson,
     this.phone,
     this.email,
@@ -36,8 +36,6 @@ class SupplierEntity extends Equatable {
     this.status = StatusType.active,
     this.createdBy,
     this.updatedBy,
-    required this.createdAt,
-    required this.updatedAt,
     this.syncStatus = 'pending',
   });
   final String supplierId;

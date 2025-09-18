@@ -11,7 +11,7 @@ class SubCategoryEntity extends Equatable {
     required this.businessId,
     required this.subCategoryCode,
     required this.subCategoryName,
-    this.subCategoryDescription,
+    required this.createdAt, required this.updatedAt, this.subCategoryDescription,
     this.codePlacement = PlacementType.pre,
     this.counter,
     this.sortOrder = 0,
@@ -21,8 +21,6 @@ class SubCategoryEntity extends Equatable {
     this.status = StatusType.active,
     this.createdBy,
     this.updatedBy,
-    required this.createdAt,
-    required this.updatedAt,
     this.syncStatus = 'pending',
   });
   final String subCategoryId;

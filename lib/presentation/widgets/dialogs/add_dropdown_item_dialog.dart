@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 class AddDropdownItemDialog extends StatefulWidget {
   const AddDropdownItemDialog({
-    super.key,
-    required this.title,
-    required this.itemType,
+    required this.title, required this.itemType, super.key,
     this.hasCodeField = true,
     this.parentEntity,
   });

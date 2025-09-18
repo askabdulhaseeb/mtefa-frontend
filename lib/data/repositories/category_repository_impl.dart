@@ -29,7 +29,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
   Future<DataState<CategoryEntity?>> getCategoryById(String categoryId) async {
     try {
       final CategoryTableData? category = await (database.select(database.categoryTable)
-            ..where((tbl) => tbl.categoryId.equals(categoryId)))
+            ..where(($CategoryTableTable tbl) => tbl.categoryId.equals(categoryId)))
           .getSingleOrNull();
       
       final CategoryEntity? entity = category != null ? _toEntity(category) : null;
@@ -46,7 +46,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
   Future<DataState<List<CategoryEntity>>> getCategoriesByBusinessId(String businessId) async {
     try {
       final List<CategoryTableData> categories = await (database.select(database.categoryTable)
-            ..where((tbl) => tbl.businessId.equals(businessId)))
+            ..where(($CategoryTableTable tbl) => tbl.businessId.equals(businessId)))
           .get();
       
       final List<CategoryEntity> entities = categories.map(_toEntity).toList();
@@ -63,7 +63,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
   Future<DataState<List<CategoryEntity>>> getCategoriesByParentId(String? parentId) async {
     try {
       final List<CategoryTableData> categories = await (database.select(database.categoryTable)
-            ..where((tbl) => parentId != null ? tbl.parentCategoryId.equals(parentId) : tbl.parentCategoryId.isNull()))
+            ..where(($CategoryTableTable tbl) => parentId != null ? tbl.parentCategoryId.equals(parentId) : tbl.parentCategoryId.isNull()))
           .get();
       
       final List<CategoryEntity> entities = categories.map(_toEntity).toList();
@@ -98,7 +98,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
       ));
       
       await (database.update(database.categoryTable)
-            ..where((tbl) => tbl.categoryId.equals(category.categoryId)))
+            ..where(($CategoryTableTable tbl) => tbl.categoryId.equals(category.categoryId)))
           .write(companion);
       
       return DataSuccess<CategoryEntity>(category);
@@ -114,7 +114,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
   Future<DataState<void>> deleteCategory(String categoryId) async {
     try {
       await (database.delete(database.categoryTable)
-            ..where((tbl) => tbl.categoryId.equals(categoryId)))
+            ..where(($CategoryTableTable tbl) => tbl.categoryId.equals(categoryId)))
           .go();
       
       return const DataSuccess<void>(null);
@@ -130,7 +130,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
   Future<DataState<List<CategoryEntity>>> getActiveCategories() async {
     try {
       final List<CategoryTableData> categories = await (database.select(database.categoryTable)
-            ..where((tbl) => tbl.status.equals(StatusType.active.value)))
+            ..where(($CategoryTableTable tbl) => tbl.status.equals(StatusType.active.value)))
           .get();
       
       final List<CategoryEntity> entities = categories.map(_toEntity).toList();

@@ -72,7 +72,7 @@ class SupplierRepositoryImpl implements SupplierRepository {
   Future<DataState<List<SupplierEntity>>> getActiveSuppliers() async {
     try {
       final List<Supplier> suppliers = await (database.select(database.suppliers)
-            ..where((tbl) => tbl.status.equals(StatusType.active.value)))
+            ..where(($SuppliersTable tbl) => tbl.status.equals(StatusType.active.value)))
           .get();
       
       final List<SupplierEntity> entities = suppliers.map(_toEntity).toList();

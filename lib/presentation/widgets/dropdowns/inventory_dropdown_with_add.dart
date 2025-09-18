@@ -3,13 +3,7 @@ import 'package:flutter/material.dart';
 /// Generic dropdown widget with add functionality for inventory items
 class InventoryDropdownWithAdd<T> extends StatelessWidget {
   const InventoryDropdownWithAdd({
-    super.key,
-    required this.label,
-    required this.items,
-    required this.value,
-    required this.onChanged,
-    required this.onAdd,
-    required this.itemBuilder,
+    required this.label, required this.items, required this.value, required this.onChanged, required this.onAdd, required this.itemBuilder, super.key,
     this.hint,
     this.isEnabled = true,
     this.validator,
@@ -49,7 +43,7 @@ class InventoryDropdownWithAdd<T> extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: DropdownButtonFormField<T>(
-                value: value,
+                initialValue: value,
                 decoration: InputDecoration(
                   hintText: hint ?? 'Select $label',
                   prefixIcon: icon != null ? Icon(icon) : null,
@@ -147,11 +141,7 @@ class InventoryDropdownWithAdd<T> extends StatelessWidget {
 /// Specialized dropdown for inventory line items
 class InventoryLineDropdown extends StatelessWidget {
   const InventoryLineDropdown({
-    super.key,
-    required this.items,
-    required this.value,
-    required this.onChanged,
-    required this.onAdd,
+    required this.items, required this.value, required this.onChanged, required this.onAdd, super.key,
     this.validator,
   });
 
@@ -180,12 +170,7 @@ class InventoryLineDropdown extends StatelessWidget {
 /// Specialized dropdown for categories
 class CategoryDropdown extends StatelessWidget {
   const CategoryDropdown({
-    super.key,
-    required this.items,
-    required this.value,
-    required this.onChanged,
-    required this.onAdd,
-    required this.isEnabled,
+    required this.items, required this.value, required this.onChanged, required this.onAdd, required this.isEnabled, super.key,
     this.validator,
   });
 
@@ -216,13 +201,7 @@ class CategoryDropdown extends StatelessWidget {
 /// Specialized dropdown for subcategories
 class SubCategoryDropdown extends StatelessWidget {
   const SubCategoryDropdown({
-    super.key,
-    required this.items,
-    required this.value,
-    required this.onChanged,
-    required this.onAdd,
-    required this.isEnabled,
-    required this.isLoading,
+    required this.items, required this.value, required this.onChanged, required this.onAdd, required this.isEnabled, required this.isLoading, super.key,
     this.validator,
   });
 
@@ -286,12 +265,7 @@ class SubCategoryDropdown extends StatelessWidget {
 /// Specialized dropdown for suppliers
 class SupplierDropdown extends StatelessWidget {
   const SupplierDropdown({
-    super.key,
-    required this.items,
-    required this.value,
-    required this.onChanged,
-    required this.onAdd,
-    required this.isEnabled,
+    required this.items, required this.value, required this.onChanged, required this.onAdd, required this.isEnabled, super.key,
     this.validator,
   });
 
@@ -322,12 +296,7 @@ class SupplierDropdown extends StatelessWidget {
 /// Multi-select dropdown for colors
 class ColorMultiSelectDropdown extends StatelessWidget {
   const ColorMultiSelectDropdown({
-    super.key,
-    required this.items,
-    required this.selectedItems,
-    required this.onChanged,
-    required this.onAdd,
-    required this.isEnabled,
+    required this.items, required this.selectedItems, required this.onChanged, required this.onAdd, required this.isEnabled, super.key,
   });
 
   final List<dynamic> items; // List<InventoryColorsEntity>
@@ -444,12 +413,7 @@ class ColorMultiSelectDropdown extends StatelessWidget {
 /// Multi-select dropdown for sizes
 class SizeMultiSelectDropdown extends StatelessWidget {
   const SizeMultiSelectDropdown({
-    super.key,
-    required this.items,
-    required this.selectedItems,
-    required this.onChanged,
-    required this.onAdd,
-    required this.isEnabled,
+    required this.items, required this.selectedItems, required this.onChanged, required this.onAdd, required this.isEnabled, super.key,
   });
 
   final List<dynamic> items; // List<InventorySizesEntity>

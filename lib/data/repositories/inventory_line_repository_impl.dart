@@ -30,7 +30,7 @@ class InventoryLineRepositoryImpl implements InventoryLineRepository {
   Future<DataState<InventoryLineEntity?>> getInventoryLineById(String lineId) async {
     try {
       final InventoryLineData? line = await (database.select(database.inventoryLine)
-            ..where((tbl) => tbl.inventoryLineId.equals(lineId)))
+            ..where(($InventoryLineTable tbl) => tbl.inventoryLineId.equals(lineId)))
           .getSingleOrNull();
       
       final InventoryLineEntity? entity = line != null ? _toEntity(line) : null;
@@ -47,7 +47,7 @@ class InventoryLineRepositoryImpl implements InventoryLineRepository {
   Future<DataState<List<InventoryLineEntity>>> getInventoryLinesByBusinessId(String businessId) async {
     try {
       final List<InventoryLineData> lines = await (database.select(database.inventoryLine)
-            ..where((tbl) => tbl.businessId.equals(businessId)))
+            ..where(($InventoryLineTable tbl) => tbl.businessId.equals(businessId)))
           .get();
       
       final List<InventoryLineEntity> entities = lines.map(_toEntity).toList();
@@ -82,7 +82,7 @@ class InventoryLineRepositoryImpl implements InventoryLineRepository {
       ));
       
       await (database.update(database.inventoryLine)
-            ..where((tbl) => tbl.inventoryLineId.equals(inventoryLine.inventoryLineId)))
+            ..where(($InventoryLineTable tbl) => tbl.inventoryLineId.equals(inventoryLine.inventoryLineId)))
           .write(companion);
       
       return DataSuccess<InventoryLineEntity>(inventoryLine);
@@ -98,7 +98,7 @@ class InventoryLineRepositoryImpl implements InventoryLineRepository {
   Future<DataState<void>> deleteInventoryLine(String lineId) async {
     try {
       await (database.delete(database.inventoryLine)
-            ..where((tbl) => tbl.inventoryLineId.equals(lineId)))
+            ..where(($InventoryLineTable tbl) => tbl.inventoryLineId.equals(lineId)))
           .go();
       
       return const DataSuccess<void>(null);
@@ -114,7 +114,7 @@ class InventoryLineRepositoryImpl implements InventoryLineRepository {
   Future<DataState<List<InventoryLineEntity>>> getActiveInventoryLines() async {
     try {
       final List<InventoryLineData> lines = await (database.select(database.inventoryLine)
-            ..where((tbl) => tbl.status.equals(StatusType.active.value) & tbl.isActive.equals(true)))
+            ..where(($InventoryLineTable tbl) => tbl.status.equals(StatusType.active.value) & tbl.isActive.equals(true)))
           .get();
       
       final List<InventoryLineEntity> entities = lines.map(_toEntity).toList();

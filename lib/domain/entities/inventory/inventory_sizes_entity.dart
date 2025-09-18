@@ -7,10 +7,7 @@ class InventorySizesEntity extends Equatable {
   const InventorySizesEntity({
     required this.sizeId,
     required this.businessId,
-    this.subCategoryId,
-    required this.sizeName,
-    required this.sizeCode,
-    required this.sizeType,
+    required this.sizeName, required this.sizeCode, required this.sizeType, required this.createdAt, required this.updatedAt, this.subCategoryId,
     this.sizeSystem,
     this.sizeMeasurements,
     this.sizeChartPosition,
@@ -19,8 +16,6 @@ class InventorySizesEntity extends Equatable {
     this.status = StatusType.active,
     this.createdBy,
     this.updatedBy,
-    required this.createdAt,
-    required this.updatedAt,
     this.syncStatus = 'pending',
   });
   final String sizeId;

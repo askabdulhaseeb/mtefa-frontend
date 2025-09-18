@@ -10,7 +10,7 @@ class InventoryLineEntity extends Equatable {
     required this.businessId,
     required this.lineCode,
     required this.lineName,
-    this.lineDescription,
+    required this.createdAt, required this.updatedAt, this.lineDescription,
     this.linePlacement = PlacementType.pre,
     this.parentLineId,
     this.sortOrder = 0,
@@ -18,8 +18,6 @@ class InventoryLineEntity extends Equatable {
     this.status = StatusType.active,
     this.createdBy,
     this.updatedBy,
-    required this.createdAt,
-    required this.updatedAt,
     this.syncStatus = 'pending',
   });
   final String inventoryLineId;

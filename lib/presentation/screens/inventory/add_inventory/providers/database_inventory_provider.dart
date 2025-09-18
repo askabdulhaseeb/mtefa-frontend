@@ -112,7 +112,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
   bool _isSaving = false;
   bool _isLoadingSubCategories = false;
   bool _isLoadingSizes = false;
-  bool _isLoadingColors = false;
+  final bool _isLoadingColors = false;
 
   // ERROR STATES
   String? _errorMessage;
@@ -319,7 +319,7 @@ class DatabaseInventoryProvider extends ChangeNotifier {
     try {
       final List<InventorySize> sizeData = await (_database.select(
         _database.inventorySizes,
-      )..where((tbl) => tbl.subCategoryId.equals(subCategoryId))).get();
+      )..where(($InventorySizesTable tbl) => tbl.subCategoryId.equals(subCategoryId))).get();
       _sizes = sizeData.map(_sizeToEntity).toList();
     } catch (e) {
       debugPrint('Failed to load sizes by subcategory: $e');

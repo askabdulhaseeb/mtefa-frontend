@@ -9,7 +9,7 @@ class InventoryColorsEntity extends Equatable {
     required this.businessId,
     required this.colorName,
     required this.colorCode,
-    this.hexColor,
+    required this.createdAt, required this.updatedAt, this.hexColor,
     this.rgbColor,
     this.pantoneCode,
     this.supplierColorCode,
@@ -21,8 +21,6 @@ class InventoryColorsEntity extends Equatable {
     this.status = StatusType.active,
     this.createdBy,
     this.updatedBy,
-    required this.createdAt,
-    required this.updatedAt,
     this.syncStatus = 'pending',
   });
   final String colorId;

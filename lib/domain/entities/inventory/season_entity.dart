@@ -9,7 +9,7 @@ class SeasonEntity extends Equatable {
     required this.businessId,
     required this.seasonName,
     required this.seasonCode,
-    this.seasonDescription,
+    required this.createdAt, required this.updatedAt, this.seasonDescription,
     this.startDate,
     this.endDate,
     this.isCurrentSeason = false,
@@ -19,8 +19,6 @@ class SeasonEntity extends Equatable {
     this.status = StatusType.active,
     this.createdBy,
     this.updatedBy,
-    required this.createdAt,
-    required this.updatedAt,
     this.syncStatus = 'pending',
   });
   final String seasonId;

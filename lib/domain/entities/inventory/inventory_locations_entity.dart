@@ -12,7 +12,7 @@ class InventoryLocationsEntity extends Equatable {
     required this.locationName,
     required this.locationCode,
     required this.locationType,
-    this.parentLocationId,
+    required this.createdAt, required this.updatedAt, this.parentLocationId,
     this.aisle,
     this.shelf,
     this.bin,
@@ -26,8 +26,6 @@ class InventoryLocationsEntity extends Equatable {
     this.status = StatusType.active,
     this.createdBy,
     this.updatedBy,
-    required this.createdAt,
-    required this.updatedAt,
     this.syncStatus = 'pending',
   });
   final String locationId;

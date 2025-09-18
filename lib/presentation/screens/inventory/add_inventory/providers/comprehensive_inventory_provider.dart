@@ -86,11 +86,11 @@ class ComprehensiveInventoryProvider extends ChangeNotifier {
   List<InventorySizesEntity> _sizesEntities = <InventorySizesEntity>[];
 
   // Placeholder lists for fields not yet in database
-  List<String> _productGroups = <String>[];
-  List<String> _ageGroups = <String>[];
-  List<String> _packagingTypes = <String>[];
-  List<String> _productGenders = <String>[];
-  List<String> _lifeTypes = <String>[];
+  final List<String> _productGroups = <String>[];
+  final List<String> _ageGroups = <String>[];
+  final List<String> _packagingTypes = <String>[];
+  final List<String> _productGenders = <String>[];
+  final List<String> _lifeTypes = <String>[];
 
   // Placeholder selected values
   String? _selectedProductGroup;

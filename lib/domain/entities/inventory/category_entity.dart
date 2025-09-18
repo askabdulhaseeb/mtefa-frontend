@@ -10,7 +10,7 @@ class CategoryEntity extends Equatable {
     required this.businessId,
     required this.categoryCode,
     required this.categoryName,
-    this.categoryDescription,
+    required this.createdAt, required this.updatedAt, this.categoryDescription,
     this.parentCategoryId,
     this.categoryImageUrl,
     this.seoSlug,
@@ -23,8 +23,6 @@ class CategoryEntity extends Equatable {
     this.status = StatusType.active,
     this.createdBy,
     this.updatedBy,
-    required this.createdAt,
-    required this.updatedAt,
     this.syncStatus = 'pending',
   });
   final String categoryId;

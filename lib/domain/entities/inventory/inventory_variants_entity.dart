@@ -8,12 +8,9 @@ class InventoryVariantsEntity extends Equatable {
     required this.variantId,
     required this.inventoryId,
     required this.businessId,
-    this.colorId,
+    required this.variantSku, required this.variantName, required this.variantCode, required this.createdAt, required this.updatedAt, this.colorId,
     this.sizeId,
-    required this.variantSku,
     this.variantBarcode,
-    required this.variantName,
-    required this.variantCode,
     this.costPriceAdjustment = 0.00,
     this.priceAdjustment = 0.00,
     this.finalCostPrice,
@@ -34,8 +31,6 @@ class InventoryVariantsEntity extends Equatable {
     this.status = StatusType.active,
     this.createdBy,
     this.updatedBy,
-    required this.createdAt,
-    required this.updatedAt,
     this.syncStatus = 'pending',
   });
   final String variantId;

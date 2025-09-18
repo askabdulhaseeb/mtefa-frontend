@@ -35,7 +35,7 @@ class SubCategoryRepositoryImpl implements SubCategoryRepository {
   Future<DataState<List<SubCategoryEntity>>> getSubCategoriesByCategoryId(String categoryId) async {
     try {
       final List<SubCategoryData> subCategories = await (database.select(database.subCategory)
-            ..where((tbl) => tbl.categoryId.equals(categoryId)))
+            ..where(($SubCategoryTable tbl) => tbl.categoryId.equals(categoryId)))
           .get();
       
       final List<SubCategoryEntity> entities = subCategories.map(_toEntity).toList();
