@@ -136,7 +136,7 @@ class AuthRepositoryImpl implements AuthRepository {
           errorCode: 'NO_USER',
         );
       }
-      return DataSuccess(userData);
+      return DataSuccess<UserEntity>(userData);
     } catch (e) {
       return DataFailed<UserEntity>(
         error: 'Failed to get current user: ${e.toString()}',
@@ -298,7 +298,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
       await _saveUserData(updatedUser);
 
-      return DataSuccess(updatedUser);
+      return DataSuccess<UserEntity>(updatedUser);
     } catch (e) {
       return DataFailed<UserEntity>(
         error: 'Business switch failed: ${e.toString()}',
@@ -323,7 +323,7 @@ class AuthRepositoryImpl implements AuthRepository {
       );
       await _saveUserData(updatedUser);
 
-      return DataSuccess(updatedUser);
+      return DataSuccess<UserEntity>(updatedUser);
     } catch (e) {
       return DataFailed<UserEntity>(
         error: 'Branch switch failed: ${e.toString()}',
@@ -489,7 +489,7 @@ class AuthRepositoryImpl implements AuthRepository {
       status: StatusType.fromString(json['status'] as String? ?? 'active'),
       businessUsers:
           (json['businessUsers'] as List<dynamic>?)
-              ?.map((e) => _businessUserFromJson(e as Map<String, dynamic>))
+              ?.map((dynamic e) => _businessUserFromJson(e as Map<String, dynamic>))
               .toList() ??
           <BusinessUserEntity>[],
       currentBusinessId: json['currentBusinessId'] as String?,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constants/numbers.dart';
 import '../providers/comprehensive_inventory_provider.dart';
 import '../widgets/form_progress_indicator.dart';
 import '../widgets/sections/enhanced_required_fields_section.dart';
@@ -10,8 +9,17 @@ import '../widgets/sections/inventory_management_section.dart';
 import '../widgets/sections/pricing_section.dart';
 import '../widgets/sections/purchase_configuration_section.dart';
 import '../widgets/sections/sizes_colors_section.dart';
+import 'components/action_buttons.dart';
+import 'components/floating_header.dart';
+import 'components/form_layout.dart';
+import 'components/inventory_header.dart';
+import 'components/loading_state.dart';
+import 'components/success_message.dart';
 
-/// Enhanced desktop view with modern Material 3 design
+/// Enhanced desktop view with modern Material 3 design and component-based architecture
+/// 
+/// This view has been refactored from a 451-line monolithic implementation into
+/// focused, reusable components following clean architecture principles.
 class EnhancedInventoryDesktopView extends StatefulWidget {
   const EnhancedInventoryDesktopView({
     required this.provider,
@@ -52,309 +60,102 @@ class _EnhancedInventoryDesktopViewState extends State<EnhancedInventoryDesktopV
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final ColorScheme colorScheme = theme.colorScheme;
-    
     if (widget.provider.isLoading) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            CircularProgressIndicator(
-              color: colorScheme.primary,
-              strokeWidth: 3,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Preparing inventory form...',
-              style: theme.textTheme.bodyLarge?.copyWith(
-                color: colorScheme.onSurfaceVariant,
-              ),
-            ),
-          ],
-        ),
-      );
+      return const LoadingState();
     }
 
     return Stack(
       children: <Widget>[
-        // Main content
-        Form(
-          key: widget.provider.formKey,
-          child: CustomScrollView(
-            controller: _scrollController,
-            slivers: <Widget>[
-              // Header section with gradient
-              SliverToBoxAdapter(
-                child: Container(
-                  height: 120,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: <Color>[
-                        colorScheme.primaryContainer.withAlpha(50),
-                        colorScheme.secondaryContainer.withAlpha(30),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                  ),
-                  child: Center(
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 1400),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 32),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              'Add New Product',
-                              style: theme.textTheme.headlineMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: -0.5,
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              'Fill in the product details to add it to your inventory',
-                              style: theme.textTheme.bodyLarge?.copyWith(
-                                color: colorScheme.onSurfaceVariant,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              
-              // Progress indicator
-              SliverToBoxAdapter(
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 1400),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(32, 24, 32, 0),
-                      child: FormProgressIndicator(
-                        sections: _getFormSections(),
-                        completedSections: _getCompletedSections(),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              
-              // Main form content
-              SliverPadding(
-                padding: const EdgeInsets.all(32),
-                sliver: SliverToBoxAdapter(
-                  child: Center(
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 1400),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          // Left Column - Primary Information
-                          Expanded(
-                            flex: 3,
-                            child: Column(
-                              children: <Widget>[
-                                // Enhanced Required Fields Section
-                                const EnhancedRequiredFieldsSection(),
-                                const SizedBox(height: DoubleConstants.spacingL),
-                                
-                                // Basic Details Section (to be enhanced)
-                                BasicDetailsSection(),
-                                const SizedBox(height: DoubleConstants.spacingL),
-                                
-                                // Sizes & Colors Section (to be enhanced)
-                                SizesColorsSection(),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: DoubleConstants.spacingXL),
-                          
-                          // Right Column - Secondary Information
-                          Expanded(
-                            flex: 3,
-                            child: Column(
-                              children: <Widget>[
-                                // Pricing Section (to be enhanced)
-                                PricingSection(),
-                                const SizedBox(height: DoubleConstants.spacingL),
-                                
-                                // Purchase Configuration Section (to be enhanced)
-                                PurchaseConfigurationSection(),
-                                const SizedBox(height: DoubleConstants.spacingL),
-                                
-                                // Inventory Management Section (to be enhanced)
-                                InventoryManagementSection(),
-                                const SizedBox(height: DoubleConstants.spacingL),
-                                
-                                // Additional Information Section (to be enhanced)
-                                AdditionalSection(),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              
-              // Bottom action buttons
-              SliverToBoxAdapter(
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 1400),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(32, 0, 32, 32),
-                      child: _buildActionButtons(context),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+        _buildMainContent(),
+        _buildFloatingHeader(),
+      ],
+    );
+  }
+
+  Widget _buildMainContent() {
+    return Form(
+      key: widget.provider.formKey,
+      child: CustomScrollView(
+        controller: _scrollController,
+        slivers: <Widget>[
+          // Header section with gradient
+          const SliverToBoxAdapter(
+            child: InventoryHeader(),
           ),
-        ),
-        
-        // Floating header when scrolled
-        AnimatedPositioned(
-          duration: const Duration(milliseconds: 300),
-          top: _showFloatingHeader ? 0 : -80,
-          left: 0,
-          right: 0,
-          child: Container(
-            height: 80,
-            decoration: BoxDecoration(
-              color: colorScheme.surface,
-              boxShadow: <BoxShadow>[
-                BoxShadow(
-                  color: colorScheme.shadow.withAlpha(20),
-                  blurRadius: 10,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
+          
+          // Progress indicator
+          SliverToBoxAdapter(
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 1400),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
-                  child: Row(
-                    children: <Widget>[
-                      Text(
-                        'New Product',
-                        style: theme.textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const Spacer(),
-                      _buildQuickActions(context),
-                    ],
+                  padding: const EdgeInsets.fromLTRB(32, 24, 32, 0),
+                  child: FormProgressIndicator(
+                    sections: _getFormSections(),
+                    completedSections: _getCompletedSections(),
                   ),
                 ),
               ),
             ),
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildActionButtons(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final ColorScheme colorScheme = theme.colorScheme;
-    
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        // Save as Draft button
-        OutlinedButton.icon(
-          onPressed: widget.provider.isSaving ? null : () {
-            // TODO: Implement save as draft
-          },
-          icon: const Icon(Icons.save_alt),
-          label: const Text('Save as Draft'),
-          style: OutlinedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+          
+          // Main form content
+          SliverPadding(
+            padding: const EdgeInsets.all(32),
+            sliver: SliverToBoxAdapter(
+              child: FormLayout(
+                leftColumnChildren: _getLeftColumnSections(),
+                rightColumnChildren: _getRightColumnSections(),
+              ),
             ),
           ),
-        ),
-        const SizedBox(width: 16),
-        
-        // Save and Continue button
-        FilledButton.icon(
-          onPressed: widget.provider.isSaving ? null : () => _saveAndContinue(context),
-          icon: widget.provider.isSaving
-              ? SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      colorScheme.onPrimary,
-                    ),
+          
+          // Bottom action buttons
+          SliverToBoxAdapter(
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1400),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(32, 0, 32, 32),
+                  child: ActionButtons(
+                    isSaving: widget.provider.isSaving,
+                    onSaveDraft: _handleSaveDraft,
+                    onSaveAndContinue: () => _saveAndContinue(context),
+                    onSaveAndClose: () => _saveAndClose(context),
                   ),
-                )
-              : const Icon(Icons.check),
-          label: Text(widget.provider.isSaving ? 'Saving...' : 'Save & Continue'),
-          style: FilledButton.styleFrom(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+                ),
+              ),
             ),
           ),
-        ),
-        const SizedBox(width: 16),
-        
-        // Save and Close button
-        FilledButton.icon(
-          onPressed: widget.provider.isSaving ? null : () => _saveAndClose(context),
-          icon: const Icon(Icons.save),
-          label: const Text('Save & Close'),
-          style: FilledButton.styleFrom(
-            backgroundColor: colorScheme.secondary,
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
-  Widget _buildQuickActions(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        IconButton(
-          onPressed: () {
-            // TODO: Implement duplicate
-          },
-          icon: const Icon(Icons.copy),
-          tooltip: 'Duplicate',
-        ),
-        IconButton(
-          onPressed: () {
-            // TODO: Implement reset
-          },
-          icon: const Icon(Icons.refresh),
-          tooltip: 'Reset Form',
-        ),
-        IconButton(
-          onPressed: () {
-            // TODO: Implement help
-          },
-          icon: const Icon(Icons.help_outline),
-          tooltip: 'Help',
-        ),
-      ],
+  Widget _buildFloatingHeader() {
+    return FloatingHeader(
+      isVisible: _showFloatingHeader,
+      onDuplicate: _handleDuplicate,
+      onReset: _handleReset,
+      onHelp: _handleHelp,
     );
+  }
+
+  List<Widget> _getLeftColumnSections() {
+    return <Widget>[
+      const EnhancedRequiredFieldsSection(),
+      BasicDetailsSection(),
+      SizesColorsSection(),
+    ];
+  }
+
+  List<Widget> _getRightColumnSections() {
+    return <Widget>[
+      PricingSection(),
+      PurchaseConfigurationSection(),
+      InventoryManagementSection(),
+      AdditionalSection(),
+    ];
   }
 
   List<FormSection> _getFormSections() {
@@ -396,28 +197,32 @@ class _EnhancedInventoryDesktopViewState extends State<EnhancedInventoryDesktopV
     return completed;
   }
 
+  // Action handlers
+  void _handleSaveDraft() {
+    // TODO: Implement save as draft functionality
+    debugPrint('Save as draft functionality to be implemented');
+  }
+
+  void _handleDuplicate() {
+    // TODO: Implement duplicate functionality
+    debugPrint('Duplicate functionality to be implemented');
+  }
+
+  void _handleReset() {
+    // TODO: Implement reset form functionality
+    widget.provider.clearForm();
+  }
+
+  void _handleHelp() {
+    // TODO: Implement help functionality
+    debugPrint('Help functionality to be implemented');
+  }
+
   Future<void> _saveAndContinue(BuildContext context) async {
     final bool success = await widget.provider.saveInventory();
     
     if (success && context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Row(
-            children: <Widget>[
-              Icon(Icons.check_circle, color: Colors.white),
-              SizedBox(width: 12),
-              Text('Product saved successfully!'),
-            ],
-          ),
-          backgroundColor: Colors.green,
-          behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          duration: const Duration(seconds: 2),
-        ),
-      );
-      
+      SuccessMessage.show(context);
       // Clear form for next product
       widget.provider.clearForm();
     }
@@ -427,24 +232,7 @@ class _EnhancedInventoryDesktopViewState extends State<EnhancedInventoryDesktopV
     final bool success = await widget.provider.saveInventory();
     
     if (success && context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Row(
-            children: <Widget>[
-              Icon(Icons.check_circle, color: Colors.white),
-              SizedBox(width: 12),
-              Text('Product saved successfully!'),
-            ],
-          ),
-          backgroundColor: Colors.green,
-          behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          duration: const Duration(seconds: 2),
-        ),
-      );
-      
+      SuccessMessage.show(context);
       // Navigate back
       Navigator.of(context).pop();
     }

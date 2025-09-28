@@ -12,8 +12,19 @@ import 'package:sqlite3_flutter_libs/sqlite3_flutter_libs.dart';
 import '../enums/status_type.dart';
 import '../enums/placement_type.dart';
 import '../enums/location_type.dart';
+import '../enums/branch_type.dart';
+import '../enums/user_role.dart';
+import '../enums/audit_action.dart';
 
 import 'tables/users_table.dart';
+// Core business tables
+import 'tables/business_table.dart';
+import 'tables/branches_table.dart';
+import 'tables/user_roles_table.dart';
+import 'tables/business_users_table.dart';
+// Sync infrastructure tables
+import 'tables/action_queue_table.dart';
+import 'tables/sync_status_table.dart';
 // Inventory tables
 import 'tables/suppliers.dart';
 import 'tables/inventory_line.dart';
@@ -31,6 +42,14 @@ part 'database.g.dart';
 
 @DriftDatabase(tables: <Type>[
   Users,
+  // Core business tables
+  BusinessTable,
+  BranchesTable,
+  UserRolesTable,
+  BusinessUsersTable,
+  // Sync infrastructure tables
+  ActionQueueTable,
+  SyncStatusTable,
   // Inventory tables
   Suppliers,
   InventoryLine,
@@ -46,7 +65,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 4;
   
   @override
   MigrationStrategy get migration => MigrationStrategy(

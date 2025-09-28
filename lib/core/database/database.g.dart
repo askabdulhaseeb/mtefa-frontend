@@ -395,6 +395,8947 @@ class UsersCompanion extends UpdateCompanion<LocalUser> {
   }
 }
 
+class $BusinessTableTable extends BusinessTable
+    with TableInfo<$BusinessTableTable, BusinessTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $BusinessTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _businessIdMeta = const VerificationMeta(
+    'businessId',
+  );
+  @override
+  late final GeneratedColumn<String> businessId = GeneratedColumn<String>(
+    'business_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _businessNameMeta = const VerificationMeta(
+    'businessName',
+  );
+  @override
+  late final GeneratedColumn<String> businessName = GeneratedColumn<String>(
+    'business_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _businessCodeMeta = const VerificationMeta(
+    'businessCode',
+  );
+  @override
+  late final GeneratedColumn<String> businessCode = GeneratedColumn<String>(
+    'business_code',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _businessTypeMeta = const VerificationMeta(
+    'businessType',
+  );
+  @override
+  late final GeneratedColumn<String> businessType = GeneratedColumn<String>(
+    'business_type',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _taxNumberMeta = const VerificationMeta(
+    'taxNumber',
+  );
+  @override
+  late final GeneratedColumn<String> taxNumber = GeneratedColumn<String>(
+    'tax_number',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _registrationNumberMeta =
+      const VerificationMeta('registrationNumber');
+  @override
+  late final GeneratedColumn<String> registrationNumber =
+      GeneratedColumn<String>(
+        'registration_number',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _emailMeta = const VerificationMeta('email');
+  @override
+  late final GeneratedColumn<String> email = GeneratedColumn<String>(
+    'email',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _phoneMeta = const VerificationMeta('phone');
+  @override
+  late final GeneratedColumn<String> phone = GeneratedColumn<String>(
+    'phone',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _websiteMeta = const VerificationMeta(
+    'website',
+  );
+  @override
+  late final GeneratedColumn<String> website = GeneratedColumn<String>(
+    'website',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _addressMeta = const VerificationMeta(
+    'address',
+  );
+  @override
+  late final GeneratedColumn<String> address = GeneratedColumn<String>(
+    'address',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _cityMeta = const VerificationMeta('city');
+  @override
+  late final GeneratedColumn<String> city = GeneratedColumn<String>(
+    'city',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _stateMeta = const VerificationMeta('state');
+  @override
+  late final GeneratedColumn<String> state = GeneratedColumn<String>(
+    'state',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _postalCodeMeta = const VerificationMeta(
+    'postalCode',
+  );
+  @override
+  late final GeneratedColumn<String> postalCode = GeneratedColumn<String>(
+    'postal_code',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _countryMeta = const VerificationMeta(
+    'country',
+  );
+  @override
+  late final GeneratedColumn<String> country = GeneratedColumn<String>(
+    'country',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _defaultCurrencyMeta = const VerificationMeta(
+    'defaultCurrency',
+  );
+  @override
+  late final GeneratedColumn<String> defaultCurrency = GeneratedColumn<String>(
+    'default_currency',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<String>('PKR'),
+  );
+  static const VerificationMeta _defaultTimezoneMeta = const VerificationMeta(
+    'defaultTimezone',
+  );
+  @override
+  late final GeneratedColumn<String> defaultTimezone = GeneratedColumn<String>(
+    'default_timezone',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<String>('Asia/Karachi'),
+  );
+  static const VerificationMeta _businessLogoMeta = const VerificationMeta(
+    'businessLogo',
+  );
+  @override
+  late final GeneratedColumn<String> businessLogo = GeneratedColumn<String>(
+    'business_logo',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _isActiveMeta = const VerificationMeta(
+    'isActive',
+  );
+  @override
+  late final GeneratedColumn<bool> isActive = GeneratedColumn<bool>(
+    'is_active',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_active" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(true),
+  );
+  static const VerificationMeta _maxBranchesMeta = const VerificationMeta(
+    'maxBranches',
+  );
+  @override
+  late final GeneratedColumn<int> maxBranches = GeneratedColumn<int>(
+    'max_branches',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(1),
+  );
+  static const VerificationMeta _maxUsersMeta = const VerificationMeta(
+    'maxUsers',
+  );
+  @override
+  late final GeneratedColumn<int> maxUsers = GeneratedColumn<int>(
+    'max_users',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(5),
+  );
+  static const VerificationMeta _subscriptionExpiresAtMeta =
+      const VerificationMeta('subscriptionExpiresAt');
+  @override
+  late final GeneratedColumn<DateTime> subscriptionExpiresAt =
+      GeneratedColumn<DateTime>(
+        'subscription_expires_at',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  @override
+  late final GeneratedColumnWithTypeConverter<StatusType, String> status =
+      GeneratedColumn<String>(
+        'status',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        defaultValue: const Constant<String>('active'),
+      ).withConverter<StatusType>($BusinessTableTable.$converterstatus);
+  static const VerificationMeta _createdByMeta = const VerificationMeta(
+    'createdBy',
+  );
+  @override
+  late final GeneratedColumn<String> createdBy = GeneratedColumn<String>(
+    'created_by',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _updatedByMeta = const VerificationMeta(
+    'updatedBy',
+  );
+  @override
+  late final GeneratedColumn<String> updatedBy = GeneratedColumn<String>(
+    'updated_by',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _syncStatusMeta = const VerificationMeta(
+    'syncStatus',
+  );
+  @override
+  late final GeneratedColumn<String> syncStatus = GeneratedColumn<String>(
+    'sync_status',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    businessId,
+    businessName,
+    businessCode,
+    businessType,
+    taxNumber,
+    registrationNumber,
+    email,
+    phone,
+    website,
+    address,
+    city,
+    state,
+    postalCode,
+    country,
+    defaultCurrency,
+    defaultTimezone,
+    businessLogo,
+    isActive,
+    maxBranches,
+    maxUsers,
+    subscriptionExpiresAt,
+    status,
+    createdBy,
+    updatedBy,
+    createdAt,
+    updatedAt,
+    syncStatus,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'business';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<BusinessTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('business_id')) {
+      context.handle(
+        _businessIdMeta,
+        businessId.isAcceptableOrUnknown(data['business_id']!, _businessIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_businessIdMeta);
+    }
+    if (data.containsKey('business_name')) {
+      context.handle(
+        _businessNameMeta,
+        businessName.isAcceptableOrUnknown(
+          data['business_name']!,
+          _businessNameMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_businessNameMeta);
+    }
+    if (data.containsKey('business_code')) {
+      context.handle(
+        _businessCodeMeta,
+        businessCode.isAcceptableOrUnknown(
+          data['business_code']!,
+          _businessCodeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('business_type')) {
+      context.handle(
+        _businessTypeMeta,
+        businessType.isAcceptableOrUnknown(
+          data['business_type']!,
+          _businessTypeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('tax_number')) {
+      context.handle(
+        _taxNumberMeta,
+        taxNumber.isAcceptableOrUnknown(data['tax_number']!, _taxNumberMeta),
+      );
+    }
+    if (data.containsKey('registration_number')) {
+      context.handle(
+        _registrationNumberMeta,
+        registrationNumber.isAcceptableOrUnknown(
+          data['registration_number']!,
+          _registrationNumberMeta,
+        ),
+      );
+    }
+    if (data.containsKey('email')) {
+      context.handle(
+        _emailMeta,
+        email.isAcceptableOrUnknown(data['email']!, _emailMeta),
+      );
+    }
+    if (data.containsKey('phone')) {
+      context.handle(
+        _phoneMeta,
+        phone.isAcceptableOrUnknown(data['phone']!, _phoneMeta),
+      );
+    }
+    if (data.containsKey('website')) {
+      context.handle(
+        _websiteMeta,
+        website.isAcceptableOrUnknown(data['website']!, _websiteMeta),
+      );
+    }
+    if (data.containsKey('address')) {
+      context.handle(
+        _addressMeta,
+        address.isAcceptableOrUnknown(data['address']!, _addressMeta),
+      );
+    }
+    if (data.containsKey('city')) {
+      context.handle(
+        _cityMeta,
+        city.isAcceptableOrUnknown(data['city']!, _cityMeta),
+      );
+    }
+    if (data.containsKey('state')) {
+      context.handle(
+        _stateMeta,
+        state.isAcceptableOrUnknown(data['state']!, _stateMeta),
+      );
+    }
+    if (data.containsKey('postal_code')) {
+      context.handle(
+        _postalCodeMeta,
+        postalCode.isAcceptableOrUnknown(data['postal_code']!, _postalCodeMeta),
+      );
+    }
+    if (data.containsKey('country')) {
+      context.handle(
+        _countryMeta,
+        country.isAcceptableOrUnknown(data['country']!, _countryMeta),
+      );
+    }
+    if (data.containsKey('default_currency')) {
+      context.handle(
+        _defaultCurrencyMeta,
+        defaultCurrency.isAcceptableOrUnknown(
+          data['default_currency']!,
+          _defaultCurrencyMeta,
+        ),
+      );
+    }
+    if (data.containsKey('default_timezone')) {
+      context.handle(
+        _defaultTimezoneMeta,
+        defaultTimezone.isAcceptableOrUnknown(
+          data['default_timezone']!,
+          _defaultTimezoneMeta,
+        ),
+      );
+    }
+    if (data.containsKey('business_logo')) {
+      context.handle(
+        _businessLogoMeta,
+        businessLogo.isAcceptableOrUnknown(
+          data['business_logo']!,
+          _businessLogoMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_active')) {
+      context.handle(
+        _isActiveMeta,
+        isActive.isAcceptableOrUnknown(data['is_active']!, _isActiveMeta),
+      );
+    }
+    if (data.containsKey('max_branches')) {
+      context.handle(
+        _maxBranchesMeta,
+        maxBranches.isAcceptableOrUnknown(
+          data['max_branches']!,
+          _maxBranchesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('max_users')) {
+      context.handle(
+        _maxUsersMeta,
+        maxUsers.isAcceptableOrUnknown(data['max_users']!, _maxUsersMeta),
+      );
+    }
+    if (data.containsKey('subscription_expires_at')) {
+      context.handle(
+        _subscriptionExpiresAtMeta,
+        subscriptionExpiresAt.isAcceptableOrUnknown(
+          data['subscription_expires_at']!,
+          _subscriptionExpiresAtMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_by')) {
+      context.handle(
+        _createdByMeta,
+        createdBy.isAcceptableOrUnknown(data['created_by']!, _createdByMeta),
+      );
+    }
+    if (data.containsKey('updated_by')) {
+      context.handle(
+        _updatedByMeta,
+        updatedBy.isAcceptableOrUnknown(data['updated_by']!, _updatedByMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    if (data.containsKey('sync_status')) {
+      context.handle(
+        _syncStatusMeta,
+        syncStatus.isAcceptableOrUnknown(data['sync_status']!, _syncStatusMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {businessId};
+  @override
+  BusinessTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return BusinessTableData(
+      businessId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_id'],
+      )!,
+      businessName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_name'],
+      )!,
+      businessCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_code'],
+      ),
+      businessType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_type'],
+      ),
+      taxNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tax_number'],
+      ),
+      registrationNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}registration_number'],
+      ),
+      email: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}email'],
+      ),
+      phone: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone'],
+      ),
+      website: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}website'],
+      ),
+      address: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}address'],
+      ),
+      city: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}city'],
+      ),
+      state: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}state'],
+      ),
+      postalCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}postal_code'],
+      ),
+      country: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}country'],
+      ),
+      defaultCurrency: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}default_currency'],
+      )!,
+      defaultTimezone: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}default_timezone'],
+      )!,
+      businessLogo: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_logo'],
+      ),
+      isActive: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_active'],
+      )!,
+      maxBranches: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}max_branches'],
+      )!,
+      maxUsers: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}max_users'],
+      )!,
+      subscriptionExpiresAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}subscription_expires_at'],
+      ),
+      status: $BusinessTableTable.$converterstatus.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}status'],
+        )!,
+      ),
+      createdBy: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}created_by'],
+      ),
+      updatedBy: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}updated_by'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      syncStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sync_status'],
+      ),
+    );
+  }
+
+  @override
+  $BusinessTableTable createAlias(String alias) {
+    return $BusinessTableTable(attachedDatabase, alias);
+  }
+
+  static JsonTypeConverter2<StatusType, String, String> $converterstatus =
+      const EnumNameConverter<StatusType>(StatusType.values);
+}
+
+class BusinessTableData extends DataClass
+    implements Insertable<BusinessTableData> {
+  final String businessId;
+  final String businessName;
+  final String? businessCode;
+  final String? businessType;
+  final String? taxNumber;
+  final String? registrationNumber;
+  final String? email;
+  final String? phone;
+  final String? website;
+  final String? address;
+  final String? city;
+  final String? state;
+  final String? postalCode;
+  final String? country;
+  final String defaultCurrency;
+  final String defaultTimezone;
+  final String? businessLogo;
+  final bool isActive;
+  final int maxBranches;
+  final int maxUsers;
+  final DateTime? subscriptionExpiresAt;
+  final StatusType status;
+  final String? createdBy;
+  final String? updatedBy;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final String? syncStatus;
+  const BusinessTableData({
+    required this.businessId,
+    required this.businessName,
+    this.businessCode,
+    this.businessType,
+    this.taxNumber,
+    this.registrationNumber,
+    this.email,
+    this.phone,
+    this.website,
+    this.address,
+    this.city,
+    this.state,
+    this.postalCode,
+    this.country,
+    required this.defaultCurrency,
+    required this.defaultTimezone,
+    this.businessLogo,
+    required this.isActive,
+    required this.maxBranches,
+    required this.maxUsers,
+    this.subscriptionExpiresAt,
+    required this.status,
+    this.createdBy,
+    this.updatedBy,
+    required this.createdAt,
+    required this.updatedAt,
+    this.syncStatus,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['business_id'] = Variable<String>(businessId);
+    map['business_name'] = Variable<String>(businessName);
+    if (!nullToAbsent || businessCode != null) {
+      map['business_code'] = Variable<String>(businessCode);
+    }
+    if (!nullToAbsent || businessType != null) {
+      map['business_type'] = Variable<String>(businessType);
+    }
+    if (!nullToAbsent || taxNumber != null) {
+      map['tax_number'] = Variable<String>(taxNumber);
+    }
+    if (!nullToAbsent || registrationNumber != null) {
+      map['registration_number'] = Variable<String>(registrationNumber);
+    }
+    if (!nullToAbsent || email != null) {
+      map['email'] = Variable<String>(email);
+    }
+    if (!nullToAbsent || phone != null) {
+      map['phone'] = Variable<String>(phone);
+    }
+    if (!nullToAbsent || website != null) {
+      map['website'] = Variable<String>(website);
+    }
+    if (!nullToAbsent || address != null) {
+      map['address'] = Variable<String>(address);
+    }
+    if (!nullToAbsent || city != null) {
+      map['city'] = Variable<String>(city);
+    }
+    if (!nullToAbsent || state != null) {
+      map['state'] = Variable<String>(state);
+    }
+    if (!nullToAbsent || postalCode != null) {
+      map['postal_code'] = Variable<String>(postalCode);
+    }
+    if (!nullToAbsent || country != null) {
+      map['country'] = Variable<String>(country);
+    }
+    map['default_currency'] = Variable<String>(defaultCurrency);
+    map['default_timezone'] = Variable<String>(defaultTimezone);
+    if (!nullToAbsent || businessLogo != null) {
+      map['business_logo'] = Variable<String>(businessLogo);
+    }
+    map['is_active'] = Variable<bool>(isActive);
+    map['max_branches'] = Variable<int>(maxBranches);
+    map['max_users'] = Variable<int>(maxUsers);
+    if (!nullToAbsent || subscriptionExpiresAt != null) {
+      map['subscription_expires_at'] = Variable<DateTime>(
+        subscriptionExpiresAt,
+      );
+    }
+    {
+      map['status'] = Variable<String>(
+        $BusinessTableTable.$converterstatus.toSql(status),
+      );
+    }
+    if (!nullToAbsent || createdBy != null) {
+      map['created_by'] = Variable<String>(createdBy);
+    }
+    if (!nullToAbsent || updatedBy != null) {
+      map['updated_by'] = Variable<String>(updatedBy);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || syncStatus != null) {
+      map['sync_status'] = Variable<String>(syncStatus);
+    }
+    return map;
+  }
+
+  BusinessTableCompanion toCompanion(bool nullToAbsent) {
+    return BusinessTableCompanion(
+      businessId: Value(businessId),
+      businessName: Value(businessName),
+      businessCode: businessCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(businessCode),
+      businessType: businessType == null && nullToAbsent
+          ? const Value.absent()
+          : Value(businessType),
+      taxNumber: taxNumber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(taxNumber),
+      registrationNumber: registrationNumber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(registrationNumber),
+      email: email == null && nullToAbsent
+          ? const Value.absent()
+          : Value(email),
+      phone: phone == null && nullToAbsent
+          ? const Value.absent()
+          : Value(phone),
+      website: website == null && nullToAbsent
+          ? const Value.absent()
+          : Value(website),
+      address: address == null && nullToAbsent
+          ? const Value.absent()
+          : Value(address),
+      city: city == null && nullToAbsent ? const Value.absent() : Value(city),
+      state: state == null && nullToAbsent
+          ? const Value.absent()
+          : Value(state),
+      postalCode: postalCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(postalCode),
+      country: country == null && nullToAbsent
+          ? const Value.absent()
+          : Value(country),
+      defaultCurrency: Value(defaultCurrency),
+      defaultTimezone: Value(defaultTimezone),
+      businessLogo: businessLogo == null && nullToAbsent
+          ? const Value.absent()
+          : Value(businessLogo),
+      isActive: Value(isActive),
+      maxBranches: Value(maxBranches),
+      maxUsers: Value(maxUsers),
+      subscriptionExpiresAt: subscriptionExpiresAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(subscriptionExpiresAt),
+      status: Value(status),
+      createdBy: createdBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(createdBy),
+      updatedBy: updatedBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(updatedBy),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      syncStatus: syncStatus == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syncStatus),
+    );
+  }
+
+  factory BusinessTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return BusinessTableData(
+      businessId: serializer.fromJson<String>(json['businessId']),
+      businessName: serializer.fromJson<String>(json['businessName']),
+      businessCode: serializer.fromJson<String?>(json['businessCode']),
+      businessType: serializer.fromJson<String?>(json['businessType']),
+      taxNumber: serializer.fromJson<String?>(json['taxNumber']),
+      registrationNumber: serializer.fromJson<String?>(
+        json['registrationNumber'],
+      ),
+      email: serializer.fromJson<String?>(json['email']),
+      phone: serializer.fromJson<String?>(json['phone']),
+      website: serializer.fromJson<String?>(json['website']),
+      address: serializer.fromJson<String?>(json['address']),
+      city: serializer.fromJson<String?>(json['city']),
+      state: serializer.fromJson<String?>(json['state']),
+      postalCode: serializer.fromJson<String?>(json['postalCode']),
+      country: serializer.fromJson<String?>(json['country']),
+      defaultCurrency: serializer.fromJson<String>(json['defaultCurrency']),
+      defaultTimezone: serializer.fromJson<String>(json['defaultTimezone']),
+      businessLogo: serializer.fromJson<String?>(json['businessLogo']),
+      isActive: serializer.fromJson<bool>(json['isActive']),
+      maxBranches: serializer.fromJson<int>(json['maxBranches']),
+      maxUsers: serializer.fromJson<int>(json['maxUsers']),
+      subscriptionExpiresAt: serializer.fromJson<DateTime?>(
+        json['subscriptionExpiresAt'],
+      ),
+      status: $BusinessTableTable.$converterstatus.fromJson(
+        serializer.fromJson<String>(json['status']),
+      ),
+      createdBy: serializer.fromJson<String?>(json['createdBy']),
+      updatedBy: serializer.fromJson<String?>(json['updatedBy']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      syncStatus: serializer.fromJson<String?>(json['syncStatus']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'businessId': serializer.toJson<String>(businessId),
+      'businessName': serializer.toJson<String>(businessName),
+      'businessCode': serializer.toJson<String?>(businessCode),
+      'businessType': serializer.toJson<String?>(businessType),
+      'taxNumber': serializer.toJson<String?>(taxNumber),
+      'registrationNumber': serializer.toJson<String?>(registrationNumber),
+      'email': serializer.toJson<String?>(email),
+      'phone': serializer.toJson<String?>(phone),
+      'website': serializer.toJson<String?>(website),
+      'address': serializer.toJson<String?>(address),
+      'city': serializer.toJson<String?>(city),
+      'state': serializer.toJson<String?>(state),
+      'postalCode': serializer.toJson<String?>(postalCode),
+      'country': serializer.toJson<String?>(country),
+      'defaultCurrency': serializer.toJson<String>(defaultCurrency),
+      'defaultTimezone': serializer.toJson<String>(defaultTimezone),
+      'businessLogo': serializer.toJson<String?>(businessLogo),
+      'isActive': serializer.toJson<bool>(isActive),
+      'maxBranches': serializer.toJson<int>(maxBranches),
+      'maxUsers': serializer.toJson<int>(maxUsers),
+      'subscriptionExpiresAt': serializer.toJson<DateTime?>(
+        subscriptionExpiresAt,
+      ),
+      'status': serializer.toJson<String>(
+        $BusinessTableTable.$converterstatus.toJson(status),
+      ),
+      'createdBy': serializer.toJson<String?>(createdBy),
+      'updatedBy': serializer.toJson<String?>(updatedBy),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'syncStatus': serializer.toJson<String?>(syncStatus),
+    };
+  }
+
+  BusinessTableData copyWith({
+    String? businessId,
+    String? businessName,
+    Value<String?> businessCode = const Value.absent(),
+    Value<String?> businessType = const Value.absent(),
+    Value<String?> taxNumber = const Value.absent(),
+    Value<String?> registrationNumber = const Value.absent(),
+    Value<String?> email = const Value.absent(),
+    Value<String?> phone = const Value.absent(),
+    Value<String?> website = const Value.absent(),
+    Value<String?> address = const Value.absent(),
+    Value<String?> city = const Value.absent(),
+    Value<String?> state = const Value.absent(),
+    Value<String?> postalCode = const Value.absent(),
+    Value<String?> country = const Value.absent(),
+    String? defaultCurrency,
+    String? defaultTimezone,
+    Value<String?> businessLogo = const Value.absent(),
+    bool? isActive,
+    int? maxBranches,
+    int? maxUsers,
+    Value<DateTime?> subscriptionExpiresAt = const Value.absent(),
+    StatusType? status,
+    Value<String?> createdBy = const Value.absent(),
+    Value<String?> updatedBy = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<String?> syncStatus = const Value.absent(),
+  }) => BusinessTableData(
+    businessId: businessId ?? this.businessId,
+    businessName: businessName ?? this.businessName,
+    businessCode: businessCode.present ? businessCode.value : this.businessCode,
+    businessType: businessType.present ? businessType.value : this.businessType,
+    taxNumber: taxNumber.present ? taxNumber.value : this.taxNumber,
+    registrationNumber: registrationNumber.present
+        ? registrationNumber.value
+        : this.registrationNumber,
+    email: email.present ? email.value : this.email,
+    phone: phone.present ? phone.value : this.phone,
+    website: website.present ? website.value : this.website,
+    address: address.present ? address.value : this.address,
+    city: city.present ? city.value : this.city,
+    state: state.present ? state.value : this.state,
+    postalCode: postalCode.present ? postalCode.value : this.postalCode,
+    country: country.present ? country.value : this.country,
+    defaultCurrency: defaultCurrency ?? this.defaultCurrency,
+    defaultTimezone: defaultTimezone ?? this.defaultTimezone,
+    businessLogo: businessLogo.present ? businessLogo.value : this.businessLogo,
+    isActive: isActive ?? this.isActive,
+    maxBranches: maxBranches ?? this.maxBranches,
+    maxUsers: maxUsers ?? this.maxUsers,
+    subscriptionExpiresAt: subscriptionExpiresAt.present
+        ? subscriptionExpiresAt.value
+        : this.subscriptionExpiresAt,
+    status: status ?? this.status,
+    createdBy: createdBy.present ? createdBy.value : this.createdBy,
+    updatedBy: updatedBy.present ? updatedBy.value : this.updatedBy,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    syncStatus: syncStatus.present ? syncStatus.value : this.syncStatus,
+  );
+  BusinessTableData copyWithCompanion(BusinessTableCompanion data) {
+    return BusinessTableData(
+      businessId: data.businessId.present
+          ? data.businessId.value
+          : this.businessId,
+      businessName: data.businessName.present
+          ? data.businessName.value
+          : this.businessName,
+      businessCode: data.businessCode.present
+          ? data.businessCode.value
+          : this.businessCode,
+      businessType: data.businessType.present
+          ? data.businessType.value
+          : this.businessType,
+      taxNumber: data.taxNumber.present ? data.taxNumber.value : this.taxNumber,
+      registrationNumber: data.registrationNumber.present
+          ? data.registrationNumber.value
+          : this.registrationNumber,
+      email: data.email.present ? data.email.value : this.email,
+      phone: data.phone.present ? data.phone.value : this.phone,
+      website: data.website.present ? data.website.value : this.website,
+      address: data.address.present ? data.address.value : this.address,
+      city: data.city.present ? data.city.value : this.city,
+      state: data.state.present ? data.state.value : this.state,
+      postalCode: data.postalCode.present
+          ? data.postalCode.value
+          : this.postalCode,
+      country: data.country.present ? data.country.value : this.country,
+      defaultCurrency: data.defaultCurrency.present
+          ? data.defaultCurrency.value
+          : this.defaultCurrency,
+      defaultTimezone: data.defaultTimezone.present
+          ? data.defaultTimezone.value
+          : this.defaultTimezone,
+      businessLogo: data.businessLogo.present
+          ? data.businessLogo.value
+          : this.businessLogo,
+      isActive: data.isActive.present ? data.isActive.value : this.isActive,
+      maxBranches: data.maxBranches.present
+          ? data.maxBranches.value
+          : this.maxBranches,
+      maxUsers: data.maxUsers.present ? data.maxUsers.value : this.maxUsers,
+      subscriptionExpiresAt: data.subscriptionExpiresAt.present
+          ? data.subscriptionExpiresAt.value
+          : this.subscriptionExpiresAt,
+      status: data.status.present ? data.status.value : this.status,
+      createdBy: data.createdBy.present ? data.createdBy.value : this.createdBy,
+      updatedBy: data.updatedBy.present ? data.updatedBy.value : this.updatedBy,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      syncStatus: data.syncStatus.present
+          ? data.syncStatus.value
+          : this.syncStatus,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BusinessTableData(')
+          ..write('businessId: $businessId, ')
+          ..write('businessName: $businessName, ')
+          ..write('businessCode: $businessCode, ')
+          ..write('businessType: $businessType, ')
+          ..write('taxNumber: $taxNumber, ')
+          ..write('registrationNumber: $registrationNumber, ')
+          ..write('email: $email, ')
+          ..write('phone: $phone, ')
+          ..write('website: $website, ')
+          ..write('address: $address, ')
+          ..write('city: $city, ')
+          ..write('state: $state, ')
+          ..write('postalCode: $postalCode, ')
+          ..write('country: $country, ')
+          ..write('defaultCurrency: $defaultCurrency, ')
+          ..write('defaultTimezone: $defaultTimezone, ')
+          ..write('businessLogo: $businessLogo, ')
+          ..write('isActive: $isActive, ')
+          ..write('maxBranches: $maxBranches, ')
+          ..write('maxUsers: $maxUsers, ')
+          ..write('subscriptionExpiresAt: $subscriptionExpiresAt, ')
+          ..write('status: $status, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('updatedBy: $updatedBy, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncStatus: $syncStatus')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    businessId,
+    businessName,
+    businessCode,
+    businessType,
+    taxNumber,
+    registrationNumber,
+    email,
+    phone,
+    website,
+    address,
+    city,
+    state,
+    postalCode,
+    country,
+    defaultCurrency,
+    defaultTimezone,
+    businessLogo,
+    isActive,
+    maxBranches,
+    maxUsers,
+    subscriptionExpiresAt,
+    status,
+    createdBy,
+    updatedBy,
+    createdAt,
+    updatedAt,
+    syncStatus,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is BusinessTableData &&
+          other.businessId == this.businessId &&
+          other.businessName == this.businessName &&
+          other.businessCode == this.businessCode &&
+          other.businessType == this.businessType &&
+          other.taxNumber == this.taxNumber &&
+          other.registrationNumber == this.registrationNumber &&
+          other.email == this.email &&
+          other.phone == this.phone &&
+          other.website == this.website &&
+          other.address == this.address &&
+          other.city == this.city &&
+          other.state == this.state &&
+          other.postalCode == this.postalCode &&
+          other.country == this.country &&
+          other.defaultCurrency == this.defaultCurrency &&
+          other.defaultTimezone == this.defaultTimezone &&
+          other.businessLogo == this.businessLogo &&
+          other.isActive == this.isActive &&
+          other.maxBranches == this.maxBranches &&
+          other.maxUsers == this.maxUsers &&
+          other.subscriptionExpiresAt == this.subscriptionExpiresAt &&
+          other.status == this.status &&
+          other.createdBy == this.createdBy &&
+          other.updatedBy == this.updatedBy &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.syncStatus == this.syncStatus);
+}
+
+class BusinessTableCompanion extends UpdateCompanion<BusinessTableData> {
+  final Value<String> businessId;
+  final Value<String> businessName;
+  final Value<String?> businessCode;
+  final Value<String?> businessType;
+  final Value<String?> taxNumber;
+  final Value<String?> registrationNumber;
+  final Value<String?> email;
+  final Value<String?> phone;
+  final Value<String?> website;
+  final Value<String?> address;
+  final Value<String?> city;
+  final Value<String?> state;
+  final Value<String?> postalCode;
+  final Value<String?> country;
+  final Value<String> defaultCurrency;
+  final Value<String> defaultTimezone;
+  final Value<String?> businessLogo;
+  final Value<bool> isActive;
+  final Value<int> maxBranches;
+  final Value<int> maxUsers;
+  final Value<DateTime?> subscriptionExpiresAt;
+  final Value<StatusType> status;
+  final Value<String?> createdBy;
+  final Value<String?> updatedBy;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<String?> syncStatus;
+  final Value<int> rowid;
+  const BusinessTableCompanion({
+    this.businessId = const Value.absent(),
+    this.businessName = const Value.absent(),
+    this.businessCode = const Value.absent(),
+    this.businessType = const Value.absent(),
+    this.taxNumber = const Value.absent(),
+    this.registrationNumber = const Value.absent(),
+    this.email = const Value.absent(),
+    this.phone = const Value.absent(),
+    this.website = const Value.absent(),
+    this.address = const Value.absent(),
+    this.city = const Value.absent(),
+    this.state = const Value.absent(),
+    this.postalCode = const Value.absent(),
+    this.country = const Value.absent(),
+    this.defaultCurrency = const Value.absent(),
+    this.defaultTimezone = const Value.absent(),
+    this.businessLogo = const Value.absent(),
+    this.isActive = const Value.absent(),
+    this.maxBranches = const Value.absent(),
+    this.maxUsers = const Value.absent(),
+    this.subscriptionExpiresAt = const Value.absent(),
+    this.status = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.updatedBy = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncStatus = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  BusinessTableCompanion.insert({
+    required String businessId,
+    required String businessName,
+    this.businessCode = const Value.absent(),
+    this.businessType = const Value.absent(),
+    this.taxNumber = const Value.absent(),
+    this.registrationNumber = const Value.absent(),
+    this.email = const Value.absent(),
+    this.phone = const Value.absent(),
+    this.website = const Value.absent(),
+    this.address = const Value.absent(),
+    this.city = const Value.absent(),
+    this.state = const Value.absent(),
+    this.postalCode = const Value.absent(),
+    this.country = const Value.absent(),
+    this.defaultCurrency = const Value.absent(),
+    this.defaultTimezone = const Value.absent(),
+    this.businessLogo = const Value.absent(),
+    this.isActive = const Value.absent(),
+    this.maxBranches = const Value.absent(),
+    this.maxUsers = const Value.absent(),
+    this.subscriptionExpiresAt = const Value.absent(),
+    this.status = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.updatedBy = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncStatus = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : businessId = Value(businessId),
+       businessName = Value(businessName);
+  static Insertable<BusinessTableData> custom({
+    Expression<String>? businessId,
+    Expression<String>? businessName,
+    Expression<String>? businessCode,
+    Expression<String>? businessType,
+    Expression<String>? taxNumber,
+    Expression<String>? registrationNumber,
+    Expression<String>? email,
+    Expression<String>? phone,
+    Expression<String>? website,
+    Expression<String>? address,
+    Expression<String>? city,
+    Expression<String>? state,
+    Expression<String>? postalCode,
+    Expression<String>? country,
+    Expression<String>? defaultCurrency,
+    Expression<String>? defaultTimezone,
+    Expression<String>? businessLogo,
+    Expression<bool>? isActive,
+    Expression<int>? maxBranches,
+    Expression<int>? maxUsers,
+    Expression<DateTime>? subscriptionExpiresAt,
+    Expression<String>? status,
+    Expression<String>? createdBy,
+    Expression<String>? updatedBy,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<String>? syncStatus,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (businessId != null) 'business_id': businessId,
+      if (businessName != null) 'business_name': businessName,
+      if (businessCode != null) 'business_code': businessCode,
+      if (businessType != null) 'business_type': businessType,
+      if (taxNumber != null) 'tax_number': taxNumber,
+      if (registrationNumber != null) 'registration_number': registrationNumber,
+      if (email != null) 'email': email,
+      if (phone != null) 'phone': phone,
+      if (website != null) 'website': website,
+      if (address != null) 'address': address,
+      if (city != null) 'city': city,
+      if (state != null) 'state': state,
+      if (postalCode != null) 'postal_code': postalCode,
+      if (country != null) 'country': country,
+      if (defaultCurrency != null) 'default_currency': defaultCurrency,
+      if (defaultTimezone != null) 'default_timezone': defaultTimezone,
+      if (businessLogo != null) 'business_logo': businessLogo,
+      if (isActive != null) 'is_active': isActive,
+      if (maxBranches != null) 'max_branches': maxBranches,
+      if (maxUsers != null) 'max_users': maxUsers,
+      if (subscriptionExpiresAt != null)
+        'subscription_expires_at': subscriptionExpiresAt,
+      if (status != null) 'status': status,
+      if (createdBy != null) 'created_by': createdBy,
+      if (updatedBy != null) 'updated_by': updatedBy,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (syncStatus != null) 'sync_status': syncStatus,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  BusinessTableCompanion copyWith({
+    Value<String>? businessId,
+    Value<String>? businessName,
+    Value<String?>? businessCode,
+    Value<String?>? businessType,
+    Value<String?>? taxNumber,
+    Value<String?>? registrationNumber,
+    Value<String?>? email,
+    Value<String?>? phone,
+    Value<String?>? website,
+    Value<String?>? address,
+    Value<String?>? city,
+    Value<String?>? state,
+    Value<String?>? postalCode,
+    Value<String?>? country,
+    Value<String>? defaultCurrency,
+    Value<String>? defaultTimezone,
+    Value<String?>? businessLogo,
+    Value<bool>? isActive,
+    Value<int>? maxBranches,
+    Value<int>? maxUsers,
+    Value<DateTime?>? subscriptionExpiresAt,
+    Value<StatusType>? status,
+    Value<String?>? createdBy,
+    Value<String?>? updatedBy,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<String?>? syncStatus,
+    Value<int>? rowid,
+  }) {
+    return BusinessTableCompanion(
+      businessId: businessId ?? this.businessId,
+      businessName: businessName ?? this.businessName,
+      businessCode: businessCode ?? this.businessCode,
+      businessType: businessType ?? this.businessType,
+      taxNumber: taxNumber ?? this.taxNumber,
+      registrationNumber: registrationNumber ?? this.registrationNumber,
+      email: email ?? this.email,
+      phone: phone ?? this.phone,
+      website: website ?? this.website,
+      address: address ?? this.address,
+      city: city ?? this.city,
+      state: state ?? this.state,
+      postalCode: postalCode ?? this.postalCode,
+      country: country ?? this.country,
+      defaultCurrency: defaultCurrency ?? this.defaultCurrency,
+      defaultTimezone: defaultTimezone ?? this.defaultTimezone,
+      businessLogo: businessLogo ?? this.businessLogo,
+      isActive: isActive ?? this.isActive,
+      maxBranches: maxBranches ?? this.maxBranches,
+      maxUsers: maxUsers ?? this.maxUsers,
+      subscriptionExpiresAt:
+          subscriptionExpiresAt ?? this.subscriptionExpiresAt,
+      status: status ?? this.status,
+      createdBy: createdBy ?? this.createdBy,
+      updatedBy: updatedBy ?? this.updatedBy,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      syncStatus: syncStatus ?? this.syncStatus,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (businessId.present) {
+      map['business_id'] = Variable<String>(businessId.value);
+    }
+    if (businessName.present) {
+      map['business_name'] = Variable<String>(businessName.value);
+    }
+    if (businessCode.present) {
+      map['business_code'] = Variable<String>(businessCode.value);
+    }
+    if (businessType.present) {
+      map['business_type'] = Variable<String>(businessType.value);
+    }
+    if (taxNumber.present) {
+      map['tax_number'] = Variable<String>(taxNumber.value);
+    }
+    if (registrationNumber.present) {
+      map['registration_number'] = Variable<String>(registrationNumber.value);
+    }
+    if (email.present) {
+      map['email'] = Variable<String>(email.value);
+    }
+    if (phone.present) {
+      map['phone'] = Variable<String>(phone.value);
+    }
+    if (website.present) {
+      map['website'] = Variable<String>(website.value);
+    }
+    if (address.present) {
+      map['address'] = Variable<String>(address.value);
+    }
+    if (city.present) {
+      map['city'] = Variable<String>(city.value);
+    }
+    if (state.present) {
+      map['state'] = Variable<String>(state.value);
+    }
+    if (postalCode.present) {
+      map['postal_code'] = Variable<String>(postalCode.value);
+    }
+    if (country.present) {
+      map['country'] = Variable<String>(country.value);
+    }
+    if (defaultCurrency.present) {
+      map['default_currency'] = Variable<String>(defaultCurrency.value);
+    }
+    if (defaultTimezone.present) {
+      map['default_timezone'] = Variable<String>(defaultTimezone.value);
+    }
+    if (businessLogo.present) {
+      map['business_logo'] = Variable<String>(businessLogo.value);
+    }
+    if (isActive.present) {
+      map['is_active'] = Variable<bool>(isActive.value);
+    }
+    if (maxBranches.present) {
+      map['max_branches'] = Variable<int>(maxBranches.value);
+    }
+    if (maxUsers.present) {
+      map['max_users'] = Variable<int>(maxUsers.value);
+    }
+    if (subscriptionExpiresAt.present) {
+      map['subscription_expires_at'] = Variable<DateTime>(
+        subscriptionExpiresAt.value,
+      );
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(
+        $BusinessTableTable.$converterstatus.toSql(status.value),
+      );
+    }
+    if (createdBy.present) {
+      map['created_by'] = Variable<String>(createdBy.value);
+    }
+    if (updatedBy.present) {
+      map['updated_by'] = Variable<String>(updatedBy.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (syncStatus.present) {
+      map['sync_status'] = Variable<String>(syncStatus.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BusinessTableCompanion(')
+          ..write('businessId: $businessId, ')
+          ..write('businessName: $businessName, ')
+          ..write('businessCode: $businessCode, ')
+          ..write('businessType: $businessType, ')
+          ..write('taxNumber: $taxNumber, ')
+          ..write('registrationNumber: $registrationNumber, ')
+          ..write('email: $email, ')
+          ..write('phone: $phone, ')
+          ..write('website: $website, ')
+          ..write('address: $address, ')
+          ..write('city: $city, ')
+          ..write('state: $state, ')
+          ..write('postalCode: $postalCode, ')
+          ..write('country: $country, ')
+          ..write('defaultCurrency: $defaultCurrency, ')
+          ..write('defaultTimezone: $defaultTimezone, ')
+          ..write('businessLogo: $businessLogo, ')
+          ..write('isActive: $isActive, ')
+          ..write('maxBranches: $maxBranches, ')
+          ..write('maxUsers: $maxUsers, ')
+          ..write('subscriptionExpiresAt: $subscriptionExpiresAt, ')
+          ..write('status: $status, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('updatedBy: $updatedBy, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncStatus: $syncStatus, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $BranchesTableTable extends BranchesTable
+    with TableInfo<$BranchesTableTable, BranchesTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $BranchesTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _branchIdMeta = const VerificationMeta(
+    'branchId',
+  );
+  @override
+  late final GeneratedColumn<String> branchId = GeneratedColumn<String>(
+    'branch_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _businessIdMeta = const VerificationMeta(
+    'businessId',
+  );
+  @override
+  late final GeneratedColumn<String> businessId = GeneratedColumn<String>(
+    'business_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES business (business_id)',
+    ),
+  );
+  static const VerificationMeta _branchNameMeta = const VerificationMeta(
+    'branchName',
+  );
+  @override
+  late final GeneratedColumn<String> branchName = GeneratedColumn<String>(
+    'branch_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _branchCodeMeta = const VerificationMeta(
+    'branchCode',
+  );
+  @override
+  late final GeneratedColumn<String> branchCode = GeneratedColumn<String>(
+    'branch_code',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<BranchType, String> branchType =
+      GeneratedColumn<String>(
+        'branch_type',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        defaultValue: const Constant<String>('physical'),
+      ).withConverter<BranchType>($BranchesTableTable.$converterbranchType);
+  static const VerificationMeta _addressMeta = const VerificationMeta(
+    'address',
+  );
+  @override
+  late final GeneratedColumn<String> address = GeneratedColumn<String>(
+    'address',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _cityMeta = const VerificationMeta('city');
+  @override
+  late final GeneratedColumn<String> city = GeneratedColumn<String>(
+    'city',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _stateMeta = const VerificationMeta('state');
+  @override
+  late final GeneratedColumn<String> state = GeneratedColumn<String>(
+    'state',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _postalCodeMeta = const VerificationMeta(
+    'postalCode',
+  );
+  @override
+  late final GeneratedColumn<String> postalCode = GeneratedColumn<String>(
+    'postal_code',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _countryMeta = const VerificationMeta(
+    'country',
+  );
+  @override
+  late final GeneratedColumn<String> country = GeneratedColumn<String>(
+    'country',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _phoneMeta = const VerificationMeta('phone');
+  @override
+  late final GeneratedColumn<String> phone = GeneratedColumn<String>(
+    'phone',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _emailMeta = const VerificationMeta('email');
+  @override
+  late final GeneratedColumn<String> email = GeneratedColumn<String>(
+    'email',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _managerNameMeta = const VerificationMeta(
+    'managerName',
+  );
+  @override
+  late final GeneratedColumn<String> managerName = GeneratedColumn<String>(
+    'manager_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _managerPhoneMeta = const VerificationMeta(
+    'managerPhone',
+  );
+  @override
+  late final GeneratedColumn<String> managerPhone = GeneratedColumn<String>(
+    'manager_phone',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _timezoneMeta = const VerificationMeta(
+    'timezone',
+  );
+  @override
+  late final GeneratedColumn<String> timezone = GeneratedColumn<String>(
+    'timezone',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<String>('Asia/Karachi'),
+  );
+  static const VerificationMeta _currencyMeta = const VerificationMeta(
+    'currency',
+  );
+  @override
+  late final GeneratedColumn<String> currency = GeneratedColumn<String>(
+    'currency',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<String>('PKR'),
+  );
+  static const VerificationMeta _openingHoursMeta = const VerificationMeta(
+    'openingHours',
+  );
+  @override
+  late final GeneratedColumn<String> openingHours = GeneratedColumn<String>(
+    'opening_hours',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _isActiveMeta = const VerificationMeta(
+    'isActive',
+  );
+  @override
+  late final GeneratedColumn<bool> isActive = GeneratedColumn<bool>(
+    'is_active',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_active" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(true),
+  );
+  static const VerificationMeta _allowsOnlineOrdersMeta =
+      const VerificationMeta('allowsOnlineOrders');
+  @override
+  late final GeneratedColumn<bool> allowsOnlineOrders = GeneratedColumn<bool>(
+    'allows_online_orders',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("allows_online_orders" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(false),
+  );
+  static const VerificationMeta _maxCashRegistersMeta = const VerificationMeta(
+    'maxCashRegisters',
+  );
+  @override
+  late final GeneratedColumn<int> maxCashRegisters = GeneratedColumn<int>(
+    'max_cash_registers',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(3),
+  );
+  static const VerificationMeta _latitudeMeta = const VerificationMeta(
+    'latitude',
+  );
+  @override
+  late final GeneratedColumn<double> latitude = GeneratedColumn<double>(
+    'latitude',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _longitudeMeta = const VerificationMeta(
+    'longitude',
+  );
+  @override
+  late final GeneratedColumn<double> longitude = GeneratedColumn<double>(
+    'longitude',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<StatusType, String> status =
+      GeneratedColumn<String>(
+        'status',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        defaultValue: const Constant<String>('active'),
+      ).withConverter<StatusType>($BranchesTableTable.$converterstatus);
+  static const VerificationMeta _createdByMeta = const VerificationMeta(
+    'createdBy',
+  );
+  @override
+  late final GeneratedColumn<String> createdBy = GeneratedColumn<String>(
+    'created_by',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _updatedByMeta = const VerificationMeta(
+    'updatedBy',
+  );
+  @override
+  late final GeneratedColumn<String> updatedBy = GeneratedColumn<String>(
+    'updated_by',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _syncStatusMeta = const VerificationMeta(
+    'syncStatus',
+  );
+  @override
+  late final GeneratedColumn<String> syncStatus = GeneratedColumn<String>(
+    'sync_status',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    branchId,
+    businessId,
+    branchName,
+    branchCode,
+    branchType,
+    address,
+    city,
+    state,
+    postalCode,
+    country,
+    phone,
+    email,
+    managerName,
+    managerPhone,
+    timezone,
+    currency,
+    openingHours,
+    isActive,
+    allowsOnlineOrders,
+    maxCashRegisters,
+    latitude,
+    longitude,
+    status,
+    createdBy,
+    updatedBy,
+    createdAt,
+    updatedAt,
+    syncStatus,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'branches';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<BranchesTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('branch_id')) {
+      context.handle(
+        _branchIdMeta,
+        branchId.isAcceptableOrUnknown(data['branch_id']!, _branchIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_branchIdMeta);
+    }
+    if (data.containsKey('business_id')) {
+      context.handle(
+        _businessIdMeta,
+        businessId.isAcceptableOrUnknown(data['business_id']!, _businessIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_businessIdMeta);
+    }
+    if (data.containsKey('branch_name')) {
+      context.handle(
+        _branchNameMeta,
+        branchName.isAcceptableOrUnknown(data['branch_name']!, _branchNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_branchNameMeta);
+    }
+    if (data.containsKey('branch_code')) {
+      context.handle(
+        _branchCodeMeta,
+        branchCode.isAcceptableOrUnknown(data['branch_code']!, _branchCodeMeta),
+      );
+    }
+    if (data.containsKey('address')) {
+      context.handle(
+        _addressMeta,
+        address.isAcceptableOrUnknown(data['address']!, _addressMeta),
+      );
+    }
+    if (data.containsKey('city')) {
+      context.handle(
+        _cityMeta,
+        city.isAcceptableOrUnknown(data['city']!, _cityMeta),
+      );
+    }
+    if (data.containsKey('state')) {
+      context.handle(
+        _stateMeta,
+        state.isAcceptableOrUnknown(data['state']!, _stateMeta),
+      );
+    }
+    if (data.containsKey('postal_code')) {
+      context.handle(
+        _postalCodeMeta,
+        postalCode.isAcceptableOrUnknown(data['postal_code']!, _postalCodeMeta),
+      );
+    }
+    if (data.containsKey('country')) {
+      context.handle(
+        _countryMeta,
+        country.isAcceptableOrUnknown(data['country']!, _countryMeta),
+      );
+    }
+    if (data.containsKey('phone')) {
+      context.handle(
+        _phoneMeta,
+        phone.isAcceptableOrUnknown(data['phone']!, _phoneMeta),
+      );
+    }
+    if (data.containsKey('email')) {
+      context.handle(
+        _emailMeta,
+        email.isAcceptableOrUnknown(data['email']!, _emailMeta),
+      );
+    }
+    if (data.containsKey('manager_name')) {
+      context.handle(
+        _managerNameMeta,
+        managerName.isAcceptableOrUnknown(
+          data['manager_name']!,
+          _managerNameMeta,
+        ),
+      );
+    }
+    if (data.containsKey('manager_phone')) {
+      context.handle(
+        _managerPhoneMeta,
+        managerPhone.isAcceptableOrUnknown(
+          data['manager_phone']!,
+          _managerPhoneMeta,
+        ),
+      );
+    }
+    if (data.containsKey('timezone')) {
+      context.handle(
+        _timezoneMeta,
+        timezone.isAcceptableOrUnknown(data['timezone']!, _timezoneMeta),
+      );
+    }
+    if (data.containsKey('currency')) {
+      context.handle(
+        _currencyMeta,
+        currency.isAcceptableOrUnknown(data['currency']!, _currencyMeta),
+      );
+    }
+    if (data.containsKey('opening_hours')) {
+      context.handle(
+        _openingHoursMeta,
+        openingHours.isAcceptableOrUnknown(
+          data['opening_hours']!,
+          _openingHoursMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_active')) {
+      context.handle(
+        _isActiveMeta,
+        isActive.isAcceptableOrUnknown(data['is_active']!, _isActiveMeta),
+      );
+    }
+    if (data.containsKey('allows_online_orders')) {
+      context.handle(
+        _allowsOnlineOrdersMeta,
+        allowsOnlineOrders.isAcceptableOrUnknown(
+          data['allows_online_orders']!,
+          _allowsOnlineOrdersMeta,
+        ),
+      );
+    }
+    if (data.containsKey('max_cash_registers')) {
+      context.handle(
+        _maxCashRegistersMeta,
+        maxCashRegisters.isAcceptableOrUnknown(
+          data['max_cash_registers']!,
+          _maxCashRegistersMeta,
+        ),
+      );
+    }
+    if (data.containsKey('latitude')) {
+      context.handle(
+        _latitudeMeta,
+        latitude.isAcceptableOrUnknown(data['latitude']!, _latitudeMeta),
+      );
+    }
+    if (data.containsKey('longitude')) {
+      context.handle(
+        _longitudeMeta,
+        longitude.isAcceptableOrUnknown(data['longitude']!, _longitudeMeta),
+      );
+    }
+    if (data.containsKey('created_by')) {
+      context.handle(
+        _createdByMeta,
+        createdBy.isAcceptableOrUnknown(data['created_by']!, _createdByMeta),
+      );
+    }
+    if (data.containsKey('updated_by')) {
+      context.handle(
+        _updatedByMeta,
+        updatedBy.isAcceptableOrUnknown(data['updated_by']!, _updatedByMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    if (data.containsKey('sync_status')) {
+      context.handle(
+        _syncStatusMeta,
+        syncStatus.isAcceptableOrUnknown(data['sync_status']!, _syncStatusMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {branchId};
+  @override
+  BranchesTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return BranchesTableData(
+      branchId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}branch_id'],
+      )!,
+      businessId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_id'],
+      )!,
+      branchName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}branch_name'],
+      )!,
+      branchCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}branch_code'],
+      ),
+      branchType: $BranchesTableTable.$converterbranchType.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}branch_type'],
+        )!,
+      ),
+      address: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}address'],
+      ),
+      city: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}city'],
+      ),
+      state: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}state'],
+      ),
+      postalCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}postal_code'],
+      ),
+      country: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}country'],
+      ),
+      phone: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone'],
+      ),
+      email: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}email'],
+      ),
+      managerName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}manager_name'],
+      ),
+      managerPhone: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}manager_phone'],
+      ),
+      timezone: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}timezone'],
+      )!,
+      currency: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}currency'],
+      )!,
+      openingHours: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}opening_hours'],
+      ),
+      isActive: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_active'],
+      )!,
+      allowsOnlineOrders: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}allows_online_orders'],
+      )!,
+      maxCashRegisters: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}max_cash_registers'],
+      )!,
+      latitude: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}latitude'],
+      ),
+      longitude: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}longitude'],
+      ),
+      status: $BranchesTableTable.$converterstatus.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}status'],
+        )!,
+      ),
+      createdBy: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}created_by'],
+      ),
+      updatedBy: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}updated_by'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      syncStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sync_status'],
+      ),
+    );
+  }
+
+  @override
+  $BranchesTableTable createAlias(String alias) {
+    return $BranchesTableTable(attachedDatabase, alias);
+  }
+
+  static JsonTypeConverter2<BranchType, String, String> $converterbranchType =
+      const EnumNameConverter<BranchType>(BranchType.values);
+  static JsonTypeConverter2<StatusType, String, String> $converterstatus =
+      const EnumNameConverter<StatusType>(StatusType.values);
+}
+
+class BranchesTableData extends DataClass
+    implements Insertable<BranchesTableData> {
+  final String branchId;
+  final String businessId;
+  final String branchName;
+  final String? branchCode;
+  final BranchType branchType;
+  final String? address;
+  final String? city;
+  final String? state;
+  final String? postalCode;
+  final String? country;
+  final String? phone;
+  final String? email;
+  final String? managerName;
+  final String? managerPhone;
+  final String timezone;
+  final String currency;
+  final String? openingHours;
+  final bool isActive;
+  final bool allowsOnlineOrders;
+  final int maxCashRegisters;
+  final double? latitude;
+  final double? longitude;
+  final StatusType status;
+  final String? createdBy;
+  final String? updatedBy;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final String? syncStatus;
+  const BranchesTableData({
+    required this.branchId,
+    required this.businessId,
+    required this.branchName,
+    this.branchCode,
+    required this.branchType,
+    this.address,
+    this.city,
+    this.state,
+    this.postalCode,
+    this.country,
+    this.phone,
+    this.email,
+    this.managerName,
+    this.managerPhone,
+    required this.timezone,
+    required this.currency,
+    this.openingHours,
+    required this.isActive,
+    required this.allowsOnlineOrders,
+    required this.maxCashRegisters,
+    this.latitude,
+    this.longitude,
+    required this.status,
+    this.createdBy,
+    this.updatedBy,
+    required this.createdAt,
+    required this.updatedAt,
+    this.syncStatus,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['branch_id'] = Variable<String>(branchId);
+    map['business_id'] = Variable<String>(businessId);
+    map['branch_name'] = Variable<String>(branchName);
+    if (!nullToAbsent || branchCode != null) {
+      map['branch_code'] = Variable<String>(branchCode);
+    }
+    {
+      map['branch_type'] = Variable<String>(
+        $BranchesTableTable.$converterbranchType.toSql(branchType),
+      );
+    }
+    if (!nullToAbsent || address != null) {
+      map['address'] = Variable<String>(address);
+    }
+    if (!nullToAbsent || city != null) {
+      map['city'] = Variable<String>(city);
+    }
+    if (!nullToAbsent || state != null) {
+      map['state'] = Variable<String>(state);
+    }
+    if (!nullToAbsent || postalCode != null) {
+      map['postal_code'] = Variable<String>(postalCode);
+    }
+    if (!nullToAbsent || country != null) {
+      map['country'] = Variable<String>(country);
+    }
+    if (!nullToAbsent || phone != null) {
+      map['phone'] = Variable<String>(phone);
+    }
+    if (!nullToAbsent || email != null) {
+      map['email'] = Variable<String>(email);
+    }
+    if (!nullToAbsent || managerName != null) {
+      map['manager_name'] = Variable<String>(managerName);
+    }
+    if (!nullToAbsent || managerPhone != null) {
+      map['manager_phone'] = Variable<String>(managerPhone);
+    }
+    map['timezone'] = Variable<String>(timezone);
+    map['currency'] = Variable<String>(currency);
+    if (!nullToAbsent || openingHours != null) {
+      map['opening_hours'] = Variable<String>(openingHours);
+    }
+    map['is_active'] = Variable<bool>(isActive);
+    map['allows_online_orders'] = Variable<bool>(allowsOnlineOrders);
+    map['max_cash_registers'] = Variable<int>(maxCashRegisters);
+    if (!nullToAbsent || latitude != null) {
+      map['latitude'] = Variable<double>(latitude);
+    }
+    if (!nullToAbsent || longitude != null) {
+      map['longitude'] = Variable<double>(longitude);
+    }
+    {
+      map['status'] = Variable<String>(
+        $BranchesTableTable.$converterstatus.toSql(status),
+      );
+    }
+    if (!nullToAbsent || createdBy != null) {
+      map['created_by'] = Variable<String>(createdBy);
+    }
+    if (!nullToAbsent || updatedBy != null) {
+      map['updated_by'] = Variable<String>(updatedBy);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || syncStatus != null) {
+      map['sync_status'] = Variable<String>(syncStatus);
+    }
+    return map;
+  }
+
+  BranchesTableCompanion toCompanion(bool nullToAbsent) {
+    return BranchesTableCompanion(
+      branchId: Value(branchId),
+      businessId: Value(businessId),
+      branchName: Value(branchName),
+      branchCode: branchCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(branchCode),
+      branchType: Value(branchType),
+      address: address == null && nullToAbsent
+          ? const Value.absent()
+          : Value(address),
+      city: city == null && nullToAbsent ? const Value.absent() : Value(city),
+      state: state == null && nullToAbsent
+          ? const Value.absent()
+          : Value(state),
+      postalCode: postalCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(postalCode),
+      country: country == null && nullToAbsent
+          ? const Value.absent()
+          : Value(country),
+      phone: phone == null && nullToAbsent
+          ? const Value.absent()
+          : Value(phone),
+      email: email == null && nullToAbsent
+          ? const Value.absent()
+          : Value(email),
+      managerName: managerName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(managerName),
+      managerPhone: managerPhone == null && nullToAbsent
+          ? const Value.absent()
+          : Value(managerPhone),
+      timezone: Value(timezone),
+      currency: Value(currency),
+      openingHours: openingHours == null && nullToAbsent
+          ? const Value.absent()
+          : Value(openingHours),
+      isActive: Value(isActive),
+      allowsOnlineOrders: Value(allowsOnlineOrders),
+      maxCashRegisters: Value(maxCashRegisters),
+      latitude: latitude == null && nullToAbsent
+          ? const Value.absent()
+          : Value(latitude),
+      longitude: longitude == null && nullToAbsent
+          ? const Value.absent()
+          : Value(longitude),
+      status: Value(status),
+      createdBy: createdBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(createdBy),
+      updatedBy: updatedBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(updatedBy),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      syncStatus: syncStatus == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syncStatus),
+    );
+  }
+
+  factory BranchesTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return BranchesTableData(
+      branchId: serializer.fromJson<String>(json['branchId']),
+      businessId: serializer.fromJson<String>(json['businessId']),
+      branchName: serializer.fromJson<String>(json['branchName']),
+      branchCode: serializer.fromJson<String?>(json['branchCode']),
+      branchType: $BranchesTableTable.$converterbranchType.fromJson(
+        serializer.fromJson<String>(json['branchType']),
+      ),
+      address: serializer.fromJson<String?>(json['address']),
+      city: serializer.fromJson<String?>(json['city']),
+      state: serializer.fromJson<String?>(json['state']),
+      postalCode: serializer.fromJson<String?>(json['postalCode']),
+      country: serializer.fromJson<String?>(json['country']),
+      phone: serializer.fromJson<String?>(json['phone']),
+      email: serializer.fromJson<String?>(json['email']),
+      managerName: serializer.fromJson<String?>(json['managerName']),
+      managerPhone: serializer.fromJson<String?>(json['managerPhone']),
+      timezone: serializer.fromJson<String>(json['timezone']),
+      currency: serializer.fromJson<String>(json['currency']),
+      openingHours: serializer.fromJson<String?>(json['openingHours']),
+      isActive: serializer.fromJson<bool>(json['isActive']),
+      allowsOnlineOrders: serializer.fromJson<bool>(json['allowsOnlineOrders']),
+      maxCashRegisters: serializer.fromJson<int>(json['maxCashRegisters']),
+      latitude: serializer.fromJson<double?>(json['latitude']),
+      longitude: serializer.fromJson<double?>(json['longitude']),
+      status: $BranchesTableTable.$converterstatus.fromJson(
+        serializer.fromJson<String>(json['status']),
+      ),
+      createdBy: serializer.fromJson<String?>(json['createdBy']),
+      updatedBy: serializer.fromJson<String?>(json['updatedBy']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      syncStatus: serializer.fromJson<String?>(json['syncStatus']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'branchId': serializer.toJson<String>(branchId),
+      'businessId': serializer.toJson<String>(businessId),
+      'branchName': serializer.toJson<String>(branchName),
+      'branchCode': serializer.toJson<String?>(branchCode),
+      'branchType': serializer.toJson<String>(
+        $BranchesTableTable.$converterbranchType.toJson(branchType),
+      ),
+      'address': serializer.toJson<String?>(address),
+      'city': serializer.toJson<String?>(city),
+      'state': serializer.toJson<String?>(state),
+      'postalCode': serializer.toJson<String?>(postalCode),
+      'country': serializer.toJson<String?>(country),
+      'phone': serializer.toJson<String?>(phone),
+      'email': serializer.toJson<String?>(email),
+      'managerName': serializer.toJson<String?>(managerName),
+      'managerPhone': serializer.toJson<String?>(managerPhone),
+      'timezone': serializer.toJson<String>(timezone),
+      'currency': serializer.toJson<String>(currency),
+      'openingHours': serializer.toJson<String?>(openingHours),
+      'isActive': serializer.toJson<bool>(isActive),
+      'allowsOnlineOrders': serializer.toJson<bool>(allowsOnlineOrders),
+      'maxCashRegisters': serializer.toJson<int>(maxCashRegisters),
+      'latitude': serializer.toJson<double?>(latitude),
+      'longitude': serializer.toJson<double?>(longitude),
+      'status': serializer.toJson<String>(
+        $BranchesTableTable.$converterstatus.toJson(status),
+      ),
+      'createdBy': serializer.toJson<String?>(createdBy),
+      'updatedBy': serializer.toJson<String?>(updatedBy),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'syncStatus': serializer.toJson<String?>(syncStatus),
+    };
+  }
+
+  BranchesTableData copyWith({
+    String? branchId,
+    String? businessId,
+    String? branchName,
+    Value<String?> branchCode = const Value.absent(),
+    BranchType? branchType,
+    Value<String?> address = const Value.absent(),
+    Value<String?> city = const Value.absent(),
+    Value<String?> state = const Value.absent(),
+    Value<String?> postalCode = const Value.absent(),
+    Value<String?> country = const Value.absent(),
+    Value<String?> phone = const Value.absent(),
+    Value<String?> email = const Value.absent(),
+    Value<String?> managerName = const Value.absent(),
+    Value<String?> managerPhone = const Value.absent(),
+    String? timezone,
+    String? currency,
+    Value<String?> openingHours = const Value.absent(),
+    bool? isActive,
+    bool? allowsOnlineOrders,
+    int? maxCashRegisters,
+    Value<double?> latitude = const Value.absent(),
+    Value<double?> longitude = const Value.absent(),
+    StatusType? status,
+    Value<String?> createdBy = const Value.absent(),
+    Value<String?> updatedBy = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<String?> syncStatus = const Value.absent(),
+  }) => BranchesTableData(
+    branchId: branchId ?? this.branchId,
+    businessId: businessId ?? this.businessId,
+    branchName: branchName ?? this.branchName,
+    branchCode: branchCode.present ? branchCode.value : this.branchCode,
+    branchType: branchType ?? this.branchType,
+    address: address.present ? address.value : this.address,
+    city: city.present ? city.value : this.city,
+    state: state.present ? state.value : this.state,
+    postalCode: postalCode.present ? postalCode.value : this.postalCode,
+    country: country.present ? country.value : this.country,
+    phone: phone.present ? phone.value : this.phone,
+    email: email.present ? email.value : this.email,
+    managerName: managerName.present ? managerName.value : this.managerName,
+    managerPhone: managerPhone.present ? managerPhone.value : this.managerPhone,
+    timezone: timezone ?? this.timezone,
+    currency: currency ?? this.currency,
+    openingHours: openingHours.present ? openingHours.value : this.openingHours,
+    isActive: isActive ?? this.isActive,
+    allowsOnlineOrders: allowsOnlineOrders ?? this.allowsOnlineOrders,
+    maxCashRegisters: maxCashRegisters ?? this.maxCashRegisters,
+    latitude: latitude.present ? latitude.value : this.latitude,
+    longitude: longitude.present ? longitude.value : this.longitude,
+    status: status ?? this.status,
+    createdBy: createdBy.present ? createdBy.value : this.createdBy,
+    updatedBy: updatedBy.present ? updatedBy.value : this.updatedBy,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    syncStatus: syncStatus.present ? syncStatus.value : this.syncStatus,
+  );
+  BranchesTableData copyWithCompanion(BranchesTableCompanion data) {
+    return BranchesTableData(
+      branchId: data.branchId.present ? data.branchId.value : this.branchId,
+      businessId: data.businessId.present
+          ? data.businessId.value
+          : this.businessId,
+      branchName: data.branchName.present
+          ? data.branchName.value
+          : this.branchName,
+      branchCode: data.branchCode.present
+          ? data.branchCode.value
+          : this.branchCode,
+      branchType: data.branchType.present
+          ? data.branchType.value
+          : this.branchType,
+      address: data.address.present ? data.address.value : this.address,
+      city: data.city.present ? data.city.value : this.city,
+      state: data.state.present ? data.state.value : this.state,
+      postalCode: data.postalCode.present
+          ? data.postalCode.value
+          : this.postalCode,
+      country: data.country.present ? data.country.value : this.country,
+      phone: data.phone.present ? data.phone.value : this.phone,
+      email: data.email.present ? data.email.value : this.email,
+      managerName: data.managerName.present
+          ? data.managerName.value
+          : this.managerName,
+      managerPhone: data.managerPhone.present
+          ? data.managerPhone.value
+          : this.managerPhone,
+      timezone: data.timezone.present ? data.timezone.value : this.timezone,
+      currency: data.currency.present ? data.currency.value : this.currency,
+      openingHours: data.openingHours.present
+          ? data.openingHours.value
+          : this.openingHours,
+      isActive: data.isActive.present ? data.isActive.value : this.isActive,
+      allowsOnlineOrders: data.allowsOnlineOrders.present
+          ? data.allowsOnlineOrders.value
+          : this.allowsOnlineOrders,
+      maxCashRegisters: data.maxCashRegisters.present
+          ? data.maxCashRegisters.value
+          : this.maxCashRegisters,
+      latitude: data.latitude.present ? data.latitude.value : this.latitude,
+      longitude: data.longitude.present ? data.longitude.value : this.longitude,
+      status: data.status.present ? data.status.value : this.status,
+      createdBy: data.createdBy.present ? data.createdBy.value : this.createdBy,
+      updatedBy: data.updatedBy.present ? data.updatedBy.value : this.updatedBy,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      syncStatus: data.syncStatus.present
+          ? data.syncStatus.value
+          : this.syncStatus,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BranchesTableData(')
+          ..write('branchId: $branchId, ')
+          ..write('businessId: $businessId, ')
+          ..write('branchName: $branchName, ')
+          ..write('branchCode: $branchCode, ')
+          ..write('branchType: $branchType, ')
+          ..write('address: $address, ')
+          ..write('city: $city, ')
+          ..write('state: $state, ')
+          ..write('postalCode: $postalCode, ')
+          ..write('country: $country, ')
+          ..write('phone: $phone, ')
+          ..write('email: $email, ')
+          ..write('managerName: $managerName, ')
+          ..write('managerPhone: $managerPhone, ')
+          ..write('timezone: $timezone, ')
+          ..write('currency: $currency, ')
+          ..write('openingHours: $openingHours, ')
+          ..write('isActive: $isActive, ')
+          ..write('allowsOnlineOrders: $allowsOnlineOrders, ')
+          ..write('maxCashRegisters: $maxCashRegisters, ')
+          ..write('latitude: $latitude, ')
+          ..write('longitude: $longitude, ')
+          ..write('status: $status, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('updatedBy: $updatedBy, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncStatus: $syncStatus')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    branchId,
+    businessId,
+    branchName,
+    branchCode,
+    branchType,
+    address,
+    city,
+    state,
+    postalCode,
+    country,
+    phone,
+    email,
+    managerName,
+    managerPhone,
+    timezone,
+    currency,
+    openingHours,
+    isActive,
+    allowsOnlineOrders,
+    maxCashRegisters,
+    latitude,
+    longitude,
+    status,
+    createdBy,
+    updatedBy,
+    createdAt,
+    updatedAt,
+    syncStatus,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is BranchesTableData &&
+          other.branchId == this.branchId &&
+          other.businessId == this.businessId &&
+          other.branchName == this.branchName &&
+          other.branchCode == this.branchCode &&
+          other.branchType == this.branchType &&
+          other.address == this.address &&
+          other.city == this.city &&
+          other.state == this.state &&
+          other.postalCode == this.postalCode &&
+          other.country == this.country &&
+          other.phone == this.phone &&
+          other.email == this.email &&
+          other.managerName == this.managerName &&
+          other.managerPhone == this.managerPhone &&
+          other.timezone == this.timezone &&
+          other.currency == this.currency &&
+          other.openingHours == this.openingHours &&
+          other.isActive == this.isActive &&
+          other.allowsOnlineOrders == this.allowsOnlineOrders &&
+          other.maxCashRegisters == this.maxCashRegisters &&
+          other.latitude == this.latitude &&
+          other.longitude == this.longitude &&
+          other.status == this.status &&
+          other.createdBy == this.createdBy &&
+          other.updatedBy == this.updatedBy &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.syncStatus == this.syncStatus);
+}
+
+class BranchesTableCompanion extends UpdateCompanion<BranchesTableData> {
+  final Value<String> branchId;
+  final Value<String> businessId;
+  final Value<String> branchName;
+  final Value<String?> branchCode;
+  final Value<BranchType> branchType;
+  final Value<String?> address;
+  final Value<String?> city;
+  final Value<String?> state;
+  final Value<String?> postalCode;
+  final Value<String?> country;
+  final Value<String?> phone;
+  final Value<String?> email;
+  final Value<String?> managerName;
+  final Value<String?> managerPhone;
+  final Value<String> timezone;
+  final Value<String> currency;
+  final Value<String?> openingHours;
+  final Value<bool> isActive;
+  final Value<bool> allowsOnlineOrders;
+  final Value<int> maxCashRegisters;
+  final Value<double?> latitude;
+  final Value<double?> longitude;
+  final Value<StatusType> status;
+  final Value<String?> createdBy;
+  final Value<String?> updatedBy;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<String?> syncStatus;
+  final Value<int> rowid;
+  const BranchesTableCompanion({
+    this.branchId = const Value.absent(),
+    this.businessId = const Value.absent(),
+    this.branchName = const Value.absent(),
+    this.branchCode = const Value.absent(),
+    this.branchType = const Value.absent(),
+    this.address = const Value.absent(),
+    this.city = const Value.absent(),
+    this.state = const Value.absent(),
+    this.postalCode = const Value.absent(),
+    this.country = const Value.absent(),
+    this.phone = const Value.absent(),
+    this.email = const Value.absent(),
+    this.managerName = const Value.absent(),
+    this.managerPhone = const Value.absent(),
+    this.timezone = const Value.absent(),
+    this.currency = const Value.absent(),
+    this.openingHours = const Value.absent(),
+    this.isActive = const Value.absent(),
+    this.allowsOnlineOrders = const Value.absent(),
+    this.maxCashRegisters = const Value.absent(),
+    this.latitude = const Value.absent(),
+    this.longitude = const Value.absent(),
+    this.status = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.updatedBy = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncStatus = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  BranchesTableCompanion.insert({
+    required String branchId,
+    required String businessId,
+    required String branchName,
+    this.branchCode = const Value.absent(),
+    this.branchType = const Value.absent(),
+    this.address = const Value.absent(),
+    this.city = const Value.absent(),
+    this.state = const Value.absent(),
+    this.postalCode = const Value.absent(),
+    this.country = const Value.absent(),
+    this.phone = const Value.absent(),
+    this.email = const Value.absent(),
+    this.managerName = const Value.absent(),
+    this.managerPhone = const Value.absent(),
+    this.timezone = const Value.absent(),
+    this.currency = const Value.absent(),
+    this.openingHours = const Value.absent(),
+    this.isActive = const Value.absent(),
+    this.allowsOnlineOrders = const Value.absent(),
+    this.maxCashRegisters = const Value.absent(),
+    this.latitude = const Value.absent(),
+    this.longitude = const Value.absent(),
+    this.status = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.updatedBy = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncStatus = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : branchId = Value(branchId),
+       businessId = Value(businessId),
+       branchName = Value(branchName);
+  static Insertable<BranchesTableData> custom({
+    Expression<String>? branchId,
+    Expression<String>? businessId,
+    Expression<String>? branchName,
+    Expression<String>? branchCode,
+    Expression<String>? branchType,
+    Expression<String>? address,
+    Expression<String>? city,
+    Expression<String>? state,
+    Expression<String>? postalCode,
+    Expression<String>? country,
+    Expression<String>? phone,
+    Expression<String>? email,
+    Expression<String>? managerName,
+    Expression<String>? managerPhone,
+    Expression<String>? timezone,
+    Expression<String>? currency,
+    Expression<String>? openingHours,
+    Expression<bool>? isActive,
+    Expression<bool>? allowsOnlineOrders,
+    Expression<int>? maxCashRegisters,
+    Expression<double>? latitude,
+    Expression<double>? longitude,
+    Expression<String>? status,
+    Expression<String>? createdBy,
+    Expression<String>? updatedBy,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<String>? syncStatus,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (branchId != null) 'branch_id': branchId,
+      if (businessId != null) 'business_id': businessId,
+      if (branchName != null) 'branch_name': branchName,
+      if (branchCode != null) 'branch_code': branchCode,
+      if (branchType != null) 'branch_type': branchType,
+      if (address != null) 'address': address,
+      if (city != null) 'city': city,
+      if (state != null) 'state': state,
+      if (postalCode != null) 'postal_code': postalCode,
+      if (country != null) 'country': country,
+      if (phone != null) 'phone': phone,
+      if (email != null) 'email': email,
+      if (managerName != null) 'manager_name': managerName,
+      if (managerPhone != null) 'manager_phone': managerPhone,
+      if (timezone != null) 'timezone': timezone,
+      if (currency != null) 'currency': currency,
+      if (openingHours != null) 'opening_hours': openingHours,
+      if (isActive != null) 'is_active': isActive,
+      if (allowsOnlineOrders != null)
+        'allows_online_orders': allowsOnlineOrders,
+      if (maxCashRegisters != null) 'max_cash_registers': maxCashRegisters,
+      if (latitude != null) 'latitude': latitude,
+      if (longitude != null) 'longitude': longitude,
+      if (status != null) 'status': status,
+      if (createdBy != null) 'created_by': createdBy,
+      if (updatedBy != null) 'updated_by': updatedBy,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (syncStatus != null) 'sync_status': syncStatus,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  BranchesTableCompanion copyWith({
+    Value<String>? branchId,
+    Value<String>? businessId,
+    Value<String>? branchName,
+    Value<String?>? branchCode,
+    Value<BranchType>? branchType,
+    Value<String?>? address,
+    Value<String?>? city,
+    Value<String?>? state,
+    Value<String?>? postalCode,
+    Value<String?>? country,
+    Value<String?>? phone,
+    Value<String?>? email,
+    Value<String?>? managerName,
+    Value<String?>? managerPhone,
+    Value<String>? timezone,
+    Value<String>? currency,
+    Value<String?>? openingHours,
+    Value<bool>? isActive,
+    Value<bool>? allowsOnlineOrders,
+    Value<int>? maxCashRegisters,
+    Value<double?>? latitude,
+    Value<double?>? longitude,
+    Value<StatusType>? status,
+    Value<String?>? createdBy,
+    Value<String?>? updatedBy,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<String?>? syncStatus,
+    Value<int>? rowid,
+  }) {
+    return BranchesTableCompanion(
+      branchId: branchId ?? this.branchId,
+      businessId: businessId ?? this.businessId,
+      branchName: branchName ?? this.branchName,
+      branchCode: branchCode ?? this.branchCode,
+      branchType: branchType ?? this.branchType,
+      address: address ?? this.address,
+      city: city ?? this.city,
+      state: state ?? this.state,
+      postalCode: postalCode ?? this.postalCode,
+      country: country ?? this.country,
+      phone: phone ?? this.phone,
+      email: email ?? this.email,
+      managerName: managerName ?? this.managerName,
+      managerPhone: managerPhone ?? this.managerPhone,
+      timezone: timezone ?? this.timezone,
+      currency: currency ?? this.currency,
+      openingHours: openingHours ?? this.openingHours,
+      isActive: isActive ?? this.isActive,
+      allowsOnlineOrders: allowsOnlineOrders ?? this.allowsOnlineOrders,
+      maxCashRegisters: maxCashRegisters ?? this.maxCashRegisters,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
+      status: status ?? this.status,
+      createdBy: createdBy ?? this.createdBy,
+      updatedBy: updatedBy ?? this.updatedBy,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      syncStatus: syncStatus ?? this.syncStatus,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (branchId.present) {
+      map['branch_id'] = Variable<String>(branchId.value);
+    }
+    if (businessId.present) {
+      map['business_id'] = Variable<String>(businessId.value);
+    }
+    if (branchName.present) {
+      map['branch_name'] = Variable<String>(branchName.value);
+    }
+    if (branchCode.present) {
+      map['branch_code'] = Variable<String>(branchCode.value);
+    }
+    if (branchType.present) {
+      map['branch_type'] = Variable<String>(
+        $BranchesTableTable.$converterbranchType.toSql(branchType.value),
+      );
+    }
+    if (address.present) {
+      map['address'] = Variable<String>(address.value);
+    }
+    if (city.present) {
+      map['city'] = Variable<String>(city.value);
+    }
+    if (state.present) {
+      map['state'] = Variable<String>(state.value);
+    }
+    if (postalCode.present) {
+      map['postal_code'] = Variable<String>(postalCode.value);
+    }
+    if (country.present) {
+      map['country'] = Variable<String>(country.value);
+    }
+    if (phone.present) {
+      map['phone'] = Variable<String>(phone.value);
+    }
+    if (email.present) {
+      map['email'] = Variable<String>(email.value);
+    }
+    if (managerName.present) {
+      map['manager_name'] = Variable<String>(managerName.value);
+    }
+    if (managerPhone.present) {
+      map['manager_phone'] = Variable<String>(managerPhone.value);
+    }
+    if (timezone.present) {
+      map['timezone'] = Variable<String>(timezone.value);
+    }
+    if (currency.present) {
+      map['currency'] = Variable<String>(currency.value);
+    }
+    if (openingHours.present) {
+      map['opening_hours'] = Variable<String>(openingHours.value);
+    }
+    if (isActive.present) {
+      map['is_active'] = Variable<bool>(isActive.value);
+    }
+    if (allowsOnlineOrders.present) {
+      map['allows_online_orders'] = Variable<bool>(allowsOnlineOrders.value);
+    }
+    if (maxCashRegisters.present) {
+      map['max_cash_registers'] = Variable<int>(maxCashRegisters.value);
+    }
+    if (latitude.present) {
+      map['latitude'] = Variable<double>(latitude.value);
+    }
+    if (longitude.present) {
+      map['longitude'] = Variable<double>(longitude.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(
+        $BranchesTableTable.$converterstatus.toSql(status.value),
+      );
+    }
+    if (createdBy.present) {
+      map['created_by'] = Variable<String>(createdBy.value);
+    }
+    if (updatedBy.present) {
+      map['updated_by'] = Variable<String>(updatedBy.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (syncStatus.present) {
+      map['sync_status'] = Variable<String>(syncStatus.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BranchesTableCompanion(')
+          ..write('branchId: $branchId, ')
+          ..write('businessId: $businessId, ')
+          ..write('branchName: $branchName, ')
+          ..write('branchCode: $branchCode, ')
+          ..write('branchType: $branchType, ')
+          ..write('address: $address, ')
+          ..write('city: $city, ')
+          ..write('state: $state, ')
+          ..write('postalCode: $postalCode, ')
+          ..write('country: $country, ')
+          ..write('phone: $phone, ')
+          ..write('email: $email, ')
+          ..write('managerName: $managerName, ')
+          ..write('managerPhone: $managerPhone, ')
+          ..write('timezone: $timezone, ')
+          ..write('currency: $currency, ')
+          ..write('openingHours: $openingHours, ')
+          ..write('isActive: $isActive, ')
+          ..write('allowsOnlineOrders: $allowsOnlineOrders, ')
+          ..write('maxCashRegisters: $maxCashRegisters, ')
+          ..write('latitude: $latitude, ')
+          ..write('longitude: $longitude, ')
+          ..write('status: $status, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('updatedBy: $updatedBy, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncStatus: $syncStatus, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $UserRolesTableTable extends UserRolesTable
+    with TableInfo<$UserRolesTableTable, UserRolesTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UserRolesTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _roleIdMeta = const VerificationMeta('roleId');
+  @override
+  late final GeneratedColumn<String> roleId = GeneratedColumn<String>(
+    'role_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _businessIdMeta = const VerificationMeta(
+    'businessId',
+  );
+  @override
+  late final GeneratedColumn<String> businessId = GeneratedColumn<String>(
+    'business_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES business (business_id)',
+    ),
+  );
+  static const VerificationMeta _roleNameMeta = const VerificationMeta(
+    'roleName',
+  );
+  @override
+  late final GeneratedColumn<String> roleName = GeneratedColumn<String>(
+    'role_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _roleCodeMeta = const VerificationMeta(
+    'roleCode',
+  );
+  @override
+  late final GeneratedColumn<String> roleCode = GeneratedColumn<String>(
+    'role_code',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<UserRole, String> roleType =
+      GeneratedColumn<String>(
+        'role_type',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        defaultValue: const Constant<String>('cashier'),
+      ).withConverter<UserRole>($UserRolesTableTable.$converterroleType);
+  static const VerificationMeta _descriptionMeta = const VerificationMeta(
+    'description',
+  );
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+    'description',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _permissionsMeta = const VerificationMeta(
+    'permissions',
+  );
+  @override
+  late final GeneratedColumn<String> permissions = GeneratedColumn<String>(
+    'permissions',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _isSystemRoleMeta = const VerificationMeta(
+    'isSystemRole',
+  );
+  @override
+  late final GeneratedColumn<bool> isSystemRole = GeneratedColumn<bool>(
+    'is_system_role',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_system_role" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(false),
+  );
+  static const VerificationMeta _isCustomizableMeta = const VerificationMeta(
+    'isCustomizable',
+  );
+  @override
+  late final GeneratedColumn<bool> isCustomizable = GeneratedColumn<bool>(
+    'is_customizable',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_customizable" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(true),
+  );
+  static const VerificationMeta _hierarchyLevelMeta = const VerificationMeta(
+    'hierarchyLevel',
+  );
+  @override
+  late final GeneratedColumn<int> hierarchyLevel = GeneratedColumn<int>(
+    'hierarchy_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(1),
+  );
+  static const VerificationMeta _parentRoleIdMeta = const VerificationMeta(
+    'parentRoleId',
+  );
+  @override
+  late final GeneratedColumn<String> parentRoleId = GeneratedColumn<String>(
+    'parent_role_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _canViewAllTransactionsMeta =
+      const VerificationMeta('canViewAllTransactions');
+  @override
+  late final GeneratedColumn<bool> canViewAllTransactions =
+      GeneratedColumn<bool>(
+        'can_view_all_transactions',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("can_view_all_transactions" IN (0, 1))',
+        ),
+        defaultValue: const Constant<bool>(false),
+      );
+  static const VerificationMeta _canModifyPricesMeta = const VerificationMeta(
+    'canModifyPrices',
+  );
+  @override
+  late final GeneratedColumn<bool> canModifyPrices = GeneratedColumn<bool>(
+    'can_modify_prices',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("can_modify_prices" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(false),
+  );
+  static const VerificationMeta _canProcessReturnsMeta = const VerificationMeta(
+    'canProcessReturns',
+  );
+  @override
+  late final GeneratedColumn<bool> canProcessReturns = GeneratedColumn<bool>(
+    'can_process_returns',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("can_process_returns" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(false),
+  );
+  static const VerificationMeta _canManageUsersMeta = const VerificationMeta(
+    'canManageUsers',
+  );
+  @override
+  late final GeneratedColumn<bool> canManageUsers = GeneratedColumn<bool>(
+    'can_manage_users',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("can_manage_users" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(false),
+  );
+  static const VerificationMeta _canAccessReportsMeta = const VerificationMeta(
+    'canAccessReports',
+  );
+  @override
+  late final GeneratedColumn<bool> canAccessReports = GeneratedColumn<bool>(
+    'can_access_reports',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("can_access_reports" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(false),
+  );
+  static const VerificationMeta _canManageInventoryMeta =
+      const VerificationMeta('canManageInventory');
+  @override
+  late final GeneratedColumn<bool> canManageInventory = GeneratedColumn<bool>(
+    'can_manage_inventory',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("can_manage_inventory" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(false),
+  );
+  static const VerificationMeta _discountLimitMeta = const VerificationMeta(
+    'discountLimit',
+  );
+  @override
+  late final GeneratedColumn<double> discountLimit = GeneratedColumn<double>(
+    'discount_limit',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _transactionLimitMeta = const VerificationMeta(
+    'transactionLimit',
+  );
+  @override
+  late final GeneratedColumn<double> transactionLimit = GeneratedColumn<double>(
+    'transaction_limit',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _refundLimitMeta = const VerificationMeta(
+    'refundLimit',
+  );
+  @override
+  late final GeneratedColumn<double> refundLimit = GeneratedColumn<double>(
+    'refund_limit',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<StatusType, String> status =
+      GeneratedColumn<String>(
+        'status',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        defaultValue: const Constant<String>('active'),
+      ).withConverter<StatusType>($UserRolesTableTable.$converterstatus);
+  static const VerificationMeta _createdByMeta = const VerificationMeta(
+    'createdBy',
+  );
+  @override
+  late final GeneratedColumn<String> createdBy = GeneratedColumn<String>(
+    'created_by',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _updatedByMeta = const VerificationMeta(
+    'updatedBy',
+  );
+  @override
+  late final GeneratedColumn<String> updatedBy = GeneratedColumn<String>(
+    'updated_by',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _syncStatusMeta = const VerificationMeta(
+    'syncStatus',
+  );
+  @override
+  late final GeneratedColumn<String> syncStatus = GeneratedColumn<String>(
+    'sync_status',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    roleId,
+    businessId,
+    roleName,
+    roleCode,
+    roleType,
+    description,
+    permissions,
+    isSystemRole,
+    isCustomizable,
+    hierarchyLevel,
+    parentRoleId,
+    canViewAllTransactions,
+    canModifyPrices,
+    canProcessReturns,
+    canManageUsers,
+    canAccessReports,
+    canManageInventory,
+    discountLimit,
+    transactionLimit,
+    refundLimit,
+    status,
+    createdBy,
+    updatedBy,
+    createdAt,
+    updatedAt,
+    syncStatus,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'user_roles';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UserRolesTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('role_id')) {
+      context.handle(
+        _roleIdMeta,
+        roleId.isAcceptableOrUnknown(data['role_id']!, _roleIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_roleIdMeta);
+    }
+    if (data.containsKey('business_id')) {
+      context.handle(
+        _businessIdMeta,
+        businessId.isAcceptableOrUnknown(data['business_id']!, _businessIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_businessIdMeta);
+    }
+    if (data.containsKey('role_name')) {
+      context.handle(
+        _roleNameMeta,
+        roleName.isAcceptableOrUnknown(data['role_name']!, _roleNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_roleNameMeta);
+    }
+    if (data.containsKey('role_code')) {
+      context.handle(
+        _roleCodeMeta,
+        roleCode.isAcceptableOrUnknown(data['role_code']!, _roleCodeMeta),
+      );
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+        _descriptionMeta,
+        description.isAcceptableOrUnknown(
+          data['description']!,
+          _descriptionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('permissions')) {
+      context.handle(
+        _permissionsMeta,
+        permissions.isAcceptableOrUnknown(
+          data['permissions']!,
+          _permissionsMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_system_role')) {
+      context.handle(
+        _isSystemRoleMeta,
+        isSystemRole.isAcceptableOrUnknown(
+          data['is_system_role']!,
+          _isSystemRoleMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_customizable')) {
+      context.handle(
+        _isCustomizableMeta,
+        isCustomizable.isAcceptableOrUnknown(
+          data['is_customizable']!,
+          _isCustomizableMeta,
+        ),
+      );
+    }
+    if (data.containsKey('hierarchy_level')) {
+      context.handle(
+        _hierarchyLevelMeta,
+        hierarchyLevel.isAcceptableOrUnknown(
+          data['hierarchy_level']!,
+          _hierarchyLevelMeta,
+        ),
+      );
+    }
+    if (data.containsKey('parent_role_id')) {
+      context.handle(
+        _parentRoleIdMeta,
+        parentRoleId.isAcceptableOrUnknown(
+          data['parent_role_id']!,
+          _parentRoleIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('can_view_all_transactions')) {
+      context.handle(
+        _canViewAllTransactionsMeta,
+        canViewAllTransactions.isAcceptableOrUnknown(
+          data['can_view_all_transactions']!,
+          _canViewAllTransactionsMeta,
+        ),
+      );
+    }
+    if (data.containsKey('can_modify_prices')) {
+      context.handle(
+        _canModifyPricesMeta,
+        canModifyPrices.isAcceptableOrUnknown(
+          data['can_modify_prices']!,
+          _canModifyPricesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('can_process_returns')) {
+      context.handle(
+        _canProcessReturnsMeta,
+        canProcessReturns.isAcceptableOrUnknown(
+          data['can_process_returns']!,
+          _canProcessReturnsMeta,
+        ),
+      );
+    }
+    if (data.containsKey('can_manage_users')) {
+      context.handle(
+        _canManageUsersMeta,
+        canManageUsers.isAcceptableOrUnknown(
+          data['can_manage_users']!,
+          _canManageUsersMeta,
+        ),
+      );
+    }
+    if (data.containsKey('can_access_reports')) {
+      context.handle(
+        _canAccessReportsMeta,
+        canAccessReports.isAcceptableOrUnknown(
+          data['can_access_reports']!,
+          _canAccessReportsMeta,
+        ),
+      );
+    }
+    if (data.containsKey('can_manage_inventory')) {
+      context.handle(
+        _canManageInventoryMeta,
+        canManageInventory.isAcceptableOrUnknown(
+          data['can_manage_inventory']!,
+          _canManageInventoryMeta,
+        ),
+      );
+    }
+    if (data.containsKey('discount_limit')) {
+      context.handle(
+        _discountLimitMeta,
+        discountLimit.isAcceptableOrUnknown(
+          data['discount_limit']!,
+          _discountLimitMeta,
+        ),
+      );
+    }
+    if (data.containsKey('transaction_limit')) {
+      context.handle(
+        _transactionLimitMeta,
+        transactionLimit.isAcceptableOrUnknown(
+          data['transaction_limit']!,
+          _transactionLimitMeta,
+        ),
+      );
+    }
+    if (data.containsKey('refund_limit')) {
+      context.handle(
+        _refundLimitMeta,
+        refundLimit.isAcceptableOrUnknown(
+          data['refund_limit']!,
+          _refundLimitMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_by')) {
+      context.handle(
+        _createdByMeta,
+        createdBy.isAcceptableOrUnknown(data['created_by']!, _createdByMeta),
+      );
+    }
+    if (data.containsKey('updated_by')) {
+      context.handle(
+        _updatedByMeta,
+        updatedBy.isAcceptableOrUnknown(data['updated_by']!, _updatedByMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    if (data.containsKey('sync_status')) {
+      context.handle(
+        _syncStatusMeta,
+        syncStatus.isAcceptableOrUnknown(data['sync_status']!, _syncStatusMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {roleId};
+  @override
+  UserRolesTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UserRolesTableData(
+      roleId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}role_id'],
+      )!,
+      businessId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_id'],
+      )!,
+      roleName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}role_name'],
+      )!,
+      roleCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}role_code'],
+      ),
+      roleType: $UserRolesTableTable.$converterroleType.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}role_type'],
+        )!,
+      ),
+      description: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description'],
+      ),
+      permissions: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}permissions'],
+      ),
+      isSystemRole: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_system_role'],
+      )!,
+      isCustomizable: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_customizable'],
+      )!,
+      hierarchyLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hierarchy_level'],
+      )!,
+      parentRoleId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}parent_role_id'],
+      ),
+      canViewAllTransactions: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}can_view_all_transactions'],
+      )!,
+      canModifyPrices: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}can_modify_prices'],
+      )!,
+      canProcessReturns: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}can_process_returns'],
+      )!,
+      canManageUsers: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}can_manage_users'],
+      )!,
+      canAccessReports: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}can_access_reports'],
+      )!,
+      canManageInventory: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}can_manage_inventory'],
+      )!,
+      discountLimit: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}discount_limit'],
+      ),
+      transactionLimit: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}transaction_limit'],
+      ),
+      refundLimit: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}refund_limit'],
+      ),
+      status: $UserRolesTableTable.$converterstatus.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}status'],
+        )!,
+      ),
+      createdBy: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}created_by'],
+      ),
+      updatedBy: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}updated_by'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      syncStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sync_status'],
+      ),
+    );
+  }
+
+  @override
+  $UserRolesTableTable createAlias(String alias) {
+    return $UserRolesTableTable(attachedDatabase, alias);
+  }
+
+  static JsonTypeConverter2<UserRole, String, String> $converterroleType =
+      const EnumNameConverter<UserRole>(UserRole.values);
+  static JsonTypeConverter2<StatusType, String, String> $converterstatus =
+      const EnumNameConverter<StatusType>(StatusType.values);
+}
+
+class UserRolesTableData extends DataClass
+    implements Insertable<UserRolesTableData> {
+  final String roleId;
+  final String businessId;
+  final String roleName;
+  final String? roleCode;
+  final UserRole roleType;
+  final String? description;
+  final String? permissions;
+  final bool isSystemRole;
+  final bool isCustomizable;
+  final int hierarchyLevel;
+  final String? parentRoleId;
+  final bool canViewAllTransactions;
+  final bool canModifyPrices;
+  final bool canProcessReturns;
+  final bool canManageUsers;
+  final bool canAccessReports;
+  final bool canManageInventory;
+  final double? discountLimit;
+  final double? transactionLimit;
+  final double? refundLimit;
+  final StatusType status;
+  final String? createdBy;
+  final String? updatedBy;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final String? syncStatus;
+  const UserRolesTableData({
+    required this.roleId,
+    required this.businessId,
+    required this.roleName,
+    this.roleCode,
+    required this.roleType,
+    this.description,
+    this.permissions,
+    required this.isSystemRole,
+    required this.isCustomizable,
+    required this.hierarchyLevel,
+    this.parentRoleId,
+    required this.canViewAllTransactions,
+    required this.canModifyPrices,
+    required this.canProcessReturns,
+    required this.canManageUsers,
+    required this.canAccessReports,
+    required this.canManageInventory,
+    this.discountLimit,
+    this.transactionLimit,
+    this.refundLimit,
+    required this.status,
+    this.createdBy,
+    this.updatedBy,
+    required this.createdAt,
+    required this.updatedAt,
+    this.syncStatus,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['role_id'] = Variable<String>(roleId);
+    map['business_id'] = Variable<String>(businessId);
+    map['role_name'] = Variable<String>(roleName);
+    if (!nullToAbsent || roleCode != null) {
+      map['role_code'] = Variable<String>(roleCode);
+    }
+    {
+      map['role_type'] = Variable<String>(
+        $UserRolesTableTable.$converterroleType.toSql(roleType),
+      );
+    }
+    if (!nullToAbsent || description != null) {
+      map['description'] = Variable<String>(description);
+    }
+    if (!nullToAbsent || permissions != null) {
+      map['permissions'] = Variable<String>(permissions);
+    }
+    map['is_system_role'] = Variable<bool>(isSystemRole);
+    map['is_customizable'] = Variable<bool>(isCustomizable);
+    map['hierarchy_level'] = Variable<int>(hierarchyLevel);
+    if (!nullToAbsent || parentRoleId != null) {
+      map['parent_role_id'] = Variable<String>(parentRoleId);
+    }
+    map['can_view_all_transactions'] = Variable<bool>(canViewAllTransactions);
+    map['can_modify_prices'] = Variable<bool>(canModifyPrices);
+    map['can_process_returns'] = Variable<bool>(canProcessReturns);
+    map['can_manage_users'] = Variable<bool>(canManageUsers);
+    map['can_access_reports'] = Variable<bool>(canAccessReports);
+    map['can_manage_inventory'] = Variable<bool>(canManageInventory);
+    if (!nullToAbsent || discountLimit != null) {
+      map['discount_limit'] = Variable<double>(discountLimit);
+    }
+    if (!nullToAbsent || transactionLimit != null) {
+      map['transaction_limit'] = Variable<double>(transactionLimit);
+    }
+    if (!nullToAbsent || refundLimit != null) {
+      map['refund_limit'] = Variable<double>(refundLimit);
+    }
+    {
+      map['status'] = Variable<String>(
+        $UserRolesTableTable.$converterstatus.toSql(status),
+      );
+    }
+    if (!nullToAbsent || createdBy != null) {
+      map['created_by'] = Variable<String>(createdBy);
+    }
+    if (!nullToAbsent || updatedBy != null) {
+      map['updated_by'] = Variable<String>(updatedBy);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || syncStatus != null) {
+      map['sync_status'] = Variable<String>(syncStatus);
+    }
+    return map;
+  }
+
+  UserRolesTableCompanion toCompanion(bool nullToAbsent) {
+    return UserRolesTableCompanion(
+      roleId: Value(roleId),
+      businessId: Value(businessId),
+      roleName: Value(roleName),
+      roleCode: roleCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(roleCode),
+      roleType: Value(roleType),
+      description: description == null && nullToAbsent
+          ? const Value.absent()
+          : Value(description),
+      permissions: permissions == null && nullToAbsent
+          ? const Value.absent()
+          : Value(permissions),
+      isSystemRole: Value(isSystemRole),
+      isCustomizable: Value(isCustomizable),
+      hierarchyLevel: Value(hierarchyLevel),
+      parentRoleId: parentRoleId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(parentRoleId),
+      canViewAllTransactions: Value(canViewAllTransactions),
+      canModifyPrices: Value(canModifyPrices),
+      canProcessReturns: Value(canProcessReturns),
+      canManageUsers: Value(canManageUsers),
+      canAccessReports: Value(canAccessReports),
+      canManageInventory: Value(canManageInventory),
+      discountLimit: discountLimit == null && nullToAbsent
+          ? const Value.absent()
+          : Value(discountLimit),
+      transactionLimit: transactionLimit == null && nullToAbsent
+          ? const Value.absent()
+          : Value(transactionLimit),
+      refundLimit: refundLimit == null && nullToAbsent
+          ? const Value.absent()
+          : Value(refundLimit),
+      status: Value(status),
+      createdBy: createdBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(createdBy),
+      updatedBy: updatedBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(updatedBy),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      syncStatus: syncStatus == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syncStatus),
+    );
+  }
+
+  factory UserRolesTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UserRolesTableData(
+      roleId: serializer.fromJson<String>(json['roleId']),
+      businessId: serializer.fromJson<String>(json['businessId']),
+      roleName: serializer.fromJson<String>(json['roleName']),
+      roleCode: serializer.fromJson<String?>(json['roleCode']),
+      roleType: $UserRolesTableTable.$converterroleType.fromJson(
+        serializer.fromJson<String>(json['roleType']),
+      ),
+      description: serializer.fromJson<String?>(json['description']),
+      permissions: serializer.fromJson<String?>(json['permissions']),
+      isSystemRole: serializer.fromJson<bool>(json['isSystemRole']),
+      isCustomizable: serializer.fromJson<bool>(json['isCustomizable']),
+      hierarchyLevel: serializer.fromJson<int>(json['hierarchyLevel']),
+      parentRoleId: serializer.fromJson<String?>(json['parentRoleId']),
+      canViewAllTransactions: serializer.fromJson<bool>(
+        json['canViewAllTransactions'],
+      ),
+      canModifyPrices: serializer.fromJson<bool>(json['canModifyPrices']),
+      canProcessReturns: serializer.fromJson<bool>(json['canProcessReturns']),
+      canManageUsers: serializer.fromJson<bool>(json['canManageUsers']),
+      canAccessReports: serializer.fromJson<bool>(json['canAccessReports']),
+      canManageInventory: serializer.fromJson<bool>(json['canManageInventory']),
+      discountLimit: serializer.fromJson<double?>(json['discountLimit']),
+      transactionLimit: serializer.fromJson<double?>(json['transactionLimit']),
+      refundLimit: serializer.fromJson<double?>(json['refundLimit']),
+      status: $UserRolesTableTable.$converterstatus.fromJson(
+        serializer.fromJson<String>(json['status']),
+      ),
+      createdBy: serializer.fromJson<String?>(json['createdBy']),
+      updatedBy: serializer.fromJson<String?>(json['updatedBy']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      syncStatus: serializer.fromJson<String?>(json['syncStatus']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'roleId': serializer.toJson<String>(roleId),
+      'businessId': serializer.toJson<String>(businessId),
+      'roleName': serializer.toJson<String>(roleName),
+      'roleCode': serializer.toJson<String?>(roleCode),
+      'roleType': serializer.toJson<String>(
+        $UserRolesTableTable.$converterroleType.toJson(roleType),
+      ),
+      'description': serializer.toJson<String?>(description),
+      'permissions': serializer.toJson<String?>(permissions),
+      'isSystemRole': serializer.toJson<bool>(isSystemRole),
+      'isCustomizable': serializer.toJson<bool>(isCustomizable),
+      'hierarchyLevel': serializer.toJson<int>(hierarchyLevel),
+      'parentRoleId': serializer.toJson<String?>(parentRoleId),
+      'canViewAllTransactions': serializer.toJson<bool>(canViewAllTransactions),
+      'canModifyPrices': serializer.toJson<bool>(canModifyPrices),
+      'canProcessReturns': serializer.toJson<bool>(canProcessReturns),
+      'canManageUsers': serializer.toJson<bool>(canManageUsers),
+      'canAccessReports': serializer.toJson<bool>(canAccessReports),
+      'canManageInventory': serializer.toJson<bool>(canManageInventory),
+      'discountLimit': serializer.toJson<double?>(discountLimit),
+      'transactionLimit': serializer.toJson<double?>(transactionLimit),
+      'refundLimit': serializer.toJson<double?>(refundLimit),
+      'status': serializer.toJson<String>(
+        $UserRolesTableTable.$converterstatus.toJson(status),
+      ),
+      'createdBy': serializer.toJson<String?>(createdBy),
+      'updatedBy': serializer.toJson<String?>(updatedBy),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'syncStatus': serializer.toJson<String?>(syncStatus),
+    };
+  }
+
+  UserRolesTableData copyWith({
+    String? roleId,
+    String? businessId,
+    String? roleName,
+    Value<String?> roleCode = const Value.absent(),
+    UserRole? roleType,
+    Value<String?> description = const Value.absent(),
+    Value<String?> permissions = const Value.absent(),
+    bool? isSystemRole,
+    bool? isCustomizable,
+    int? hierarchyLevel,
+    Value<String?> parentRoleId = const Value.absent(),
+    bool? canViewAllTransactions,
+    bool? canModifyPrices,
+    bool? canProcessReturns,
+    bool? canManageUsers,
+    bool? canAccessReports,
+    bool? canManageInventory,
+    Value<double?> discountLimit = const Value.absent(),
+    Value<double?> transactionLimit = const Value.absent(),
+    Value<double?> refundLimit = const Value.absent(),
+    StatusType? status,
+    Value<String?> createdBy = const Value.absent(),
+    Value<String?> updatedBy = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<String?> syncStatus = const Value.absent(),
+  }) => UserRolesTableData(
+    roleId: roleId ?? this.roleId,
+    businessId: businessId ?? this.businessId,
+    roleName: roleName ?? this.roleName,
+    roleCode: roleCode.present ? roleCode.value : this.roleCode,
+    roleType: roleType ?? this.roleType,
+    description: description.present ? description.value : this.description,
+    permissions: permissions.present ? permissions.value : this.permissions,
+    isSystemRole: isSystemRole ?? this.isSystemRole,
+    isCustomizable: isCustomizable ?? this.isCustomizable,
+    hierarchyLevel: hierarchyLevel ?? this.hierarchyLevel,
+    parentRoleId: parentRoleId.present ? parentRoleId.value : this.parentRoleId,
+    canViewAllTransactions:
+        canViewAllTransactions ?? this.canViewAllTransactions,
+    canModifyPrices: canModifyPrices ?? this.canModifyPrices,
+    canProcessReturns: canProcessReturns ?? this.canProcessReturns,
+    canManageUsers: canManageUsers ?? this.canManageUsers,
+    canAccessReports: canAccessReports ?? this.canAccessReports,
+    canManageInventory: canManageInventory ?? this.canManageInventory,
+    discountLimit: discountLimit.present
+        ? discountLimit.value
+        : this.discountLimit,
+    transactionLimit: transactionLimit.present
+        ? transactionLimit.value
+        : this.transactionLimit,
+    refundLimit: refundLimit.present ? refundLimit.value : this.refundLimit,
+    status: status ?? this.status,
+    createdBy: createdBy.present ? createdBy.value : this.createdBy,
+    updatedBy: updatedBy.present ? updatedBy.value : this.updatedBy,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    syncStatus: syncStatus.present ? syncStatus.value : this.syncStatus,
+  );
+  UserRolesTableData copyWithCompanion(UserRolesTableCompanion data) {
+    return UserRolesTableData(
+      roleId: data.roleId.present ? data.roleId.value : this.roleId,
+      businessId: data.businessId.present
+          ? data.businessId.value
+          : this.businessId,
+      roleName: data.roleName.present ? data.roleName.value : this.roleName,
+      roleCode: data.roleCode.present ? data.roleCode.value : this.roleCode,
+      roleType: data.roleType.present ? data.roleType.value : this.roleType,
+      description: data.description.present
+          ? data.description.value
+          : this.description,
+      permissions: data.permissions.present
+          ? data.permissions.value
+          : this.permissions,
+      isSystemRole: data.isSystemRole.present
+          ? data.isSystemRole.value
+          : this.isSystemRole,
+      isCustomizable: data.isCustomizable.present
+          ? data.isCustomizable.value
+          : this.isCustomizable,
+      hierarchyLevel: data.hierarchyLevel.present
+          ? data.hierarchyLevel.value
+          : this.hierarchyLevel,
+      parentRoleId: data.parentRoleId.present
+          ? data.parentRoleId.value
+          : this.parentRoleId,
+      canViewAllTransactions: data.canViewAllTransactions.present
+          ? data.canViewAllTransactions.value
+          : this.canViewAllTransactions,
+      canModifyPrices: data.canModifyPrices.present
+          ? data.canModifyPrices.value
+          : this.canModifyPrices,
+      canProcessReturns: data.canProcessReturns.present
+          ? data.canProcessReturns.value
+          : this.canProcessReturns,
+      canManageUsers: data.canManageUsers.present
+          ? data.canManageUsers.value
+          : this.canManageUsers,
+      canAccessReports: data.canAccessReports.present
+          ? data.canAccessReports.value
+          : this.canAccessReports,
+      canManageInventory: data.canManageInventory.present
+          ? data.canManageInventory.value
+          : this.canManageInventory,
+      discountLimit: data.discountLimit.present
+          ? data.discountLimit.value
+          : this.discountLimit,
+      transactionLimit: data.transactionLimit.present
+          ? data.transactionLimit.value
+          : this.transactionLimit,
+      refundLimit: data.refundLimit.present
+          ? data.refundLimit.value
+          : this.refundLimit,
+      status: data.status.present ? data.status.value : this.status,
+      createdBy: data.createdBy.present ? data.createdBy.value : this.createdBy,
+      updatedBy: data.updatedBy.present ? data.updatedBy.value : this.updatedBy,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      syncStatus: data.syncStatus.present
+          ? data.syncStatus.value
+          : this.syncStatus,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserRolesTableData(')
+          ..write('roleId: $roleId, ')
+          ..write('businessId: $businessId, ')
+          ..write('roleName: $roleName, ')
+          ..write('roleCode: $roleCode, ')
+          ..write('roleType: $roleType, ')
+          ..write('description: $description, ')
+          ..write('permissions: $permissions, ')
+          ..write('isSystemRole: $isSystemRole, ')
+          ..write('isCustomizable: $isCustomizable, ')
+          ..write('hierarchyLevel: $hierarchyLevel, ')
+          ..write('parentRoleId: $parentRoleId, ')
+          ..write('canViewAllTransactions: $canViewAllTransactions, ')
+          ..write('canModifyPrices: $canModifyPrices, ')
+          ..write('canProcessReturns: $canProcessReturns, ')
+          ..write('canManageUsers: $canManageUsers, ')
+          ..write('canAccessReports: $canAccessReports, ')
+          ..write('canManageInventory: $canManageInventory, ')
+          ..write('discountLimit: $discountLimit, ')
+          ..write('transactionLimit: $transactionLimit, ')
+          ..write('refundLimit: $refundLimit, ')
+          ..write('status: $status, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('updatedBy: $updatedBy, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncStatus: $syncStatus')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    roleId,
+    businessId,
+    roleName,
+    roleCode,
+    roleType,
+    description,
+    permissions,
+    isSystemRole,
+    isCustomizable,
+    hierarchyLevel,
+    parentRoleId,
+    canViewAllTransactions,
+    canModifyPrices,
+    canProcessReturns,
+    canManageUsers,
+    canAccessReports,
+    canManageInventory,
+    discountLimit,
+    transactionLimit,
+    refundLimit,
+    status,
+    createdBy,
+    updatedBy,
+    createdAt,
+    updatedAt,
+    syncStatus,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UserRolesTableData &&
+          other.roleId == this.roleId &&
+          other.businessId == this.businessId &&
+          other.roleName == this.roleName &&
+          other.roleCode == this.roleCode &&
+          other.roleType == this.roleType &&
+          other.description == this.description &&
+          other.permissions == this.permissions &&
+          other.isSystemRole == this.isSystemRole &&
+          other.isCustomizable == this.isCustomizable &&
+          other.hierarchyLevel == this.hierarchyLevel &&
+          other.parentRoleId == this.parentRoleId &&
+          other.canViewAllTransactions == this.canViewAllTransactions &&
+          other.canModifyPrices == this.canModifyPrices &&
+          other.canProcessReturns == this.canProcessReturns &&
+          other.canManageUsers == this.canManageUsers &&
+          other.canAccessReports == this.canAccessReports &&
+          other.canManageInventory == this.canManageInventory &&
+          other.discountLimit == this.discountLimit &&
+          other.transactionLimit == this.transactionLimit &&
+          other.refundLimit == this.refundLimit &&
+          other.status == this.status &&
+          other.createdBy == this.createdBy &&
+          other.updatedBy == this.updatedBy &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.syncStatus == this.syncStatus);
+}
+
+class UserRolesTableCompanion extends UpdateCompanion<UserRolesTableData> {
+  final Value<String> roleId;
+  final Value<String> businessId;
+  final Value<String> roleName;
+  final Value<String?> roleCode;
+  final Value<UserRole> roleType;
+  final Value<String?> description;
+  final Value<String?> permissions;
+  final Value<bool> isSystemRole;
+  final Value<bool> isCustomizable;
+  final Value<int> hierarchyLevel;
+  final Value<String?> parentRoleId;
+  final Value<bool> canViewAllTransactions;
+  final Value<bool> canModifyPrices;
+  final Value<bool> canProcessReturns;
+  final Value<bool> canManageUsers;
+  final Value<bool> canAccessReports;
+  final Value<bool> canManageInventory;
+  final Value<double?> discountLimit;
+  final Value<double?> transactionLimit;
+  final Value<double?> refundLimit;
+  final Value<StatusType> status;
+  final Value<String?> createdBy;
+  final Value<String?> updatedBy;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<String?> syncStatus;
+  final Value<int> rowid;
+  const UserRolesTableCompanion({
+    this.roleId = const Value.absent(),
+    this.businessId = const Value.absent(),
+    this.roleName = const Value.absent(),
+    this.roleCode = const Value.absent(),
+    this.roleType = const Value.absent(),
+    this.description = const Value.absent(),
+    this.permissions = const Value.absent(),
+    this.isSystemRole = const Value.absent(),
+    this.isCustomizable = const Value.absent(),
+    this.hierarchyLevel = const Value.absent(),
+    this.parentRoleId = const Value.absent(),
+    this.canViewAllTransactions = const Value.absent(),
+    this.canModifyPrices = const Value.absent(),
+    this.canProcessReturns = const Value.absent(),
+    this.canManageUsers = const Value.absent(),
+    this.canAccessReports = const Value.absent(),
+    this.canManageInventory = const Value.absent(),
+    this.discountLimit = const Value.absent(),
+    this.transactionLimit = const Value.absent(),
+    this.refundLimit = const Value.absent(),
+    this.status = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.updatedBy = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncStatus = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  UserRolesTableCompanion.insert({
+    required String roleId,
+    required String businessId,
+    required String roleName,
+    this.roleCode = const Value.absent(),
+    this.roleType = const Value.absent(),
+    this.description = const Value.absent(),
+    this.permissions = const Value.absent(),
+    this.isSystemRole = const Value.absent(),
+    this.isCustomizable = const Value.absent(),
+    this.hierarchyLevel = const Value.absent(),
+    this.parentRoleId = const Value.absent(),
+    this.canViewAllTransactions = const Value.absent(),
+    this.canModifyPrices = const Value.absent(),
+    this.canProcessReturns = const Value.absent(),
+    this.canManageUsers = const Value.absent(),
+    this.canAccessReports = const Value.absent(),
+    this.canManageInventory = const Value.absent(),
+    this.discountLimit = const Value.absent(),
+    this.transactionLimit = const Value.absent(),
+    this.refundLimit = const Value.absent(),
+    this.status = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.updatedBy = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncStatus = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : roleId = Value(roleId),
+       businessId = Value(businessId),
+       roleName = Value(roleName);
+  static Insertable<UserRolesTableData> custom({
+    Expression<String>? roleId,
+    Expression<String>? businessId,
+    Expression<String>? roleName,
+    Expression<String>? roleCode,
+    Expression<String>? roleType,
+    Expression<String>? description,
+    Expression<String>? permissions,
+    Expression<bool>? isSystemRole,
+    Expression<bool>? isCustomizable,
+    Expression<int>? hierarchyLevel,
+    Expression<String>? parentRoleId,
+    Expression<bool>? canViewAllTransactions,
+    Expression<bool>? canModifyPrices,
+    Expression<bool>? canProcessReturns,
+    Expression<bool>? canManageUsers,
+    Expression<bool>? canAccessReports,
+    Expression<bool>? canManageInventory,
+    Expression<double>? discountLimit,
+    Expression<double>? transactionLimit,
+    Expression<double>? refundLimit,
+    Expression<String>? status,
+    Expression<String>? createdBy,
+    Expression<String>? updatedBy,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<String>? syncStatus,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (roleId != null) 'role_id': roleId,
+      if (businessId != null) 'business_id': businessId,
+      if (roleName != null) 'role_name': roleName,
+      if (roleCode != null) 'role_code': roleCode,
+      if (roleType != null) 'role_type': roleType,
+      if (description != null) 'description': description,
+      if (permissions != null) 'permissions': permissions,
+      if (isSystemRole != null) 'is_system_role': isSystemRole,
+      if (isCustomizable != null) 'is_customizable': isCustomizable,
+      if (hierarchyLevel != null) 'hierarchy_level': hierarchyLevel,
+      if (parentRoleId != null) 'parent_role_id': parentRoleId,
+      if (canViewAllTransactions != null)
+        'can_view_all_transactions': canViewAllTransactions,
+      if (canModifyPrices != null) 'can_modify_prices': canModifyPrices,
+      if (canProcessReturns != null) 'can_process_returns': canProcessReturns,
+      if (canManageUsers != null) 'can_manage_users': canManageUsers,
+      if (canAccessReports != null) 'can_access_reports': canAccessReports,
+      if (canManageInventory != null)
+        'can_manage_inventory': canManageInventory,
+      if (discountLimit != null) 'discount_limit': discountLimit,
+      if (transactionLimit != null) 'transaction_limit': transactionLimit,
+      if (refundLimit != null) 'refund_limit': refundLimit,
+      if (status != null) 'status': status,
+      if (createdBy != null) 'created_by': createdBy,
+      if (updatedBy != null) 'updated_by': updatedBy,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (syncStatus != null) 'sync_status': syncStatus,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  UserRolesTableCompanion copyWith({
+    Value<String>? roleId,
+    Value<String>? businessId,
+    Value<String>? roleName,
+    Value<String?>? roleCode,
+    Value<UserRole>? roleType,
+    Value<String?>? description,
+    Value<String?>? permissions,
+    Value<bool>? isSystemRole,
+    Value<bool>? isCustomizable,
+    Value<int>? hierarchyLevel,
+    Value<String?>? parentRoleId,
+    Value<bool>? canViewAllTransactions,
+    Value<bool>? canModifyPrices,
+    Value<bool>? canProcessReturns,
+    Value<bool>? canManageUsers,
+    Value<bool>? canAccessReports,
+    Value<bool>? canManageInventory,
+    Value<double?>? discountLimit,
+    Value<double?>? transactionLimit,
+    Value<double?>? refundLimit,
+    Value<StatusType>? status,
+    Value<String?>? createdBy,
+    Value<String?>? updatedBy,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<String?>? syncStatus,
+    Value<int>? rowid,
+  }) {
+    return UserRolesTableCompanion(
+      roleId: roleId ?? this.roleId,
+      businessId: businessId ?? this.businessId,
+      roleName: roleName ?? this.roleName,
+      roleCode: roleCode ?? this.roleCode,
+      roleType: roleType ?? this.roleType,
+      description: description ?? this.description,
+      permissions: permissions ?? this.permissions,
+      isSystemRole: isSystemRole ?? this.isSystemRole,
+      isCustomizable: isCustomizable ?? this.isCustomizable,
+      hierarchyLevel: hierarchyLevel ?? this.hierarchyLevel,
+      parentRoleId: parentRoleId ?? this.parentRoleId,
+      canViewAllTransactions:
+          canViewAllTransactions ?? this.canViewAllTransactions,
+      canModifyPrices: canModifyPrices ?? this.canModifyPrices,
+      canProcessReturns: canProcessReturns ?? this.canProcessReturns,
+      canManageUsers: canManageUsers ?? this.canManageUsers,
+      canAccessReports: canAccessReports ?? this.canAccessReports,
+      canManageInventory: canManageInventory ?? this.canManageInventory,
+      discountLimit: discountLimit ?? this.discountLimit,
+      transactionLimit: transactionLimit ?? this.transactionLimit,
+      refundLimit: refundLimit ?? this.refundLimit,
+      status: status ?? this.status,
+      createdBy: createdBy ?? this.createdBy,
+      updatedBy: updatedBy ?? this.updatedBy,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      syncStatus: syncStatus ?? this.syncStatus,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (roleId.present) {
+      map['role_id'] = Variable<String>(roleId.value);
+    }
+    if (businessId.present) {
+      map['business_id'] = Variable<String>(businessId.value);
+    }
+    if (roleName.present) {
+      map['role_name'] = Variable<String>(roleName.value);
+    }
+    if (roleCode.present) {
+      map['role_code'] = Variable<String>(roleCode.value);
+    }
+    if (roleType.present) {
+      map['role_type'] = Variable<String>(
+        $UserRolesTableTable.$converterroleType.toSql(roleType.value),
+      );
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (permissions.present) {
+      map['permissions'] = Variable<String>(permissions.value);
+    }
+    if (isSystemRole.present) {
+      map['is_system_role'] = Variable<bool>(isSystemRole.value);
+    }
+    if (isCustomizable.present) {
+      map['is_customizable'] = Variable<bool>(isCustomizable.value);
+    }
+    if (hierarchyLevel.present) {
+      map['hierarchy_level'] = Variable<int>(hierarchyLevel.value);
+    }
+    if (parentRoleId.present) {
+      map['parent_role_id'] = Variable<String>(parentRoleId.value);
+    }
+    if (canViewAllTransactions.present) {
+      map['can_view_all_transactions'] = Variable<bool>(
+        canViewAllTransactions.value,
+      );
+    }
+    if (canModifyPrices.present) {
+      map['can_modify_prices'] = Variable<bool>(canModifyPrices.value);
+    }
+    if (canProcessReturns.present) {
+      map['can_process_returns'] = Variable<bool>(canProcessReturns.value);
+    }
+    if (canManageUsers.present) {
+      map['can_manage_users'] = Variable<bool>(canManageUsers.value);
+    }
+    if (canAccessReports.present) {
+      map['can_access_reports'] = Variable<bool>(canAccessReports.value);
+    }
+    if (canManageInventory.present) {
+      map['can_manage_inventory'] = Variable<bool>(canManageInventory.value);
+    }
+    if (discountLimit.present) {
+      map['discount_limit'] = Variable<double>(discountLimit.value);
+    }
+    if (transactionLimit.present) {
+      map['transaction_limit'] = Variable<double>(transactionLimit.value);
+    }
+    if (refundLimit.present) {
+      map['refund_limit'] = Variable<double>(refundLimit.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(
+        $UserRolesTableTable.$converterstatus.toSql(status.value),
+      );
+    }
+    if (createdBy.present) {
+      map['created_by'] = Variable<String>(createdBy.value);
+    }
+    if (updatedBy.present) {
+      map['updated_by'] = Variable<String>(updatedBy.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (syncStatus.present) {
+      map['sync_status'] = Variable<String>(syncStatus.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserRolesTableCompanion(')
+          ..write('roleId: $roleId, ')
+          ..write('businessId: $businessId, ')
+          ..write('roleName: $roleName, ')
+          ..write('roleCode: $roleCode, ')
+          ..write('roleType: $roleType, ')
+          ..write('description: $description, ')
+          ..write('permissions: $permissions, ')
+          ..write('isSystemRole: $isSystemRole, ')
+          ..write('isCustomizable: $isCustomizable, ')
+          ..write('hierarchyLevel: $hierarchyLevel, ')
+          ..write('parentRoleId: $parentRoleId, ')
+          ..write('canViewAllTransactions: $canViewAllTransactions, ')
+          ..write('canModifyPrices: $canModifyPrices, ')
+          ..write('canProcessReturns: $canProcessReturns, ')
+          ..write('canManageUsers: $canManageUsers, ')
+          ..write('canAccessReports: $canAccessReports, ')
+          ..write('canManageInventory: $canManageInventory, ')
+          ..write('discountLimit: $discountLimit, ')
+          ..write('transactionLimit: $transactionLimit, ')
+          ..write('refundLimit: $refundLimit, ')
+          ..write('status: $status, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('updatedBy: $updatedBy, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncStatus: $syncStatus, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $BusinessUsersTableTable extends BusinessUsersTable
+    with TableInfo<$BusinessUsersTableTable, BusinessUsersTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $BusinessUsersTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _businessUserIdMeta = const VerificationMeta(
+    'businessUserId',
+  );
+  @override
+  late final GeneratedColumn<String> businessUserId = GeneratedColumn<String>(
+    'business_user_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _businessIdMeta = const VerificationMeta(
+    'businessId',
+  );
+  @override
+  late final GeneratedColumn<String> businessId = GeneratedColumn<String>(
+    'business_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES business (business_id)',
+    ),
+  );
+  static const VerificationMeta _userIdMeta = const VerificationMeta('userId');
+  @override
+  late final GeneratedColumn<String> userId = GeneratedColumn<String>(
+    'user_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES users (id)',
+    ),
+  );
+  static const VerificationMeta _roleIdMeta = const VerificationMeta('roleId');
+  @override
+  late final GeneratedColumn<String> roleId = GeneratedColumn<String>(
+    'role_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES user_roles (role_id)',
+    ),
+  );
+  static const VerificationMeta _roleNameMeta = const VerificationMeta(
+    'roleName',
+  );
+  @override
+  late final GeneratedColumn<String> roleName = GeneratedColumn<String>(
+    'role_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _businessNameMeta = const VerificationMeta(
+    'businessName',
+  );
+  @override
+  late final GeneratedColumn<String> businessName = GeneratedColumn<String>(
+    'business_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _assignedBranchesMeta = const VerificationMeta(
+    'assignedBranches',
+  );
+  @override
+  late final GeneratedColumn<String> assignedBranches = GeneratedColumn<String>(
+    'assigned_branches',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _customPermissionsMeta = const VerificationMeta(
+    'customPermissions',
+  );
+  @override
+  late final GeneratedColumn<String> customPermissions =
+      GeneratedColumn<String>(
+        'custom_permissions',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _employmentStartDateMeta =
+      const VerificationMeta('employmentStartDate');
+  @override
+  late final GeneratedColumn<DateTime> employmentStartDate =
+      GeneratedColumn<DateTime>(
+        'employment_start_date',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _employmentEndDateMeta = const VerificationMeta(
+    'employmentEndDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> employmentEndDate =
+      GeneratedColumn<DateTime>(
+        'employment_end_date',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _isPrimaryBusinessMeta = const VerificationMeta(
+    'isPrimaryBusiness',
+  );
+  @override
+  late final GeneratedColumn<bool> isPrimaryBusiness = GeneratedColumn<bool>(
+    'is_primary_business',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_primary_business" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(false),
+  );
+  static const VerificationMeta _hasDirectDepositAccessMeta =
+      const VerificationMeta('hasDirectDepositAccess');
+  @override
+  late final GeneratedColumn<bool> hasDirectDepositAccess =
+      GeneratedColumn<bool>(
+        'has_direct_deposit_access',
+        aliasedName,
+        false,
+        type: DriftSqlType.bool,
+        requiredDuringInsert: false,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("has_direct_deposit_access" IN (0, 1))',
+        ),
+        defaultValue: const Constant<bool>(false),
+      );
+  static const VerificationMeta _canSwitchBranchesMeta = const VerificationMeta(
+    'canSwitchBranches',
+  );
+  @override
+  late final GeneratedColumn<bool> canSwitchBranches = GeneratedColumn<bool>(
+    'can_switch_branches',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("can_switch_branches" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(true),
+  );
+  static const VerificationMeta _hourlyRateMeta = const VerificationMeta(
+    'hourlyRate',
+  );
+  @override
+  late final GeneratedColumn<double> hourlyRate = GeneratedColumn<double>(
+    'hourly_rate',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _salaryAmountMeta = const VerificationMeta(
+    'salaryAmount',
+  );
+  @override
+  late final GeneratedColumn<double> salaryAmount = GeneratedColumn<double>(
+    'salary_amount',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _commissionRateMeta = const VerificationMeta(
+    'commissionRate',
+  );
+  @override
+  late final GeneratedColumn<double> commissionRate = GeneratedColumn<double>(
+    'commission_rate',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _paymentFrequencyMeta = const VerificationMeta(
+    'paymentFrequency',
+  );
+  @override
+  late final GeneratedColumn<String> paymentFrequency = GeneratedColumn<String>(
+    'payment_frequency',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _lastLoginAtMeta = const VerificationMeta(
+    'lastLoginAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> lastLoginAt = GeneratedColumn<DateTime>(
+    'last_login_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _loginCountMeta = const VerificationMeta(
+    'loginCount',
+  );
+  @override
+  late final GeneratedColumn<int> loginCount = GeneratedColumn<int>(
+    'login_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(0),
+  );
+  static const VerificationMeta _isActiveMeta = const VerificationMeta(
+    'isActive',
+  );
+  @override
+  late final GeneratedColumn<bool> isActive = GeneratedColumn<bool>(
+    'is_active',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_active" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(true),
+  );
+  static const VerificationMeta _passwordExpiresAtMeta = const VerificationMeta(
+    'passwordExpiresAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> passwordExpiresAt =
+      GeneratedColumn<DateTime>(
+        'password_expires_at',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  @override
+  late final GeneratedColumnWithTypeConverter<StatusType, String> status =
+      GeneratedColumn<String>(
+        'status',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        defaultValue: const Constant<String>('active'),
+      ).withConverter<StatusType>($BusinessUsersTableTable.$converterstatus);
+  static const VerificationMeta _createdByMeta = const VerificationMeta(
+    'createdBy',
+  );
+  @override
+  late final GeneratedColumn<String> createdBy = GeneratedColumn<String>(
+    'created_by',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _updatedByMeta = const VerificationMeta(
+    'updatedBy',
+  );
+  @override
+  late final GeneratedColumn<String> updatedBy = GeneratedColumn<String>(
+    'updated_by',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _syncStatusMeta = const VerificationMeta(
+    'syncStatus',
+  );
+  @override
+  late final GeneratedColumn<String> syncStatus = GeneratedColumn<String>(
+    'sync_status',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    businessUserId,
+    businessId,
+    userId,
+    roleId,
+    roleName,
+    businessName,
+    assignedBranches,
+    customPermissions,
+    employmentStartDate,
+    employmentEndDate,
+    isPrimaryBusiness,
+    hasDirectDepositAccess,
+    canSwitchBranches,
+    hourlyRate,
+    salaryAmount,
+    commissionRate,
+    paymentFrequency,
+    lastLoginAt,
+    loginCount,
+    isActive,
+    passwordExpiresAt,
+    status,
+    createdBy,
+    updatedBy,
+    createdAt,
+    updatedAt,
+    syncStatus,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'business_users';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<BusinessUsersTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('business_user_id')) {
+      context.handle(
+        _businessUserIdMeta,
+        businessUserId.isAcceptableOrUnknown(
+          data['business_user_id']!,
+          _businessUserIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_businessUserIdMeta);
+    }
+    if (data.containsKey('business_id')) {
+      context.handle(
+        _businessIdMeta,
+        businessId.isAcceptableOrUnknown(data['business_id']!, _businessIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_businessIdMeta);
+    }
+    if (data.containsKey('user_id')) {
+      context.handle(
+        _userIdMeta,
+        userId.isAcceptableOrUnknown(data['user_id']!, _userIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_userIdMeta);
+    }
+    if (data.containsKey('role_id')) {
+      context.handle(
+        _roleIdMeta,
+        roleId.isAcceptableOrUnknown(data['role_id']!, _roleIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_roleIdMeta);
+    }
+    if (data.containsKey('role_name')) {
+      context.handle(
+        _roleNameMeta,
+        roleName.isAcceptableOrUnknown(data['role_name']!, _roleNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_roleNameMeta);
+    }
+    if (data.containsKey('business_name')) {
+      context.handle(
+        _businessNameMeta,
+        businessName.isAcceptableOrUnknown(
+          data['business_name']!,
+          _businessNameMeta,
+        ),
+      );
+    }
+    if (data.containsKey('assigned_branches')) {
+      context.handle(
+        _assignedBranchesMeta,
+        assignedBranches.isAcceptableOrUnknown(
+          data['assigned_branches']!,
+          _assignedBranchesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('custom_permissions')) {
+      context.handle(
+        _customPermissionsMeta,
+        customPermissions.isAcceptableOrUnknown(
+          data['custom_permissions']!,
+          _customPermissionsMeta,
+        ),
+      );
+    }
+    if (data.containsKey('employment_start_date')) {
+      context.handle(
+        _employmentStartDateMeta,
+        employmentStartDate.isAcceptableOrUnknown(
+          data['employment_start_date']!,
+          _employmentStartDateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('employment_end_date')) {
+      context.handle(
+        _employmentEndDateMeta,
+        employmentEndDate.isAcceptableOrUnknown(
+          data['employment_end_date']!,
+          _employmentEndDateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_primary_business')) {
+      context.handle(
+        _isPrimaryBusinessMeta,
+        isPrimaryBusiness.isAcceptableOrUnknown(
+          data['is_primary_business']!,
+          _isPrimaryBusinessMeta,
+        ),
+      );
+    }
+    if (data.containsKey('has_direct_deposit_access')) {
+      context.handle(
+        _hasDirectDepositAccessMeta,
+        hasDirectDepositAccess.isAcceptableOrUnknown(
+          data['has_direct_deposit_access']!,
+          _hasDirectDepositAccessMeta,
+        ),
+      );
+    }
+    if (data.containsKey('can_switch_branches')) {
+      context.handle(
+        _canSwitchBranchesMeta,
+        canSwitchBranches.isAcceptableOrUnknown(
+          data['can_switch_branches']!,
+          _canSwitchBranchesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('hourly_rate')) {
+      context.handle(
+        _hourlyRateMeta,
+        hourlyRate.isAcceptableOrUnknown(data['hourly_rate']!, _hourlyRateMeta),
+      );
+    }
+    if (data.containsKey('salary_amount')) {
+      context.handle(
+        _salaryAmountMeta,
+        salaryAmount.isAcceptableOrUnknown(
+          data['salary_amount']!,
+          _salaryAmountMeta,
+        ),
+      );
+    }
+    if (data.containsKey('commission_rate')) {
+      context.handle(
+        _commissionRateMeta,
+        commissionRate.isAcceptableOrUnknown(
+          data['commission_rate']!,
+          _commissionRateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('payment_frequency')) {
+      context.handle(
+        _paymentFrequencyMeta,
+        paymentFrequency.isAcceptableOrUnknown(
+          data['payment_frequency']!,
+          _paymentFrequencyMeta,
+        ),
+      );
+    }
+    if (data.containsKey('last_login_at')) {
+      context.handle(
+        _lastLoginAtMeta,
+        lastLoginAt.isAcceptableOrUnknown(
+          data['last_login_at']!,
+          _lastLoginAtMeta,
+        ),
+      );
+    }
+    if (data.containsKey('login_count')) {
+      context.handle(
+        _loginCountMeta,
+        loginCount.isAcceptableOrUnknown(data['login_count']!, _loginCountMeta),
+      );
+    }
+    if (data.containsKey('is_active')) {
+      context.handle(
+        _isActiveMeta,
+        isActive.isAcceptableOrUnknown(data['is_active']!, _isActiveMeta),
+      );
+    }
+    if (data.containsKey('password_expires_at')) {
+      context.handle(
+        _passwordExpiresAtMeta,
+        passwordExpiresAt.isAcceptableOrUnknown(
+          data['password_expires_at']!,
+          _passwordExpiresAtMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_by')) {
+      context.handle(
+        _createdByMeta,
+        createdBy.isAcceptableOrUnknown(data['created_by']!, _createdByMeta),
+      );
+    }
+    if (data.containsKey('updated_by')) {
+      context.handle(
+        _updatedByMeta,
+        updatedBy.isAcceptableOrUnknown(data['updated_by']!, _updatedByMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    if (data.containsKey('sync_status')) {
+      context.handle(
+        _syncStatusMeta,
+        syncStatus.isAcceptableOrUnknown(data['sync_status']!, _syncStatusMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {businessUserId};
+  @override
+  BusinessUsersTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return BusinessUsersTableData(
+      businessUserId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_user_id'],
+      )!,
+      businessId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_id'],
+      )!,
+      userId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}user_id'],
+      )!,
+      roleId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}role_id'],
+      )!,
+      roleName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}role_name'],
+      )!,
+      businessName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_name'],
+      ),
+      assignedBranches: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}assigned_branches'],
+      ),
+      customPermissions: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}custom_permissions'],
+      ),
+      employmentStartDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}employment_start_date'],
+      ),
+      employmentEndDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}employment_end_date'],
+      ),
+      isPrimaryBusiness: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_primary_business'],
+      )!,
+      hasDirectDepositAccess: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}has_direct_deposit_access'],
+      )!,
+      canSwitchBranches: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}can_switch_branches'],
+      )!,
+      hourlyRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}hourly_rate'],
+      ),
+      salaryAmount: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}salary_amount'],
+      ),
+      commissionRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}commission_rate'],
+      ),
+      paymentFrequency: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}payment_frequency'],
+      ),
+      lastLoginAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}last_login_at'],
+      ),
+      loginCount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}login_count'],
+      )!,
+      isActive: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_active'],
+      )!,
+      passwordExpiresAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}password_expires_at'],
+      ),
+      status: $BusinessUsersTableTable.$converterstatus.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}status'],
+        )!,
+      ),
+      createdBy: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}created_by'],
+      ),
+      updatedBy: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}updated_by'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      syncStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sync_status'],
+      ),
+    );
+  }
+
+  @override
+  $BusinessUsersTableTable createAlias(String alias) {
+    return $BusinessUsersTableTable(attachedDatabase, alias);
+  }
+
+  static JsonTypeConverter2<StatusType, String, String> $converterstatus =
+      const EnumNameConverter<StatusType>(StatusType.values);
+}
+
+class BusinessUsersTableData extends DataClass
+    implements Insertable<BusinessUsersTableData> {
+  final String businessUserId;
+  final String businessId;
+  final String userId;
+  final String roleId;
+  final String roleName;
+  final String? businessName;
+  final String? assignedBranches;
+  final String? customPermissions;
+  final DateTime? employmentStartDate;
+  final DateTime? employmentEndDate;
+  final bool isPrimaryBusiness;
+  final bool hasDirectDepositAccess;
+  final bool canSwitchBranches;
+  final double? hourlyRate;
+  final double? salaryAmount;
+  final double? commissionRate;
+  final String? paymentFrequency;
+  final DateTime? lastLoginAt;
+  final int loginCount;
+  final bool isActive;
+  final DateTime? passwordExpiresAt;
+  final StatusType status;
+  final String? createdBy;
+  final String? updatedBy;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final String? syncStatus;
+  const BusinessUsersTableData({
+    required this.businessUserId,
+    required this.businessId,
+    required this.userId,
+    required this.roleId,
+    required this.roleName,
+    this.businessName,
+    this.assignedBranches,
+    this.customPermissions,
+    this.employmentStartDate,
+    this.employmentEndDate,
+    required this.isPrimaryBusiness,
+    required this.hasDirectDepositAccess,
+    required this.canSwitchBranches,
+    this.hourlyRate,
+    this.salaryAmount,
+    this.commissionRate,
+    this.paymentFrequency,
+    this.lastLoginAt,
+    required this.loginCount,
+    required this.isActive,
+    this.passwordExpiresAt,
+    required this.status,
+    this.createdBy,
+    this.updatedBy,
+    required this.createdAt,
+    required this.updatedAt,
+    this.syncStatus,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['business_user_id'] = Variable<String>(businessUserId);
+    map['business_id'] = Variable<String>(businessId);
+    map['user_id'] = Variable<String>(userId);
+    map['role_id'] = Variable<String>(roleId);
+    map['role_name'] = Variable<String>(roleName);
+    if (!nullToAbsent || businessName != null) {
+      map['business_name'] = Variable<String>(businessName);
+    }
+    if (!nullToAbsent || assignedBranches != null) {
+      map['assigned_branches'] = Variable<String>(assignedBranches);
+    }
+    if (!nullToAbsent || customPermissions != null) {
+      map['custom_permissions'] = Variable<String>(customPermissions);
+    }
+    if (!nullToAbsent || employmentStartDate != null) {
+      map['employment_start_date'] = Variable<DateTime>(employmentStartDate);
+    }
+    if (!nullToAbsent || employmentEndDate != null) {
+      map['employment_end_date'] = Variable<DateTime>(employmentEndDate);
+    }
+    map['is_primary_business'] = Variable<bool>(isPrimaryBusiness);
+    map['has_direct_deposit_access'] = Variable<bool>(hasDirectDepositAccess);
+    map['can_switch_branches'] = Variable<bool>(canSwitchBranches);
+    if (!nullToAbsent || hourlyRate != null) {
+      map['hourly_rate'] = Variable<double>(hourlyRate);
+    }
+    if (!nullToAbsent || salaryAmount != null) {
+      map['salary_amount'] = Variable<double>(salaryAmount);
+    }
+    if (!nullToAbsent || commissionRate != null) {
+      map['commission_rate'] = Variable<double>(commissionRate);
+    }
+    if (!nullToAbsent || paymentFrequency != null) {
+      map['payment_frequency'] = Variable<String>(paymentFrequency);
+    }
+    if (!nullToAbsent || lastLoginAt != null) {
+      map['last_login_at'] = Variable<DateTime>(lastLoginAt);
+    }
+    map['login_count'] = Variable<int>(loginCount);
+    map['is_active'] = Variable<bool>(isActive);
+    if (!nullToAbsent || passwordExpiresAt != null) {
+      map['password_expires_at'] = Variable<DateTime>(passwordExpiresAt);
+    }
+    {
+      map['status'] = Variable<String>(
+        $BusinessUsersTableTable.$converterstatus.toSql(status),
+      );
+    }
+    if (!nullToAbsent || createdBy != null) {
+      map['created_by'] = Variable<String>(createdBy);
+    }
+    if (!nullToAbsent || updatedBy != null) {
+      map['updated_by'] = Variable<String>(updatedBy);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || syncStatus != null) {
+      map['sync_status'] = Variable<String>(syncStatus);
+    }
+    return map;
+  }
+
+  BusinessUsersTableCompanion toCompanion(bool nullToAbsent) {
+    return BusinessUsersTableCompanion(
+      businessUserId: Value(businessUserId),
+      businessId: Value(businessId),
+      userId: Value(userId),
+      roleId: Value(roleId),
+      roleName: Value(roleName),
+      businessName: businessName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(businessName),
+      assignedBranches: assignedBranches == null && nullToAbsent
+          ? const Value.absent()
+          : Value(assignedBranches),
+      customPermissions: customPermissions == null && nullToAbsent
+          ? const Value.absent()
+          : Value(customPermissions),
+      employmentStartDate: employmentStartDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(employmentStartDate),
+      employmentEndDate: employmentEndDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(employmentEndDate),
+      isPrimaryBusiness: Value(isPrimaryBusiness),
+      hasDirectDepositAccess: Value(hasDirectDepositAccess),
+      canSwitchBranches: Value(canSwitchBranches),
+      hourlyRate: hourlyRate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(hourlyRate),
+      salaryAmount: salaryAmount == null && nullToAbsent
+          ? const Value.absent()
+          : Value(salaryAmount),
+      commissionRate: commissionRate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(commissionRate),
+      paymentFrequency: paymentFrequency == null && nullToAbsent
+          ? const Value.absent()
+          : Value(paymentFrequency),
+      lastLoginAt: lastLoginAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastLoginAt),
+      loginCount: Value(loginCount),
+      isActive: Value(isActive),
+      passwordExpiresAt: passwordExpiresAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(passwordExpiresAt),
+      status: Value(status),
+      createdBy: createdBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(createdBy),
+      updatedBy: updatedBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(updatedBy),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      syncStatus: syncStatus == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syncStatus),
+    );
+  }
+
+  factory BusinessUsersTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return BusinessUsersTableData(
+      businessUserId: serializer.fromJson<String>(json['businessUserId']),
+      businessId: serializer.fromJson<String>(json['businessId']),
+      userId: serializer.fromJson<String>(json['userId']),
+      roleId: serializer.fromJson<String>(json['roleId']),
+      roleName: serializer.fromJson<String>(json['roleName']),
+      businessName: serializer.fromJson<String?>(json['businessName']),
+      assignedBranches: serializer.fromJson<String?>(json['assignedBranches']),
+      customPermissions: serializer.fromJson<String?>(
+        json['customPermissions'],
+      ),
+      employmentStartDate: serializer.fromJson<DateTime?>(
+        json['employmentStartDate'],
+      ),
+      employmentEndDate: serializer.fromJson<DateTime?>(
+        json['employmentEndDate'],
+      ),
+      isPrimaryBusiness: serializer.fromJson<bool>(json['isPrimaryBusiness']),
+      hasDirectDepositAccess: serializer.fromJson<bool>(
+        json['hasDirectDepositAccess'],
+      ),
+      canSwitchBranches: serializer.fromJson<bool>(json['canSwitchBranches']),
+      hourlyRate: serializer.fromJson<double?>(json['hourlyRate']),
+      salaryAmount: serializer.fromJson<double?>(json['salaryAmount']),
+      commissionRate: serializer.fromJson<double?>(json['commissionRate']),
+      paymentFrequency: serializer.fromJson<String?>(json['paymentFrequency']),
+      lastLoginAt: serializer.fromJson<DateTime?>(json['lastLoginAt']),
+      loginCount: serializer.fromJson<int>(json['loginCount']),
+      isActive: serializer.fromJson<bool>(json['isActive']),
+      passwordExpiresAt: serializer.fromJson<DateTime?>(
+        json['passwordExpiresAt'],
+      ),
+      status: $BusinessUsersTableTable.$converterstatus.fromJson(
+        serializer.fromJson<String>(json['status']),
+      ),
+      createdBy: serializer.fromJson<String?>(json['createdBy']),
+      updatedBy: serializer.fromJson<String?>(json['updatedBy']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      syncStatus: serializer.fromJson<String?>(json['syncStatus']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'businessUserId': serializer.toJson<String>(businessUserId),
+      'businessId': serializer.toJson<String>(businessId),
+      'userId': serializer.toJson<String>(userId),
+      'roleId': serializer.toJson<String>(roleId),
+      'roleName': serializer.toJson<String>(roleName),
+      'businessName': serializer.toJson<String?>(businessName),
+      'assignedBranches': serializer.toJson<String?>(assignedBranches),
+      'customPermissions': serializer.toJson<String?>(customPermissions),
+      'employmentStartDate': serializer.toJson<DateTime?>(employmentStartDate),
+      'employmentEndDate': serializer.toJson<DateTime?>(employmentEndDate),
+      'isPrimaryBusiness': serializer.toJson<bool>(isPrimaryBusiness),
+      'hasDirectDepositAccess': serializer.toJson<bool>(hasDirectDepositAccess),
+      'canSwitchBranches': serializer.toJson<bool>(canSwitchBranches),
+      'hourlyRate': serializer.toJson<double?>(hourlyRate),
+      'salaryAmount': serializer.toJson<double?>(salaryAmount),
+      'commissionRate': serializer.toJson<double?>(commissionRate),
+      'paymentFrequency': serializer.toJson<String?>(paymentFrequency),
+      'lastLoginAt': serializer.toJson<DateTime?>(lastLoginAt),
+      'loginCount': serializer.toJson<int>(loginCount),
+      'isActive': serializer.toJson<bool>(isActive),
+      'passwordExpiresAt': serializer.toJson<DateTime?>(passwordExpiresAt),
+      'status': serializer.toJson<String>(
+        $BusinessUsersTableTable.$converterstatus.toJson(status),
+      ),
+      'createdBy': serializer.toJson<String?>(createdBy),
+      'updatedBy': serializer.toJson<String?>(updatedBy),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'syncStatus': serializer.toJson<String?>(syncStatus),
+    };
+  }
+
+  BusinessUsersTableData copyWith({
+    String? businessUserId,
+    String? businessId,
+    String? userId,
+    String? roleId,
+    String? roleName,
+    Value<String?> businessName = const Value.absent(),
+    Value<String?> assignedBranches = const Value.absent(),
+    Value<String?> customPermissions = const Value.absent(),
+    Value<DateTime?> employmentStartDate = const Value.absent(),
+    Value<DateTime?> employmentEndDate = const Value.absent(),
+    bool? isPrimaryBusiness,
+    bool? hasDirectDepositAccess,
+    bool? canSwitchBranches,
+    Value<double?> hourlyRate = const Value.absent(),
+    Value<double?> salaryAmount = const Value.absent(),
+    Value<double?> commissionRate = const Value.absent(),
+    Value<String?> paymentFrequency = const Value.absent(),
+    Value<DateTime?> lastLoginAt = const Value.absent(),
+    int? loginCount,
+    bool? isActive,
+    Value<DateTime?> passwordExpiresAt = const Value.absent(),
+    StatusType? status,
+    Value<String?> createdBy = const Value.absent(),
+    Value<String?> updatedBy = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<String?> syncStatus = const Value.absent(),
+  }) => BusinessUsersTableData(
+    businessUserId: businessUserId ?? this.businessUserId,
+    businessId: businessId ?? this.businessId,
+    userId: userId ?? this.userId,
+    roleId: roleId ?? this.roleId,
+    roleName: roleName ?? this.roleName,
+    businessName: businessName.present ? businessName.value : this.businessName,
+    assignedBranches: assignedBranches.present
+        ? assignedBranches.value
+        : this.assignedBranches,
+    customPermissions: customPermissions.present
+        ? customPermissions.value
+        : this.customPermissions,
+    employmentStartDate: employmentStartDate.present
+        ? employmentStartDate.value
+        : this.employmentStartDate,
+    employmentEndDate: employmentEndDate.present
+        ? employmentEndDate.value
+        : this.employmentEndDate,
+    isPrimaryBusiness: isPrimaryBusiness ?? this.isPrimaryBusiness,
+    hasDirectDepositAccess:
+        hasDirectDepositAccess ?? this.hasDirectDepositAccess,
+    canSwitchBranches: canSwitchBranches ?? this.canSwitchBranches,
+    hourlyRate: hourlyRate.present ? hourlyRate.value : this.hourlyRate,
+    salaryAmount: salaryAmount.present ? salaryAmount.value : this.salaryAmount,
+    commissionRate: commissionRate.present
+        ? commissionRate.value
+        : this.commissionRate,
+    paymentFrequency: paymentFrequency.present
+        ? paymentFrequency.value
+        : this.paymentFrequency,
+    lastLoginAt: lastLoginAt.present ? lastLoginAt.value : this.lastLoginAt,
+    loginCount: loginCount ?? this.loginCount,
+    isActive: isActive ?? this.isActive,
+    passwordExpiresAt: passwordExpiresAt.present
+        ? passwordExpiresAt.value
+        : this.passwordExpiresAt,
+    status: status ?? this.status,
+    createdBy: createdBy.present ? createdBy.value : this.createdBy,
+    updatedBy: updatedBy.present ? updatedBy.value : this.updatedBy,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    syncStatus: syncStatus.present ? syncStatus.value : this.syncStatus,
+  );
+  BusinessUsersTableData copyWithCompanion(BusinessUsersTableCompanion data) {
+    return BusinessUsersTableData(
+      businessUserId: data.businessUserId.present
+          ? data.businessUserId.value
+          : this.businessUserId,
+      businessId: data.businessId.present
+          ? data.businessId.value
+          : this.businessId,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      roleId: data.roleId.present ? data.roleId.value : this.roleId,
+      roleName: data.roleName.present ? data.roleName.value : this.roleName,
+      businessName: data.businessName.present
+          ? data.businessName.value
+          : this.businessName,
+      assignedBranches: data.assignedBranches.present
+          ? data.assignedBranches.value
+          : this.assignedBranches,
+      customPermissions: data.customPermissions.present
+          ? data.customPermissions.value
+          : this.customPermissions,
+      employmentStartDate: data.employmentStartDate.present
+          ? data.employmentStartDate.value
+          : this.employmentStartDate,
+      employmentEndDate: data.employmentEndDate.present
+          ? data.employmentEndDate.value
+          : this.employmentEndDate,
+      isPrimaryBusiness: data.isPrimaryBusiness.present
+          ? data.isPrimaryBusiness.value
+          : this.isPrimaryBusiness,
+      hasDirectDepositAccess: data.hasDirectDepositAccess.present
+          ? data.hasDirectDepositAccess.value
+          : this.hasDirectDepositAccess,
+      canSwitchBranches: data.canSwitchBranches.present
+          ? data.canSwitchBranches.value
+          : this.canSwitchBranches,
+      hourlyRate: data.hourlyRate.present
+          ? data.hourlyRate.value
+          : this.hourlyRate,
+      salaryAmount: data.salaryAmount.present
+          ? data.salaryAmount.value
+          : this.salaryAmount,
+      commissionRate: data.commissionRate.present
+          ? data.commissionRate.value
+          : this.commissionRate,
+      paymentFrequency: data.paymentFrequency.present
+          ? data.paymentFrequency.value
+          : this.paymentFrequency,
+      lastLoginAt: data.lastLoginAt.present
+          ? data.lastLoginAt.value
+          : this.lastLoginAt,
+      loginCount: data.loginCount.present
+          ? data.loginCount.value
+          : this.loginCount,
+      isActive: data.isActive.present ? data.isActive.value : this.isActive,
+      passwordExpiresAt: data.passwordExpiresAt.present
+          ? data.passwordExpiresAt.value
+          : this.passwordExpiresAt,
+      status: data.status.present ? data.status.value : this.status,
+      createdBy: data.createdBy.present ? data.createdBy.value : this.createdBy,
+      updatedBy: data.updatedBy.present ? data.updatedBy.value : this.updatedBy,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      syncStatus: data.syncStatus.present
+          ? data.syncStatus.value
+          : this.syncStatus,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BusinessUsersTableData(')
+          ..write('businessUserId: $businessUserId, ')
+          ..write('businessId: $businessId, ')
+          ..write('userId: $userId, ')
+          ..write('roleId: $roleId, ')
+          ..write('roleName: $roleName, ')
+          ..write('businessName: $businessName, ')
+          ..write('assignedBranches: $assignedBranches, ')
+          ..write('customPermissions: $customPermissions, ')
+          ..write('employmentStartDate: $employmentStartDate, ')
+          ..write('employmentEndDate: $employmentEndDate, ')
+          ..write('isPrimaryBusiness: $isPrimaryBusiness, ')
+          ..write('hasDirectDepositAccess: $hasDirectDepositAccess, ')
+          ..write('canSwitchBranches: $canSwitchBranches, ')
+          ..write('hourlyRate: $hourlyRate, ')
+          ..write('salaryAmount: $salaryAmount, ')
+          ..write('commissionRate: $commissionRate, ')
+          ..write('paymentFrequency: $paymentFrequency, ')
+          ..write('lastLoginAt: $lastLoginAt, ')
+          ..write('loginCount: $loginCount, ')
+          ..write('isActive: $isActive, ')
+          ..write('passwordExpiresAt: $passwordExpiresAt, ')
+          ..write('status: $status, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('updatedBy: $updatedBy, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncStatus: $syncStatus')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    businessUserId,
+    businessId,
+    userId,
+    roleId,
+    roleName,
+    businessName,
+    assignedBranches,
+    customPermissions,
+    employmentStartDate,
+    employmentEndDate,
+    isPrimaryBusiness,
+    hasDirectDepositAccess,
+    canSwitchBranches,
+    hourlyRate,
+    salaryAmount,
+    commissionRate,
+    paymentFrequency,
+    lastLoginAt,
+    loginCount,
+    isActive,
+    passwordExpiresAt,
+    status,
+    createdBy,
+    updatedBy,
+    createdAt,
+    updatedAt,
+    syncStatus,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is BusinessUsersTableData &&
+          other.businessUserId == this.businessUserId &&
+          other.businessId == this.businessId &&
+          other.userId == this.userId &&
+          other.roleId == this.roleId &&
+          other.roleName == this.roleName &&
+          other.businessName == this.businessName &&
+          other.assignedBranches == this.assignedBranches &&
+          other.customPermissions == this.customPermissions &&
+          other.employmentStartDate == this.employmentStartDate &&
+          other.employmentEndDate == this.employmentEndDate &&
+          other.isPrimaryBusiness == this.isPrimaryBusiness &&
+          other.hasDirectDepositAccess == this.hasDirectDepositAccess &&
+          other.canSwitchBranches == this.canSwitchBranches &&
+          other.hourlyRate == this.hourlyRate &&
+          other.salaryAmount == this.salaryAmount &&
+          other.commissionRate == this.commissionRate &&
+          other.paymentFrequency == this.paymentFrequency &&
+          other.lastLoginAt == this.lastLoginAt &&
+          other.loginCount == this.loginCount &&
+          other.isActive == this.isActive &&
+          other.passwordExpiresAt == this.passwordExpiresAt &&
+          other.status == this.status &&
+          other.createdBy == this.createdBy &&
+          other.updatedBy == this.updatedBy &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.syncStatus == this.syncStatus);
+}
+
+class BusinessUsersTableCompanion
+    extends UpdateCompanion<BusinessUsersTableData> {
+  final Value<String> businessUserId;
+  final Value<String> businessId;
+  final Value<String> userId;
+  final Value<String> roleId;
+  final Value<String> roleName;
+  final Value<String?> businessName;
+  final Value<String?> assignedBranches;
+  final Value<String?> customPermissions;
+  final Value<DateTime?> employmentStartDate;
+  final Value<DateTime?> employmentEndDate;
+  final Value<bool> isPrimaryBusiness;
+  final Value<bool> hasDirectDepositAccess;
+  final Value<bool> canSwitchBranches;
+  final Value<double?> hourlyRate;
+  final Value<double?> salaryAmount;
+  final Value<double?> commissionRate;
+  final Value<String?> paymentFrequency;
+  final Value<DateTime?> lastLoginAt;
+  final Value<int> loginCount;
+  final Value<bool> isActive;
+  final Value<DateTime?> passwordExpiresAt;
+  final Value<StatusType> status;
+  final Value<String?> createdBy;
+  final Value<String?> updatedBy;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<String?> syncStatus;
+  final Value<int> rowid;
+  const BusinessUsersTableCompanion({
+    this.businessUserId = const Value.absent(),
+    this.businessId = const Value.absent(),
+    this.userId = const Value.absent(),
+    this.roleId = const Value.absent(),
+    this.roleName = const Value.absent(),
+    this.businessName = const Value.absent(),
+    this.assignedBranches = const Value.absent(),
+    this.customPermissions = const Value.absent(),
+    this.employmentStartDate = const Value.absent(),
+    this.employmentEndDate = const Value.absent(),
+    this.isPrimaryBusiness = const Value.absent(),
+    this.hasDirectDepositAccess = const Value.absent(),
+    this.canSwitchBranches = const Value.absent(),
+    this.hourlyRate = const Value.absent(),
+    this.salaryAmount = const Value.absent(),
+    this.commissionRate = const Value.absent(),
+    this.paymentFrequency = const Value.absent(),
+    this.lastLoginAt = const Value.absent(),
+    this.loginCount = const Value.absent(),
+    this.isActive = const Value.absent(),
+    this.passwordExpiresAt = const Value.absent(),
+    this.status = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.updatedBy = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncStatus = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  BusinessUsersTableCompanion.insert({
+    required String businessUserId,
+    required String businessId,
+    required String userId,
+    required String roleId,
+    required String roleName,
+    this.businessName = const Value.absent(),
+    this.assignedBranches = const Value.absent(),
+    this.customPermissions = const Value.absent(),
+    this.employmentStartDate = const Value.absent(),
+    this.employmentEndDate = const Value.absent(),
+    this.isPrimaryBusiness = const Value.absent(),
+    this.hasDirectDepositAccess = const Value.absent(),
+    this.canSwitchBranches = const Value.absent(),
+    this.hourlyRate = const Value.absent(),
+    this.salaryAmount = const Value.absent(),
+    this.commissionRate = const Value.absent(),
+    this.paymentFrequency = const Value.absent(),
+    this.lastLoginAt = const Value.absent(),
+    this.loginCount = const Value.absent(),
+    this.isActive = const Value.absent(),
+    this.passwordExpiresAt = const Value.absent(),
+    this.status = const Value.absent(),
+    this.createdBy = const Value.absent(),
+    this.updatedBy = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncStatus = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : businessUserId = Value(businessUserId),
+       businessId = Value(businessId),
+       userId = Value(userId),
+       roleId = Value(roleId),
+       roleName = Value(roleName);
+  static Insertable<BusinessUsersTableData> custom({
+    Expression<String>? businessUserId,
+    Expression<String>? businessId,
+    Expression<String>? userId,
+    Expression<String>? roleId,
+    Expression<String>? roleName,
+    Expression<String>? businessName,
+    Expression<String>? assignedBranches,
+    Expression<String>? customPermissions,
+    Expression<DateTime>? employmentStartDate,
+    Expression<DateTime>? employmentEndDate,
+    Expression<bool>? isPrimaryBusiness,
+    Expression<bool>? hasDirectDepositAccess,
+    Expression<bool>? canSwitchBranches,
+    Expression<double>? hourlyRate,
+    Expression<double>? salaryAmount,
+    Expression<double>? commissionRate,
+    Expression<String>? paymentFrequency,
+    Expression<DateTime>? lastLoginAt,
+    Expression<int>? loginCount,
+    Expression<bool>? isActive,
+    Expression<DateTime>? passwordExpiresAt,
+    Expression<String>? status,
+    Expression<String>? createdBy,
+    Expression<String>? updatedBy,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<String>? syncStatus,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (businessUserId != null) 'business_user_id': businessUserId,
+      if (businessId != null) 'business_id': businessId,
+      if (userId != null) 'user_id': userId,
+      if (roleId != null) 'role_id': roleId,
+      if (roleName != null) 'role_name': roleName,
+      if (businessName != null) 'business_name': businessName,
+      if (assignedBranches != null) 'assigned_branches': assignedBranches,
+      if (customPermissions != null) 'custom_permissions': customPermissions,
+      if (employmentStartDate != null)
+        'employment_start_date': employmentStartDate,
+      if (employmentEndDate != null) 'employment_end_date': employmentEndDate,
+      if (isPrimaryBusiness != null) 'is_primary_business': isPrimaryBusiness,
+      if (hasDirectDepositAccess != null)
+        'has_direct_deposit_access': hasDirectDepositAccess,
+      if (canSwitchBranches != null) 'can_switch_branches': canSwitchBranches,
+      if (hourlyRate != null) 'hourly_rate': hourlyRate,
+      if (salaryAmount != null) 'salary_amount': salaryAmount,
+      if (commissionRate != null) 'commission_rate': commissionRate,
+      if (paymentFrequency != null) 'payment_frequency': paymentFrequency,
+      if (lastLoginAt != null) 'last_login_at': lastLoginAt,
+      if (loginCount != null) 'login_count': loginCount,
+      if (isActive != null) 'is_active': isActive,
+      if (passwordExpiresAt != null) 'password_expires_at': passwordExpiresAt,
+      if (status != null) 'status': status,
+      if (createdBy != null) 'created_by': createdBy,
+      if (updatedBy != null) 'updated_by': updatedBy,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (syncStatus != null) 'sync_status': syncStatus,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  BusinessUsersTableCompanion copyWith({
+    Value<String>? businessUserId,
+    Value<String>? businessId,
+    Value<String>? userId,
+    Value<String>? roleId,
+    Value<String>? roleName,
+    Value<String?>? businessName,
+    Value<String?>? assignedBranches,
+    Value<String?>? customPermissions,
+    Value<DateTime?>? employmentStartDate,
+    Value<DateTime?>? employmentEndDate,
+    Value<bool>? isPrimaryBusiness,
+    Value<bool>? hasDirectDepositAccess,
+    Value<bool>? canSwitchBranches,
+    Value<double?>? hourlyRate,
+    Value<double?>? salaryAmount,
+    Value<double?>? commissionRate,
+    Value<String?>? paymentFrequency,
+    Value<DateTime?>? lastLoginAt,
+    Value<int>? loginCount,
+    Value<bool>? isActive,
+    Value<DateTime?>? passwordExpiresAt,
+    Value<StatusType>? status,
+    Value<String?>? createdBy,
+    Value<String?>? updatedBy,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<String?>? syncStatus,
+    Value<int>? rowid,
+  }) {
+    return BusinessUsersTableCompanion(
+      businessUserId: businessUserId ?? this.businessUserId,
+      businessId: businessId ?? this.businessId,
+      userId: userId ?? this.userId,
+      roleId: roleId ?? this.roleId,
+      roleName: roleName ?? this.roleName,
+      businessName: businessName ?? this.businessName,
+      assignedBranches: assignedBranches ?? this.assignedBranches,
+      customPermissions: customPermissions ?? this.customPermissions,
+      employmentStartDate: employmentStartDate ?? this.employmentStartDate,
+      employmentEndDate: employmentEndDate ?? this.employmentEndDate,
+      isPrimaryBusiness: isPrimaryBusiness ?? this.isPrimaryBusiness,
+      hasDirectDepositAccess:
+          hasDirectDepositAccess ?? this.hasDirectDepositAccess,
+      canSwitchBranches: canSwitchBranches ?? this.canSwitchBranches,
+      hourlyRate: hourlyRate ?? this.hourlyRate,
+      salaryAmount: salaryAmount ?? this.salaryAmount,
+      commissionRate: commissionRate ?? this.commissionRate,
+      paymentFrequency: paymentFrequency ?? this.paymentFrequency,
+      lastLoginAt: lastLoginAt ?? this.lastLoginAt,
+      loginCount: loginCount ?? this.loginCount,
+      isActive: isActive ?? this.isActive,
+      passwordExpiresAt: passwordExpiresAt ?? this.passwordExpiresAt,
+      status: status ?? this.status,
+      createdBy: createdBy ?? this.createdBy,
+      updatedBy: updatedBy ?? this.updatedBy,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      syncStatus: syncStatus ?? this.syncStatus,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (businessUserId.present) {
+      map['business_user_id'] = Variable<String>(businessUserId.value);
+    }
+    if (businessId.present) {
+      map['business_id'] = Variable<String>(businessId.value);
+    }
+    if (userId.present) {
+      map['user_id'] = Variable<String>(userId.value);
+    }
+    if (roleId.present) {
+      map['role_id'] = Variable<String>(roleId.value);
+    }
+    if (roleName.present) {
+      map['role_name'] = Variable<String>(roleName.value);
+    }
+    if (businessName.present) {
+      map['business_name'] = Variable<String>(businessName.value);
+    }
+    if (assignedBranches.present) {
+      map['assigned_branches'] = Variable<String>(assignedBranches.value);
+    }
+    if (customPermissions.present) {
+      map['custom_permissions'] = Variable<String>(customPermissions.value);
+    }
+    if (employmentStartDate.present) {
+      map['employment_start_date'] = Variable<DateTime>(
+        employmentStartDate.value,
+      );
+    }
+    if (employmentEndDate.present) {
+      map['employment_end_date'] = Variable<DateTime>(employmentEndDate.value);
+    }
+    if (isPrimaryBusiness.present) {
+      map['is_primary_business'] = Variable<bool>(isPrimaryBusiness.value);
+    }
+    if (hasDirectDepositAccess.present) {
+      map['has_direct_deposit_access'] = Variable<bool>(
+        hasDirectDepositAccess.value,
+      );
+    }
+    if (canSwitchBranches.present) {
+      map['can_switch_branches'] = Variable<bool>(canSwitchBranches.value);
+    }
+    if (hourlyRate.present) {
+      map['hourly_rate'] = Variable<double>(hourlyRate.value);
+    }
+    if (salaryAmount.present) {
+      map['salary_amount'] = Variable<double>(salaryAmount.value);
+    }
+    if (commissionRate.present) {
+      map['commission_rate'] = Variable<double>(commissionRate.value);
+    }
+    if (paymentFrequency.present) {
+      map['payment_frequency'] = Variable<String>(paymentFrequency.value);
+    }
+    if (lastLoginAt.present) {
+      map['last_login_at'] = Variable<DateTime>(lastLoginAt.value);
+    }
+    if (loginCount.present) {
+      map['login_count'] = Variable<int>(loginCount.value);
+    }
+    if (isActive.present) {
+      map['is_active'] = Variable<bool>(isActive.value);
+    }
+    if (passwordExpiresAt.present) {
+      map['password_expires_at'] = Variable<DateTime>(passwordExpiresAt.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(
+        $BusinessUsersTableTable.$converterstatus.toSql(status.value),
+      );
+    }
+    if (createdBy.present) {
+      map['created_by'] = Variable<String>(createdBy.value);
+    }
+    if (updatedBy.present) {
+      map['updated_by'] = Variable<String>(updatedBy.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (syncStatus.present) {
+      map['sync_status'] = Variable<String>(syncStatus.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BusinessUsersTableCompanion(')
+          ..write('businessUserId: $businessUserId, ')
+          ..write('businessId: $businessId, ')
+          ..write('userId: $userId, ')
+          ..write('roleId: $roleId, ')
+          ..write('roleName: $roleName, ')
+          ..write('businessName: $businessName, ')
+          ..write('assignedBranches: $assignedBranches, ')
+          ..write('customPermissions: $customPermissions, ')
+          ..write('employmentStartDate: $employmentStartDate, ')
+          ..write('employmentEndDate: $employmentEndDate, ')
+          ..write('isPrimaryBusiness: $isPrimaryBusiness, ')
+          ..write('hasDirectDepositAccess: $hasDirectDepositAccess, ')
+          ..write('canSwitchBranches: $canSwitchBranches, ')
+          ..write('hourlyRate: $hourlyRate, ')
+          ..write('salaryAmount: $salaryAmount, ')
+          ..write('commissionRate: $commissionRate, ')
+          ..write('paymentFrequency: $paymentFrequency, ')
+          ..write('lastLoginAt: $lastLoginAt, ')
+          ..write('loginCount: $loginCount, ')
+          ..write('isActive: $isActive, ')
+          ..write('passwordExpiresAt: $passwordExpiresAt, ')
+          ..write('status: $status, ')
+          ..write('createdBy: $createdBy, ')
+          ..write('updatedBy: $updatedBy, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncStatus: $syncStatus, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ActionQueueTableTable extends ActionQueueTable
+    with TableInfo<$ActionQueueTableTable, ActionQueueTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ActionQueueTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _actionIdMeta = const VerificationMeta(
+    'actionId',
+  );
+  @override
+  late final GeneratedColumn<String> actionId = GeneratedColumn<String>(
+    'action_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _businessIdMeta = const VerificationMeta(
+    'businessId',
+  );
+  @override
+  late final GeneratedColumn<String> businessId = GeneratedColumn<String>(
+    'business_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _userIdMeta = const VerificationMeta('userId');
+  @override
+  late final GeneratedColumn<String> userId = GeneratedColumn<String>(
+    'user_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _systemIdMeta = const VerificationMeta(
+    'systemId',
+  );
+  @override
+  late final GeneratedColumn<String> systemId = GeneratedColumn<String>(
+    'system_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<AuditAction, String> actionType =
+      GeneratedColumn<String>(
+        'action_type',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      ).withConverter<AuditAction>($ActionQueueTableTable.$converteractionType);
+  static const VerificationMeta _entityTypeMeta = const VerificationMeta(
+    'entityType',
+  );
+  @override
+  late final GeneratedColumn<String> entityType = GeneratedColumn<String>(
+    'entity_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _entityIdMeta = const VerificationMeta(
+    'entityId',
+  );
+  @override
+  late final GeneratedColumn<String> entityId = GeneratedColumn<String>(
+    'entity_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDataMeta = const VerificationMeta(
+    'actionData',
+  );
+  @override
+  late final GeneratedColumn<String> actionData = GeneratedColumn<String>(
+    'action_data',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _changeDetailsMeta = const VerificationMeta(
+    'changeDetails',
+  );
+  @override
+  late final GeneratedColumn<String> changeDetails = GeneratedColumn<String>(
+    'change_details',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _syncStatusMeta = const VerificationMeta(
+    'syncStatus',
+  );
+  @override
+  late final GeneratedColumn<String> syncStatus = GeneratedColumn<String>(
+    'sync_status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<String>('pending'),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _syncedAtMeta = const VerificationMeta(
+    'syncedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> syncedAt = GeneratedColumn<DateTime>(
+    'synced_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _retryCountMeta = const VerificationMeta(
+    'retryCount',
+  );
+  @override
+  late final GeneratedColumn<int> retryCount = GeneratedColumn<int>(
+    'retry_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(0),
+  );
+  static const VerificationMeta _maxRetriesMeta = const VerificationMeta(
+    'maxRetries',
+  );
+  @override
+  late final GeneratedColumn<int> maxRetries = GeneratedColumn<int>(
+    'max_retries',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(3),
+  );
+  static const VerificationMeta _lastErrorMeta = const VerificationMeta(
+    'lastError',
+  );
+  @override
+  late final GeneratedColumn<String> lastError = GeneratedColumn<String>(
+    'last_error',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _lastAttemptAtMeta = const VerificationMeta(
+    'lastAttemptAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> lastAttemptAt =
+      GeneratedColumn<DateTime>(
+        'last_attempt_at',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _nextRetryAtMeta = const VerificationMeta(
+    'nextRetryAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> nextRetryAt = GeneratedColumn<DateTime>(
+    'next_retry_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _priorityMeta = const VerificationMeta(
+    'priority',
+  );
+  @override
+  late final GeneratedColumn<int> priority = GeneratedColumn<int>(
+    'priority',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(1),
+  );
+  static const VerificationMeta _batchIdMeta = const VerificationMeta(
+    'batchId',
+  );
+  @override
+  late final GeneratedColumn<String> batchId = GeneratedColumn<String>(
+    'batch_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _requiresOnlineMeta = const VerificationMeta(
+    'requiresOnline',
+  );
+  @override
+  late final GeneratedColumn<bool> requiresOnline = GeneratedColumn<bool>(
+    'requires_online',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("requires_online" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(true),
+  );
+  static const VerificationMeta _metadataMeta = const VerificationMeta(
+    'metadata',
+  );
+  @override
+  late final GeneratedColumn<String> metadata = GeneratedColumn<String>(
+    'metadata',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _deviceInfoMeta = const VerificationMeta(
+    'deviceInfo',
+  );
+  @override
+  late final GeneratedColumn<String> deviceInfo = GeneratedColumn<String>(
+    'device_info',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    actionId,
+    businessId,
+    userId,
+    systemId,
+    actionType,
+    entityType,
+    entityId,
+    actionData,
+    changeDetails,
+    syncStatus,
+    createdAt,
+    syncedAt,
+    retryCount,
+    maxRetries,
+    lastError,
+    lastAttemptAt,
+    nextRetryAt,
+    priority,
+    batchId,
+    requiresOnline,
+    metadata,
+    deviceInfo,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'action_queue';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ActionQueueTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('action_id')) {
+      context.handle(
+        _actionIdMeta,
+        actionId.isAcceptableOrUnknown(data['action_id']!, _actionIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_actionIdMeta);
+    }
+    if (data.containsKey('business_id')) {
+      context.handle(
+        _businessIdMeta,
+        businessId.isAcceptableOrUnknown(data['business_id']!, _businessIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_businessIdMeta);
+    }
+    if (data.containsKey('user_id')) {
+      context.handle(
+        _userIdMeta,
+        userId.isAcceptableOrUnknown(data['user_id']!, _userIdMeta),
+      );
+    }
+    if (data.containsKey('system_id')) {
+      context.handle(
+        _systemIdMeta,
+        systemId.isAcceptableOrUnknown(data['system_id']!, _systemIdMeta),
+      );
+    }
+    if (data.containsKey('entity_type')) {
+      context.handle(
+        _entityTypeMeta,
+        entityType.isAcceptableOrUnknown(data['entity_type']!, _entityTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_entityTypeMeta);
+    }
+    if (data.containsKey('entity_id')) {
+      context.handle(
+        _entityIdMeta,
+        entityId.isAcceptableOrUnknown(data['entity_id']!, _entityIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_entityIdMeta);
+    }
+    if (data.containsKey('action_data')) {
+      context.handle(
+        _actionDataMeta,
+        actionData.isAcceptableOrUnknown(data['action_data']!, _actionDataMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDataMeta);
+    }
+    if (data.containsKey('change_details')) {
+      context.handle(
+        _changeDetailsMeta,
+        changeDetails.isAcceptableOrUnknown(
+          data['change_details']!,
+          _changeDetailsMeta,
+        ),
+      );
+    }
+    if (data.containsKey('sync_status')) {
+      context.handle(
+        _syncStatusMeta,
+        syncStatus.isAcceptableOrUnknown(data['sync_status']!, _syncStatusMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    }
+    if (data.containsKey('synced_at')) {
+      context.handle(
+        _syncedAtMeta,
+        syncedAt.isAcceptableOrUnknown(data['synced_at']!, _syncedAtMeta),
+      );
+    }
+    if (data.containsKey('retry_count')) {
+      context.handle(
+        _retryCountMeta,
+        retryCount.isAcceptableOrUnknown(data['retry_count']!, _retryCountMeta),
+      );
+    }
+    if (data.containsKey('max_retries')) {
+      context.handle(
+        _maxRetriesMeta,
+        maxRetries.isAcceptableOrUnknown(data['max_retries']!, _maxRetriesMeta),
+      );
+    }
+    if (data.containsKey('last_error')) {
+      context.handle(
+        _lastErrorMeta,
+        lastError.isAcceptableOrUnknown(data['last_error']!, _lastErrorMeta),
+      );
+    }
+    if (data.containsKey('last_attempt_at')) {
+      context.handle(
+        _lastAttemptAtMeta,
+        lastAttemptAt.isAcceptableOrUnknown(
+          data['last_attempt_at']!,
+          _lastAttemptAtMeta,
+        ),
+      );
+    }
+    if (data.containsKey('next_retry_at')) {
+      context.handle(
+        _nextRetryAtMeta,
+        nextRetryAt.isAcceptableOrUnknown(
+          data['next_retry_at']!,
+          _nextRetryAtMeta,
+        ),
+      );
+    }
+    if (data.containsKey('priority')) {
+      context.handle(
+        _priorityMeta,
+        priority.isAcceptableOrUnknown(data['priority']!, _priorityMeta),
+      );
+    }
+    if (data.containsKey('batch_id')) {
+      context.handle(
+        _batchIdMeta,
+        batchId.isAcceptableOrUnknown(data['batch_id']!, _batchIdMeta),
+      );
+    }
+    if (data.containsKey('requires_online')) {
+      context.handle(
+        _requiresOnlineMeta,
+        requiresOnline.isAcceptableOrUnknown(
+          data['requires_online']!,
+          _requiresOnlineMeta,
+        ),
+      );
+    }
+    if (data.containsKey('metadata')) {
+      context.handle(
+        _metadataMeta,
+        metadata.isAcceptableOrUnknown(data['metadata']!, _metadataMeta),
+      );
+    }
+    if (data.containsKey('device_info')) {
+      context.handle(
+        _deviceInfoMeta,
+        deviceInfo.isAcceptableOrUnknown(data['device_info']!, _deviceInfoMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {actionId};
+  @override
+  ActionQueueTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ActionQueueTableData(
+      actionId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}action_id'],
+      )!,
+      businessId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_id'],
+      )!,
+      userId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}user_id'],
+      ),
+      systemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}system_id'],
+      ),
+      actionType: $ActionQueueTableTable.$converteractionType.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}action_type'],
+        )!,
+      ),
+      entityType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}entity_type'],
+      )!,
+      entityId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}entity_id'],
+      )!,
+      actionData: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}action_data'],
+      )!,
+      changeDetails: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}change_details'],
+      ),
+      syncStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sync_status'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      syncedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}synced_at'],
+      ),
+      retryCount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}retry_count'],
+      )!,
+      maxRetries: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}max_retries'],
+      )!,
+      lastError: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}last_error'],
+      ),
+      lastAttemptAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}last_attempt_at'],
+      ),
+      nextRetryAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}next_retry_at'],
+      ),
+      priority: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}priority'],
+      )!,
+      batchId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}batch_id'],
+      ),
+      requiresOnline: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}requires_online'],
+      )!,
+      metadata: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}metadata'],
+      ),
+      deviceInfo: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}device_info'],
+      ),
+    );
+  }
+
+  @override
+  $ActionQueueTableTable createAlias(String alias) {
+    return $ActionQueueTableTable(attachedDatabase, alias);
+  }
+
+  static JsonTypeConverter2<AuditAction, String, String> $converteractionType =
+      const EnumNameConverter<AuditAction>(AuditAction.values);
+}
+
+class ActionQueueTableData extends DataClass
+    implements Insertable<ActionQueueTableData> {
+  final String actionId;
+  final String businessId;
+  final String? userId;
+  final String? systemId;
+  final AuditAction actionType;
+  final String entityType;
+  final String entityId;
+  final String actionData;
+  final String? changeDetails;
+  final String syncStatus;
+  final DateTime createdAt;
+  final DateTime? syncedAt;
+  final int retryCount;
+  final int maxRetries;
+  final String? lastError;
+  final DateTime? lastAttemptAt;
+  final DateTime? nextRetryAt;
+  final int priority;
+  final String? batchId;
+  final bool requiresOnline;
+  final String? metadata;
+  final String? deviceInfo;
+  const ActionQueueTableData({
+    required this.actionId,
+    required this.businessId,
+    this.userId,
+    this.systemId,
+    required this.actionType,
+    required this.entityType,
+    required this.entityId,
+    required this.actionData,
+    this.changeDetails,
+    required this.syncStatus,
+    required this.createdAt,
+    this.syncedAt,
+    required this.retryCount,
+    required this.maxRetries,
+    this.lastError,
+    this.lastAttemptAt,
+    this.nextRetryAt,
+    required this.priority,
+    this.batchId,
+    required this.requiresOnline,
+    this.metadata,
+    this.deviceInfo,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['action_id'] = Variable<String>(actionId);
+    map['business_id'] = Variable<String>(businessId);
+    if (!nullToAbsent || userId != null) {
+      map['user_id'] = Variable<String>(userId);
+    }
+    if (!nullToAbsent || systemId != null) {
+      map['system_id'] = Variable<String>(systemId);
+    }
+    {
+      map['action_type'] = Variable<String>(
+        $ActionQueueTableTable.$converteractionType.toSql(actionType),
+      );
+    }
+    map['entity_type'] = Variable<String>(entityType);
+    map['entity_id'] = Variable<String>(entityId);
+    map['action_data'] = Variable<String>(actionData);
+    if (!nullToAbsent || changeDetails != null) {
+      map['change_details'] = Variable<String>(changeDetails);
+    }
+    map['sync_status'] = Variable<String>(syncStatus);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    if (!nullToAbsent || syncedAt != null) {
+      map['synced_at'] = Variable<DateTime>(syncedAt);
+    }
+    map['retry_count'] = Variable<int>(retryCount);
+    map['max_retries'] = Variable<int>(maxRetries);
+    if (!nullToAbsent || lastError != null) {
+      map['last_error'] = Variable<String>(lastError);
+    }
+    if (!nullToAbsent || lastAttemptAt != null) {
+      map['last_attempt_at'] = Variable<DateTime>(lastAttemptAt);
+    }
+    if (!nullToAbsent || nextRetryAt != null) {
+      map['next_retry_at'] = Variable<DateTime>(nextRetryAt);
+    }
+    map['priority'] = Variable<int>(priority);
+    if (!nullToAbsent || batchId != null) {
+      map['batch_id'] = Variable<String>(batchId);
+    }
+    map['requires_online'] = Variable<bool>(requiresOnline);
+    if (!nullToAbsent || metadata != null) {
+      map['metadata'] = Variable<String>(metadata);
+    }
+    if (!nullToAbsent || deviceInfo != null) {
+      map['device_info'] = Variable<String>(deviceInfo);
+    }
+    return map;
+  }
+
+  ActionQueueTableCompanion toCompanion(bool nullToAbsent) {
+    return ActionQueueTableCompanion(
+      actionId: Value(actionId),
+      businessId: Value(businessId),
+      userId: userId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(userId),
+      systemId: systemId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(systemId),
+      actionType: Value(actionType),
+      entityType: Value(entityType),
+      entityId: Value(entityId),
+      actionData: Value(actionData),
+      changeDetails: changeDetails == null && nullToAbsent
+          ? const Value.absent()
+          : Value(changeDetails),
+      syncStatus: Value(syncStatus),
+      createdAt: Value(createdAt),
+      syncedAt: syncedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syncedAt),
+      retryCount: Value(retryCount),
+      maxRetries: Value(maxRetries),
+      lastError: lastError == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastError),
+      lastAttemptAt: lastAttemptAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastAttemptAt),
+      nextRetryAt: nextRetryAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(nextRetryAt),
+      priority: Value(priority),
+      batchId: batchId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(batchId),
+      requiresOnline: Value(requiresOnline),
+      metadata: metadata == null && nullToAbsent
+          ? const Value.absent()
+          : Value(metadata),
+      deviceInfo: deviceInfo == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deviceInfo),
+    );
+  }
+
+  factory ActionQueueTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ActionQueueTableData(
+      actionId: serializer.fromJson<String>(json['actionId']),
+      businessId: serializer.fromJson<String>(json['businessId']),
+      userId: serializer.fromJson<String?>(json['userId']),
+      systemId: serializer.fromJson<String?>(json['systemId']),
+      actionType: $ActionQueueTableTable.$converteractionType.fromJson(
+        serializer.fromJson<String>(json['actionType']),
+      ),
+      entityType: serializer.fromJson<String>(json['entityType']),
+      entityId: serializer.fromJson<String>(json['entityId']),
+      actionData: serializer.fromJson<String>(json['actionData']),
+      changeDetails: serializer.fromJson<String?>(json['changeDetails']),
+      syncStatus: serializer.fromJson<String>(json['syncStatus']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      syncedAt: serializer.fromJson<DateTime?>(json['syncedAt']),
+      retryCount: serializer.fromJson<int>(json['retryCount']),
+      maxRetries: serializer.fromJson<int>(json['maxRetries']),
+      lastError: serializer.fromJson<String?>(json['lastError']),
+      lastAttemptAt: serializer.fromJson<DateTime?>(json['lastAttemptAt']),
+      nextRetryAt: serializer.fromJson<DateTime?>(json['nextRetryAt']),
+      priority: serializer.fromJson<int>(json['priority']),
+      batchId: serializer.fromJson<String?>(json['batchId']),
+      requiresOnline: serializer.fromJson<bool>(json['requiresOnline']),
+      metadata: serializer.fromJson<String?>(json['metadata']),
+      deviceInfo: serializer.fromJson<String?>(json['deviceInfo']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'actionId': serializer.toJson<String>(actionId),
+      'businessId': serializer.toJson<String>(businessId),
+      'userId': serializer.toJson<String?>(userId),
+      'systemId': serializer.toJson<String?>(systemId),
+      'actionType': serializer.toJson<String>(
+        $ActionQueueTableTable.$converteractionType.toJson(actionType),
+      ),
+      'entityType': serializer.toJson<String>(entityType),
+      'entityId': serializer.toJson<String>(entityId),
+      'actionData': serializer.toJson<String>(actionData),
+      'changeDetails': serializer.toJson<String?>(changeDetails),
+      'syncStatus': serializer.toJson<String>(syncStatus),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'syncedAt': serializer.toJson<DateTime?>(syncedAt),
+      'retryCount': serializer.toJson<int>(retryCount),
+      'maxRetries': serializer.toJson<int>(maxRetries),
+      'lastError': serializer.toJson<String?>(lastError),
+      'lastAttemptAt': serializer.toJson<DateTime?>(lastAttemptAt),
+      'nextRetryAt': serializer.toJson<DateTime?>(nextRetryAt),
+      'priority': serializer.toJson<int>(priority),
+      'batchId': serializer.toJson<String?>(batchId),
+      'requiresOnline': serializer.toJson<bool>(requiresOnline),
+      'metadata': serializer.toJson<String?>(metadata),
+      'deviceInfo': serializer.toJson<String?>(deviceInfo),
+    };
+  }
+
+  ActionQueueTableData copyWith({
+    String? actionId,
+    String? businessId,
+    Value<String?> userId = const Value.absent(),
+    Value<String?> systemId = const Value.absent(),
+    AuditAction? actionType,
+    String? entityType,
+    String? entityId,
+    String? actionData,
+    Value<String?> changeDetails = const Value.absent(),
+    String? syncStatus,
+    DateTime? createdAt,
+    Value<DateTime?> syncedAt = const Value.absent(),
+    int? retryCount,
+    int? maxRetries,
+    Value<String?> lastError = const Value.absent(),
+    Value<DateTime?> lastAttemptAt = const Value.absent(),
+    Value<DateTime?> nextRetryAt = const Value.absent(),
+    int? priority,
+    Value<String?> batchId = const Value.absent(),
+    bool? requiresOnline,
+    Value<String?> metadata = const Value.absent(),
+    Value<String?> deviceInfo = const Value.absent(),
+  }) => ActionQueueTableData(
+    actionId: actionId ?? this.actionId,
+    businessId: businessId ?? this.businessId,
+    userId: userId.present ? userId.value : this.userId,
+    systemId: systemId.present ? systemId.value : this.systemId,
+    actionType: actionType ?? this.actionType,
+    entityType: entityType ?? this.entityType,
+    entityId: entityId ?? this.entityId,
+    actionData: actionData ?? this.actionData,
+    changeDetails: changeDetails.present
+        ? changeDetails.value
+        : this.changeDetails,
+    syncStatus: syncStatus ?? this.syncStatus,
+    createdAt: createdAt ?? this.createdAt,
+    syncedAt: syncedAt.present ? syncedAt.value : this.syncedAt,
+    retryCount: retryCount ?? this.retryCount,
+    maxRetries: maxRetries ?? this.maxRetries,
+    lastError: lastError.present ? lastError.value : this.lastError,
+    lastAttemptAt: lastAttemptAt.present
+        ? lastAttemptAt.value
+        : this.lastAttemptAt,
+    nextRetryAt: nextRetryAt.present ? nextRetryAt.value : this.nextRetryAt,
+    priority: priority ?? this.priority,
+    batchId: batchId.present ? batchId.value : this.batchId,
+    requiresOnline: requiresOnline ?? this.requiresOnline,
+    metadata: metadata.present ? metadata.value : this.metadata,
+    deviceInfo: deviceInfo.present ? deviceInfo.value : this.deviceInfo,
+  );
+  ActionQueueTableData copyWithCompanion(ActionQueueTableCompanion data) {
+    return ActionQueueTableData(
+      actionId: data.actionId.present ? data.actionId.value : this.actionId,
+      businessId: data.businessId.present
+          ? data.businessId.value
+          : this.businessId,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      systemId: data.systemId.present ? data.systemId.value : this.systemId,
+      actionType: data.actionType.present
+          ? data.actionType.value
+          : this.actionType,
+      entityType: data.entityType.present
+          ? data.entityType.value
+          : this.entityType,
+      entityId: data.entityId.present ? data.entityId.value : this.entityId,
+      actionData: data.actionData.present
+          ? data.actionData.value
+          : this.actionData,
+      changeDetails: data.changeDetails.present
+          ? data.changeDetails.value
+          : this.changeDetails,
+      syncStatus: data.syncStatus.present
+          ? data.syncStatus.value
+          : this.syncStatus,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      syncedAt: data.syncedAt.present ? data.syncedAt.value : this.syncedAt,
+      retryCount: data.retryCount.present
+          ? data.retryCount.value
+          : this.retryCount,
+      maxRetries: data.maxRetries.present
+          ? data.maxRetries.value
+          : this.maxRetries,
+      lastError: data.lastError.present ? data.lastError.value : this.lastError,
+      lastAttemptAt: data.lastAttemptAt.present
+          ? data.lastAttemptAt.value
+          : this.lastAttemptAt,
+      nextRetryAt: data.nextRetryAt.present
+          ? data.nextRetryAt.value
+          : this.nextRetryAt,
+      priority: data.priority.present ? data.priority.value : this.priority,
+      batchId: data.batchId.present ? data.batchId.value : this.batchId,
+      requiresOnline: data.requiresOnline.present
+          ? data.requiresOnline.value
+          : this.requiresOnline,
+      metadata: data.metadata.present ? data.metadata.value : this.metadata,
+      deviceInfo: data.deviceInfo.present
+          ? data.deviceInfo.value
+          : this.deviceInfo,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ActionQueueTableData(')
+          ..write('actionId: $actionId, ')
+          ..write('businessId: $businessId, ')
+          ..write('userId: $userId, ')
+          ..write('systemId: $systemId, ')
+          ..write('actionType: $actionType, ')
+          ..write('entityType: $entityType, ')
+          ..write('entityId: $entityId, ')
+          ..write('actionData: $actionData, ')
+          ..write('changeDetails: $changeDetails, ')
+          ..write('syncStatus: $syncStatus, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('syncedAt: $syncedAt, ')
+          ..write('retryCount: $retryCount, ')
+          ..write('maxRetries: $maxRetries, ')
+          ..write('lastError: $lastError, ')
+          ..write('lastAttemptAt: $lastAttemptAt, ')
+          ..write('nextRetryAt: $nextRetryAt, ')
+          ..write('priority: $priority, ')
+          ..write('batchId: $batchId, ')
+          ..write('requiresOnline: $requiresOnline, ')
+          ..write('metadata: $metadata, ')
+          ..write('deviceInfo: $deviceInfo')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    actionId,
+    businessId,
+    userId,
+    systemId,
+    actionType,
+    entityType,
+    entityId,
+    actionData,
+    changeDetails,
+    syncStatus,
+    createdAt,
+    syncedAt,
+    retryCount,
+    maxRetries,
+    lastError,
+    lastAttemptAt,
+    nextRetryAt,
+    priority,
+    batchId,
+    requiresOnline,
+    metadata,
+    deviceInfo,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ActionQueueTableData &&
+          other.actionId == this.actionId &&
+          other.businessId == this.businessId &&
+          other.userId == this.userId &&
+          other.systemId == this.systemId &&
+          other.actionType == this.actionType &&
+          other.entityType == this.entityType &&
+          other.entityId == this.entityId &&
+          other.actionData == this.actionData &&
+          other.changeDetails == this.changeDetails &&
+          other.syncStatus == this.syncStatus &&
+          other.createdAt == this.createdAt &&
+          other.syncedAt == this.syncedAt &&
+          other.retryCount == this.retryCount &&
+          other.maxRetries == this.maxRetries &&
+          other.lastError == this.lastError &&
+          other.lastAttemptAt == this.lastAttemptAt &&
+          other.nextRetryAt == this.nextRetryAt &&
+          other.priority == this.priority &&
+          other.batchId == this.batchId &&
+          other.requiresOnline == this.requiresOnline &&
+          other.metadata == this.metadata &&
+          other.deviceInfo == this.deviceInfo);
+}
+
+class ActionQueueTableCompanion extends UpdateCompanion<ActionQueueTableData> {
+  final Value<String> actionId;
+  final Value<String> businessId;
+  final Value<String?> userId;
+  final Value<String?> systemId;
+  final Value<AuditAction> actionType;
+  final Value<String> entityType;
+  final Value<String> entityId;
+  final Value<String> actionData;
+  final Value<String?> changeDetails;
+  final Value<String> syncStatus;
+  final Value<DateTime> createdAt;
+  final Value<DateTime?> syncedAt;
+  final Value<int> retryCount;
+  final Value<int> maxRetries;
+  final Value<String?> lastError;
+  final Value<DateTime?> lastAttemptAt;
+  final Value<DateTime?> nextRetryAt;
+  final Value<int> priority;
+  final Value<String?> batchId;
+  final Value<bool> requiresOnline;
+  final Value<String?> metadata;
+  final Value<String?> deviceInfo;
+  final Value<int> rowid;
+  const ActionQueueTableCompanion({
+    this.actionId = const Value.absent(),
+    this.businessId = const Value.absent(),
+    this.userId = const Value.absent(),
+    this.systemId = const Value.absent(),
+    this.actionType = const Value.absent(),
+    this.entityType = const Value.absent(),
+    this.entityId = const Value.absent(),
+    this.actionData = const Value.absent(),
+    this.changeDetails = const Value.absent(),
+    this.syncStatus = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.syncedAt = const Value.absent(),
+    this.retryCount = const Value.absent(),
+    this.maxRetries = const Value.absent(),
+    this.lastError = const Value.absent(),
+    this.lastAttemptAt = const Value.absent(),
+    this.nextRetryAt = const Value.absent(),
+    this.priority = const Value.absent(),
+    this.batchId = const Value.absent(),
+    this.requiresOnline = const Value.absent(),
+    this.metadata = const Value.absent(),
+    this.deviceInfo = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ActionQueueTableCompanion.insert({
+    required String actionId,
+    required String businessId,
+    this.userId = const Value.absent(),
+    this.systemId = const Value.absent(),
+    required AuditAction actionType,
+    required String entityType,
+    required String entityId,
+    required String actionData,
+    this.changeDetails = const Value.absent(),
+    this.syncStatus = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.syncedAt = const Value.absent(),
+    this.retryCount = const Value.absent(),
+    this.maxRetries = const Value.absent(),
+    this.lastError = const Value.absent(),
+    this.lastAttemptAt = const Value.absent(),
+    this.nextRetryAt = const Value.absent(),
+    this.priority = const Value.absent(),
+    this.batchId = const Value.absent(),
+    this.requiresOnline = const Value.absent(),
+    this.metadata = const Value.absent(),
+    this.deviceInfo = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : actionId = Value(actionId),
+       businessId = Value(businessId),
+       actionType = Value(actionType),
+       entityType = Value(entityType),
+       entityId = Value(entityId),
+       actionData = Value(actionData);
+  static Insertable<ActionQueueTableData> custom({
+    Expression<String>? actionId,
+    Expression<String>? businessId,
+    Expression<String>? userId,
+    Expression<String>? systemId,
+    Expression<String>? actionType,
+    Expression<String>? entityType,
+    Expression<String>? entityId,
+    Expression<String>? actionData,
+    Expression<String>? changeDetails,
+    Expression<String>? syncStatus,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? syncedAt,
+    Expression<int>? retryCount,
+    Expression<int>? maxRetries,
+    Expression<String>? lastError,
+    Expression<DateTime>? lastAttemptAt,
+    Expression<DateTime>? nextRetryAt,
+    Expression<int>? priority,
+    Expression<String>? batchId,
+    Expression<bool>? requiresOnline,
+    Expression<String>? metadata,
+    Expression<String>? deviceInfo,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (actionId != null) 'action_id': actionId,
+      if (businessId != null) 'business_id': businessId,
+      if (userId != null) 'user_id': userId,
+      if (systemId != null) 'system_id': systemId,
+      if (actionType != null) 'action_type': actionType,
+      if (entityType != null) 'entity_type': entityType,
+      if (entityId != null) 'entity_id': entityId,
+      if (actionData != null) 'action_data': actionData,
+      if (changeDetails != null) 'change_details': changeDetails,
+      if (syncStatus != null) 'sync_status': syncStatus,
+      if (createdAt != null) 'created_at': createdAt,
+      if (syncedAt != null) 'synced_at': syncedAt,
+      if (retryCount != null) 'retry_count': retryCount,
+      if (maxRetries != null) 'max_retries': maxRetries,
+      if (lastError != null) 'last_error': lastError,
+      if (lastAttemptAt != null) 'last_attempt_at': lastAttemptAt,
+      if (nextRetryAt != null) 'next_retry_at': nextRetryAt,
+      if (priority != null) 'priority': priority,
+      if (batchId != null) 'batch_id': batchId,
+      if (requiresOnline != null) 'requires_online': requiresOnline,
+      if (metadata != null) 'metadata': metadata,
+      if (deviceInfo != null) 'device_info': deviceInfo,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ActionQueueTableCompanion copyWith({
+    Value<String>? actionId,
+    Value<String>? businessId,
+    Value<String?>? userId,
+    Value<String?>? systemId,
+    Value<AuditAction>? actionType,
+    Value<String>? entityType,
+    Value<String>? entityId,
+    Value<String>? actionData,
+    Value<String?>? changeDetails,
+    Value<String>? syncStatus,
+    Value<DateTime>? createdAt,
+    Value<DateTime?>? syncedAt,
+    Value<int>? retryCount,
+    Value<int>? maxRetries,
+    Value<String?>? lastError,
+    Value<DateTime?>? lastAttemptAt,
+    Value<DateTime?>? nextRetryAt,
+    Value<int>? priority,
+    Value<String?>? batchId,
+    Value<bool>? requiresOnline,
+    Value<String?>? metadata,
+    Value<String?>? deviceInfo,
+    Value<int>? rowid,
+  }) {
+    return ActionQueueTableCompanion(
+      actionId: actionId ?? this.actionId,
+      businessId: businessId ?? this.businessId,
+      userId: userId ?? this.userId,
+      systemId: systemId ?? this.systemId,
+      actionType: actionType ?? this.actionType,
+      entityType: entityType ?? this.entityType,
+      entityId: entityId ?? this.entityId,
+      actionData: actionData ?? this.actionData,
+      changeDetails: changeDetails ?? this.changeDetails,
+      syncStatus: syncStatus ?? this.syncStatus,
+      createdAt: createdAt ?? this.createdAt,
+      syncedAt: syncedAt ?? this.syncedAt,
+      retryCount: retryCount ?? this.retryCount,
+      maxRetries: maxRetries ?? this.maxRetries,
+      lastError: lastError ?? this.lastError,
+      lastAttemptAt: lastAttemptAt ?? this.lastAttemptAt,
+      nextRetryAt: nextRetryAt ?? this.nextRetryAt,
+      priority: priority ?? this.priority,
+      batchId: batchId ?? this.batchId,
+      requiresOnline: requiresOnline ?? this.requiresOnline,
+      metadata: metadata ?? this.metadata,
+      deviceInfo: deviceInfo ?? this.deviceInfo,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (actionId.present) {
+      map['action_id'] = Variable<String>(actionId.value);
+    }
+    if (businessId.present) {
+      map['business_id'] = Variable<String>(businessId.value);
+    }
+    if (userId.present) {
+      map['user_id'] = Variable<String>(userId.value);
+    }
+    if (systemId.present) {
+      map['system_id'] = Variable<String>(systemId.value);
+    }
+    if (actionType.present) {
+      map['action_type'] = Variable<String>(
+        $ActionQueueTableTable.$converteractionType.toSql(actionType.value),
+      );
+    }
+    if (entityType.present) {
+      map['entity_type'] = Variable<String>(entityType.value);
+    }
+    if (entityId.present) {
+      map['entity_id'] = Variable<String>(entityId.value);
+    }
+    if (actionData.present) {
+      map['action_data'] = Variable<String>(actionData.value);
+    }
+    if (changeDetails.present) {
+      map['change_details'] = Variable<String>(changeDetails.value);
+    }
+    if (syncStatus.present) {
+      map['sync_status'] = Variable<String>(syncStatus.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (syncedAt.present) {
+      map['synced_at'] = Variable<DateTime>(syncedAt.value);
+    }
+    if (retryCount.present) {
+      map['retry_count'] = Variable<int>(retryCount.value);
+    }
+    if (maxRetries.present) {
+      map['max_retries'] = Variable<int>(maxRetries.value);
+    }
+    if (lastError.present) {
+      map['last_error'] = Variable<String>(lastError.value);
+    }
+    if (lastAttemptAt.present) {
+      map['last_attempt_at'] = Variable<DateTime>(lastAttemptAt.value);
+    }
+    if (nextRetryAt.present) {
+      map['next_retry_at'] = Variable<DateTime>(nextRetryAt.value);
+    }
+    if (priority.present) {
+      map['priority'] = Variable<int>(priority.value);
+    }
+    if (batchId.present) {
+      map['batch_id'] = Variable<String>(batchId.value);
+    }
+    if (requiresOnline.present) {
+      map['requires_online'] = Variable<bool>(requiresOnline.value);
+    }
+    if (metadata.present) {
+      map['metadata'] = Variable<String>(metadata.value);
+    }
+    if (deviceInfo.present) {
+      map['device_info'] = Variable<String>(deviceInfo.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ActionQueueTableCompanion(')
+          ..write('actionId: $actionId, ')
+          ..write('businessId: $businessId, ')
+          ..write('userId: $userId, ')
+          ..write('systemId: $systemId, ')
+          ..write('actionType: $actionType, ')
+          ..write('entityType: $entityType, ')
+          ..write('entityId: $entityId, ')
+          ..write('actionData: $actionData, ')
+          ..write('changeDetails: $changeDetails, ')
+          ..write('syncStatus: $syncStatus, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('syncedAt: $syncedAt, ')
+          ..write('retryCount: $retryCount, ')
+          ..write('maxRetries: $maxRetries, ')
+          ..write('lastError: $lastError, ')
+          ..write('lastAttemptAt: $lastAttemptAt, ')
+          ..write('nextRetryAt: $nextRetryAt, ')
+          ..write('priority: $priority, ')
+          ..write('batchId: $batchId, ')
+          ..write('requiresOnline: $requiresOnline, ')
+          ..write('metadata: $metadata, ')
+          ..write('deviceInfo: $deviceInfo, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $SyncStatusTableTable extends SyncStatusTable
+    with TableInfo<$SyncStatusTableTable, SyncStatusTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SyncStatusTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _syncIdMeta = const VerificationMeta('syncId');
+  @override
+  late final GeneratedColumn<String> syncId = GeneratedColumn<String>(
+    'sync_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _businessIdMeta = const VerificationMeta(
+    'businessId',
+  );
+  @override
+  late final GeneratedColumn<String> businessId = GeneratedColumn<String>(
+    'business_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _entityTypeMeta = const VerificationMeta(
+    'entityType',
+  );
+  @override
+  late final GeneratedColumn<String> entityType = GeneratedColumn<String>(
+    'entity_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lastFullSyncMeta = const VerificationMeta(
+    'lastFullSync',
+  );
+  @override
+  late final GeneratedColumn<DateTime> lastFullSync = GeneratedColumn<DateTime>(
+    'last_full_sync',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _lastIncrementalSyncMeta =
+      const VerificationMeta('lastIncrementalSync');
+  @override
+  late final GeneratedColumn<DateTime> lastIncrementalSync =
+      GeneratedColumn<DateTime>(
+        'last_incremental_sync',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _lastSuccessfulSyncMeta =
+      const VerificationMeta('lastSuccessfulSync');
+  @override
+  late final GeneratedColumn<DateTime> lastSuccessfulSync =
+      GeneratedColumn<DateTime>(
+        'last_successful_sync',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _nextScheduledSyncMeta = const VerificationMeta(
+    'nextScheduledSync',
+  );
+  @override
+  late final GeneratedColumn<DateTime> nextScheduledSync =
+      GeneratedColumn<DateTime>(
+        'next_scheduled_sync',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _syncIntervalMinutesMeta =
+      const VerificationMeta('syncIntervalMinutes');
+  @override
+  late final GeneratedColumn<int> syncIntervalMinutes = GeneratedColumn<int>(
+    'sync_interval_minutes',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(15),
+  );
+  static const VerificationMeta _autoSyncEnabledMeta = const VerificationMeta(
+    'autoSyncEnabled',
+  );
+  @override
+  late final GeneratedColumn<bool> autoSyncEnabled = GeneratedColumn<bool>(
+    'auto_sync_enabled',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("auto_sync_enabled" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(true),
+  );
+  static const VerificationMeta _syncOnlyOnWifiMeta = const VerificationMeta(
+    'syncOnlyOnWifi',
+  );
+  @override
+  late final GeneratedColumn<bool> syncOnlyOnWifi = GeneratedColumn<bool>(
+    'sync_only_on_wifi',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("sync_only_on_wifi" IN (0, 1))',
+    ),
+    defaultValue: const Constant<bool>(false),
+  );
+  static const VerificationMeta _totalRecordsToSyncMeta =
+      const VerificationMeta('totalRecordsToSync');
+  @override
+  late final GeneratedColumn<int> totalRecordsToSync = GeneratedColumn<int>(
+    'total_records_to_sync',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(0),
+  );
+  static const VerificationMeta _recordsSyncedMeta = const VerificationMeta(
+    'recordsSynced',
+  );
+  @override
+  late final GeneratedColumn<int> recordsSynced = GeneratedColumn<int>(
+    'records_synced',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(0),
+  );
+  static const VerificationMeta _syncFailuresMeta = const VerificationMeta(
+    'syncFailures',
+  );
+  @override
+  late final GeneratedColumn<int> syncFailures = GeneratedColumn<int>(
+    'sync_failures',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(0),
+  );
+  static const VerificationMeta _consecutiveFailuresMeta =
+      const VerificationMeta('consecutiveFailures');
+  @override
+  late final GeneratedColumn<int> consecutiveFailures = GeneratedColumn<int>(
+    'consecutive_failures',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<int>(0),
+  );
+  static const VerificationMeta _currentStatusMeta = const VerificationMeta(
+    'currentStatus',
+  );
+  @override
+  late final GeneratedColumn<String> currentStatus = GeneratedColumn<String>(
+    'current_status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<String>('idle'),
+  );
+  static const VerificationMeta _syncProgressMeta = const VerificationMeta(
+    'syncProgress',
+  );
+  @override
+  late final GeneratedColumn<double> syncProgress = GeneratedColumn<double>(
+    'sync_progress',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+    defaultValue: const Constant<double>(0.0),
+  );
+  static const VerificationMeta _currentOperationMeta = const VerificationMeta(
+    'currentOperation',
+  );
+  @override
+  late final GeneratedColumn<String> currentOperation = GeneratedColumn<String>(
+    'current_operation',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _lastErrorMeta = const VerificationMeta(
+    'lastError',
+  );
+  @override
+  late final GeneratedColumn<String> lastError = GeneratedColumn<String>(
+    'last_error',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _lastErrorAtMeta = const VerificationMeta(
+    'lastErrorAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> lastErrorAt = GeneratedColumn<DateTime>(
+    'last_error_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _errorCodeMeta = const VerificationMeta(
+    'errorCode',
+  );
+  @override
+  late final GeneratedColumn<int> errorCode = GeneratedColumn<int>(
+    'error_code',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _lastSyncDurationMsMeta =
+      const VerificationMeta('lastSyncDurationMs');
+  @override
+  late final GeneratedColumn<int> lastSyncDurationMs = GeneratedColumn<int>(
+    'last_sync_duration_ms',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _averageSyncDurationMsMeta =
+      const VerificationMeta('averageSyncDurationMs');
+  @override
+  late final GeneratedColumn<int> averageSyncDurationMs = GeneratedColumn<int>(
+    'average_sync_duration_ms',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _avgRecordsPerSecondMeta =
+      const VerificationMeta('avgRecordsPerSecond');
+  @override
+  late final GeneratedColumn<double> avgRecordsPerSecond =
+      GeneratedColumn<double>(
+        'avg_records_per_second',
+        aliasedName,
+        true,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _lastSyncNetworkTypeMeta =
+      const VerificationMeta('lastSyncNetworkType');
+  @override
+  late final GeneratedColumn<String> lastSyncNetworkType =
+      GeneratedColumn<String>(
+        'last_sync_network_type',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _deviceIdMeta = const VerificationMeta(
+    'deviceId',
+  );
+  @override
+  late final GeneratedColumn<String> deviceId = GeneratedColumn<String>(
+    'device_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _appVersionMeta = const VerificationMeta(
+    'appVersion',
+  );
+  @override
+  late final GeneratedColumn<String> appVersion = GeneratedColumn<String>(
+    'app_version',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    syncId,
+    businessId,
+    entityType,
+    lastFullSync,
+    lastIncrementalSync,
+    lastSuccessfulSync,
+    nextScheduledSync,
+    syncIntervalMinutes,
+    autoSyncEnabled,
+    syncOnlyOnWifi,
+    totalRecordsToSync,
+    recordsSynced,
+    syncFailures,
+    consecutiveFailures,
+    currentStatus,
+    syncProgress,
+    currentOperation,
+    lastError,
+    lastErrorAt,
+    errorCode,
+    lastSyncDurationMs,
+    averageSyncDurationMs,
+    avgRecordsPerSecond,
+    lastSyncNetworkType,
+    deviceId,
+    appVersion,
+    createdAt,
+    updatedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'sync_status';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SyncStatusTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('sync_id')) {
+      context.handle(
+        _syncIdMeta,
+        syncId.isAcceptableOrUnknown(data['sync_id']!, _syncIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_syncIdMeta);
+    }
+    if (data.containsKey('business_id')) {
+      context.handle(
+        _businessIdMeta,
+        businessId.isAcceptableOrUnknown(data['business_id']!, _businessIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_businessIdMeta);
+    }
+    if (data.containsKey('entity_type')) {
+      context.handle(
+        _entityTypeMeta,
+        entityType.isAcceptableOrUnknown(data['entity_type']!, _entityTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_entityTypeMeta);
+    }
+    if (data.containsKey('last_full_sync')) {
+      context.handle(
+        _lastFullSyncMeta,
+        lastFullSync.isAcceptableOrUnknown(
+          data['last_full_sync']!,
+          _lastFullSyncMeta,
+        ),
+      );
+    }
+    if (data.containsKey('last_incremental_sync')) {
+      context.handle(
+        _lastIncrementalSyncMeta,
+        lastIncrementalSync.isAcceptableOrUnknown(
+          data['last_incremental_sync']!,
+          _lastIncrementalSyncMeta,
+        ),
+      );
+    }
+    if (data.containsKey('last_successful_sync')) {
+      context.handle(
+        _lastSuccessfulSyncMeta,
+        lastSuccessfulSync.isAcceptableOrUnknown(
+          data['last_successful_sync']!,
+          _lastSuccessfulSyncMeta,
+        ),
+      );
+    }
+    if (data.containsKey('next_scheduled_sync')) {
+      context.handle(
+        _nextScheduledSyncMeta,
+        nextScheduledSync.isAcceptableOrUnknown(
+          data['next_scheduled_sync']!,
+          _nextScheduledSyncMeta,
+        ),
+      );
+    }
+    if (data.containsKey('sync_interval_minutes')) {
+      context.handle(
+        _syncIntervalMinutesMeta,
+        syncIntervalMinutes.isAcceptableOrUnknown(
+          data['sync_interval_minutes']!,
+          _syncIntervalMinutesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('auto_sync_enabled')) {
+      context.handle(
+        _autoSyncEnabledMeta,
+        autoSyncEnabled.isAcceptableOrUnknown(
+          data['auto_sync_enabled']!,
+          _autoSyncEnabledMeta,
+        ),
+      );
+    }
+    if (data.containsKey('sync_only_on_wifi')) {
+      context.handle(
+        _syncOnlyOnWifiMeta,
+        syncOnlyOnWifi.isAcceptableOrUnknown(
+          data['sync_only_on_wifi']!,
+          _syncOnlyOnWifiMeta,
+        ),
+      );
+    }
+    if (data.containsKey('total_records_to_sync')) {
+      context.handle(
+        _totalRecordsToSyncMeta,
+        totalRecordsToSync.isAcceptableOrUnknown(
+          data['total_records_to_sync']!,
+          _totalRecordsToSyncMeta,
+        ),
+      );
+    }
+    if (data.containsKey('records_synced')) {
+      context.handle(
+        _recordsSyncedMeta,
+        recordsSynced.isAcceptableOrUnknown(
+          data['records_synced']!,
+          _recordsSyncedMeta,
+        ),
+      );
+    }
+    if (data.containsKey('sync_failures')) {
+      context.handle(
+        _syncFailuresMeta,
+        syncFailures.isAcceptableOrUnknown(
+          data['sync_failures']!,
+          _syncFailuresMeta,
+        ),
+      );
+    }
+    if (data.containsKey('consecutive_failures')) {
+      context.handle(
+        _consecutiveFailuresMeta,
+        consecutiveFailures.isAcceptableOrUnknown(
+          data['consecutive_failures']!,
+          _consecutiveFailuresMeta,
+        ),
+      );
+    }
+    if (data.containsKey('current_status')) {
+      context.handle(
+        _currentStatusMeta,
+        currentStatus.isAcceptableOrUnknown(
+          data['current_status']!,
+          _currentStatusMeta,
+        ),
+      );
+    }
+    if (data.containsKey('sync_progress')) {
+      context.handle(
+        _syncProgressMeta,
+        syncProgress.isAcceptableOrUnknown(
+          data['sync_progress']!,
+          _syncProgressMeta,
+        ),
+      );
+    }
+    if (data.containsKey('current_operation')) {
+      context.handle(
+        _currentOperationMeta,
+        currentOperation.isAcceptableOrUnknown(
+          data['current_operation']!,
+          _currentOperationMeta,
+        ),
+      );
+    }
+    if (data.containsKey('last_error')) {
+      context.handle(
+        _lastErrorMeta,
+        lastError.isAcceptableOrUnknown(data['last_error']!, _lastErrorMeta),
+      );
+    }
+    if (data.containsKey('last_error_at')) {
+      context.handle(
+        _lastErrorAtMeta,
+        lastErrorAt.isAcceptableOrUnknown(
+          data['last_error_at']!,
+          _lastErrorAtMeta,
+        ),
+      );
+    }
+    if (data.containsKey('error_code')) {
+      context.handle(
+        _errorCodeMeta,
+        errorCode.isAcceptableOrUnknown(data['error_code']!, _errorCodeMeta),
+      );
+    }
+    if (data.containsKey('last_sync_duration_ms')) {
+      context.handle(
+        _lastSyncDurationMsMeta,
+        lastSyncDurationMs.isAcceptableOrUnknown(
+          data['last_sync_duration_ms']!,
+          _lastSyncDurationMsMeta,
+        ),
+      );
+    }
+    if (data.containsKey('average_sync_duration_ms')) {
+      context.handle(
+        _averageSyncDurationMsMeta,
+        averageSyncDurationMs.isAcceptableOrUnknown(
+          data['average_sync_duration_ms']!,
+          _averageSyncDurationMsMeta,
+        ),
+      );
+    }
+    if (data.containsKey('avg_records_per_second')) {
+      context.handle(
+        _avgRecordsPerSecondMeta,
+        avgRecordsPerSecond.isAcceptableOrUnknown(
+          data['avg_records_per_second']!,
+          _avgRecordsPerSecondMeta,
+        ),
+      );
+    }
+    if (data.containsKey('last_sync_network_type')) {
+      context.handle(
+        _lastSyncNetworkTypeMeta,
+        lastSyncNetworkType.isAcceptableOrUnknown(
+          data['last_sync_network_type']!,
+          _lastSyncNetworkTypeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('device_id')) {
+      context.handle(
+        _deviceIdMeta,
+        deviceId.isAcceptableOrUnknown(data['device_id']!, _deviceIdMeta),
+      );
+    }
+    if (data.containsKey('app_version')) {
+      context.handle(
+        _appVersionMeta,
+        appVersion.isAcceptableOrUnknown(data['app_version']!, _appVersionMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {syncId};
+  @override
+  SyncStatusTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SyncStatusTableData(
+      syncId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sync_id'],
+      )!,
+      businessId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}business_id'],
+      )!,
+      entityType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}entity_type'],
+      )!,
+      lastFullSync: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}last_full_sync'],
+      ),
+      lastIncrementalSync: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}last_incremental_sync'],
+      ),
+      lastSuccessfulSync: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}last_successful_sync'],
+      ),
+      nextScheduledSync: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}next_scheduled_sync'],
+      ),
+      syncIntervalMinutes: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sync_interval_minutes'],
+      )!,
+      autoSyncEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}auto_sync_enabled'],
+      )!,
+      syncOnlyOnWifi: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}sync_only_on_wifi'],
+      )!,
+      totalRecordsToSync: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}total_records_to_sync'],
+      )!,
+      recordsSynced: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}records_synced'],
+      )!,
+      syncFailures: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sync_failures'],
+      )!,
+      consecutiveFailures: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}consecutive_failures'],
+      )!,
+      currentStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}current_status'],
+      )!,
+      syncProgress: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}sync_progress'],
+      )!,
+      currentOperation: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}current_operation'],
+      ),
+      lastError: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}last_error'],
+      ),
+      lastErrorAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}last_error_at'],
+      ),
+      errorCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}error_code'],
+      ),
+      lastSyncDurationMs: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}last_sync_duration_ms'],
+      ),
+      averageSyncDurationMs: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}average_sync_duration_ms'],
+      ),
+      avgRecordsPerSecond: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}avg_records_per_second'],
+      ),
+      lastSyncNetworkType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}last_sync_network_type'],
+      ),
+      deviceId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}device_id'],
+      ),
+      appVersion: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}app_version'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  $SyncStatusTableTable createAlias(String alias) {
+    return $SyncStatusTableTable(attachedDatabase, alias);
+  }
+}
+
+class SyncStatusTableData extends DataClass
+    implements Insertable<SyncStatusTableData> {
+  final String syncId;
+  final String businessId;
+  final String entityType;
+  final DateTime? lastFullSync;
+  final DateTime? lastIncrementalSync;
+  final DateTime? lastSuccessfulSync;
+  final DateTime? nextScheduledSync;
+  final int syncIntervalMinutes;
+  final bool autoSyncEnabled;
+  final bool syncOnlyOnWifi;
+  final int totalRecordsToSync;
+  final int recordsSynced;
+  final int syncFailures;
+  final int consecutiveFailures;
+  final String currentStatus;
+  final double syncProgress;
+  final String? currentOperation;
+  final String? lastError;
+  final DateTime? lastErrorAt;
+  final int? errorCode;
+  final int? lastSyncDurationMs;
+  final int? averageSyncDurationMs;
+  final double? avgRecordsPerSecond;
+  final String? lastSyncNetworkType;
+  final String? deviceId;
+  final String? appVersion;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  const SyncStatusTableData({
+    required this.syncId,
+    required this.businessId,
+    required this.entityType,
+    this.lastFullSync,
+    this.lastIncrementalSync,
+    this.lastSuccessfulSync,
+    this.nextScheduledSync,
+    required this.syncIntervalMinutes,
+    required this.autoSyncEnabled,
+    required this.syncOnlyOnWifi,
+    required this.totalRecordsToSync,
+    required this.recordsSynced,
+    required this.syncFailures,
+    required this.consecutiveFailures,
+    required this.currentStatus,
+    required this.syncProgress,
+    this.currentOperation,
+    this.lastError,
+    this.lastErrorAt,
+    this.errorCode,
+    this.lastSyncDurationMs,
+    this.averageSyncDurationMs,
+    this.avgRecordsPerSecond,
+    this.lastSyncNetworkType,
+    this.deviceId,
+    this.appVersion,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['sync_id'] = Variable<String>(syncId);
+    map['business_id'] = Variable<String>(businessId);
+    map['entity_type'] = Variable<String>(entityType);
+    if (!nullToAbsent || lastFullSync != null) {
+      map['last_full_sync'] = Variable<DateTime>(lastFullSync);
+    }
+    if (!nullToAbsent || lastIncrementalSync != null) {
+      map['last_incremental_sync'] = Variable<DateTime>(lastIncrementalSync);
+    }
+    if (!nullToAbsent || lastSuccessfulSync != null) {
+      map['last_successful_sync'] = Variable<DateTime>(lastSuccessfulSync);
+    }
+    if (!nullToAbsent || nextScheduledSync != null) {
+      map['next_scheduled_sync'] = Variable<DateTime>(nextScheduledSync);
+    }
+    map['sync_interval_minutes'] = Variable<int>(syncIntervalMinutes);
+    map['auto_sync_enabled'] = Variable<bool>(autoSyncEnabled);
+    map['sync_only_on_wifi'] = Variable<bool>(syncOnlyOnWifi);
+    map['total_records_to_sync'] = Variable<int>(totalRecordsToSync);
+    map['records_synced'] = Variable<int>(recordsSynced);
+    map['sync_failures'] = Variable<int>(syncFailures);
+    map['consecutive_failures'] = Variable<int>(consecutiveFailures);
+    map['current_status'] = Variable<String>(currentStatus);
+    map['sync_progress'] = Variable<double>(syncProgress);
+    if (!nullToAbsent || currentOperation != null) {
+      map['current_operation'] = Variable<String>(currentOperation);
+    }
+    if (!nullToAbsent || lastError != null) {
+      map['last_error'] = Variable<String>(lastError);
+    }
+    if (!nullToAbsent || lastErrorAt != null) {
+      map['last_error_at'] = Variable<DateTime>(lastErrorAt);
+    }
+    if (!nullToAbsent || errorCode != null) {
+      map['error_code'] = Variable<int>(errorCode);
+    }
+    if (!nullToAbsent || lastSyncDurationMs != null) {
+      map['last_sync_duration_ms'] = Variable<int>(lastSyncDurationMs);
+    }
+    if (!nullToAbsent || averageSyncDurationMs != null) {
+      map['average_sync_duration_ms'] = Variable<int>(averageSyncDurationMs);
+    }
+    if (!nullToAbsent || avgRecordsPerSecond != null) {
+      map['avg_records_per_second'] = Variable<double>(avgRecordsPerSecond);
+    }
+    if (!nullToAbsent || lastSyncNetworkType != null) {
+      map['last_sync_network_type'] = Variable<String>(lastSyncNetworkType);
+    }
+    if (!nullToAbsent || deviceId != null) {
+      map['device_id'] = Variable<String>(deviceId);
+    }
+    if (!nullToAbsent || appVersion != null) {
+      map['app_version'] = Variable<String>(appVersion);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    return map;
+  }
+
+  SyncStatusTableCompanion toCompanion(bool nullToAbsent) {
+    return SyncStatusTableCompanion(
+      syncId: Value(syncId),
+      businessId: Value(businessId),
+      entityType: Value(entityType),
+      lastFullSync: lastFullSync == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastFullSync),
+      lastIncrementalSync: lastIncrementalSync == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastIncrementalSync),
+      lastSuccessfulSync: lastSuccessfulSync == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastSuccessfulSync),
+      nextScheduledSync: nextScheduledSync == null && nullToAbsent
+          ? const Value.absent()
+          : Value(nextScheduledSync),
+      syncIntervalMinutes: Value(syncIntervalMinutes),
+      autoSyncEnabled: Value(autoSyncEnabled),
+      syncOnlyOnWifi: Value(syncOnlyOnWifi),
+      totalRecordsToSync: Value(totalRecordsToSync),
+      recordsSynced: Value(recordsSynced),
+      syncFailures: Value(syncFailures),
+      consecutiveFailures: Value(consecutiveFailures),
+      currentStatus: Value(currentStatus),
+      syncProgress: Value(syncProgress),
+      currentOperation: currentOperation == null && nullToAbsent
+          ? const Value.absent()
+          : Value(currentOperation),
+      lastError: lastError == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastError),
+      lastErrorAt: lastErrorAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastErrorAt),
+      errorCode: errorCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(errorCode),
+      lastSyncDurationMs: lastSyncDurationMs == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastSyncDurationMs),
+      averageSyncDurationMs: averageSyncDurationMs == null && nullToAbsent
+          ? const Value.absent()
+          : Value(averageSyncDurationMs),
+      avgRecordsPerSecond: avgRecordsPerSecond == null && nullToAbsent
+          ? const Value.absent()
+          : Value(avgRecordsPerSecond),
+      lastSyncNetworkType: lastSyncNetworkType == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastSyncNetworkType),
+      deviceId: deviceId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deviceId),
+      appVersion: appVersion == null && nullToAbsent
+          ? const Value.absent()
+          : Value(appVersion),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory SyncStatusTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SyncStatusTableData(
+      syncId: serializer.fromJson<String>(json['syncId']),
+      businessId: serializer.fromJson<String>(json['businessId']),
+      entityType: serializer.fromJson<String>(json['entityType']),
+      lastFullSync: serializer.fromJson<DateTime?>(json['lastFullSync']),
+      lastIncrementalSync: serializer.fromJson<DateTime?>(
+        json['lastIncrementalSync'],
+      ),
+      lastSuccessfulSync: serializer.fromJson<DateTime?>(
+        json['lastSuccessfulSync'],
+      ),
+      nextScheduledSync: serializer.fromJson<DateTime?>(
+        json['nextScheduledSync'],
+      ),
+      syncIntervalMinutes: serializer.fromJson<int>(
+        json['syncIntervalMinutes'],
+      ),
+      autoSyncEnabled: serializer.fromJson<bool>(json['autoSyncEnabled']),
+      syncOnlyOnWifi: serializer.fromJson<bool>(json['syncOnlyOnWifi']),
+      totalRecordsToSync: serializer.fromJson<int>(json['totalRecordsToSync']),
+      recordsSynced: serializer.fromJson<int>(json['recordsSynced']),
+      syncFailures: serializer.fromJson<int>(json['syncFailures']),
+      consecutiveFailures: serializer.fromJson<int>(
+        json['consecutiveFailures'],
+      ),
+      currentStatus: serializer.fromJson<String>(json['currentStatus']),
+      syncProgress: serializer.fromJson<double>(json['syncProgress']),
+      currentOperation: serializer.fromJson<String?>(json['currentOperation']),
+      lastError: serializer.fromJson<String?>(json['lastError']),
+      lastErrorAt: serializer.fromJson<DateTime?>(json['lastErrorAt']),
+      errorCode: serializer.fromJson<int?>(json['errorCode']),
+      lastSyncDurationMs: serializer.fromJson<int?>(json['lastSyncDurationMs']),
+      averageSyncDurationMs: serializer.fromJson<int?>(
+        json['averageSyncDurationMs'],
+      ),
+      avgRecordsPerSecond: serializer.fromJson<double?>(
+        json['avgRecordsPerSecond'],
+      ),
+      lastSyncNetworkType: serializer.fromJson<String?>(
+        json['lastSyncNetworkType'],
+      ),
+      deviceId: serializer.fromJson<String?>(json['deviceId']),
+      appVersion: serializer.fromJson<String?>(json['appVersion']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'syncId': serializer.toJson<String>(syncId),
+      'businessId': serializer.toJson<String>(businessId),
+      'entityType': serializer.toJson<String>(entityType),
+      'lastFullSync': serializer.toJson<DateTime?>(lastFullSync),
+      'lastIncrementalSync': serializer.toJson<DateTime?>(lastIncrementalSync),
+      'lastSuccessfulSync': serializer.toJson<DateTime?>(lastSuccessfulSync),
+      'nextScheduledSync': serializer.toJson<DateTime?>(nextScheduledSync),
+      'syncIntervalMinutes': serializer.toJson<int>(syncIntervalMinutes),
+      'autoSyncEnabled': serializer.toJson<bool>(autoSyncEnabled),
+      'syncOnlyOnWifi': serializer.toJson<bool>(syncOnlyOnWifi),
+      'totalRecordsToSync': serializer.toJson<int>(totalRecordsToSync),
+      'recordsSynced': serializer.toJson<int>(recordsSynced),
+      'syncFailures': serializer.toJson<int>(syncFailures),
+      'consecutiveFailures': serializer.toJson<int>(consecutiveFailures),
+      'currentStatus': serializer.toJson<String>(currentStatus),
+      'syncProgress': serializer.toJson<double>(syncProgress),
+      'currentOperation': serializer.toJson<String?>(currentOperation),
+      'lastError': serializer.toJson<String?>(lastError),
+      'lastErrorAt': serializer.toJson<DateTime?>(lastErrorAt),
+      'errorCode': serializer.toJson<int?>(errorCode),
+      'lastSyncDurationMs': serializer.toJson<int?>(lastSyncDurationMs),
+      'averageSyncDurationMs': serializer.toJson<int?>(averageSyncDurationMs),
+      'avgRecordsPerSecond': serializer.toJson<double?>(avgRecordsPerSecond),
+      'lastSyncNetworkType': serializer.toJson<String?>(lastSyncNetworkType),
+      'deviceId': serializer.toJson<String?>(deviceId),
+      'appVersion': serializer.toJson<String?>(appVersion),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+    };
+  }
+
+  SyncStatusTableData copyWith({
+    String? syncId,
+    String? businessId,
+    String? entityType,
+    Value<DateTime?> lastFullSync = const Value.absent(),
+    Value<DateTime?> lastIncrementalSync = const Value.absent(),
+    Value<DateTime?> lastSuccessfulSync = const Value.absent(),
+    Value<DateTime?> nextScheduledSync = const Value.absent(),
+    int? syncIntervalMinutes,
+    bool? autoSyncEnabled,
+    bool? syncOnlyOnWifi,
+    int? totalRecordsToSync,
+    int? recordsSynced,
+    int? syncFailures,
+    int? consecutiveFailures,
+    String? currentStatus,
+    double? syncProgress,
+    Value<String?> currentOperation = const Value.absent(),
+    Value<String?> lastError = const Value.absent(),
+    Value<DateTime?> lastErrorAt = const Value.absent(),
+    Value<int?> errorCode = const Value.absent(),
+    Value<int?> lastSyncDurationMs = const Value.absent(),
+    Value<int?> averageSyncDurationMs = const Value.absent(),
+    Value<double?> avgRecordsPerSecond = const Value.absent(),
+    Value<String?> lastSyncNetworkType = const Value.absent(),
+    Value<String?> deviceId = const Value.absent(),
+    Value<String?> appVersion = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => SyncStatusTableData(
+    syncId: syncId ?? this.syncId,
+    businessId: businessId ?? this.businessId,
+    entityType: entityType ?? this.entityType,
+    lastFullSync: lastFullSync.present ? lastFullSync.value : this.lastFullSync,
+    lastIncrementalSync: lastIncrementalSync.present
+        ? lastIncrementalSync.value
+        : this.lastIncrementalSync,
+    lastSuccessfulSync: lastSuccessfulSync.present
+        ? lastSuccessfulSync.value
+        : this.lastSuccessfulSync,
+    nextScheduledSync: nextScheduledSync.present
+        ? nextScheduledSync.value
+        : this.nextScheduledSync,
+    syncIntervalMinutes: syncIntervalMinutes ?? this.syncIntervalMinutes,
+    autoSyncEnabled: autoSyncEnabled ?? this.autoSyncEnabled,
+    syncOnlyOnWifi: syncOnlyOnWifi ?? this.syncOnlyOnWifi,
+    totalRecordsToSync: totalRecordsToSync ?? this.totalRecordsToSync,
+    recordsSynced: recordsSynced ?? this.recordsSynced,
+    syncFailures: syncFailures ?? this.syncFailures,
+    consecutiveFailures: consecutiveFailures ?? this.consecutiveFailures,
+    currentStatus: currentStatus ?? this.currentStatus,
+    syncProgress: syncProgress ?? this.syncProgress,
+    currentOperation: currentOperation.present
+        ? currentOperation.value
+        : this.currentOperation,
+    lastError: lastError.present ? lastError.value : this.lastError,
+    lastErrorAt: lastErrorAt.present ? lastErrorAt.value : this.lastErrorAt,
+    errorCode: errorCode.present ? errorCode.value : this.errorCode,
+    lastSyncDurationMs: lastSyncDurationMs.present
+        ? lastSyncDurationMs.value
+        : this.lastSyncDurationMs,
+    averageSyncDurationMs: averageSyncDurationMs.present
+        ? averageSyncDurationMs.value
+        : this.averageSyncDurationMs,
+    avgRecordsPerSecond: avgRecordsPerSecond.present
+        ? avgRecordsPerSecond.value
+        : this.avgRecordsPerSecond,
+    lastSyncNetworkType: lastSyncNetworkType.present
+        ? lastSyncNetworkType.value
+        : this.lastSyncNetworkType,
+    deviceId: deviceId.present ? deviceId.value : this.deviceId,
+    appVersion: appVersion.present ? appVersion.value : this.appVersion,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+  SyncStatusTableData copyWithCompanion(SyncStatusTableCompanion data) {
+    return SyncStatusTableData(
+      syncId: data.syncId.present ? data.syncId.value : this.syncId,
+      businessId: data.businessId.present
+          ? data.businessId.value
+          : this.businessId,
+      entityType: data.entityType.present
+          ? data.entityType.value
+          : this.entityType,
+      lastFullSync: data.lastFullSync.present
+          ? data.lastFullSync.value
+          : this.lastFullSync,
+      lastIncrementalSync: data.lastIncrementalSync.present
+          ? data.lastIncrementalSync.value
+          : this.lastIncrementalSync,
+      lastSuccessfulSync: data.lastSuccessfulSync.present
+          ? data.lastSuccessfulSync.value
+          : this.lastSuccessfulSync,
+      nextScheduledSync: data.nextScheduledSync.present
+          ? data.nextScheduledSync.value
+          : this.nextScheduledSync,
+      syncIntervalMinutes: data.syncIntervalMinutes.present
+          ? data.syncIntervalMinutes.value
+          : this.syncIntervalMinutes,
+      autoSyncEnabled: data.autoSyncEnabled.present
+          ? data.autoSyncEnabled.value
+          : this.autoSyncEnabled,
+      syncOnlyOnWifi: data.syncOnlyOnWifi.present
+          ? data.syncOnlyOnWifi.value
+          : this.syncOnlyOnWifi,
+      totalRecordsToSync: data.totalRecordsToSync.present
+          ? data.totalRecordsToSync.value
+          : this.totalRecordsToSync,
+      recordsSynced: data.recordsSynced.present
+          ? data.recordsSynced.value
+          : this.recordsSynced,
+      syncFailures: data.syncFailures.present
+          ? data.syncFailures.value
+          : this.syncFailures,
+      consecutiveFailures: data.consecutiveFailures.present
+          ? data.consecutiveFailures.value
+          : this.consecutiveFailures,
+      currentStatus: data.currentStatus.present
+          ? data.currentStatus.value
+          : this.currentStatus,
+      syncProgress: data.syncProgress.present
+          ? data.syncProgress.value
+          : this.syncProgress,
+      currentOperation: data.currentOperation.present
+          ? data.currentOperation.value
+          : this.currentOperation,
+      lastError: data.lastError.present ? data.lastError.value : this.lastError,
+      lastErrorAt: data.lastErrorAt.present
+          ? data.lastErrorAt.value
+          : this.lastErrorAt,
+      errorCode: data.errorCode.present ? data.errorCode.value : this.errorCode,
+      lastSyncDurationMs: data.lastSyncDurationMs.present
+          ? data.lastSyncDurationMs.value
+          : this.lastSyncDurationMs,
+      averageSyncDurationMs: data.averageSyncDurationMs.present
+          ? data.averageSyncDurationMs.value
+          : this.averageSyncDurationMs,
+      avgRecordsPerSecond: data.avgRecordsPerSecond.present
+          ? data.avgRecordsPerSecond.value
+          : this.avgRecordsPerSecond,
+      lastSyncNetworkType: data.lastSyncNetworkType.present
+          ? data.lastSyncNetworkType.value
+          : this.lastSyncNetworkType,
+      deviceId: data.deviceId.present ? data.deviceId.value : this.deviceId,
+      appVersion: data.appVersion.present
+          ? data.appVersion.value
+          : this.appVersion,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SyncStatusTableData(')
+          ..write('syncId: $syncId, ')
+          ..write('businessId: $businessId, ')
+          ..write('entityType: $entityType, ')
+          ..write('lastFullSync: $lastFullSync, ')
+          ..write('lastIncrementalSync: $lastIncrementalSync, ')
+          ..write('lastSuccessfulSync: $lastSuccessfulSync, ')
+          ..write('nextScheduledSync: $nextScheduledSync, ')
+          ..write('syncIntervalMinutes: $syncIntervalMinutes, ')
+          ..write('autoSyncEnabled: $autoSyncEnabled, ')
+          ..write('syncOnlyOnWifi: $syncOnlyOnWifi, ')
+          ..write('totalRecordsToSync: $totalRecordsToSync, ')
+          ..write('recordsSynced: $recordsSynced, ')
+          ..write('syncFailures: $syncFailures, ')
+          ..write('consecutiveFailures: $consecutiveFailures, ')
+          ..write('currentStatus: $currentStatus, ')
+          ..write('syncProgress: $syncProgress, ')
+          ..write('currentOperation: $currentOperation, ')
+          ..write('lastError: $lastError, ')
+          ..write('lastErrorAt: $lastErrorAt, ')
+          ..write('errorCode: $errorCode, ')
+          ..write('lastSyncDurationMs: $lastSyncDurationMs, ')
+          ..write('averageSyncDurationMs: $averageSyncDurationMs, ')
+          ..write('avgRecordsPerSecond: $avgRecordsPerSecond, ')
+          ..write('lastSyncNetworkType: $lastSyncNetworkType, ')
+          ..write('deviceId: $deviceId, ')
+          ..write('appVersion: $appVersion, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    syncId,
+    businessId,
+    entityType,
+    lastFullSync,
+    lastIncrementalSync,
+    lastSuccessfulSync,
+    nextScheduledSync,
+    syncIntervalMinutes,
+    autoSyncEnabled,
+    syncOnlyOnWifi,
+    totalRecordsToSync,
+    recordsSynced,
+    syncFailures,
+    consecutiveFailures,
+    currentStatus,
+    syncProgress,
+    currentOperation,
+    lastError,
+    lastErrorAt,
+    errorCode,
+    lastSyncDurationMs,
+    averageSyncDurationMs,
+    avgRecordsPerSecond,
+    lastSyncNetworkType,
+    deviceId,
+    appVersion,
+    createdAt,
+    updatedAt,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SyncStatusTableData &&
+          other.syncId == this.syncId &&
+          other.businessId == this.businessId &&
+          other.entityType == this.entityType &&
+          other.lastFullSync == this.lastFullSync &&
+          other.lastIncrementalSync == this.lastIncrementalSync &&
+          other.lastSuccessfulSync == this.lastSuccessfulSync &&
+          other.nextScheduledSync == this.nextScheduledSync &&
+          other.syncIntervalMinutes == this.syncIntervalMinutes &&
+          other.autoSyncEnabled == this.autoSyncEnabled &&
+          other.syncOnlyOnWifi == this.syncOnlyOnWifi &&
+          other.totalRecordsToSync == this.totalRecordsToSync &&
+          other.recordsSynced == this.recordsSynced &&
+          other.syncFailures == this.syncFailures &&
+          other.consecutiveFailures == this.consecutiveFailures &&
+          other.currentStatus == this.currentStatus &&
+          other.syncProgress == this.syncProgress &&
+          other.currentOperation == this.currentOperation &&
+          other.lastError == this.lastError &&
+          other.lastErrorAt == this.lastErrorAt &&
+          other.errorCode == this.errorCode &&
+          other.lastSyncDurationMs == this.lastSyncDurationMs &&
+          other.averageSyncDurationMs == this.averageSyncDurationMs &&
+          other.avgRecordsPerSecond == this.avgRecordsPerSecond &&
+          other.lastSyncNetworkType == this.lastSyncNetworkType &&
+          other.deviceId == this.deviceId &&
+          other.appVersion == this.appVersion &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt);
+}
+
+class SyncStatusTableCompanion extends UpdateCompanion<SyncStatusTableData> {
+  final Value<String> syncId;
+  final Value<String> businessId;
+  final Value<String> entityType;
+  final Value<DateTime?> lastFullSync;
+  final Value<DateTime?> lastIncrementalSync;
+  final Value<DateTime?> lastSuccessfulSync;
+  final Value<DateTime?> nextScheduledSync;
+  final Value<int> syncIntervalMinutes;
+  final Value<bool> autoSyncEnabled;
+  final Value<bool> syncOnlyOnWifi;
+  final Value<int> totalRecordsToSync;
+  final Value<int> recordsSynced;
+  final Value<int> syncFailures;
+  final Value<int> consecutiveFailures;
+  final Value<String> currentStatus;
+  final Value<double> syncProgress;
+  final Value<String?> currentOperation;
+  final Value<String?> lastError;
+  final Value<DateTime?> lastErrorAt;
+  final Value<int?> errorCode;
+  final Value<int?> lastSyncDurationMs;
+  final Value<int?> averageSyncDurationMs;
+  final Value<double?> avgRecordsPerSecond;
+  final Value<String?> lastSyncNetworkType;
+  final Value<String?> deviceId;
+  final Value<String?> appVersion;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<int> rowid;
+  const SyncStatusTableCompanion({
+    this.syncId = const Value.absent(),
+    this.businessId = const Value.absent(),
+    this.entityType = const Value.absent(),
+    this.lastFullSync = const Value.absent(),
+    this.lastIncrementalSync = const Value.absent(),
+    this.lastSuccessfulSync = const Value.absent(),
+    this.nextScheduledSync = const Value.absent(),
+    this.syncIntervalMinutes = const Value.absent(),
+    this.autoSyncEnabled = const Value.absent(),
+    this.syncOnlyOnWifi = const Value.absent(),
+    this.totalRecordsToSync = const Value.absent(),
+    this.recordsSynced = const Value.absent(),
+    this.syncFailures = const Value.absent(),
+    this.consecutiveFailures = const Value.absent(),
+    this.currentStatus = const Value.absent(),
+    this.syncProgress = const Value.absent(),
+    this.currentOperation = const Value.absent(),
+    this.lastError = const Value.absent(),
+    this.lastErrorAt = const Value.absent(),
+    this.errorCode = const Value.absent(),
+    this.lastSyncDurationMs = const Value.absent(),
+    this.averageSyncDurationMs = const Value.absent(),
+    this.avgRecordsPerSecond = const Value.absent(),
+    this.lastSyncNetworkType = const Value.absent(),
+    this.deviceId = const Value.absent(),
+    this.appVersion = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  SyncStatusTableCompanion.insert({
+    required String syncId,
+    required String businessId,
+    required String entityType,
+    this.lastFullSync = const Value.absent(),
+    this.lastIncrementalSync = const Value.absent(),
+    this.lastSuccessfulSync = const Value.absent(),
+    this.nextScheduledSync = const Value.absent(),
+    this.syncIntervalMinutes = const Value.absent(),
+    this.autoSyncEnabled = const Value.absent(),
+    this.syncOnlyOnWifi = const Value.absent(),
+    this.totalRecordsToSync = const Value.absent(),
+    this.recordsSynced = const Value.absent(),
+    this.syncFailures = const Value.absent(),
+    this.consecutiveFailures = const Value.absent(),
+    this.currentStatus = const Value.absent(),
+    this.syncProgress = const Value.absent(),
+    this.currentOperation = const Value.absent(),
+    this.lastError = const Value.absent(),
+    this.lastErrorAt = const Value.absent(),
+    this.errorCode = const Value.absent(),
+    this.lastSyncDurationMs = const Value.absent(),
+    this.averageSyncDurationMs = const Value.absent(),
+    this.avgRecordsPerSecond = const Value.absent(),
+    this.lastSyncNetworkType = const Value.absent(),
+    this.deviceId = const Value.absent(),
+    this.appVersion = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : syncId = Value(syncId),
+       businessId = Value(businessId),
+       entityType = Value(entityType);
+  static Insertable<SyncStatusTableData> custom({
+    Expression<String>? syncId,
+    Expression<String>? businessId,
+    Expression<String>? entityType,
+    Expression<DateTime>? lastFullSync,
+    Expression<DateTime>? lastIncrementalSync,
+    Expression<DateTime>? lastSuccessfulSync,
+    Expression<DateTime>? nextScheduledSync,
+    Expression<int>? syncIntervalMinutes,
+    Expression<bool>? autoSyncEnabled,
+    Expression<bool>? syncOnlyOnWifi,
+    Expression<int>? totalRecordsToSync,
+    Expression<int>? recordsSynced,
+    Expression<int>? syncFailures,
+    Expression<int>? consecutiveFailures,
+    Expression<String>? currentStatus,
+    Expression<double>? syncProgress,
+    Expression<String>? currentOperation,
+    Expression<String>? lastError,
+    Expression<DateTime>? lastErrorAt,
+    Expression<int>? errorCode,
+    Expression<int>? lastSyncDurationMs,
+    Expression<int>? averageSyncDurationMs,
+    Expression<double>? avgRecordsPerSecond,
+    Expression<String>? lastSyncNetworkType,
+    Expression<String>? deviceId,
+    Expression<String>? appVersion,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (syncId != null) 'sync_id': syncId,
+      if (businessId != null) 'business_id': businessId,
+      if (entityType != null) 'entity_type': entityType,
+      if (lastFullSync != null) 'last_full_sync': lastFullSync,
+      if (lastIncrementalSync != null)
+        'last_incremental_sync': lastIncrementalSync,
+      if (lastSuccessfulSync != null)
+        'last_successful_sync': lastSuccessfulSync,
+      if (nextScheduledSync != null) 'next_scheduled_sync': nextScheduledSync,
+      if (syncIntervalMinutes != null)
+        'sync_interval_minutes': syncIntervalMinutes,
+      if (autoSyncEnabled != null) 'auto_sync_enabled': autoSyncEnabled,
+      if (syncOnlyOnWifi != null) 'sync_only_on_wifi': syncOnlyOnWifi,
+      if (totalRecordsToSync != null)
+        'total_records_to_sync': totalRecordsToSync,
+      if (recordsSynced != null) 'records_synced': recordsSynced,
+      if (syncFailures != null) 'sync_failures': syncFailures,
+      if (consecutiveFailures != null)
+        'consecutive_failures': consecutiveFailures,
+      if (currentStatus != null) 'current_status': currentStatus,
+      if (syncProgress != null) 'sync_progress': syncProgress,
+      if (currentOperation != null) 'current_operation': currentOperation,
+      if (lastError != null) 'last_error': lastError,
+      if (lastErrorAt != null) 'last_error_at': lastErrorAt,
+      if (errorCode != null) 'error_code': errorCode,
+      if (lastSyncDurationMs != null)
+        'last_sync_duration_ms': lastSyncDurationMs,
+      if (averageSyncDurationMs != null)
+        'average_sync_duration_ms': averageSyncDurationMs,
+      if (avgRecordsPerSecond != null)
+        'avg_records_per_second': avgRecordsPerSecond,
+      if (lastSyncNetworkType != null)
+        'last_sync_network_type': lastSyncNetworkType,
+      if (deviceId != null) 'device_id': deviceId,
+      if (appVersion != null) 'app_version': appVersion,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  SyncStatusTableCompanion copyWith({
+    Value<String>? syncId,
+    Value<String>? businessId,
+    Value<String>? entityType,
+    Value<DateTime?>? lastFullSync,
+    Value<DateTime?>? lastIncrementalSync,
+    Value<DateTime?>? lastSuccessfulSync,
+    Value<DateTime?>? nextScheduledSync,
+    Value<int>? syncIntervalMinutes,
+    Value<bool>? autoSyncEnabled,
+    Value<bool>? syncOnlyOnWifi,
+    Value<int>? totalRecordsToSync,
+    Value<int>? recordsSynced,
+    Value<int>? syncFailures,
+    Value<int>? consecutiveFailures,
+    Value<String>? currentStatus,
+    Value<double>? syncProgress,
+    Value<String?>? currentOperation,
+    Value<String?>? lastError,
+    Value<DateTime?>? lastErrorAt,
+    Value<int?>? errorCode,
+    Value<int?>? lastSyncDurationMs,
+    Value<int?>? averageSyncDurationMs,
+    Value<double?>? avgRecordsPerSecond,
+    Value<String?>? lastSyncNetworkType,
+    Value<String?>? deviceId,
+    Value<String?>? appVersion,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<int>? rowid,
+  }) {
+    return SyncStatusTableCompanion(
+      syncId: syncId ?? this.syncId,
+      businessId: businessId ?? this.businessId,
+      entityType: entityType ?? this.entityType,
+      lastFullSync: lastFullSync ?? this.lastFullSync,
+      lastIncrementalSync: lastIncrementalSync ?? this.lastIncrementalSync,
+      lastSuccessfulSync: lastSuccessfulSync ?? this.lastSuccessfulSync,
+      nextScheduledSync: nextScheduledSync ?? this.nextScheduledSync,
+      syncIntervalMinutes: syncIntervalMinutes ?? this.syncIntervalMinutes,
+      autoSyncEnabled: autoSyncEnabled ?? this.autoSyncEnabled,
+      syncOnlyOnWifi: syncOnlyOnWifi ?? this.syncOnlyOnWifi,
+      totalRecordsToSync: totalRecordsToSync ?? this.totalRecordsToSync,
+      recordsSynced: recordsSynced ?? this.recordsSynced,
+      syncFailures: syncFailures ?? this.syncFailures,
+      consecutiveFailures: consecutiveFailures ?? this.consecutiveFailures,
+      currentStatus: currentStatus ?? this.currentStatus,
+      syncProgress: syncProgress ?? this.syncProgress,
+      currentOperation: currentOperation ?? this.currentOperation,
+      lastError: lastError ?? this.lastError,
+      lastErrorAt: lastErrorAt ?? this.lastErrorAt,
+      errorCode: errorCode ?? this.errorCode,
+      lastSyncDurationMs: lastSyncDurationMs ?? this.lastSyncDurationMs,
+      averageSyncDurationMs:
+          averageSyncDurationMs ?? this.averageSyncDurationMs,
+      avgRecordsPerSecond: avgRecordsPerSecond ?? this.avgRecordsPerSecond,
+      lastSyncNetworkType: lastSyncNetworkType ?? this.lastSyncNetworkType,
+      deviceId: deviceId ?? this.deviceId,
+      appVersion: appVersion ?? this.appVersion,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (syncId.present) {
+      map['sync_id'] = Variable<String>(syncId.value);
+    }
+    if (businessId.present) {
+      map['business_id'] = Variable<String>(businessId.value);
+    }
+    if (entityType.present) {
+      map['entity_type'] = Variable<String>(entityType.value);
+    }
+    if (lastFullSync.present) {
+      map['last_full_sync'] = Variable<DateTime>(lastFullSync.value);
+    }
+    if (lastIncrementalSync.present) {
+      map['last_incremental_sync'] = Variable<DateTime>(
+        lastIncrementalSync.value,
+      );
+    }
+    if (lastSuccessfulSync.present) {
+      map['last_successful_sync'] = Variable<DateTime>(
+        lastSuccessfulSync.value,
+      );
+    }
+    if (nextScheduledSync.present) {
+      map['next_scheduled_sync'] = Variable<DateTime>(nextScheduledSync.value);
+    }
+    if (syncIntervalMinutes.present) {
+      map['sync_interval_minutes'] = Variable<int>(syncIntervalMinutes.value);
+    }
+    if (autoSyncEnabled.present) {
+      map['auto_sync_enabled'] = Variable<bool>(autoSyncEnabled.value);
+    }
+    if (syncOnlyOnWifi.present) {
+      map['sync_only_on_wifi'] = Variable<bool>(syncOnlyOnWifi.value);
+    }
+    if (totalRecordsToSync.present) {
+      map['total_records_to_sync'] = Variable<int>(totalRecordsToSync.value);
+    }
+    if (recordsSynced.present) {
+      map['records_synced'] = Variable<int>(recordsSynced.value);
+    }
+    if (syncFailures.present) {
+      map['sync_failures'] = Variable<int>(syncFailures.value);
+    }
+    if (consecutiveFailures.present) {
+      map['consecutive_failures'] = Variable<int>(consecutiveFailures.value);
+    }
+    if (currentStatus.present) {
+      map['current_status'] = Variable<String>(currentStatus.value);
+    }
+    if (syncProgress.present) {
+      map['sync_progress'] = Variable<double>(syncProgress.value);
+    }
+    if (currentOperation.present) {
+      map['current_operation'] = Variable<String>(currentOperation.value);
+    }
+    if (lastError.present) {
+      map['last_error'] = Variable<String>(lastError.value);
+    }
+    if (lastErrorAt.present) {
+      map['last_error_at'] = Variable<DateTime>(lastErrorAt.value);
+    }
+    if (errorCode.present) {
+      map['error_code'] = Variable<int>(errorCode.value);
+    }
+    if (lastSyncDurationMs.present) {
+      map['last_sync_duration_ms'] = Variable<int>(lastSyncDurationMs.value);
+    }
+    if (averageSyncDurationMs.present) {
+      map['average_sync_duration_ms'] = Variable<int>(
+        averageSyncDurationMs.value,
+      );
+    }
+    if (avgRecordsPerSecond.present) {
+      map['avg_records_per_second'] = Variable<double>(
+        avgRecordsPerSecond.value,
+      );
+    }
+    if (lastSyncNetworkType.present) {
+      map['last_sync_network_type'] = Variable<String>(
+        lastSyncNetworkType.value,
+      );
+    }
+    if (deviceId.present) {
+      map['device_id'] = Variable<String>(deviceId.value);
+    }
+    if (appVersion.present) {
+      map['app_version'] = Variable<String>(appVersion.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SyncStatusTableCompanion(')
+          ..write('syncId: $syncId, ')
+          ..write('businessId: $businessId, ')
+          ..write('entityType: $entityType, ')
+          ..write('lastFullSync: $lastFullSync, ')
+          ..write('lastIncrementalSync: $lastIncrementalSync, ')
+          ..write('lastSuccessfulSync: $lastSuccessfulSync, ')
+          ..write('nextScheduledSync: $nextScheduledSync, ')
+          ..write('syncIntervalMinutes: $syncIntervalMinutes, ')
+          ..write('autoSyncEnabled: $autoSyncEnabled, ')
+          ..write('syncOnlyOnWifi: $syncOnlyOnWifi, ')
+          ..write('totalRecordsToSync: $totalRecordsToSync, ')
+          ..write('recordsSynced: $recordsSynced, ')
+          ..write('syncFailures: $syncFailures, ')
+          ..write('consecutiveFailures: $consecutiveFailures, ')
+          ..write('currentStatus: $currentStatus, ')
+          ..write('syncProgress: $syncProgress, ')
+          ..write('currentOperation: $currentOperation, ')
+          ..write('lastError: $lastError, ')
+          ..write('lastErrorAt: $lastErrorAt, ')
+          ..write('errorCode: $errorCode, ')
+          ..write('lastSyncDurationMs: $lastSyncDurationMs, ')
+          ..write('averageSyncDurationMs: $averageSyncDurationMs, ')
+          ..write('avgRecordsPerSecond: $avgRecordsPerSecond, ')
+          ..write('lastSyncNetworkType: $lastSyncNetworkType, ')
+          ..write('deviceId: $deviceId, ')
+          ..write('appVersion: $appVersion, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $SuppliersTable extends Suppliers
     with TableInfo<$SuppliersTable, Supplier> {
   @override
@@ -11667,6 +20608,17 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $UsersTable users = $UsersTable(this);
+  late final $BusinessTableTable businessTable = $BusinessTableTable(this);
+  late final $BranchesTableTable branchesTable = $BranchesTableTable(this);
+  late final $UserRolesTableTable userRolesTable = $UserRolesTableTable(this);
+  late final $BusinessUsersTableTable businessUsersTable =
+      $BusinessUsersTableTable(this);
+  late final $ActionQueueTableTable actionQueueTable = $ActionQueueTableTable(
+    this,
+  );
+  late final $SyncStatusTableTable syncStatusTable = $SyncStatusTableTable(
+    this,
+  );
   late final $SuppliersTable suppliers = $SuppliersTable(this);
   late final $InventoryLineTable inventoryLine = $InventoryLineTable(this);
   late final $CategoryTableTable categoryTable = $CategoryTableTable(this);
@@ -11686,6 +20638,12 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [
     users,
+    businessTable,
+    branchesTable,
+    userRolesTable,
+    businessUsersTable,
+    actionQueueTable,
+    syncStatusTable,
     suppliers,
     inventoryLine,
     categoryTable,
@@ -11902,6 +20860,4759 @@ typedef $$UsersTableProcessedTableManager =
       $$UsersTableUpdateCompanionBuilder,
       (LocalUser, BaseReferences<_$AppDatabase, $UsersTable, LocalUser>),
       LocalUser,
+      PrefetchHooks Function()
+    >;
+typedef $$BusinessTableTableCreateCompanionBuilder =
+    BusinessTableCompanion Function({
+      required String businessId,
+      required String businessName,
+      Value<String?> businessCode,
+      Value<String?> businessType,
+      Value<String?> taxNumber,
+      Value<String?> registrationNumber,
+      Value<String?> email,
+      Value<String?> phone,
+      Value<String?> website,
+      Value<String?> address,
+      Value<String?> city,
+      Value<String?> state,
+      Value<String?> postalCode,
+      Value<String?> country,
+      Value<String> defaultCurrency,
+      Value<String> defaultTimezone,
+      Value<String?> businessLogo,
+      Value<bool> isActive,
+      Value<int> maxBranches,
+      Value<int> maxUsers,
+      Value<DateTime?> subscriptionExpiresAt,
+      Value<StatusType> status,
+      Value<String?> createdBy,
+      Value<String?> updatedBy,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<String?> syncStatus,
+      Value<int> rowid,
+    });
+typedef $$BusinessTableTableUpdateCompanionBuilder =
+    BusinessTableCompanion Function({
+      Value<String> businessId,
+      Value<String> businessName,
+      Value<String?> businessCode,
+      Value<String?> businessType,
+      Value<String?> taxNumber,
+      Value<String?> registrationNumber,
+      Value<String?> email,
+      Value<String?> phone,
+      Value<String?> website,
+      Value<String?> address,
+      Value<String?> city,
+      Value<String?> state,
+      Value<String?> postalCode,
+      Value<String?> country,
+      Value<String> defaultCurrency,
+      Value<String> defaultTimezone,
+      Value<String?> businessLogo,
+      Value<bool> isActive,
+      Value<int> maxBranches,
+      Value<int> maxUsers,
+      Value<DateTime?> subscriptionExpiresAt,
+      Value<StatusType> status,
+      Value<String?> createdBy,
+      Value<String?> updatedBy,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<String?> syncStatus,
+      Value<int> rowid,
+    });
+
+final class $$BusinessTableTableReferences
+    extends
+        BaseReferences<_$AppDatabase, $BusinessTableTable, BusinessTableData> {
+  $$BusinessTableTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static MultiTypedResultKey<$BranchesTableTable, List<BranchesTableData>>
+  _branchesTableRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.branchesTable,
+    aliasName: $_aliasNameGenerator(
+      db.businessTable.businessId,
+      db.branchesTable.businessId,
+    ),
+  );
+
+  $$BranchesTableTableProcessedTableManager get branchesTableRefs {
+    final manager = $$BranchesTableTableTableManager($_db, $_db.branchesTable)
+        .filter(
+          (f) => f.businessId.businessId.sqlEquals(
+            $_itemColumn<String>('business_id')!,
+          ),
+        );
+
+    final cache = $_typedResult.readTableOrNull(_branchesTableRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<$UserRolesTableTable, List<UserRolesTableData>>
+  _userRolesTableRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.userRolesTable,
+    aliasName: $_aliasNameGenerator(
+      db.businessTable.businessId,
+      db.userRolesTable.businessId,
+    ),
+  );
+
+  $$UserRolesTableTableProcessedTableManager get userRolesTableRefs {
+    final manager = $$UserRolesTableTableTableManager($_db, $_db.userRolesTable)
+        .filter(
+          (f) => f.businessId.businessId.sqlEquals(
+            $_itemColumn<String>('business_id')!,
+          ),
+        );
+
+    final cache = $_typedResult.readTableOrNull(_userRolesTableRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<
+    $BusinessUsersTableTable,
+    List<BusinessUsersTableData>
+  >
+  _businessUsersTableRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.businessUsersTable,
+        aliasName: $_aliasNameGenerator(
+          db.businessTable.businessId,
+          db.businessUsersTable.businessId,
+        ),
+      );
+
+  $$BusinessUsersTableTableProcessedTableManager get businessUsersTableRefs {
+    final manager =
+        $$BusinessUsersTableTableTableManager(
+          $_db,
+          $_db.businessUsersTable,
+        ).filter(
+          (f) => f.businessId.businessId.sqlEquals(
+            $_itemColumn<String>('business_id')!,
+          ),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _businessUsersTableRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $$BusinessTableTableFilterComposer
+    extends Composer<_$AppDatabase, $BusinessTableTable> {
+  $$BusinessTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get businessId => $composableBuilder(
+    column: $table.businessId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get businessName => $composableBuilder(
+    column: $table.businessName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get businessCode => $composableBuilder(
+    column: $table.businessCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get businessType => $composableBuilder(
+    column: $table.businessType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get taxNumber => $composableBuilder(
+    column: $table.taxNumber,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get registrationNumber => $composableBuilder(
+    column: $table.registrationNumber,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get email => $composableBuilder(
+    column: $table.email,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get phone => $composableBuilder(
+    column: $table.phone,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get website => $composableBuilder(
+    column: $table.website,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get address => $composableBuilder(
+    column: $table.address,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get city => $composableBuilder(
+    column: $table.city,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get state => $composableBuilder(
+    column: $table.state,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get postalCode => $composableBuilder(
+    column: $table.postalCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get country => $composableBuilder(
+    column: $table.country,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get defaultCurrency => $composableBuilder(
+    column: $table.defaultCurrency,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get defaultTimezone => $composableBuilder(
+    column: $table.defaultTimezone,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get businessLogo => $composableBuilder(
+    column: $table.businessLogo,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isActive => $composableBuilder(
+    column: $table.isActive,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get maxBranches => $composableBuilder(
+    column: $table.maxBranches,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get maxUsers => $composableBuilder(
+    column: $table.maxUsers,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get subscriptionExpiresAt => $composableBuilder(
+    column: $table.subscriptionExpiresAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<StatusType, StatusType, String> get status =>
+      $composableBuilder(
+        column: $table.status,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<String> get createdBy => $composableBuilder(
+    column: $table.createdBy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get updatedBy => $composableBuilder(
+    column: $table.updatedBy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> branchesTableRefs(
+    Expression<bool> Function($$BranchesTableTableFilterComposer f) f,
+  ) {
+    final $$BranchesTableTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.branchesTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BranchesTableTableFilterComposer(
+            $db: $db,
+            $table: $db.branchesTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> userRolesTableRefs(
+    Expression<bool> Function($$UserRolesTableTableFilterComposer f) f,
+  ) {
+    final $$UserRolesTableTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.userRolesTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$UserRolesTableTableFilterComposer(
+            $db: $db,
+            $table: $db.userRolesTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> businessUsersTableRefs(
+    Expression<bool> Function($$BusinessUsersTableTableFilterComposer f) f,
+  ) {
+    final $$BusinessUsersTableTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.businessUsersTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessUsersTableTableFilterComposer(
+            $db: $db,
+            $table: $db.businessUsersTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$BusinessTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $BusinessTableTable> {
+  $$BusinessTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get businessId => $composableBuilder(
+    column: $table.businessId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get businessName => $composableBuilder(
+    column: $table.businessName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get businessCode => $composableBuilder(
+    column: $table.businessCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get businessType => $composableBuilder(
+    column: $table.businessType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get taxNumber => $composableBuilder(
+    column: $table.taxNumber,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get registrationNumber => $composableBuilder(
+    column: $table.registrationNumber,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get email => $composableBuilder(
+    column: $table.email,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get phone => $composableBuilder(
+    column: $table.phone,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get website => $composableBuilder(
+    column: $table.website,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get address => $composableBuilder(
+    column: $table.address,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get city => $composableBuilder(
+    column: $table.city,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get state => $composableBuilder(
+    column: $table.state,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get postalCode => $composableBuilder(
+    column: $table.postalCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get country => $composableBuilder(
+    column: $table.country,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get defaultCurrency => $composableBuilder(
+    column: $table.defaultCurrency,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get defaultTimezone => $composableBuilder(
+    column: $table.defaultTimezone,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get businessLogo => $composableBuilder(
+    column: $table.businessLogo,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isActive => $composableBuilder(
+    column: $table.isActive,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get maxBranches => $composableBuilder(
+    column: $table.maxBranches,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get maxUsers => $composableBuilder(
+    column: $table.maxUsers,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get subscriptionExpiresAt => $composableBuilder(
+    column: $table.subscriptionExpiresAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get createdBy => $composableBuilder(
+    column: $table.createdBy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get updatedBy => $composableBuilder(
+    column: $table.updatedBy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$BusinessTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $BusinessTableTable> {
+  $$BusinessTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get businessId => $composableBuilder(
+    column: $table.businessId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get businessName => $composableBuilder(
+    column: $table.businessName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get businessCode => $composableBuilder(
+    column: $table.businessCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get businessType => $composableBuilder(
+    column: $table.businessType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get taxNumber =>
+      $composableBuilder(column: $table.taxNumber, builder: (column) => column);
+
+  GeneratedColumn<String> get registrationNumber => $composableBuilder(
+    column: $table.registrationNumber,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get email =>
+      $composableBuilder(column: $table.email, builder: (column) => column);
+
+  GeneratedColumn<String> get phone =>
+      $composableBuilder(column: $table.phone, builder: (column) => column);
+
+  GeneratedColumn<String> get website =>
+      $composableBuilder(column: $table.website, builder: (column) => column);
+
+  GeneratedColumn<String> get address =>
+      $composableBuilder(column: $table.address, builder: (column) => column);
+
+  GeneratedColumn<String> get city =>
+      $composableBuilder(column: $table.city, builder: (column) => column);
+
+  GeneratedColumn<String> get state =>
+      $composableBuilder(column: $table.state, builder: (column) => column);
+
+  GeneratedColumn<String> get postalCode => $composableBuilder(
+    column: $table.postalCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get country =>
+      $composableBuilder(column: $table.country, builder: (column) => column);
+
+  GeneratedColumn<String> get defaultCurrency => $composableBuilder(
+    column: $table.defaultCurrency,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get defaultTimezone => $composableBuilder(
+    column: $table.defaultTimezone,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get businessLogo => $composableBuilder(
+    column: $table.businessLogo,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isActive =>
+      $composableBuilder(column: $table.isActive, builder: (column) => column);
+
+  GeneratedColumn<int> get maxBranches => $composableBuilder(
+    column: $table.maxBranches,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get maxUsers =>
+      $composableBuilder(column: $table.maxUsers, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get subscriptionExpiresAt => $composableBuilder(
+    column: $table.subscriptionExpiresAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumnWithTypeConverter<StatusType, String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<String> get createdBy =>
+      $composableBuilder(column: $table.createdBy, builder: (column) => column);
+
+  GeneratedColumn<String> get updatedBy =>
+      $composableBuilder(column: $table.updatedBy, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => column,
+  );
+
+  Expression<T> branchesTableRefs<T extends Object>(
+    Expression<T> Function($$BranchesTableTableAnnotationComposer a) f,
+  ) {
+    final $$BranchesTableTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.branchesTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BranchesTableTableAnnotationComposer(
+            $db: $db,
+            $table: $db.branchesTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> userRolesTableRefs<T extends Object>(
+    Expression<T> Function($$UserRolesTableTableAnnotationComposer a) f,
+  ) {
+    final $$UserRolesTableTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.userRolesTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$UserRolesTableTableAnnotationComposer(
+            $db: $db,
+            $table: $db.userRolesTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> businessUsersTableRefs<T extends Object>(
+    Expression<T> Function($$BusinessUsersTableTableAnnotationComposer a) f,
+  ) {
+    final $$BusinessUsersTableTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.businessId,
+          referencedTable: $db.businessUsersTable,
+          getReferencedColumn: (t) => t.businessId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$BusinessUsersTableTableAnnotationComposer(
+                $db: $db,
+                $table: $db.businessUsersTable,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+}
+
+class $$BusinessTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $BusinessTableTable,
+          BusinessTableData,
+          $$BusinessTableTableFilterComposer,
+          $$BusinessTableTableOrderingComposer,
+          $$BusinessTableTableAnnotationComposer,
+          $$BusinessTableTableCreateCompanionBuilder,
+          $$BusinessTableTableUpdateCompanionBuilder,
+          (BusinessTableData, $$BusinessTableTableReferences),
+          BusinessTableData,
+          PrefetchHooks Function({
+            bool branchesTableRefs,
+            bool userRolesTableRefs,
+            bool businessUsersTableRefs,
+          })
+        > {
+  $$BusinessTableTableTableManager(_$AppDatabase db, $BusinessTableTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$BusinessTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$BusinessTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$BusinessTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> businessId = const Value.absent(),
+                Value<String> businessName = const Value.absent(),
+                Value<String?> businessCode = const Value.absent(),
+                Value<String?> businessType = const Value.absent(),
+                Value<String?> taxNumber = const Value.absent(),
+                Value<String?> registrationNumber = const Value.absent(),
+                Value<String?> email = const Value.absent(),
+                Value<String?> phone = const Value.absent(),
+                Value<String?> website = const Value.absent(),
+                Value<String?> address = const Value.absent(),
+                Value<String?> city = const Value.absent(),
+                Value<String?> state = const Value.absent(),
+                Value<String?> postalCode = const Value.absent(),
+                Value<String?> country = const Value.absent(),
+                Value<String> defaultCurrency = const Value.absent(),
+                Value<String> defaultTimezone = const Value.absent(),
+                Value<String?> businessLogo = const Value.absent(),
+                Value<bool> isActive = const Value.absent(),
+                Value<int> maxBranches = const Value.absent(),
+                Value<int> maxUsers = const Value.absent(),
+                Value<DateTime?> subscriptionExpiresAt = const Value.absent(),
+                Value<StatusType> status = const Value.absent(),
+                Value<String?> createdBy = const Value.absent(),
+                Value<String?> updatedBy = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<String?> syncStatus = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BusinessTableCompanion(
+                businessId: businessId,
+                businessName: businessName,
+                businessCode: businessCode,
+                businessType: businessType,
+                taxNumber: taxNumber,
+                registrationNumber: registrationNumber,
+                email: email,
+                phone: phone,
+                website: website,
+                address: address,
+                city: city,
+                state: state,
+                postalCode: postalCode,
+                country: country,
+                defaultCurrency: defaultCurrency,
+                defaultTimezone: defaultTimezone,
+                businessLogo: businessLogo,
+                isActive: isActive,
+                maxBranches: maxBranches,
+                maxUsers: maxUsers,
+                subscriptionExpiresAt: subscriptionExpiresAt,
+                status: status,
+                createdBy: createdBy,
+                updatedBy: updatedBy,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncStatus: syncStatus,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String businessId,
+                required String businessName,
+                Value<String?> businessCode = const Value.absent(),
+                Value<String?> businessType = const Value.absent(),
+                Value<String?> taxNumber = const Value.absent(),
+                Value<String?> registrationNumber = const Value.absent(),
+                Value<String?> email = const Value.absent(),
+                Value<String?> phone = const Value.absent(),
+                Value<String?> website = const Value.absent(),
+                Value<String?> address = const Value.absent(),
+                Value<String?> city = const Value.absent(),
+                Value<String?> state = const Value.absent(),
+                Value<String?> postalCode = const Value.absent(),
+                Value<String?> country = const Value.absent(),
+                Value<String> defaultCurrency = const Value.absent(),
+                Value<String> defaultTimezone = const Value.absent(),
+                Value<String?> businessLogo = const Value.absent(),
+                Value<bool> isActive = const Value.absent(),
+                Value<int> maxBranches = const Value.absent(),
+                Value<int> maxUsers = const Value.absent(),
+                Value<DateTime?> subscriptionExpiresAt = const Value.absent(),
+                Value<StatusType> status = const Value.absent(),
+                Value<String?> createdBy = const Value.absent(),
+                Value<String?> updatedBy = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<String?> syncStatus = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BusinessTableCompanion.insert(
+                businessId: businessId,
+                businessName: businessName,
+                businessCode: businessCode,
+                businessType: businessType,
+                taxNumber: taxNumber,
+                registrationNumber: registrationNumber,
+                email: email,
+                phone: phone,
+                website: website,
+                address: address,
+                city: city,
+                state: state,
+                postalCode: postalCode,
+                country: country,
+                defaultCurrency: defaultCurrency,
+                defaultTimezone: defaultTimezone,
+                businessLogo: businessLogo,
+                isActive: isActive,
+                maxBranches: maxBranches,
+                maxUsers: maxUsers,
+                subscriptionExpiresAt: subscriptionExpiresAt,
+                status: status,
+                createdBy: createdBy,
+                updatedBy: updatedBy,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncStatus: syncStatus,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$BusinessTableTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                branchesTableRefs = false,
+                userRolesTableRefs = false,
+                businessUsersTableRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (branchesTableRefs) db.branchesTable,
+                    if (userRolesTableRefs) db.userRolesTable,
+                    if (businessUsersTableRefs) db.businessUsersTable,
+                  ],
+                  addJoins: null,
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (branchesTableRefs)
+                        await $_getPrefetchedData<
+                          BusinessTableData,
+                          $BusinessTableTable,
+                          BranchesTableData
+                        >(
+                          currentTable: table,
+                          referencedTable: $$BusinessTableTableReferences
+                              ._branchesTableRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$BusinessTableTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).branchesTableRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.businessId == item.businessId,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (userRolesTableRefs)
+                        await $_getPrefetchedData<
+                          BusinessTableData,
+                          $BusinessTableTable,
+                          UserRolesTableData
+                        >(
+                          currentTable: table,
+                          referencedTable: $$BusinessTableTableReferences
+                              ._userRolesTableRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$BusinessTableTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).userRolesTableRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.businessId == item.businessId,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (businessUsersTableRefs)
+                        await $_getPrefetchedData<
+                          BusinessTableData,
+                          $BusinessTableTable,
+                          BusinessUsersTableData
+                        >(
+                          currentTable: table,
+                          referencedTable: $$BusinessTableTableReferences
+                              ._businessUsersTableRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$BusinessTableTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).businessUsersTableRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.businessId == item.businessId,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $$BusinessTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $BusinessTableTable,
+      BusinessTableData,
+      $$BusinessTableTableFilterComposer,
+      $$BusinessTableTableOrderingComposer,
+      $$BusinessTableTableAnnotationComposer,
+      $$BusinessTableTableCreateCompanionBuilder,
+      $$BusinessTableTableUpdateCompanionBuilder,
+      (BusinessTableData, $$BusinessTableTableReferences),
+      BusinessTableData,
+      PrefetchHooks Function({
+        bool branchesTableRefs,
+        bool userRolesTableRefs,
+        bool businessUsersTableRefs,
+      })
+    >;
+typedef $$BranchesTableTableCreateCompanionBuilder =
+    BranchesTableCompanion Function({
+      required String branchId,
+      required String businessId,
+      required String branchName,
+      Value<String?> branchCode,
+      Value<BranchType> branchType,
+      Value<String?> address,
+      Value<String?> city,
+      Value<String?> state,
+      Value<String?> postalCode,
+      Value<String?> country,
+      Value<String?> phone,
+      Value<String?> email,
+      Value<String?> managerName,
+      Value<String?> managerPhone,
+      Value<String> timezone,
+      Value<String> currency,
+      Value<String?> openingHours,
+      Value<bool> isActive,
+      Value<bool> allowsOnlineOrders,
+      Value<int> maxCashRegisters,
+      Value<double?> latitude,
+      Value<double?> longitude,
+      Value<StatusType> status,
+      Value<String?> createdBy,
+      Value<String?> updatedBy,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<String?> syncStatus,
+      Value<int> rowid,
+    });
+typedef $$BranchesTableTableUpdateCompanionBuilder =
+    BranchesTableCompanion Function({
+      Value<String> branchId,
+      Value<String> businessId,
+      Value<String> branchName,
+      Value<String?> branchCode,
+      Value<BranchType> branchType,
+      Value<String?> address,
+      Value<String?> city,
+      Value<String?> state,
+      Value<String?> postalCode,
+      Value<String?> country,
+      Value<String?> phone,
+      Value<String?> email,
+      Value<String?> managerName,
+      Value<String?> managerPhone,
+      Value<String> timezone,
+      Value<String> currency,
+      Value<String?> openingHours,
+      Value<bool> isActive,
+      Value<bool> allowsOnlineOrders,
+      Value<int> maxCashRegisters,
+      Value<double?> latitude,
+      Value<double?> longitude,
+      Value<StatusType> status,
+      Value<String?> createdBy,
+      Value<String?> updatedBy,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<String?> syncStatus,
+      Value<int> rowid,
+    });
+
+final class $$BranchesTableTableReferences
+    extends
+        BaseReferences<_$AppDatabase, $BranchesTableTable, BranchesTableData> {
+  $$BranchesTableTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static $BusinessTableTable _businessIdTable(_$AppDatabase db) =>
+      db.businessTable.createAlias(
+        $_aliasNameGenerator(
+          db.branchesTable.businessId,
+          db.businessTable.businessId,
+        ),
+      );
+
+  $$BusinessTableTableProcessedTableManager get businessId {
+    final $_column = $_itemColumn<String>('business_id')!;
+
+    final manager = $$BusinessTableTableTableManager(
+      $_db,
+      $_db.businessTable,
+    ).filter((f) => f.businessId.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_businessIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$BranchesTableTableFilterComposer
+    extends Composer<_$AppDatabase, $BranchesTableTable> {
+  $$BranchesTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get branchId => $composableBuilder(
+    column: $table.branchId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get branchName => $composableBuilder(
+    column: $table.branchName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get branchCode => $composableBuilder(
+    column: $table.branchCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<BranchType, BranchType, String>
+  get branchType => $composableBuilder(
+    column: $table.branchType,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
+
+  ColumnFilters<String> get address => $composableBuilder(
+    column: $table.address,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get city => $composableBuilder(
+    column: $table.city,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get state => $composableBuilder(
+    column: $table.state,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get postalCode => $composableBuilder(
+    column: $table.postalCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get country => $composableBuilder(
+    column: $table.country,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get phone => $composableBuilder(
+    column: $table.phone,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get email => $composableBuilder(
+    column: $table.email,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get managerName => $composableBuilder(
+    column: $table.managerName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get managerPhone => $composableBuilder(
+    column: $table.managerPhone,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get timezone => $composableBuilder(
+    column: $table.timezone,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get currency => $composableBuilder(
+    column: $table.currency,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get openingHours => $composableBuilder(
+    column: $table.openingHours,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isActive => $composableBuilder(
+    column: $table.isActive,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get allowsOnlineOrders => $composableBuilder(
+    column: $table.allowsOnlineOrders,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get maxCashRegisters => $composableBuilder(
+    column: $table.maxCashRegisters,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get latitude => $composableBuilder(
+    column: $table.latitude,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get longitude => $composableBuilder(
+    column: $table.longitude,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<StatusType, StatusType, String> get status =>
+      $composableBuilder(
+        column: $table.status,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<String> get createdBy => $composableBuilder(
+    column: $table.createdBy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get updatedBy => $composableBuilder(
+    column: $table.updatedBy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$BusinessTableTableFilterComposer get businessId {
+    final $$BusinessTableTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.businessTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessTableTableFilterComposer(
+            $db: $db,
+            $table: $db.businessTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$BranchesTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $BranchesTableTable> {
+  $$BranchesTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get branchId => $composableBuilder(
+    column: $table.branchId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get branchName => $composableBuilder(
+    column: $table.branchName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get branchCode => $composableBuilder(
+    column: $table.branchCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get branchType => $composableBuilder(
+    column: $table.branchType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get address => $composableBuilder(
+    column: $table.address,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get city => $composableBuilder(
+    column: $table.city,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get state => $composableBuilder(
+    column: $table.state,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get postalCode => $composableBuilder(
+    column: $table.postalCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get country => $composableBuilder(
+    column: $table.country,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get phone => $composableBuilder(
+    column: $table.phone,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get email => $composableBuilder(
+    column: $table.email,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get managerName => $composableBuilder(
+    column: $table.managerName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get managerPhone => $composableBuilder(
+    column: $table.managerPhone,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get timezone => $composableBuilder(
+    column: $table.timezone,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get currency => $composableBuilder(
+    column: $table.currency,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get openingHours => $composableBuilder(
+    column: $table.openingHours,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isActive => $composableBuilder(
+    column: $table.isActive,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get allowsOnlineOrders => $composableBuilder(
+    column: $table.allowsOnlineOrders,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get maxCashRegisters => $composableBuilder(
+    column: $table.maxCashRegisters,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get latitude => $composableBuilder(
+    column: $table.latitude,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get longitude => $composableBuilder(
+    column: $table.longitude,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get createdBy => $composableBuilder(
+    column: $table.createdBy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get updatedBy => $composableBuilder(
+    column: $table.updatedBy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$BusinessTableTableOrderingComposer get businessId {
+    final $$BusinessTableTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.businessTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessTableTableOrderingComposer(
+            $db: $db,
+            $table: $db.businessTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$BranchesTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $BranchesTableTable> {
+  $$BranchesTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get branchId =>
+      $composableBuilder(column: $table.branchId, builder: (column) => column);
+
+  GeneratedColumn<String> get branchName => $composableBuilder(
+    column: $table.branchName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get branchCode => $composableBuilder(
+    column: $table.branchCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumnWithTypeConverter<BranchType, String> get branchType =>
+      $composableBuilder(
+        column: $table.branchType,
+        builder: (column) => column,
+      );
+
+  GeneratedColumn<String> get address =>
+      $composableBuilder(column: $table.address, builder: (column) => column);
+
+  GeneratedColumn<String> get city =>
+      $composableBuilder(column: $table.city, builder: (column) => column);
+
+  GeneratedColumn<String> get state =>
+      $composableBuilder(column: $table.state, builder: (column) => column);
+
+  GeneratedColumn<String> get postalCode => $composableBuilder(
+    column: $table.postalCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get country =>
+      $composableBuilder(column: $table.country, builder: (column) => column);
+
+  GeneratedColumn<String> get phone =>
+      $composableBuilder(column: $table.phone, builder: (column) => column);
+
+  GeneratedColumn<String> get email =>
+      $composableBuilder(column: $table.email, builder: (column) => column);
+
+  GeneratedColumn<String> get managerName => $composableBuilder(
+    column: $table.managerName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get managerPhone => $composableBuilder(
+    column: $table.managerPhone,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get timezone =>
+      $composableBuilder(column: $table.timezone, builder: (column) => column);
+
+  GeneratedColumn<String> get currency =>
+      $composableBuilder(column: $table.currency, builder: (column) => column);
+
+  GeneratedColumn<String> get openingHours => $composableBuilder(
+    column: $table.openingHours,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isActive =>
+      $composableBuilder(column: $table.isActive, builder: (column) => column);
+
+  GeneratedColumn<bool> get allowsOnlineOrders => $composableBuilder(
+    column: $table.allowsOnlineOrders,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get maxCashRegisters => $composableBuilder(
+    column: $table.maxCashRegisters,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get latitude =>
+      $composableBuilder(column: $table.latitude, builder: (column) => column);
+
+  GeneratedColumn<double> get longitude =>
+      $composableBuilder(column: $table.longitude, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<StatusType, String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<String> get createdBy =>
+      $composableBuilder(column: $table.createdBy, builder: (column) => column);
+
+  GeneratedColumn<String> get updatedBy =>
+      $composableBuilder(column: $table.updatedBy, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => column,
+  );
+
+  $$BusinessTableTableAnnotationComposer get businessId {
+    final $$BusinessTableTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.businessTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessTableTableAnnotationComposer(
+            $db: $db,
+            $table: $db.businessTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$BranchesTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $BranchesTableTable,
+          BranchesTableData,
+          $$BranchesTableTableFilterComposer,
+          $$BranchesTableTableOrderingComposer,
+          $$BranchesTableTableAnnotationComposer,
+          $$BranchesTableTableCreateCompanionBuilder,
+          $$BranchesTableTableUpdateCompanionBuilder,
+          (BranchesTableData, $$BranchesTableTableReferences),
+          BranchesTableData,
+          PrefetchHooks Function({bool businessId})
+        > {
+  $$BranchesTableTableTableManager(_$AppDatabase db, $BranchesTableTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$BranchesTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$BranchesTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$BranchesTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> branchId = const Value.absent(),
+                Value<String> businessId = const Value.absent(),
+                Value<String> branchName = const Value.absent(),
+                Value<String?> branchCode = const Value.absent(),
+                Value<BranchType> branchType = const Value.absent(),
+                Value<String?> address = const Value.absent(),
+                Value<String?> city = const Value.absent(),
+                Value<String?> state = const Value.absent(),
+                Value<String?> postalCode = const Value.absent(),
+                Value<String?> country = const Value.absent(),
+                Value<String?> phone = const Value.absent(),
+                Value<String?> email = const Value.absent(),
+                Value<String?> managerName = const Value.absent(),
+                Value<String?> managerPhone = const Value.absent(),
+                Value<String> timezone = const Value.absent(),
+                Value<String> currency = const Value.absent(),
+                Value<String?> openingHours = const Value.absent(),
+                Value<bool> isActive = const Value.absent(),
+                Value<bool> allowsOnlineOrders = const Value.absent(),
+                Value<int> maxCashRegisters = const Value.absent(),
+                Value<double?> latitude = const Value.absent(),
+                Value<double?> longitude = const Value.absent(),
+                Value<StatusType> status = const Value.absent(),
+                Value<String?> createdBy = const Value.absent(),
+                Value<String?> updatedBy = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<String?> syncStatus = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BranchesTableCompanion(
+                branchId: branchId,
+                businessId: businessId,
+                branchName: branchName,
+                branchCode: branchCode,
+                branchType: branchType,
+                address: address,
+                city: city,
+                state: state,
+                postalCode: postalCode,
+                country: country,
+                phone: phone,
+                email: email,
+                managerName: managerName,
+                managerPhone: managerPhone,
+                timezone: timezone,
+                currency: currency,
+                openingHours: openingHours,
+                isActive: isActive,
+                allowsOnlineOrders: allowsOnlineOrders,
+                maxCashRegisters: maxCashRegisters,
+                latitude: latitude,
+                longitude: longitude,
+                status: status,
+                createdBy: createdBy,
+                updatedBy: updatedBy,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncStatus: syncStatus,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String branchId,
+                required String businessId,
+                required String branchName,
+                Value<String?> branchCode = const Value.absent(),
+                Value<BranchType> branchType = const Value.absent(),
+                Value<String?> address = const Value.absent(),
+                Value<String?> city = const Value.absent(),
+                Value<String?> state = const Value.absent(),
+                Value<String?> postalCode = const Value.absent(),
+                Value<String?> country = const Value.absent(),
+                Value<String?> phone = const Value.absent(),
+                Value<String?> email = const Value.absent(),
+                Value<String?> managerName = const Value.absent(),
+                Value<String?> managerPhone = const Value.absent(),
+                Value<String> timezone = const Value.absent(),
+                Value<String> currency = const Value.absent(),
+                Value<String?> openingHours = const Value.absent(),
+                Value<bool> isActive = const Value.absent(),
+                Value<bool> allowsOnlineOrders = const Value.absent(),
+                Value<int> maxCashRegisters = const Value.absent(),
+                Value<double?> latitude = const Value.absent(),
+                Value<double?> longitude = const Value.absent(),
+                Value<StatusType> status = const Value.absent(),
+                Value<String?> createdBy = const Value.absent(),
+                Value<String?> updatedBy = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<String?> syncStatus = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BranchesTableCompanion.insert(
+                branchId: branchId,
+                businessId: businessId,
+                branchName: branchName,
+                branchCode: branchCode,
+                branchType: branchType,
+                address: address,
+                city: city,
+                state: state,
+                postalCode: postalCode,
+                country: country,
+                phone: phone,
+                email: email,
+                managerName: managerName,
+                managerPhone: managerPhone,
+                timezone: timezone,
+                currency: currency,
+                openingHours: openingHours,
+                isActive: isActive,
+                allowsOnlineOrders: allowsOnlineOrders,
+                maxCashRegisters: maxCashRegisters,
+                latitude: latitude,
+                longitude: longitude,
+                status: status,
+                createdBy: createdBy,
+                updatedBy: updatedBy,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncStatus: syncStatus,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$BranchesTableTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({businessId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (businessId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.businessId,
+                                referencedTable: $$BranchesTableTableReferences
+                                    ._businessIdTable(db),
+                                referencedColumn: $$BranchesTableTableReferences
+                                    ._businessIdTable(db)
+                                    .businessId,
+                              )
+                              as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$BranchesTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $BranchesTableTable,
+      BranchesTableData,
+      $$BranchesTableTableFilterComposer,
+      $$BranchesTableTableOrderingComposer,
+      $$BranchesTableTableAnnotationComposer,
+      $$BranchesTableTableCreateCompanionBuilder,
+      $$BranchesTableTableUpdateCompanionBuilder,
+      (BranchesTableData, $$BranchesTableTableReferences),
+      BranchesTableData,
+      PrefetchHooks Function({bool businessId})
+    >;
+typedef $$UserRolesTableTableCreateCompanionBuilder =
+    UserRolesTableCompanion Function({
+      required String roleId,
+      required String businessId,
+      required String roleName,
+      Value<String?> roleCode,
+      Value<UserRole> roleType,
+      Value<String?> description,
+      Value<String?> permissions,
+      Value<bool> isSystemRole,
+      Value<bool> isCustomizable,
+      Value<int> hierarchyLevel,
+      Value<String?> parentRoleId,
+      Value<bool> canViewAllTransactions,
+      Value<bool> canModifyPrices,
+      Value<bool> canProcessReturns,
+      Value<bool> canManageUsers,
+      Value<bool> canAccessReports,
+      Value<bool> canManageInventory,
+      Value<double?> discountLimit,
+      Value<double?> transactionLimit,
+      Value<double?> refundLimit,
+      Value<StatusType> status,
+      Value<String?> createdBy,
+      Value<String?> updatedBy,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<String?> syncStatus,
+      Value<int> rowid,
+    });
+typedef $$UserRolesTableTableUpdateCompanionBuilder =
+    UserRolesTableCompanion Function({
+      Value<String> roleId,
+      Value<String> businessId,
+      Value<String> roleName,
+      Value<String?> roleCode,
+      Value<UserRole> roleType,
+      Value<String?> description,
+      Value<String?> permissions,
+      Value<bool> isSystemRole,
+      Value<bool> isCustomizable,
+      Value<int> hierarchyLevel,
+      Value<String?> parentRoleId,
+      Value<bool> canViewAllTransactions,
+      Value<bool> canModifyPrices,
+      Value<bool> canProcessReturns,
+      Value<bool> canManageUsers,
+      Value<bool> canAccessReports,
+      Value<bool> canManageInventory,
+      Value<double?> discountLimit,
+      Value<double?> transactionLimit,
+      Value<double?> refundLimit,
+      Value<StatusType> status,
+      Value<String?> createdBy,
+      Value<String?> updatedBy,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<String?> syncStatus,
+      Value<int> rowid,
+    });
+
+final class $$UserRolesTableTableReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          $UserRolesTableTable,
+          UserRolesTableData
+        > {
+  $$UserRolesTableTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static $BusinessTableTable _businessIdTable(_$AppDatabase db) =>
+      db.businessTable.createAlias(
+        $_aliasNameGenerator(
+          db.userRolesTable.businessId,
+          db.businessTable.businessId,
+        ),
+      );
+
+  $$BusinessTableTableProcessedTableManager get businessId {
+    final $_column = $_itemColumn<String>('business_id')!;
+
+    final manager = $$BusinessTableTableTableManager(
+      $_db,
+      $_db.businessTable,
+    ).filter((f) => f.businessId.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_businessIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static MultiTypedResultKey<
+    $BusinessUsersTableTable,
+    List<BusinessUsersTableData>
+  >
+  _businessUsersTableRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.businessUsersTable,
+        aliasName: $_aliasNameGenerator(
+          db.userRolesTable.roleId,
+          db.businessUsersTable.roleId,
+        ),
+      );
+
+  $$BusinessUsersTableTableProcessedTableManager get businessUsersTableRefs {
+    final manager =
+        $$BusinessUsersTableTableTableManager(
+          $_db,
+          $_db.businessUsersTable,
+        ).filter(
+          (f) => f.roleId.roleId.sqlEquals($_itemColumn<String>('role_id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _businessUsersTableRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $$UserRolesTableTableFilterComposer
+    extends Composer<_$AppDatabase, $UserRolesTableTable> {
+  $$UserRolesTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get roleId => $composableBuilder(
+    column: $table.roleId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get roleName => $composableBuilder(
+    column: $table.roleName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get roleCode => $composableBuilder(
+    column: $table.roleCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<UserRole, UserRole, String> get roleType =>
+      $composableBuilder(
+        column: $table.roleType,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get permissions => $composableBuilder(
+    column: $table.permissions,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isSystemRole => $composableBuilder(
+    column: $table.isSystemRole,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isCustomizable => $composableBuilder(
+    column: $table.isCustomizable,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hierarchyLevel => $composableBuilder(
+    column: $table.hierarchyLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get parentRoleId => $composableBuilder(
+    column: $table.parentRoleId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get canViewAllTransactions => $composableBuilder(
+    column: $table.canViewAllTransactions,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get canModifyPrices => $composableBuilder(
+    column: $table.canModifyPrices,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get canProcessReturns => $composableBuilder(
+    column: $table.canProcessReturns,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get canManageUsers => $composableBuilder(
+    column: $table.canManageUsers,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get canAccessReports => $composableBuilder(
+    column: $table.canAccessReports,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get canManageInventory => $composableBuilder(
+    column: $table.canManageInventory,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get discountLimit => $composableBuilder(
+    column: $table.discountLimit,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get transactionLimit => $composableBuilder(
+    column: $table.transactionLimit,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get refundLimit => $composableBuilder(
+    column: $table.refundLimit,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<StatusType, StatusType, String> get status =>
+      $composableBuilder(
+        column: $table.status,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<String> get createdBy => $composableBuilder(
+    column: $table.createdBy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get updatedBy => $composableBuilder(
+    column: $table.updatedBy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$BusinessTableTableFilterComposer get businessId {
+    final $$BusinessTableTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.businessTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessTableTableFilterComposer(
+            $db: $db,
+            $table: $db.businessTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<bool> businessUsersTableRefs(
+    Expression<bool> Function($$BusinessUsersTableTableFilterComposer f) f,
+  ) {
+    final $$BusinessUsersTableTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.roleId,
+      referencedTable: $db.businessUsersTable,
+      getReferencedColumn: (t) => t.roleId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessUsersTableTableFilterComposer(
+            $db: $db,
+            $table: $db.businessUsersTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $$UserRolesTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $UserRolesTableTable> {
+  $$UserRolesTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get roleId => $composableBuilder(
+    column: $table.roleId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get roleName => $composableBuilder(
+    column: $table.roleName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get roleCode => $composableBuilder(
+    column: $table.roleCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get roleType => $composableBuilder(
+    column: $table.roleType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get permissions => $composableBuilder(
+    column: $table.permissions,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isSystemRole => $composableBuilder(
+    column: $table.isSystemRole,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isCustomizable => $composableBuilder(
+    column: $table.isCustomizable,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hierarchyLevel => $composableBuilder(
+    column: $table.hierarchyLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get parentRoleId => $composableBuilder(
+    column: $table.parentRoleId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get canViewAllTransactions => $composableBuilder(
+    column: $table.canViewAllTransactions,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get canModifyPrices => $composableBuilder(
+    column: $table.canModifyPrices,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get canProcessReturns => $composableBuilder(
+    column: $table.canProcessReturns,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get canManageUsers => $composableBuilder(
+    column: $table.canManageUsers,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get canAccessReports => $composableBuilder(
+    column: $table.canAccessReports,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get canManageInventory => $composableBuilder(
+    column: $table.canManageInventory,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get discountLimit => $composableBuilder(
+    column: $table.discountLimit,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get transactionLimit => $composableBuilder(
+    column: $table.transactionLimit,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get refundLimit => $composableBuilder(
+    column: $table.refundLimit,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get createdBy => $composableBuilder(
+    column: $table.createdBy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get updatedBy => $composableBuilder(
+    column: $table.updatedBy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$BusinessTableTableOrderingComposer get businessId {
+    final $$BusinessTableTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.businessTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessTableTableOrderingComposer(
+            $db: $db,
+            $table: $db.businessTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$UserRolesTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $UserRolesTableTable> {
+  $$UserRolesTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get roleId =>
+      $composableBuilder(column: $table.roleId, builder: (column) => column);
+
+  GeneratedColumn<String> get roleName =>
+      $composableBuilder(column: $table.roleName, builder: (column) => column);
+
+  GeneratedColumn<String> get roleCode =>
+      $composableBuilder(column: $table.roleCode, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<UserRole, String> get roleType =>
+      $composableBuilder(column: $table.roleType, builder: (column) => column);
+
+  GeneratedColumn<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get permissions => $composableBuilder(
+    column: $table.permissions,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isSystemRole => $composableBuilder(
+    column: $table.isSystemRole,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isCustomizable => $composableBuilder(
+    column: $table.isCustomizable,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get hierarchyLevel => $composableBuilder(
+    column: $table.hierarchyLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get parentRoleId => $composableBuilder(
+    column: $table.parentRoleId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get canViewAllTransactions => $composableBuilder(
+    column: $table.canViewAllTransactions,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get canModifyPrices => $composableBuilder(
+    column: $table.canModifyPrices,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get canProcessReturns => $composableBuilder(
+    column: $table.canProcessReturns,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get canManageUsers => $composableBuilder(
+    column: $table.canManageUsers,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get canAccessReports => $composableBuilder(
+    column: $table.canAccessReports,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get canManageInventory => $composableBuilder(
+    column: $table.canManageInventory,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get discountLimit => $composableBuilder(
+    column: $table.discountLimit,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get transactionLimit => $composableBuilder(
+    column: $table.transactionLimit,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get refundLimit => $composableBuilder(
+    column: $table.refundLimit,
+    builder: (column) => column,
+  );
+
+  GeneratedColumnWithTypeConverter<StatusType, String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<String> get createdBy =>
+      $composableBuilder(column: $table.createdBy, builder: (column) => column);
+
+  GeneratedColumn<String> get updatedBy =>
+      $composableBuilder(column: $table.updatedBy, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => column,
+  );
+
+  $$BusinessTableTableAnnotationComposer get businessId {
+    final $$BusinessTableTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.businessTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessTableTableAnnotationComposer(
+            $db: $db,
+            $table: $db.businessTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<T> businessUsersTableRefs<T extends Object>(
+    Expression<T> Function($$BusinessUsersTableTableAnnotationComposer a) f,
+  ) {
+    final $$BusinessUsersTableTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.roleId,
+          referencedTable: $db.businessUsersTable,
+          getReferencedColumn: (t) => t.roleId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$BusinessUsersTableTableAnnotationComposer(
+                $db: $db,
+                $table: $db.businessUsersTable,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+}
+
+class $$UserRolesTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $UserRolesTableTable,
+          UserRolesTableData,
+          $$UserRolesTableTableFilterComposer,
+          $$UserRolesTableTableOrderingComposer,
+          $$UserRolesTableTableAnnotationComposer,
+          $$UserRolesTableTableCreateCompanionBuilder,
+          $$UserRolesTableTableUpdateCompanionBuilder,
+          (UserRolesTableData, $$UserRolesTableTableReferences),
+          UserRolesTableData,
+          PrefetchHooks Function({bool businessId, bool businessUsersTableRefs})
+        > {
+  $$UserRolesTableTableTableManager(
+    _$AppDatabase db,
+    $UserRolesTableTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$UserRolesTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$UserRolesTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$UserRolesTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> roleId = const Value.absent(),
+                Value<String> businessId = const Value.absent(),
+                Value<String> roleName = const Value.absent(),
+                Value<String?> roleCode = const Value.absent(),
+                Value<UserRole> roleType = const Value.absent(),
+                Value<String?> description = const Value.absent(),
+                Value<String?> permissions = const Value.absent(),
+                Value<bool> isSystemRole = const Value.absent(),
+                Value<bool> isCustomizable = const Value.absent(),
+                Value<int> hierarchyLevel = const Value.absent(),
+                Value<String?> parentRoleId = const Value.absent(),
+                Value<bool> canViewAllTransactions = const Value.absent(),
+                Value<bool> canModifyPrices = const Value.absent(),
+                Value<bool> canProcessReturns = const Value.absent(),
+                Value<bool> canManageUsers = const Value.absent(),
+                Value<bool> canAccessReports = const Value.absent(),
+                Value<bool> canManageInventory = const Value.absent(),
+                Value<double?> discountLimit = const Value.absent(),
+                Value<double?> transactionLimit = const Value.absent(),
+                Value<double?> refundLimit = const Value.absent(),
+                Value<StatusType> status = const Value.absent(),
+                Value<String?> createdBy = const Value.absent(),
+                Value<String?> updatedBy = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<String?> syncStatus = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => UserRolesTableCompanion(
+                roleId: roleId,
+                businessId: businessId,
+                roleName: roleName,
+                roleCode: roleCode,
+                roleType: roleType,
+                description: description,
+                permissions: permissions,
+                isSystemRole: isSystemRole,
+                isCustomizable: isCustomizable,
+                hierarchyLevel: hierarchyLevel,
+                parentRoleId: parentRoleId,
+                canViewAllTransactions: canViewAllTransactions,
+                canModifyPrices: canModifyPrices,
+                canProcessReturns: canProcessReturns,
+                canManageUsers: canManageUsers,
+                canAccessReports: canAccessReports,
+                canManageInventory: canManageInventory,
+                discountLimit: discountLimit,
+                transactionLimit: transactionLimit,
+                refundLimit: refundLimit,
+                status: status,
+                createdBy: createdBy,
+                updatedBy: updatedBy,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncStatus: syncStatus,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String roleId,
+                required String businessId,
+                required String roleName,
+                Value<String?> roleCode = const Value.absent(),
+                Value<UserRole> roleType = const Value.absent(),
+                Value<String?> description = const Value.absent(),
+                Value<String?> permissions = const Value.absent(),
+                Value<bool> isSystemRole = const Value.absent(),
+                Value<bool> isCustomizable = const Value.absent(),
+                Value<int> hierarchyLevel = const Value.absent(),
+                Value<String?> parentRoleId = const Value.absent(),
+                Value<bool> canViewAllTransactions = const Value.absent(),
+                Value<bool> canModifyPrices = const Value.absent(),
+                Value<bool> canProcessReturns = const Value.absent(),
+                Value<bool> canManageUsers = const Value.absent(),
+                Value<bool> canAccessReports = const Value.absent(),
+                Value<bool> canManageInventory = const Value.absent(),
+                Value<double?> discountLimit = const Value.absent(),
+                Value<double?> transactionLimit = const Value.absent(),
+                Value<double?> refundLimit = const Value.absent(),
+                Value<StatusType> status = const Value.absent(),
+                Value<String?> createdBy = const Value.absent(),
+                Value<String?> updatedBy = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<String?> syncStatus = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => UserRolesTableCompanion.insert(
+                roleId: roleId,
+                businessId: businessId,
+                roleName: roleName,
+                roleCode: roleCode,
+                roleType: roleType,
+                description: description,
+                permissions: permissions,
+                isSystemRole: isSystemRole,
+                isCustomizable: isCustomizable,
+                hierarchyLevel: hierarchyLevel,
+                parentRoleId: parentRoleId,
+                canViewAllTransactions: canViewAllTransactions,
+                canModifyPrices: canModifyPrices,
+                canProcessReturns: canProcessReturns,
+                canManageUsers: canManageUsers,
+                canAccessReports: canAccessReports,
+                canManageInventory: canManageInventory,
+                discountLimit: discountLimit,
+                transactionLimit: transactionLimit,
+                refundLimit: refundLimit,
+                status: status,
+                createdBy: createdBy,
+                updatedBy: updatedBy,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncStatus: syncStatus,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$UserRolesTableTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({businessId = false, businessUsersTableRefs = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (businessUsersTableRefs) db.businessUsersTable,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (businessId) {
+                          state =
+                              state.withJoin(
+                                    currentTable: table,
+                                    currentColumn: table.businessId,
+                                    referencedTable:
+                                        $$UserRolesTableTableReferences
+                                            ._businessIdTable(db),
+                                    referencedColumn:
+                                        $$UserRolesTableTableReferences
+                                            ._businessIdTable(db)
+                                            .businessId,
+                                  )
+                                  as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (businessUsersTableRefs)
+                        await $_getPrefetchedData<
+                          UserRolesTableData,
+                          $UserRolesTableTable,
+                          BusinessUsersTableData
+                        >(
+                          currentTable: table,
+                          referencedTable: $$UserRolesTableTableReferences
+                              ._businessUsersTableRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$UserRolesTableTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).businessUsersTableRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.roleId == item.roleId,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $$UserRolesTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $UserRolesTableTable,
+      UserRolesTableData,
+      $$UserRolesTableTableFilterComposer,
+      $$UserRolesTableTableOrderingComposer,
+      $$UserRolesTableTableAnnotationComposer,
+      $$UserRolesTableTableCreateCompanionBuilder,
+      $$UserRolesTableTableUpdateCompanionBuilder,
+      (UserRolesTableData, $$UserRolesTableTableReferences),
+      UserRolesTableData,
+      PrefetchHooks Function({bool businessId, bool businessUsersTableRefs})
+    >;
+typedef $$BusinessUsersTableTableCreateCompanionBuilder =
+    BusinessUsersTableCompanion Function({
+      required String businessUserId,
+      required String businessId,
+      required String userId,
+      required String roleId,
+      required String roleName,
+      Value<String?> businessName,
+      Value<String?> assignedBranches,
+      Value<String?> customPermissions,
+      Value<DateTime?> employmentStartDate,
+      Value<DateTime?> employmentEndDate,
+      Value<bool> isPrimaryBusiness,
+      Value<bool> hasDirectDepositAccess,
+      Value<bool> canSwitchBranches,
+      Value<double?> hourlyRate,
+      Value<double?> salaryAmount,
+      Value<double?> commissionRate,
+      Value<String?> paymentFrequency,
+      Value<DateTime?> lastLoginAt,
+      Value<int> loginCount,
+      Value<bool> isActive,
+      Value<DateTime?> passwordExpiresAt,
+      Value<StatusType> status,
+      Value<String?> createdBy,
+      Value<String?> updatedBy,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<String?> syncStatus,
+      Value<int> rowid,
+    });
+typedef $$BusinessUsersTableTableUpdateCompanionBuilder =
+    BusinessUsersTableCompanion Function({
+      Value<String> businessUserId,
+      Value<String> businessId,
+      Value<String> userId,
+      Value<String> roleId,
+      Value<String> roleName,
+      Value<String?> businessName,
+      Value<String?> assignedBranches,
+      Value<String?> customPermissions,
+      Value<DateTime?> employmentStartDate,
+      Value<DateTime?> employmentEndDate,
+      Value<bool> isPrimaryBusiness,
+      Value<bool> hasDirectDepositAccess,
+      Value<bool> canSwitchBranches,
+      Value<double?> hourlyRate,
+      Value<double?> salaryAmount,
+      Value<double?> commissionRate,
+      Value<String?> paymentFrequency,
+      Value<DateTime?> lastLoginAt,
+      Value<int> loginCount,
+      Value<bool> isActive,
+      Value<DateTime?> passwordExpiresAt,
+      Value<StatusType> status,
+      Value<String?> createdBy,
+      Value<String?> updatedBy,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<String?> syncStatus,
+      Value<int> rowid,
+    });
+
+final class $$BusinessUsersTableTableReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          $BusinessUsersTableTable,
+          BusinessUsersTableData
+        > {
+  $$BusinessUsersTableTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static $BusinessTableTable _businessIdTable(_$AppDatabase db) =>
+      db.businessTable.createAlias(
+        $_aliasNameGenerator(
+          db.businessUsersTable.businessId,
+          db.businessTable.businessId,
+        ),
+      );
+
+  $$BusinessTableTableProcessedTableManager get businessId {
+    final $_column = $_itemColumn<String>('business_id')!;
+
+    final manager = $$BusinessTableTableTableManager(
+      $_db,
+      $_db.businessTable,
+    ).filter((f) => f.businessId.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_businessIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static $UserRolesTableTable _roleIdTable(_$AppDatabase db) =>
+      db.userRolesTable.createAlias(
+        $_aliasNameGenerator(
+          db.businessUsersTable.roleId,
+          db.userRolesTable.roleId,
+        ),
+      );
+
+  $$UserRolesTableTableProcessedTableManager get roleId {
+    final $_column = $_itemColumn<String>('role_id')!;
+
+    final manager = $$UserRolesTableTableTableManager(
+      $_db,
+      $_db.userRolesTable,
+    ).filter((f) => f.roleId.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_roleIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$BusinessUsersTableTableFilterComposer
+    extends Composer<_$AppDatabase, $BusinessUsersTableTable> {
+  $$BusinessUsersTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get businessUserId => $composableBuilder(
+    column: $table.businessUserId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get roleName => $composableBuilder(
+    column: $table.roleName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get businessName => $composableBuilder(
+    column: $table.businessName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get assignedBranches => $composableBuilder(
+    column: $table.assignedBranches,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get customPermissions => $composableBuilder(
+    column: $table.customPermissions,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get employmentStartDate => $composableBuilder(
+    column: $table.employmentStartDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get employmentEndDate => $composableBuilder(
+    column: $table.employmentEndDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isPrimaryBusiness => $composableBuilder(
+    column: $table.isPrimaryBusiness,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get hasDirectDepositAccess => $composableBuilder(
+    column: $table.hasDirectDepositAccess,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get canSwitchBranches => $composableBuilder(
+    column: $table.canSwitchBranches,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get hourlyRate => $composableBuilder(
+    column: $table.hourlyRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get salaryAmount => $composableBuilder(
+    column: $table.salaryAmount,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get commissionRate => $composableBuilder(
+    column: $table.commissionRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get paymentFrequency => $composableBuilder(
+    column: $table.paymentFrequency,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get lastLoginAt => $composableBuilder(
+    column: $table.lastLoginAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get loginCount => $composableBuilder(
+    column: $table.loginCount,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isActive => $composableBuilder(
+    column: $table.isActive,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get passwordExpiresAt => $composableBuilder(
+    column: $table.passwordExpiresAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<StatusType, StatusType, String> get status =>
+      $composableBuilder(
+        column: $table.status,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<String> get createdBy => $composableBuilder(
+    column: $table.createdBy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get updatedBy => $composableBuilder(
+    column: $table.updatedBy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$BusinessTableTableFilterComposer get businessId {
+    final $$BusinessTableTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.businessTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessTableTableFilterComposer(
+            $db: $db,
+            $table: $db.businessTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$UserRolesTableTableFilterComposer get roleId {
+    final $$UserRolesTableTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.roleId,
+      referencedTable: $db.userRolesTable,
+      getReferencedColumn: (t) => t.roleId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$UserRolesTableTableFilterComposer(
+            $db: $db,
+            $table: $db.userRolesTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$BusinessUsersTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $BusinessUsersTableTable> {
+  $$BusinessUsersTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get businessUserId => $composableBuilder(
+    column: $table.businessUserId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get roleName => $composableBuilder(
+    column: $table.roleName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get businessName => $composableBuilder(
+    column: $table.businessName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get assignedBranches => $composableBuilder(
+    column: $table.assignedBranches,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get customPermissions => $composableBuilder(
+    column: $table.customPermissions,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get employmentStartDate => $composableBuilder(
+    column: $table.employmentStartDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get employmentEndDate => $composableBuilder(
+    column: $table.employmentEndDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isPrimaryBusiness => $composableBuilder(
+    column: $table.isPrimaryBusiness,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get hasDirectDepositAccess => $composableBuilder(
+    column: $table.hasDirectDepositAccess,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get canSwitchBranches => $composableBuilder(
+    column: $table.canSwitchBranches,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get hourlyRate => $composableBuilder(
+    column: $table.hourlyRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get salaryAmount => $composableBuilder(
+    column: $table.salaryAmount,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get commissionRate => $composableBuilder(
+    column: $table.commissionRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get paymentFrequency => $composableBuilder(
+    column: $table.paymentFrequency,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get lastLoginAt => $composableBuilder(
+    column: $table.lastLoginAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get loginCount => $composableBuilder(
+    column: $table.loginCount,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isActive => $composableBuilder(
+    column: $table.isActive,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get passwordExpiresAt => $composableBuilder(
+    column: $table.passwordExpiresAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get createdBy => $composableBuilder(
+    column: $table.createdBy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get updatedBy => $composableBuilder(
+    column: $table.updatedBy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$BusinessTableTableOrderingComposer get businessId {
+    final $$BusinessTableTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.businessTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessTableTableOrderingComposer(
+            $db: $db,
+            $table: $db.businessTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$UserRolesTableTableOrderingComposer get roleId {
+    final $$UserRolesTableTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.roleId,
+      referencedTable: $db.userRolesTable,
+      getReferencedColumn: (t) => t.roleId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$UserRolesTableTableOrderingComposer(
+            $db: $db,
+            $table: $db.userRolesTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$BusinessUsersTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $BusinessUsersTableTable> {
+  $$BusinessUsersTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get businessUserId => $composableBuilder(
+    column: $table.businessUserId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get roleName =>
+      $composableBuilder(column: $table.roleName, builder: (column) => column);
+
+  GeneratedColumn<String> get businessName => $composableBuilder(
+    column: $table.businessName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get assignedBranches => $composableBuilder(
+    column: $table.assignedBranches,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get customPermissions => $composableBuilder(
+    column: $table.customPermissions,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get employmentStartDate => $composableBuilder(
+    column: $table.employmentStartDate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get employmentEndDate => $composableBuilder(
+    column: $table.employmentEndDate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isPrimaryBusiness => $composableBuilder(
+    column: $table.isPrimaryBusiness,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get hasDirectDepositAccess => $composableBuilder(
+    column: $table.hasDirectDepositAccess,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get canSwitchBranches => $composableBuilder(
+    column: $table.canSwitchBranches,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get hourlyRate => $composableBuilder(
+    column: $table.hourlyRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get salaryAmount => $composableBuilder(
+    column: $table.salaryAmount,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get commissionRate => $composableBuilder(
+    column: $table.commissionRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get paymentFrequency => $composableBuilder(
+    column: $table.paymentFrequency,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get lastLoginAt => $composableBuilder(
+    column: $table.lastLoginAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get loginCount => $composableBuilder(
+    column: $table.loginCount,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isActive =>
+      $composableBuilder(column: $table.isActive, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get passwordExpiresAt => $composableBuilder(
+    column: $table.passwordExpiresAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumnWithTypeConverter<StatusType, String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<String> get createdBy =>
+      $composableBuilder(column: $table.createdBy, builder: (column) => column);
+
+  GeneratedColumn<String> get updatedBy =>
+      $composableBuilder(column: $table.updatedBy, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => column,
+  );
+
+  $$BusinessTableTableAnnotationComposer get businessId {
+    final $$BusinessTableTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.businessId,
+      referencedTable: $db.businessTable,
+      getReferencedColumn: (t) => t.businessId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$BusinessTableTableAnnotationComposer(
+            $db: $db,
+            $table: $db.businessTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $$UserRolesTableTableAnnotationComposer get roleId {
+    final $$UserRolesTableTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.roleId,
+      referencedTable: $db.userRolesTable,
+      getReferencedColumn: (t) => t.roleId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$UserRolesTableTableAnnotationComposer(
+            $db: $db,
+            $table: $db.userRolesTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$BusinessUsersTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $BusinessUsersTableTable,
+          BusinessUsersTableData,
+          $$BusinessUsersTableTableFilterComposer,
+          $$BusinessUsersTableTableOrderingComposer,
+          $$BusinessUsersTableTableAnnotationComposer,
+          $$BusinessUsersTableTableCreateCompanionBuilder,
+          $$BusinessUsersTableTableUpdateCompanionBuilder,
+          (BusinessUsersTableData, $$BusinessUsersTableTableReferences),
+          BusinessUsersTableData,
+          PrefetchHooks Function({bool businessId, bool roleId})
+        > {
+  $$BusinessUsersTableTableTableManager(
+    _$AppDatabase db,
+    $BusinessUsersTableTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$BusinessUsersTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$BusinessUsersTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$BusinessUsersTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> businessUserId = const Value.absent(),
+                Value<String> businessId = const Value.absent(),
+                Value<String> userId = const Value.absent(),
+                Value<String> roleId = const Value.absent(),
+                Value<String> roleName = const Value.absent(),
+                Value<String?> businessName = const Value.absent(),
+                Value<String?> assignedBranches = const Value.absent(),
+                Value<String?> customPermissions = const Value.absent(),
+                Value<DateTime?> employmentStartDate = const Value.absent(),
+                Value<DateTime?> employmentEndDate = const Value.absent(),
+                Value<bool> isPrimaryBusiness = const Value.absent(),
+                Value<bool> hasDirectDepositAccess = const Value.absent(),
+                Value<bool> canSwitchBranches = const Value.absent(),
+                Value<double?> hourlyRate = const Value.absent(),
+                Value<double?> salaryAmount = const Value.absent(),
+                Value<double?> commissionRate = const Value.absent(),
+                Value<String?> paymentFrequency = const Value.absent(),
+                Value<DateTime?> lastLoginAt = const Value.absent(),
+                Value<int> loginCount = const Value.absent(),
+                Value<bool> isActive = const Value.absent(),
+                Value<DateTime?> passwordExpiresAt = const Value.absent(),
+                Value<StatusType> status = const Value.absent(),
+                Value<String?> createdBy = const Value.absent(),
+                Value<String?> updatedBy = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<String?> syncStatus = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BusinessUsersTableCompanion(
+                businessUserId: businessUserId,
+                businessId: businessId,
+                userId: userId,
+                roleId: roleId,
+                roleName: roleName,
+                businessName: businessName,
+                assignedBranches: assignedBranches,
+                customPermissions: customPermissions,
+                employmentStartDate: employmentStartDate,
+                employmentEndDate: employmentEndDate,
+                isPrimaryBusiness: isPrimaryBusiness,
+                hasDirectDepositAccess: hasDirectDepositAccess,
+                canSwitchBranches: canSwitchBranches,
+                hourlyRate: hourlyRate,
+                salaryAmount: salaryAmount,
+                commissionRate: commissionRate,
+                paymentFrequency: paymentFrequency,
+                lastLoginAt: lastLoginAt,
+                loginCount: loginCount,
+                isActive: isActive,
+                passwordExpiresAt: passwordExpiresAt,
+                status: status,
+                createdBy: createdBy,
+                updatedBy: updatedBy,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncStatus: syncStatus,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String businessUserId,
+                required String businessId,
+                required String userId,
+                required String roleId,
+                required String roleName,
+                Value<String?> businessName = const Value.absent(),
+                Value<String?> assignedBranches = const Value.absent(),
+                Value<String?> customPermissions = const Value.absent(),
+                Value<DateTime?> employmentStartDate = const Value.absent(),
+                Value<DateTime?> employmentEndDate = const Value.absent(),
+                Value<bool> isPrimaryBusiness = const Value.absent(),
+                Value<bool> hasDirectDepositAccess = const Value.absent(),
+                Value<bool> canSwitchBranches = const Value.absent(),
+                Value<double?> hourlyRate = const Value.absent(),
+                Value<double?> salaryAmount = const Value.absent(),
+                Value<double?> commissionRate = const Value.absent(),
+                Value<String?> paymentFrequency = const Value.absent(),
+                Value<DateTime?> lastLoginAt = const Value.absent(),
+                Value<int> loginCount = const Value.absent(),
+                Value<bool> isActive = const Value.absent(),
+                Value<DateTime?> passwordExpiresAt = const Value.absent(),
+                Value<StatusType> status = const Value.absent(),
+                Value<String?> createdBy = const Value.absent(),
+                Value<String?> updatedBy = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<String?> syncStatus = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BusinessUsersTableCompanion.insert(
+                businessUserId: businessUserId,
+                businessId: businessId,
+                userId: userId,
+                roleId: roleId,
+                roleName: roleName,
+                businessName: businessName,
+                assignedBranches: assignedBranches,
+                customPermissions: customPermissions,
+                employmentStartDate: employmentStartDate,
+                employmentEndDate: employmentEndDate,
+                isPrimaryBusiness: isPrimaryBusiness,
+                hasDirectDepositAccess: hasDirectDepositAccess,
+                canSwitchBranches: canSwitchBranches,
+                hourlyRate: hourlyRate,
+                salaryAmount: salaryAmount,
+                commissionRate: commissionRate,
+                paymentFrequency: paymentFrequency,
+                lastLoginAt: lastLoginAt,
+                loginCount: loginCount,
+                isActive: isActive,
+                passwordExpiresAt: passwordExpiresAt,
+                status: status,
+                createdBy: createdBy,
+                updatedBy: updatedBy,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncStatus: syncStatus,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$BusinessUsersTableTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({businessId = false, roleId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (businessId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.businessId,
+                                referencedTable:
+                                    $$BusinessUsersTableTableReferences
+                                        ._businessIdTable(db),
+                                referencedColumn:
+                                    $$BusinessUsersTableTableReferences
+                                        ._businessIdTable(db)
+                                        .businessId,
+                              )
+                              as T;
+                    }
+                    if (roleId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.roleId,
+                                referencedTable:
+                                    $$BusinessUsersTableTableReferences
+                                        ._roleIdTable(db),
+                                referencedColumn:
+                                    $$BusinessUsersTableTableReferences
+                                        ._roleIdTable(db)
+                                        .roleId,
+                              )
+                              as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$BusinessUsersTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $BusinessUsersTableTable,
+      BusinessUsersTableData,
+      $$BusinessUsersTableTableFilterComposer,
+      $$BusinessUsersTableTableOrderingComposer,
+      $$BusinessUsersTableTableAnnotationComposer,
+      $$BusinessUsersTableTableCreateCompanionBuilder,
+      $$BusinessUsersTableTableUpdateCompanionBuilder,
+      (BusinessUsersTableData, $$BusinessUsersTableTableReferences),
+      BusinessUsersTableData,
+      PrefetchHooks Function({bool businessId, bool roleId})
+    >;
+typedef $$ActionQueueTableTableCreateCompanionBuilder =
+    ActionQueueTableCompanion Function({
+      required String actionId,
+      required String businessId,
+      Value<String?> userId,
+      Value<String?> systemId,
+      required AuditAction actionType,
+      required String entityType,
+      required String entityId,
+      required String actionData,
+      Value<String?> changeDetails,
+      Value<String> syncStatus,
+      Value<DateTime> createdAt,
+      Value<DateTime?> syncedAt,
+      Value<int> retryCount,
+      Value<int> maxRetries,
+      Value<String?> lastError,
+      Value<DateTime?> lastAttemptAt,
+      Value<DateTime?> nextRetryAt,
+      Value<int> priority,
+      Value<String?> batchId,
+      Value<bool> requiresOnline,
+      Value<String?> metadata,
+      Value<String?> deviceInfo,
+      Value<int> rowid,
+    });
+typedef $$ActionQueueTableTableUpdateCompanionBuilder =
+    ActionQueueTableCompanion Function({
+      Value<String> actionId,
+      Value<String> businessId,
+      Value<String?> userId,
+      Value<String?> systemId,
+      Value<AuditAction> actionType,
+      Value<String> entityType,
+      Value<String> entityId,
+      Value<String> actionData,
+      Value<String?> changeDetails,
+      Value<String> syncStatus,
+      Value<DateTime> createdAt,
+      Value<DateTime?> syncedAt,
+      Value<int> retryCount,
+      Value<int> maxRetries,
+      Value<String?> lastError,
+      Value<DateTime?> lastAttemptAt,
+      Value<DateTime?> nextRetryAt,
+      Value<int> priority,
+      Value<String?> batchId,
+      Value<bool> requiresOnline,
+      Value<String?> metadata,
+      Value<String?> deviceInfo,
+      Value<int> rowid,
+    });
+
+class $$ActionQueueTableTableFilterComposer
+    extends Composer<_$AppDatabase, $ActionQueueTableTable> {
+  $$ActionQueueTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get actionId => $composableBuilder(
+    column: $table.actionId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get businessId => $composableBuilder(
+    column: $table.businessId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get userId => $composableBuilder(
+    column: $table.userId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get systemId => $composableBuilder(
+    column: $table.systemId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<AuditAction, AuditAction, String>
+  get actionType => $composableBuilder(
+    column: $table.actionType,
+    builder: (column) => ColumnWithTypeConverterFilters(column),
+  );
+
+  ColumnFilters<String> get entityType => $composableBuilder(
+    column: $table.entityType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get entityId => $composableBuilder(
+    column: $table.entityId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get actionData => $composableBuilder(
+    column: $table.actionData,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get changeDetails => $composableBuilder(
+    column: $table.changeDetails,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get syncedAt => $composableBuilder(
+    column: $table.syncedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get retryCount => $composableBuilder(
+    column: $table.retryCount,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get maxRetries => $composableBuilder(
+    column: $table.maxRetries,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get lastError => $composableBuilder(
+    column: $table.lastError,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get lastAttemptAt => $composableBuilder(
+    column: $table.lastAttemptAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get nextRetryAt => $composableBuilder(
+    column: $table.nextRetryAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get priority => $composableBuilder(
+    column: $table.priority,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get batchId => $composableBuilder(
+    column: $table.batchId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get requiresOnline => $composableBuilder(
+    column: $table.requiresOnline,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get metadata => $composableBuilder(
+    column: $table.metadata,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get deviceInfo => $composableBuilder(
+    column: $table.deviceInfo,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ActionQueueTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $ActionQueueTableTable> {
+  $$ActionQueueTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get actionId => $composableBuilder(
+    column: $table.actionId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get businessId => $composableBuilder(
+    column: $table.businessId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get userId => $composableBuilder(
+    column: $table.userId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get systemId => $composableBuilder(
+    column: $table.systemId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get actionType => $composableBuilder(
+    column: $table.actionType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get entityType => $composableBuilder(
+    column: $table.entityType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get entityId => $composableBuilder(
+    column: $table.entityId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get actionData => $composableBuilder(
+    column: $table.actionData,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get changeDetails => $composableBuilder(
+    column: $table.changeDetails,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get syncedAt => $composableBuilder(
+    column: $table.syncedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get retryCount => $composableBuilder(
+    column: $table.retryCount,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get maxRetries => $composableBuilder(
+    column: $table.maxRetries,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get lastError => $composableBuilder(
+    column: $table.lastError,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get lastAttemptAt => $composableBuilder(
+    column: $table.lastAttemptAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get nextRetryAt => $composableBuilder(
+    column: $table.nextRetryAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get priority => $composableBuilder(
+    column: $table.priority,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get batchId => $composableBuilder(
+    column: $table.batchId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get requiresOnline => $composableBuilder(
+    column: $table.requiresOnline,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get metadata => $composableBuilder(
+    column: $table.metadata,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get deviceInfo => $composableBuilder(
+    column: $table.deviceInfo,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ActionQueueTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ActionQueueTableTable> {
+  $$ActionQueueTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get actionId =>
+      $composableBuilder(column: $table.actionId, builder: (column) => column);
+
+  GeneratedColumn<String> get businessId => $composableBuilder(
+    column: $table.businessId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get userId =>
+      $composableBuilder(column: $table.userId, builder: (column) => column);
+
+  GeneratedColumn<String> get systemId =>
+      $composableBuilder(column: $table.systemId, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<AuditAction, String> get actionType =>
+      $composableBuilder(
+        column: $table.actionType,
+        builder: (column) => column,
+      );
+
+  GeneratedColumn<String> get entityType => $composableBuilder(
+    column: $table.entityType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get entityId =>
+      $composableBuilder(column: $table.entityId, builder: (column) => column);
+
+  GeneratedColumn<String> get actionData => $composableBuilder(
+    column: $table.actionData,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get changeDetails => $composableBuilder(
+    column: $table.changeDetails,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get syncStatus => $composableBuilder(
+    column: $table.syncStatus,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get syncedAt =>
+      $composableBuilder(column: $table.syncedAt, builder: (column) => column);
+
+  GeneratedColumn<int> get retryCount => $composableBuilder(
+    column: $table.retryCount,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get maxRetries => $composableBuilder(
+    column: $table.maxRetries,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get lastError =>
+      $composableBuilder(column: $table.lastError, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get lastAttemptAt => $composableBuilder(
+    column: $table.lastAttemptAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get nextRetryAt => $composableBuilder(
+    column: $table.nextRetryAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get priority =>
+      $composableBuilder(column: $table.priority, builder: (column) => column);
+
+  GeneratedColumn<String> get batchId =>
+      $composableBuilder(column: $table.batchId, builder: (column) => column);
+
+  GeneratedColumn<bool> get requiresOnline => $composableBuilder(
+    column: $table.requiresOnline,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get metadata =>
+      $composableBuilder(column: $table.metadata, builder: (column) => column);
+
+  GeneratedColumn<String> get deviceInfo => $composableBuilder(
+    column: $table.deviceInfo,
+    builder: (column) => column,
+  );
+}
+
+class $$ActionQueueTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ActionQueueTableTable,
+          ActionQueueTableData,
+          $$ActionQueueTableTableFilterComposer,
+          $$ActionQueueTableTableOrderingComposer,
+          $$ActionQueueTableTableAnnotationComposer,
+          $$ActionQueueTableTableCreateCompanionBuilder,
+          $$ActionQueueTableTableUpdateCompanionBuilder,
+          (
+            ActionQueueTableData,
+            BaseReferences<
+              _$AppDatabase,
+              $ActionQueueTableTable,
+              ActionQueueTableData
+            >,
+          ),
+          ActionQueueTableData,
+          PrefetchHooks Function()
+        > {
+  $$ActionQueueTableTableTableManager(
+    _$AppDatabase db,
+    $ActionQueueTableTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ActionQueueTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ActionQueueTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ActionQueueTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> actionId = const Value.absent(),
+                Value<String> businessId = const Value.absent(),
+                Value<String?> userId = const Value.absent(),
+                Value<String?> systemId = const Value.absent(),
+                Value<AuditAction> actionType = const Value.absent(),
+                Value<String> entityType = const Value.absent(),
+                Value<String> entityId = const Value.absent(),
+                Value<String> actionData = const Value.absent(),
+                Value<String?> changeDetails = const Value.absent(),
+                Value<String> syncStatus = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime?> syncedAt = const Value.absent(),
+                Value<int> retryCount = const Value.absent(),
+                Value<int> maxRetries = const Value.absent(),
+                Value<String?> lastError = const Value.absent(),
+                Value<DateTime?> lastAttemptAt = const Value.absent(),
+                Value<DateTime?> nextRetryAt = const Value.absent(),
+                Value<int> priority = const Value.absent(),
+                Value<String?> batchId = const Value.absent(),
+                Value<bool> requiresOnline = const Value.absent(),
+                Value<String?> metadata = const Value.absent(),
+                Value<String?> deviceInfo = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ActionQueueTableCompanion(
+                actionId: actionId,
+                businessId: businessId,
+                userId: userId,
+                systemId: systemId,
+                actionType: actionType,
+                entityType: entityType,
+                entityId: entityId,
+                actionData: actionData,
+                changeDetails: changeDetails,
+                syncStatus: syncStatus,
+                createdAt: createdAt,
+                syncedAt: syncedAt,
+                retryCount: retryCount,
+                maxRetries: maxRetries,
+                lastError: lastError,
+                lastAttemptAt: lastAttemptAt,
+                nextRetryAt: nextRetryAt,
+                priority: priority,
+                batchId: batchId,
+                requiresOnline: requiresOnline,
+                metadata: metadata,
+                deviceInfo: deviceInfo,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String actionId,
+                required String businessId,
+                Value<String?> userId = const Value.absent(),
+                Value<String?> systemId = const Value.absent(),
+                required AuditAction actionType,
+                required String entityType,
+                required String entityId,
+                required String actionData,
+                Value<String?> changeDetails = const Value.absent(),
+                Value<String> syncStatus = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime?> syncedAt = const Value.absent(),
+                Value<int> retryCount = const Value.absent(),
+                Value<int> maxRetries = const Value.absent(),
+                Value<String?> lastError = const Value.absent(),
+                Value<DateTime?> lastAttemptAt = const Value.absent(),
+                Value<DateTime?> nextRetryAt = const Value.absent(),
+                Value<int> priority = const Value.absent(),
+                Value<String?> batchId = const Value.absent(),
+                Value<bool> requiresOnline = const Value.absent(),
+                Value<String?> metadata = const Value.absent(),
+                Value<String?> deviceInfo = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ActionQueueTableCompanion.insert(
+                actionId: actionId,
+                businessId: businessId,
+                userId: userId,
+                systemId: systemId,
+                actionType: actionType,
+                entityType: entityType,
+                entityId: entityId,
+                actionData: actionData,
+                changeDetails: changeDetails,
+                syncStatus: syncStatus,
+                createdAt: createdAt,
+                syncedAt: syncedAt,
+                retryCount: retryCount,
+                maxRetries: maxRetries,
+                lastError: lastError,
+                lastAttemptAt: lastAttemptAt,
+                nextRetryAt: nextRetryAt,
+                priority: priority,
+                batchId: batchId,
+                requiresOnline: requiresOnline,
+                metadata: metadata,
+                deviceInfo: deviceInfo,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ActionQueueTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ActionQueueTableTable,
+      ActionQueueTableData,
+      $$ActionQueueTableTableFilterComposer,
+      $$ActionQueueTableTableOrderingComposer,
+      $$ActionQueueTableTableAnnotationComposer,
+      $$ActionQueueTableTableCreateCompanionBuilder,
+      $$ActionQueueTableTableUpdateCompanionBuilder,
+      (
+        ActionQueueTableData,
+        BaseReferences<
+          _$AppDatabase,
+          $ActionQueueTableTable,
+          ActionQueueTableData
+        >,
+      ),
+      ActionQueueTableData,
+      PrefetchHooks Function()
+    >;
+typedef $$SyncStatusTableTableCreateCompanionBuilder =
+    SyncStatusTableCompanion Function({
+      required String syncId,
+      required String businessId,
+      required String entityType,
+      Value<DateTime?> lastFullSync,
+      Value<DateTime?> lastIncrementalSync,
+      Value<DateTime?> lastSuccessfulSync,
+      Value<DateTime?> nextScheduledSync,
+      Value<int> syncIntervalMinutes,
+      Value<bool> autoSyncEnabled,
+      Value<bool> syncOnlyOnWifi,
+      Value<int> totalRecordsToSync,
+      Value<int> recordsSynced,
+      Value<int> syncFailures,
+      Value<int> consecutiveFailures,
+      Value<String> currentStatus,
+      Value<double> syncProgress,
+      Value<String?> currentOperation,
+      Value<String?> lastError,
+      Value<DateTime?> lastErrorAt,
+      Value<int?> errorCode,
+      Value<int?> lastSyncDurationMs,
+      Value<int?> averageSyncDurationMs,
+      Value<double?> avgRecordsPerSecond,
+      Value<String?> lastSyncNetworkType,
+      Value<String?> deviceId,
+      Value<String?> appVersion,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<int> rowid,
+    });
+typedef $$SyncStatusTableTableUpdateCompanionBuilder =
+    SyncStatusTableCompanion Function({
+      Value<String> syncId,
+      Value<String> businessId,
+      Value<String> entityType,
+      Value<DateTime?> lastFullSync,
+      Value<DateTime?> lastIncrementalSync,
+      Value<DateTime?> lastSuccessfulSync,
+      Value<DateTime?> nextScheduledSync,
+      Value<int> syncIntervalMinutes,
+      Value<bool> autoSyncEnabled,
+      Value<bool> syncOnlyOnWifi,
+      Value<int> totalRecordsToSync,
+      Value<int> recordsSynced,
+      Value<int> syncFailures,
+      Value<int> consecutiveFailures,
+      Value<String> currentStatus,
+      Value<double> syncProgress,
+      Value<String?> currentOperation,
+      Value<String?> lastError,
+      Value<DateTime?> lastErrorAt,
+      Value<int?> errorCode,
+      Value<int?> lastSyncDurationMs,
+      Value<int?> averageSyncDurationMs,
+      Value<double?> avgRecordsPerSecond,
+      Value<String?> lastSyncNetworkType,
+      Value<String?> deviceId,
+      Value<String?> appVersion,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<int> rowid,
+    });
+
+class $$SyncStatusTableTableFilterComposer
+    extends Composer<_$AppDatabase, $SyncStatusTableTable> {
+  $$SyncStatusTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get syncId => $composableBuilder(
+    column: $table.syncId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get businessId => $composableBuilder(
+    column: $table.businessId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get entityType => $composableBuilder(
+    column: $table.entityType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get lastFullSync => $composableBuilder(
+    column: $table.lastFullSync,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get lastIncrementalSync => $composableBuilder(
+    column: $table.lastIncrementalSync,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get lastSuccessfulSync => $composableBuilder(
+    column: $table.lastSuccessfulSync,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get nextScheduledSync => $composableBuilder(
+    column: $table.nextScheduledSync,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get syncIntervalMinutes => $composableBuilder(
+    column: $table.syncIntervalMinutes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get autoSyncEnabled => $composableBuilder(
+    column: $table.autoSyncEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get syncOnlyOnWifi => $composableBuilder(
+    column: $table.syncOnlyOnWifi,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get totalRecordsToSync => $composableBuilder(
+    column: $table.totalRecordsToSync,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get recordsSynced => $composableBuilder(
+    column: $table.recordsSynced,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get syncFailures => $composableBuilder(
+    column: $table.syncFailures,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get consecutiveFailures => $composableBuilder(
+    column: $table.consecutiveFailures,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get currentStatus => $composableBuilder(
+    column: $table.currentStatus,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get syncProgress => $composableBuilder(
+    column: $table.syncProgress,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get currentOperation => $composableBuilder(
+    column: $table.currentOperation,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get lastError => $composableBuilder(
+    column: $table.lastError,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get lastErrorAt => $composableBuilder(
+    column: $table.lastErrorAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get errorCode => $composableBuilder(
+    column: $table.errorCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lastSyncDurationMs => $composableBuilder(
+    column: $table.lastSyncDurationMs,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get averageSyncDurationMs => $composableBuilder(
+    column: $table.averageSyncDurationMs,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get avgRecordsPerSecond => $composableBuilder(
+    column: $table.avgRecordsPerSecond,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get lastSyncNetworkType => $composableBuilder(
+    column: $table.lastSyncNetworkType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get deviceId => $composableBuilder(
+    column: $table.deviceId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get appVersion => $composableBuilder(
+    column: $table.appVersion,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$SyncStatusTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $SyncStatusTableTable> {
+  $$SyncStatusTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get syncId => $composableBuilder(
+    column: $table.syncId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get businessId => $composableBuilder(
+    column: $table.businessId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get entityType => $composableBuilder(
+    column: $table.entityType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get lastFullSync => $composableBuilder(
+    column: $table.lastFullSync,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get lastIncrementalSync => $composableBuilder(
+    column: $table.lastIncrementalSync,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get lastSuccessfulSync => $composableBuilder(
+    column: $table.lastSuccessfulSync,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get nextScheduledSync => $composableBuilder(
+    column: $table.nextScheduledSync,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get syncIntervalMinutes => $composableBuilder(
+    column: $table.syncIntervalMinutes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get autoSyncEnabled => $composableBuilder(
+    column: $table.autoSyncEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get syncOnlyOnWifi => $composableBuilder(
+    column: $table.syncOnlyOnWifi,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get totalRecordsToSync => $composableBuilder(
+    column: $table.totalRecordsToSync,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get recordsSynced => $composableBuilder(
+    column: $table.recordsSynced,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get syncFailures => $composableBuilder(
+    column: $table.syncFailures,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get consecutiveFailures => $composableBuilder(
+    column: $table.consecutiveFailures,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get currentStatus => $composableBuilder(
+    column: $table.currentStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get syncProgress => $composableBuilder(
+    column: $table.syncProgress,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get currentOperation => $composableBuilder(
+    column: $table.currentOperation,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get lastError => $composableBuilder(
+    column: $table.lastError,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get lastErrorAt => $composableBuilder(
+    column: $table.lastErrorAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get errorCode => $composableBuilder(
+    column: $table.errorCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lastSyncDurationMs => $composableBuilder(
+    column: $table.lastSyncDurationMs,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get averageSyncDurationMs => $composableBuilder(
+    column: $table.averageSyncDurationMs,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get avgRecordsPerSecond => $composableBuilder(
+    column: $table.avgRecordsPerSecond,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get lastSyncNetworkType => $composableBuilder(
+    column: $table.lastSyncNetworkType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get deviceId => $composableBuilder(
+    column: $table.deviceId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get appVersion => $composableBuilder(
+    column: $table.appVersion,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$SyncStatusTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $SyncStatusTableTable> {
+  $$SyncStatusTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get syncId =>
+      $composableBuilder(column: $table.syncId, builder: (column) => column);
+
+  GeneratedColumn<String> get businessId => $composableBuilder(
+    column: $table.businessId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get entityType => $composableBuilder(
+    column: $table.entityType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get lastFullSync => $composableBuilder(
+    column: $table.lastFullSync,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get lastIncrementalSync => $composableBuilder(
+    column: $table.lastIncrementalSync,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get lastSuccessfulSync => $composableBuilder(
+    column: $table.lastSuccessfulSync,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get nextScheduledSync => $composableBuilder(
+    column: $table.nextScheduledSync,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get syncIntervalMinutes => $composableBuilder(
+    column: $table.syncIntervalMinutes,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get autoSyncEnabled => $composableBuilder(
+    column: $table.autoSyncEnabled,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get syncOnlyOnWifi => $composableBuilder(
+    column: $table.syncOnlyOnWifi,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get totalRecordsToSync => $composableBuilder(
+    column: $table.totalRecordsToSync,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get recordsSynced => $composableBuilder(
+    column: $table.recordsSynced,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get syncFailures => $composableBuilder(
+    column: $table.syncFailures,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get consecutiveFailures => $composableBuilder(
+    column: $table.consecutiveFailures,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get currentStatus => $composableBuilder(
+    column: $table.currentStatus,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get syncProgress => $composableBuilder(
+    column: $table.syncProgress,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get currentOperation => $composableBuilder(
+    column: $table.currentOperation,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get lastError =>
+      $composableBuilder(column: $table.lastError, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get lastErrorAt => $composableBuilder(
+    column: $table.lastErrorAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get errorCode =>
+      $composableBuilder(column: $table.errorCode, builder: (column) => column);
+
+  GeneratedColumn<int> get lastSyncDurationMs => $composableBuilder(
+    column: $table.lastSyncDurationMs,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get averageSyncDurationMs => $composableBuilder(
+    column: $table.averageSyncDurationMs,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get avgRecordsPerSecond => $composableBuilder(
+    column: $table.avgRecordsPerSecond,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get lastSyncNetworkType => $composableBuilder(
+    column: $table.lastSyncNetworkType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get deviceId =>
+      $composableBuilder(column: $table.deviceId, builder: (column) => column);
+
+  GeneratedColumn<String> get appVersion => $composableBuilder(
+    column: $table.appVersion,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+}
+
+class $$SyncStatusTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $SyncStatusTableTable,
+          SyncStatusTableData,
+          $$SyncStatusTableTableFilterComposer,
+          $$SyncStatusTableTableOrderingComposer,
+          $$SyncStatusTableTableAnnotationComposer,
+          $$SyncStatusTableTableCreateCompanionBuilder,
+          $$SyncStatusTableTableUpdateCompanionBuilder,
+          (
+            SyncStatusTableData,
+            BaseReferences<
+              _$AppDatabase,
+              $SyncStatusTableTable,
+              SyncStatusTableData
+            >,
+          ),
+          SyncStatusTableData,
+          PrefetchHooks Function()
+        > {
+  $$SyncStatusTableTableTableManager(
+    _$AppDatabase db,
+    $SyncStatusTableTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$SyncStatusTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SyncStatusTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SyncStatusTableTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> syncId = const Value.absent(),
+                Value<String> businessId = const Value.absent(),
+                Value<String> entityType = const Value.absent(),
+                Value<DateTime?> lastFullSync = const Value.absent(),
+                Value<DateTime?> lastIncrementalSync = const Value.absent(),
+                Value<DateTime?> lastSuccessfulSync = const Value.absent(),
+                Value<DateTime?> nextScheduledSync = const Value.absent(),
+                Value<int> syncIntervalMinutes = const Value.absent(),
+                Value<bool> autoSyncEnabled = const Value.absent(),
+                Value<bool> syncOnlyOnWifi = const Value.absent(),
+                Value<int> totalRecordsToSync = const Value.absent(),
+                Value<int> recordsSynced = const Value.absent(),
+                Value<int> syncFailures = const Value.absent(),
+                Value<int> consecutiveFailures = const Value.absent(),
+                Value<String> currentStatus = const Value.absent(),
+                Value<double> syncProgress = const Value.absent(),
+                Value<String?> currentOperation = const Value.absent(),
+                Value<String?> lastError = const Value.absent(),
+                Value<DateTime?> lastErrorAt = const Value.absent(),
+                Value<int?> errorCode = const Value.absent(),
+                Value<int?> lastSyncDurationMs = const Value.absent(),
+                Value<int?> averageSyncDurationMs = const Value.absent(),
+                Value<double?> avgRecordsPerSecond = const Value.absent(),
+                Value<String?> lastSyncNetworkType = const Value.absent(),
+                Value<String?> deviceId = const Value.absent(),
+                Value<String?> appVersion = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => SyncStatusTableCompanion(
+                syncId: syncId,
+                businessId: businessId,
+                entityType: entityType,
+                lastFullSync: lastFullSync,
+                lastIncrementalSync: lastIncrementalSync,
+                lastSuccessfulSync: lastSuccessfulSync,
+                nextScheduledSync: nextScheduledSync,
+                syncIntervalMinutes: syncIntervalMinutes,
+                autoSyncEnabled: autoSyncEnabled,
+                syncOnlyOnWifi: syncOnlyOnWifi,
+                totalRecordsToSync: totalRecordsToSync,
+                recordsSynced: recordsSynced,
+                syncFailures: syncFailures,
+                consecutiveFailures: consecutiveFailures,
+                currentStatus: currentStatus,
+                syncProgress: syncProgress,
+                currentOperation: currentOperation,
+                lastError: lastError,
+                lastErrorAt: lastErrorAt,
+                errorCode: errorCode,
+                lastSyncDurationMs: lastSyncDurationMs,
+                averageSyncDurationMs: averageSyncDurationMs,
+                avgRecordsPerSecond: avgRecordsPerSecond,
+                lastSyncNetworkType: lastSyncNetworkType,
+                deviceId: deviceId,
+                appVersion: appVersion,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String syncId,
+                required String businessId,
+                required String entityType,
+                Value<DateTime?> lastFullSync = const Value.absent(),
+                Value<DateTime?> lastIncrementalSync = const Value.absent(),
+                Value<DateTime?> lastSuccessfulSync = const Value.absent(),
+                Value<DateTime?> nextScheduledSync = const Value.absent(),
+                Value<int> syncIntervalMinutes = const Value.absent(),
+                Value<bool> autoSyncEnabled = const Value.absent(),
+                Value<bool> syncOnlyOnWifi = const Value.absent(),
+                Value<int> totalRecordsToSync = const Value.absent(),
+                Value<int> recordsSynced = const Value.absent(),
+                Value<int> syncFailures = const Value.absent(),
+                Value<int> consecutiveFailures = const Value.absent(),
+                Value<String> currentStatus = const Value.absent(),
+                Value<double> syncProgress = const Value.absent(),
+                Value<String?> currentOperation = const Value.absent(),
+                Value<String?> lastError = const Value.absent(),
+                Value<DateTime?> lastErrorAt = const Value.absent(),
+                Value<int?> errorCode = const Value.absent(),
+                Value<int?> lastSyncDurationMs = const Value.absent(),
+                Value<int?> averageSyncDurationMs = const Value.absent(),
+                Value<double?> avgRecordsPerSecond = const Value.absent(),
+                Value<String?> lastSyncNetworkType = const Value.absent(),
+                Value<String?> deviceId = const Value.absent(),
+                Value<String?> appVersion = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => SyncStatusTableCompanion.insert(
+                syncId: syncId,
+                businessId: businessId,
+                entityType: entityType,
+                lastFullSync: lastFullSync,
+                lastIncrementalSync: lastIncrementalSync,
+                lastSuccessfulSync: lastSuccessfulSync,
+                nextScheduledSync: nextScheduledSync,
+                syncIntervalMinutes: syncIntervalMinutes,
+                autoSyncEnabled: autoSyncEnabled,
+                syncOnlyOnWifi: syncOnlyOnWifi,
+                totalRecordsToSync: totalRecordsToSync,
+                recordsSynced: recordsSynced,
+                syncFailures: syncFailures,
+                consecutiveFailures: consecutiveFailures,
+                currentStatus: currentStatus,
+                syncProgress: syncProgress,
+                currentOperation: currentOperation,
+                lastError: lastError,
+                lastErrorAt: lastErrorAt,
+                errorCode: errorCode,
+                lastSyncDurationMs: lastSyncDurationMs,
+                averageSyncDurationMs: averageSyncDurationMs,
+                avgRecordsPerSecond: avgRecordsPerSecond,
+                lastSyncNetworkType: lastSyncNetworkType,
+                deviceId: deviceId,
+                appVersion: appVersion,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$SyncStatusTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $SyncStatusTableTable,
+      SyncStatusTableData,
+      $$SyncStatusTableTableFilterComposer,
+      $$SyncStatusTableTableOrderingComposer,
+      $$SyncStatusTableTableAnnotationComposer,
+      $$SyncStatusTableTableCreateCompanionBuilder,
+      $$SyncStatusTableTableUpdateCompanionBuilder,
+      (
+        SyncStatusTableData,
+        BaseReferences<
+          _$AppDatabase,
+          $SyncStatusTableTable,
+          SyncStatusTableData
+        >,
+      ),
+      SyncStatusTableData,
       PrefetchHooks Function()
     >;
 typedef $$SuppliersTableCreateCompanionBuilder =
@@ -16827,6 +30538,18 @@ class $AppDatabaseManager {
   $AppDatabaseManager(this._db);
   $$UsersTableTableManager get users =>
       $$UsersTableTableManager(_db, _db.users);
+  $$BusinessTableTableTableManager get businessTable =>
+      $$BusinessTableTableTableManager(_db, _db.businessTable);
+  $$BranchesTableTableTableManager get branchesTable =>
+      $$BranchesTableTableTableManager(_db, _db.branchesTable);
+  $$UserRolesTableTableTableManager get userRolesTable =>
+      $$UserRolesTableTableTableManager(_db, _db.userRolesTable);
+  $$BusinessUsersTableTableTableManager get businessUsersTable =>
+      $$BusinessUsersTableTableTableManager(_db, _db.businessUsersTable);
+  $$ActionQueueTableTableTableManager get actionQueueTable =>
+      $$ActionQueueTableTableTableManager(_db, _db.actionQueueTable);
+  $$SyncStatusTableTableTableManager get syncStatusTable =>
+      $$SyncStatusTableTableTableManager(_db, _db.syncStatusTable);
   $$SuppliersTableTableManager get suppliers =>
       $$SuppliersTableTableManager(_db, _db.suppliers);
   $$InventoryLineTableTableManager get inventoryLine =>

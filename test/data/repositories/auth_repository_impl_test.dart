@@ -32,12 +32,12 @@ void main() {
           accessToken: anyNamed('accessToken'),
           refreshToken: anyNamed('refreshToken'),
           expiresIn: anyNamed('expiresIn'),
-        )).thenAnswer((_) async => Future.value());
+        )).thenAnswer((_) async => Future<void>.value());
         
         when(mockSecureStorage.write(
           key: anyNamed('key'),
           value: anyNamed('value'),
-        )).thenAnswer((_) async => Future.value());
+        )).thenAnswer((_) async => Future<void>.value());
 
         // Act
         final DataState<LoginResponseEntity> result = await authRepository.login(
@@ -49,7 +49,7 @@ void main() {
         expect(result, isA<DataSuccess<LoginResponseEntity>>());
         expect(result.isSuccess, isTrue);
         
-        final loginResponse = (result as DataSuccess).data;
+        final LoginResponseEntity loginResponse = (result as DataSuccess<LoginResponseEntity>).data;
         expect(loginResponse?.user.email, equals(email));
         expect(loginResponse?.token.accessToken, isNotEmpty);
         
@@ -70,12 +70,12 @@ void main() {
           accessToken: anyNamed('accessToken'),
           refreshToken: anyNamed('refreshToken'),
           expiresIn: anyNamed('expiresIn'),
-        )).thenAnswer((_) async => Future.value());
+        )).thenAnswer((_) async => Future<void>.value());
         
         when(mockSecureStorage.write(
           key: anyNamed('key'),
           value: anyNamed('value'),
-        )).thenAnswer((_) async => Future.value());
+        )).thenAnswer((_) async => Future<void>.value());
 
         // Act
         await authRepository.login(email: email, password: password);
@@ -108,7 +108,7 @@ void main() {
         when(mockSecureStorage.write(
           key: anyNamed('key'),
           value: anyNamed('value'),
-        )).thenAnswer((_) async => Future.value());
+        )).thenAnswer((_) async => Future<void>.value());
 
         // Act
         final DataState<LoginResponseEntity> result = await authRepository.login(
@@ -119,7 +119,7 @@ void main() {
         // Assert
         expect(result, isA<DataFailed<LoginResponseEntity>>());
         expect(result.isFailed, isTrue);
-        expect((result as DataFailed).errorCode, equals('LOGIN_FAILED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('LOGIN_FAILED'));
       });
     });
 
@@ -151,7 +151,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<void>>());
-        expect((result as DataFailed).errorCode, equals('LOGOUT_FAILED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('LOGOUT_FAILED'));
       });
     });
 
@@ -182,7 +182,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<UserEntity>>());
-        expect((result as DataFailed).errorCode, equals('NO_USER'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NO_USER'));
       });
 
       test('should handle corrupted user data', () async {
@@ -195,7 +195,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<UserEntity>>());
-        expect((result as DataFailed).errorCode, equals('GET_USER_FAILED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('GET_USER_FAILED'));
       });
     });
 
@@ -325,7 +325,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<UserEntity>>());
-        expect((result as DataFailed).errorCode, equals('NO_USER'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NO_USER'));
       });
     });
 
@@ -381,7 +381,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<void>>());
-        expect((result as DataFailed).errorCode, equals('UPDATE_FCM_FAILED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('UPDATE_FCM_FAILED'));
       });
     });
 
@@ -395,7 +395,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<LoginResponseEntity>>());
-        expect((result as DataFailed).errorCode, equals('NOT_IMPLEMENTED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NOT_IMPLEMENTED'));
       });
 
       test('refreshToken should return not implemented error', () async {
@@ -406,7 +406,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<AuthTokenEntity>>());
-        expect((result as DataFailed).errorCode, equals('NOT_IMPLEMENTED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NOT_IMPLEMENTED'));
       });
 
       test('changePassword should return not implemented error', () async {
@@ -418,7 +418,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<void>>());
-        expect((result as DataFailed).errorCode, equals('NOT_IMPLEMENTED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NOT_IMPLEMENTED'));
       });
 
       test('requestPasswordReset should return not implemented error', () async {
@@ -429,7 +429,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<void>>());
-        expect((result as DataFailed).errorCode, equals('NOT_IMPLEMENTED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NOT_IMPLEMENTED'));
       });
 
       test('resetPassword should return not implemented error', () async {
@@ -441,7 +441,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<void>>());
-        expect((result as DataFailed).errorCode, equals('NOT_IMPLEMENTED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NOT_IMPLEMENTED'));
       });
 
       test('updateProfile should return not implemented error', () async {
@@ -453,7 +453,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<UserEntity>>());
-        expect((result as DataFailed).errorCode, equals('NOT_IMPLEMENTED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NOT_IMPLEMENTED'));
       });
 
       test('enableTwoFactor should return not implemented error', () async {
@@ -462,7 +462,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<Map<String, dynamic>>>());
-        expect((result as DataFailed).errorCode, equals('NOT_IMPLEMENTED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NOT_IMPLEMENTED'));
       });
 
       test('disableTwoFactor should return not implemented error', () async {
@@ -471,7 +471,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<void>>());
-        expect((result as DataFailed).errorCode, equals('NOT_IMPLEMENTED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NOT_IMPLEMENTED'));
       });
 
       test('verifyEmail should return not implemented error', () async {
@@ -480,7 +480,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<void>>());
-        expect((result as DataFailed).errorCode, equals('NOT_IMPLEMENTED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NOT_IMPLEMENTED'));
       });
 
       test('resendVerificationEmail should return not implemented error', () async {
@@ -489,7 +489,7 @@ void main() {
 
         // Assert
         expect(result, isA<DataFailed<void>>());
-        expect((result as DataFailed).errorCode, equals('NOT_IMPLEMENTED'));
+        expect((result as DataFailed<LoginResponseEntity>).errorCode, equals('NOT_IMPLEMENTED'));
       });
     });
   });

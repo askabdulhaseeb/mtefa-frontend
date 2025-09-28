@@ -40,14 +40,14 @@ class _CustomDropdownWithAddState<T> extends State<CustomDropdownWithAdd<T>> {
   @override
   void initState() {
     super.initState();
-    _items = List.from(widget.items);
+    _items = List<DropdownMenuItem<T>>.from(widget.items);
   }
 
   @override
   void didUpdateWidget(CustomDropdownWithAdd<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.items != widget.items) {
-      _items = List.from(widget.items);
+      _items = List<DropdownMenuItem<T>>.from(widget.items);
     }
   }
 
@@ -58,7 +58,7 @@ class _CustomDropdownWithAddState<T> extends State<CustomDropdownWithAdd<T>> {
         // The parent should handle adding the new item to the list
         // and updating the selectedItem if needed
         setState(() {
-          _items = List.from(widget.items);
+          _items = List<DropdownMenuItem<T>>.from(widget.items);
         });
         widget.onChanged(newItem);
       }

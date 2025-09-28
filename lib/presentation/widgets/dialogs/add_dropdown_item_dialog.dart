@@ -88,39 +88,42 @@ class _AddDropdownItemDialogState extends State<AddDropdownItemDialog> {
                   style: theme.textTheme.titleSmall,
                 ),
                 const SizedBox(height: 8),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: RadioListTile<String>(
-                        title: const Text('Prefix'),
-                        subtitle: Text(_generatePreview(isPrefix: true)),
-                        value: 'pre',
-                        groupValue: _codePlacement,
-                        onChanged: (String? value) {
-                          if (value != null) {
-                            setState(() {
-                              _codePlacement = value;
-                            });
-                          }
-                        },
+                SegmentedButton<String>(
+                  segments: <ButtonSegment<String>>[
+                    ButtonSegment<String>(
+                      value: 'pre',
+                      label: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          const Text('Prefix'),
+                          Text(
+                            _generatePreview(isPrefix: true),
+                            style: theme.textTheme.bodySmall,
+                          ),
+                        ],
                       ),
                     ),
-                    Expanded(
-                      child: RadioListTile<String>(
-                        title: const Text('Suffix'),
-                        subtitle: Text(_generatePreview(isPrefix: false)),
-                        value: 'post',
-                        groupValue: _codePlacement,
-                        onChanged: (String? value) {
-                          if (value != null) {
-                            setState(() {
-                              _codePlacement = value;
-                            });
-                          }
-                        },
+                    ButtonSegment<String>(
+                      value: 'post',
+                      label: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          const Text('Suffix'),
+                          Text(
+                            _generatePreview(isPrefix: false),
+                            style: theme.textTheme.bodySmall,
+                          ),
+                        ],
                       ),
                     ),
                   ],
+                  selected: <String>{_codePlacement},
+                  onSelectionChanged: (Set<String> newSelection) {
+                    setState(() {
+                      _codePlacement = newSelection.first;
+                    });
+                  },
+                  multiSelectionEnabled: false,
                 ),
               ],
 
@@ -129,7 +132,7 @@ class _AddDropdownItemDialogState extends State<AddDropdownItemDialog> {
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: theme.colorScheme.primaryContainer.withOpacity(0.3),
+                    color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Row(

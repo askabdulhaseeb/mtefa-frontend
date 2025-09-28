@@ -33,6 +33,11 @@ import 'presentation/screens/dashboard/providers/dashboard_provider.dart';
 import 'presentation/screens/inventory/add_inventory/providers/comprehensive_inventory_provider.dart';
 import 'presentation/screens/inventory/add_inventory/providers/comprehensive_inventory_provider_refactored.dart';
 import 'presentation/screens/inventory/add_inventory/providers/database_inventory_provider.dart';
+import 'presentation/screens/inventory/add_inventory/providers/inventory_coordinator_provider.dart';
+import 'presentation/screens/inventory/add_inventory/providers/inventory_form_provider.dart';
+import 'presentation/screens/inventory/add_inventory/providers/inventory_data_provider.dart';
+import 'presentation/screens/inventory/add_inventory/providers/inventory_validation_provider.dart';
+import 'presentation/screens/inventory/add_inventory/providers/inventory_crud_provider.dart';
 
 final GetIt sl = GetIt.instance;
 
@@ -162,12 +167,71 @@ void _inventory() {
   // New database-driven provider with NO hardcoded data
   sl.registerFactory<DatabaseInventoryProvider>(
     () => DatabaseInventoryProvider(
+      database: sl<AppDatabase>(),
       getInventoryLinesUseCase: sl<GetInventoryLinesUseCase>(),
       getCategoriesUseCase: sl<GetCategoriesUseCase>(),
-      getCategoriesByParentUseCase: sl<GetCategoriesByParentUseCase>(),
       getSubCategoriesUseCase: sl<GetSubCategoriesUseCase>(),
       getSuppliersUseCase: sl<GetSuppliersUseCase>(),
+      inventoryLineRepository: sl<InventoryLineRepository>(),
+      categoryRepository: sl<CategoryRepository>(),
+      subCategoryRepository: sl<SubCategoryRepository>(),
+      supplierRepository: sl<SupplierRepository>(),
+      colorsRepository: sl<InventoryColorsRepository>(),
+      sizesRepository: sl<InventorySizesRepository>(),
+      seasonRepository: sl<SeasonRepository>(),
+      locationsRepository: sl<InventoryLocationsRepository>(),
+    ),
+  );
+  
+  // New modular providers following clean architecture
+  sl.registerFactory<InventoryFormProvider>(
+    () => InventoryFormProvider(),
+  );
+  
+  sl.registerFactory<InventoryDataProvider>(
+    () => InventoryDataProvider(
       database: sl<AppDatabase>(),
+      getInventoryLinesUseCase: sl<GetInventoryLinesUseCase>(),
+      getCategoriesUseCase: sl<GetCategoriesUseCase>(),
+      getSubCategoriesUseCase: sl<GetSubCategoriesUseCase>(),
+      getSuppliersUseCase: sl<GetSuppliersUseCase>(),
+      colorsRepository: sl<InventoryColorsRepository>(),
+      sizesRepository: sl<InventorySizesRepository>(),
+      seasonRepository: sl<SeasonRepository>(),
+      locationsRepository: sl<InventoryLocationsRepository>(),
+    ),
+  );
+  
+  sl.registerFactory<InventoryValidationProvider>(
+    () => InventoryValidationProvider(),
+  );
+  
+  sl.registerFactory<InventoryCrudProvider>(
+    () => InventoryCrudProvider(
+      inventoryLineRepository: sl<InventoryLineRepository>(),
+      categoryRepository: sl<CategoryRepository>(),
+      subCategoryRepository: sl<SubCategoryRepository>(),
+      supplierRepository: sl<SupplierRepository>(),
+      colorsRepository: sl<InventoryColorsRepository>(),
+      sizesRepository: sl<InventorySizesRepository>(),
+    ),
+  );
+  
+  sl.registerFactory<InventoryCoordinatorProvider>(
+    () => InventoryCoordinatorProvider(
+      database: sl<AppDatabase>(),
+      getInventoryLinesUseCase: sl<GetInventoryLinesUseCase>(),
+      getCategoriesUseCase: sl<GetCategoriesUseCase>(),
+      getSubCategoriesUseCase: sl<GetSubCategoriesUseCase>(),
+      getSuppliersUseCase: sl<GetSuppliersUseCase>(),
+      inventoryLineRepository: sl<InventoryLineRepository>(),
+      categoryRepository: sl<CategoryRepository>(),
+      subCategoryRepository: sl<SubCategoryRepository>(),
+      supplierRepository: sl<SupplierRepository>(),
+      colorsRepository: sl<InventoryColorsRepository>(),
+      sizesRepository: sl<InventorySizesRepository>(),
+      seasonRepository: sl<SeasonRepository>(),
+      locationsRepository: sl<InventoryLocationsRepository>(),
     ),
   );
 }

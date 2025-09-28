@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 
 import '../../core/database/database.dart';
+import '../../core/enums/placement_type.dart';
 import '../../core/enums/status_type.dart';
 import '../../core/resources/data_state.dart';
 import '../../domain/entities/inventory/category_entity.dart';
@@ -170,25 +171,25 @@ class CategoryRepositoryImpl implements CategoryRepository {
 
   CategoryTableCompanion _toCompanion(CategoryEntity entity) {
     return CategoryTableCompanion(
-      categoryId: Value(entity.categoryId),
-      businessId: Value(entity.businessId),
-      categoryCode: Value(entity.categoryCode),
-      categoryName: Value(entity.categoryName),
-      categoryDescription: Value(entity.categoryDescription),
-      parentCategoryId: Value(entity.parentCategoryId),
-      categoryImageUrl: Value(entity.categoryImageUrl),
-      seoSlug: Value(entity.seoSlug),
-      metaTitle: Value(entity.metaTitle),
-      metaDescription: Value(entity.metaDescription),
-      codePlacement: Value(entity.codePlacement),
-      sortOrder: Value(entity.sortOrder),
-      isFeatured: Value(entity.isFeatured),
-      commissionRate: Value(entity.commissionRate),
-      status: Value(entity.status),
-      createdBy: Value(entity.createdBy),
-      updatedBy: Value(entity.updatedBy),
-      createdAt: Value(entity.createdAt),
-      updatedAt: Value(entity.updatedAt),
+      categoryId: Value<String>(entity.categoryId),
+      businessId: Value<String>(entity.businessId),
+      categoryCode: Value<String>(entity.categoryCode),
+      categoryName: Value<String>(entity.categoryName),
+      categoryDescription: Value<String?>(entity.categoryDescription),
+      parentCategoryId: Value<String?>(entity.parentCategoryId),
+      categoryImageUrl: Value<String?>(entity.categoryImageUrl),
+      seoSlug: Value<String?>(entity.seoSlug),
+      metaTitle: Value<String?>(entity.metaTitle),
+      metaDescription: Value<String?>(entity.metaDescription),
+      codePlacement: Value<PlacementType>(entity.codePlacement),
+      sortOrder: Value<int>(entity.sortOrder),
+      isFeatured: Value<bool>(entity.isFeatured),
+      commissionRate: Value<double?>(entity.commissionRate),
+      status: Value<StatusType>(entity.status),
+      createdBy: Value<String?>(entity.createdBy),
+      updatedBy: Value<String?>(entity.updatedBy),
+      createdAt: Value<DateTime>(entity.createdAt),
+      updatedAt: Value<DateTime>(entity.updatedAt),
       syncStatus: entity.syncStatus != null ? Value<String>(entity.syncStatus!) : const Value<String>.absent(),
     );
   }

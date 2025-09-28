@@ -25,7 +25,7 @@ class LoginUseCase extends UseCase<LoginResponseEntity, LoginParams> {
   @override
   Future<DataState<LoginResponseEntity>> call({LoginParams? params}) async {
     if (params == null) {
-      return const DataFailed(
+      return const DataFailed<LoginResponseEntity>(
         error: 'Login parameters are required',
         errorCode: 'INVALID_PARAMS',
       );
@@ -33,7 +33,7 @@ class LoginUseCase extends UseCase<LoginResponseEntity, LoginParams> {
 
     // Validate email
     if (params.email.isEmpty) {
-      return const DataFailed(
+      return const DataFailed<LoginResponseEntity>(
         error: 'Email is required',
         errorCode: 'EMAIL_REQUIRED',
       );
@@ -44,7 +44,7 @@ class LoginUseCase extends UseCase<LoginResponseEntity, LoginParams> {
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
     );
     if (!emailRegex.hasMatch(params.email)) {
-      return const DataFailed(
+      return const DataFailed<LoginResponseEntity>(
         error: 'Invalid email format',
         errorCode: 'INVALID_EMAIL',
       );
@@ -52,14 +52,14 @@ class LoginUseCase extends UseCase<LoginResponseEntity, LoginParams> {
 
     // Validate password
     if (params.password.isEmpty) {
-      return const DataFailed(
+      return const DataFailed<LoginResponseEntity>(
         error: 'Password is required',
         errorCode: 'PASSWORD_REQUIRED',
       );
     }
 
     if (params.password.length < 6) {
-      return const DataFailed(
+      return const DataFailed<LoginResponseEntity>(
         error: 'Password must be at least 6 characters',
         errorCode: 'PASSWORD_TOO_SHORT',
       );
@@ -82,7 +82,7 @@ class LoginUseCase extends UseCase<LoginResponseEntity, LoginParams> {
 
       return result;
     } catch (e) {
-      return DataFailed(
+      return DataFailed<LoginResponseEntity>(
         error: 'An unexpected error occurred during login',
         errorCode: 'LOGIN_ERROR',
         errorDetails: <String, dynamic>{'exception': e.toString()},

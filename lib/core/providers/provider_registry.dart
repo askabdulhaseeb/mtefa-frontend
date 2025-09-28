@@ -4,6 +4,12 @@ import 'package:provider/single_child_widget.dart';
 import '../../presentation/screens/auth/login/login_screen.dart';
 import '../../presentation/screens/auth/providers/login_provider.dart';
 import '../../presentation/screens/dashboard/providers/dashboard_provider.dart';
+import '../../presentation/screens/inventory/add_inventory/providers/inventory_coordinator_provider.dart';
+import '../../presentation/screens/inventory/add_inventory/providers/inventory_form_provider.dart';
+import '../../presentation/screens/inventory/add_inventory/providers/inventory_data_provider.dart';
+import '../../presentation/screens/inventory/add_inventory/providers/inventory_validation_provider.dart';
+import '../../presentation/screens/inventory/add_inventory/providers/inventory_crud_provider.dart';
+import '../../presentation/screens/inventory/add_inventory/providers/database_inventory_provider.dart';
 import 'provider_factory.dart';
 
 /// Registry for managing route-specific providers
@@ -26,10 +32,13 @@ class ProviderRegistry {
           // ProviderFactory.createFromDI<CategoryProvider>(lazy: true),
         ],
         '/inventory': () => <SingleChildWidget>[
-          // Add inventory-specific providers here when created
-          // Example:
-          // ProviderFactory.createFromDI<InventoryProvider>(lazy: true),
-          // ProviderFactory.createFromDI<StockProvider>(lazy: true),
+          // Core inventory providers for add/edit inventory functionality
+          ProviderFactory.createFromDI<InventoryCoordinatorProvider>(lazy: true),
+          ProviderFactory.createFromDI<InventoryFormProvider>(lazy: true),
+          ProviderFactory.createFromDI<InventoryDataProvider>(lazy: true),
+          ProviderFactory.createFromDI<InventoryValidationProvider>(lazy: true),
+          ProviderFactory.createFromDI<InventoryCrudProvider>(lazy: true),
+          ProviderFactory.createFromDI<DatabaseInventoryProvider>(lazy: true),
         ],
         '/sales': () => <SingleChildWidget>[
           // Add sales-specific providers here when created
